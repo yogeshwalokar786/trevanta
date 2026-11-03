@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
             guests: '/admin/login',
             users: '/admin/dashboard'
         );
+        $middleware->append(\App\Http\Middleware\DisableBrowserCache::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

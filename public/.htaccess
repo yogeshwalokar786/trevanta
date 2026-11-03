@@ -1,3 +1,10 @@
+<IfModule mod_headers.c>
+    # Force browsers to always fetch fresh versions on every reload
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0"
+    Header set Pragma "no-cache"
+    Header set Expires "Sat, 01 Jan 2000 00:00:00 GMT"
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

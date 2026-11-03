@@ -12,7 +12,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('style.css') }}">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="{{ asset('style.css') }}?v={{ time() }}">
   @stack('styles')
 </head>
 <body class="jss-theme">
@@ -338,7 +341,7 @@
     </script>
   @endif
 
-  <script src="{{ asset('script.js') }}"></script>
+  <script src="{{ asset('script.js') }}?v={{ time() }}"></script>
   @stack('scripts')
 </body>
 </html>
