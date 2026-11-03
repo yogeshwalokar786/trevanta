@@ -180,3 +180,4 @@ INSERT INTO `inquiries` (`id`, `type`, `name`, `email`, `phone`, `organization`,
 (4, 'rfp', 'Dr. Émilie Dupont', 'e.dupont@biovance.fr', '+33 1 42 68 55 00', 'BioVance Pharma SAS', 'Phase II (Proof-of-Concept)', 'Rare Disease', 'Orphan drug pediatric indication protocol for lysosomal storage disorder. Multi-national feasibility study involving specialized hospital clinical networks in France, Germany, and the US.', 'closed', NOW(), NOW());
 
 SET FOREIGN_KEY_CHECKS = 1;
+

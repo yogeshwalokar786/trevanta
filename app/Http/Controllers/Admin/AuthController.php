@@ -32,9 +32,15 @@ class AuthController extends Controller
 
         $remember = $request->boolean('remember');
 
-        if (Auth::attempt($credentials, $remember)) {
-            $request->session()->regenerate();
-            return redirect()->intended(route('admin.dashboard'))->with('success', 'Welcome back, ' . Auth::user()->name . '!');
+        try {
+            if (Auth::attempt($credentials, $remember)) {
+                $request->session()->regenerate();
+                return redirect()->intended(route('admin.dashboard'))->with('success', 'Welcome back, ' . Auth::user()->name . '!');
+            }
+        } catch (\Throwable $e) {
+            return back()->withInput($request->only('email', 'remember'))->withErrors([
+                'email' => 'Database connection failed: ' . $e->getMessage() . '. In cPanel, please ensure user 171790771_trevanta is added to database 171790771_trevanta with ALL PRIVILEGES.',
+            ]);
         }
 
         return back()->withInput($request->only('email', 'remember'))->withErrors([
