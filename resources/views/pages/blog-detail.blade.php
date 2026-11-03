@@ -1,7 +1,72 @@
 @extends('layouts.app')
 
-@section('title', $blog->title . ' | AstraClinical Insights')
-@section('description', Str::limit(strip_tags($blog->summary), 155))
+@section('title', ($blog->meta_title ?: $blog->title) . ' | Trevanta International')
+@section('description', $blog->meta_description ?: Str::limit(strip_tags($blog->summary), 155))
+
+@push('seo')
+  {{-- Canonical URL --}}
+  <link rel="canonical" href="{{ !empty($blog->canonical_url) ? $blog->canonical_url : route('blog.detail', $blog->slug) }}">
+
+  {{-- Robots Directive --}}
+  <meta name="robots" content="{{ $blog->meta_robots ?: 'index, follow' }}">
+
+  {{-- Focus Keywords --}}
+  @if(!empty($blog->meta_keywords))
+    <meta name="keywords" content="{{ $blog->meta_keywords }}">
+  @endif
+
+  {{-- Open Graph / Facebook --}}
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Trevanta International">
+  <meta property="og:title" content="{{ $blog->og_title ?: ($blog->meta_title ?: $blog->title) }}">
+  <meta property="og:description" content="{{ $blog->og_description ?: ($blog->meta_description ?: Str::limit(strip_tags($blog->summary), 155)) }}">
+  <meta property="og:url" content="{{ route('blog.detail', $blog->slug) }}">
+  @php
+    $ogImg = $blog->og_image ?: $blog->image;
+    $ogImgUrl = $ogImg ? asset($ogImg) : asset('images/logo.png');
+  @endphp
+  <meta property="og:image" content="{{ $ogImgUrl }}">
+  <meta property="article:published_time" content="{{ $blog->published_at ? $blog->published_at->toIso8601String() : $blog->created_at->toIso8601String() }}">
+  <meta property="article:modified_time" content="{{ $blog->updated_at->toIso8601String() }}">
+  <meta property="article:section" content="{{ $blog->category }}">
+  <meta property="article:author" content="{{ $blog->author_name }}">
+
+  {{-- Twitter Cards --}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $blog->og_title ?: ($blog->meta_title ?: $blog->title) }}">
+  <meta name="twitter:description" content="{{ $blog->og_description ?: ($blog->meta_description ?: Str::limit(strip_tags($blog->summary), 155)) }}">
+  <meta name="twitter:image" content="{{ $ogImgUrl }}">
+
+  {{-- Structured Data (Schema.org JSON-LD) --}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ $blog->schema_type ?: 'BlogPosting' }}",
+    "headline": {{ json_encode($blog->meta_title ?: $blog->title) }},
+    "description": {{ json_encode($blog->meta_description ?: Str::limit(strip_tags($blog->summary), 155)) }},
+    "image": [{{ json_encode($ogImgUrl) }}],
+    "datePublished": "{{ $blog->published_at ? $blog->published_at->toIso8601String() : $blog->created_at->toIso8601String() }}",
+    "dateModified": "{{ $blog->updated_at->toIso8601String() }}",
+    "author": {
+      "@type": "Person",
+      "name": {{ json_encode($blog->author_name) }},
+      "jobTitle": {{ json_encode($blog->author_title ?: 'Clinical Research Team') }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Trevanta International",
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ json_encode(asset('images/logo.png')) }}
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ json_encode(route('blog.detail', $blog->slug)) }}
+    }
+  }
+  </script>
+@endpush
 
 @section('content')
   <!-- ARTICLE HERO -->

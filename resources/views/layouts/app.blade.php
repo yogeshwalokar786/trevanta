@@ -6,6 +6,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title', 'AstraClinical Research | Global Clinical Research Organization (CRO)')</title>
   <meta name="description" content="@yield('description', 'AstraClinical Research is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.')">
+  @yield('meta')
+  @stack('seo')
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">

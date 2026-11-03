@@ -20,6 +20,15 @@ class Blog extends Model
         'content',
         'image',
         'read_time',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'canonical_url',
+        'og_title',
+        'og_description',
+        'og_image',
+        'meta_robots',
+        'schema_type',
         'author_name',
         'author_title',
         'author_avatar',
@@ -84,6 +93,33 @@ class Blog extends Model
     public function categoryRelation()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    /**
+     * Effective SEO Meta Title fallback.
+     */
+    public function getEffectiveMetaTitleAttribute()
+    {
+        return !empty($this->meta_title) ? $this->meta_title : $this->title;
+    }
+
+    /**
+     * Effective SEO Meta Description fallback.
+     */
+    public function getEffectiveMetaDescriptionAttribute()
+    {
+        if (!empty($this->meta_description)) {
+            return $this->meta_description;
+        }
+        return Str::limit(strip_tags($this->summary ?: $this->content), 160);
+    }
+
+    /**
+     * Effective Social Image fallback.
+     */
+    public function getEffectiveOgImageAttribute()
+    {
+        return !empty($this->og_image) ? $this->og_image : $this->image;
     }
 }
 

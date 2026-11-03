@@ -99,6 +99,15 @@ class BlogController extends Controller
             'summary'       => 'required|string|max:1000',
             'content'       => 'required|string',
             'image'         => 'nullable|string|max:255',
+            'meta_title'    => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:1000',
+            'meta_keywords' => 'nullable|string|max:500',
+            'canonical_url' => 'nullable|string|max:255',
+            'og_title'      => 'nullable|string|max:255',
+            'og_description' => 'nullable|string|max:1000',
+            'og_image'      => 'nullable|string|max:255',
+            'meta_robots'   => 'nullable|string|max:50',
+            'schema_type'   => 'nullable|string|max:50',
             'author_name'   => 'nullable|string|max:150',
             'author_title'  => 'nullable|string|max:200',
             'is_featured'   => 'nullable|boolean',
@@ -137,6 +146,12 @@ class BlogController extends Controller
             $imagePath = ltrim($imagePath, '/');
         }
 
+        // Clean og_image path from media library
+        $ogImage = $validated['og_image'] ?? null;
+        if ($ogImage && str_starts_with($ogImage, '/')) {
+            $ogImage = ltrim($ogImage, '/');
+        }
+
         // Auto-compute read time based on word count
         $wordCount = str_word_count(strip_tags($validated['content']));
         $readTime = max(1, (int) ceil($wordCount / 200)) . ' min read';
@@ -152,20 +167,29 @@ class BlogController extends Controller
         }
 
         Blog::create([
-            'title'         => $validated['title'],
-            'slug'          => $slug,
-            'category_id'   => $categoryId,
-            'category'      => $categoryName,
-            'badge'         => $categoryName,
-            'summary'       => $validated['summary'],
-            'content'       => $validated['content'],
-            'image'         => $imagePath,
-            'read_time'     => $readTime,
-            'author_name'   => $authorName,
-            'author_title'  => $authorTitle,
-            'is_featured'   => $isFeatured,
-            'is_published'  => $request->boolean('is_published', true),
-            'published_at'  => now(),
+            'title'            => $validated['title'],
+            'slug'             => $slug,
+            'category_id'      => $categoryId,
+            'category'         => $categoryName,
+            'badge'            => $categoryName,
+            'summary'          => $validated['summary'],
+            'content'          => $validated['content'],
+            'image'            => $imagePath,
+            'read_time'        => $readTime,
+            'meta_title'       => $validated['meta_title'] ?? null,
+            'meta_description' => $validated['meta_description'] ?? null,
+            'meta_keywords'    => $validated['meta_keywords'] ?? null,
+            'canonical_url'    => $validated['canonical_url'] ?? null,
+            'og_title'         => $validated['og_title'] ?? null,
+            'og_description'   => $validated['og_description'] ?? null,
+            'og_image'         => $ogImage,
+            'meta_robots'      => $validated['meta_robots'] ?? 'index, follow',
+            'schema_type'      => $validated['schema_type'] ?? 'BlogPosting',
+            'author_name'      => $authorName,
+            'author_title'     => $authorTitle,
+            'is_featured'      => $isFeatured,
+            'is_published'     => $request->boolean('is_published', true),
+            'published_at'     => now(),
         ]);
 
         return redirect()->route('admin.blogs.index')->with('success', 'Blog article created successfully!');
@@ -200,6 +224,15 @@ class BlogController extends Controller
             'summary'       => 'required|string|max:1000',
             'content'       => 'required|string',
             'image'         => 'nullable|string|max:255',
+            'meta_title'    => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:1000',
+            'meta_keywords' => 'nullable|string|max:500',
+            'canonical_url' => 'nullable|string|max:255',
+            'og_title'      => 'nullable|string|max:255',
+            'og_description' => 'nullable|string|max:1000',
+            'og_image'      => 'nullable|string|max:255',
+            'meta_robots'   => 'nullable|string|max:50',
+            'schema_type'   => 'nullable|string|max:50',
             'author_name'   => 'nullable|string|max:150',
             'author_title'  => 'nullable|string|max:200',
             'is_featured'   => 'nullable|boolean',
@@ -222,6 +255,12 @@ class BlogController extends Controller
             $imagePath = ltrim($imagePath, '/');
         }
 
+        // Clean og_image path from media library
+        $ogImage = array_key_exists('og_image', $validated) ? $validated['og_image'] : $blog->og_image;
+        if ($ogImage && str_starts_with($ogImage, '/')) {
+            $ogImage = ltrim($ogImage, '/');
+        }
+
         // Auto-compute read time based on word count
         $wordCount = str_word_count(strip_tags($validated['content']));
         $readTime = max(1, (int) ceil($wordCount / 200)) . ' min read';
@@ -236,19 +275,28 @@ class BlogController extends Controller
         }
 
         $blog->update([
-            'title'         => $validated['title'],
-            'slug'          => Str::slug($validated['slug']),
-            'category_id'   => $categoryId,
-            'category'      => $categoryName,
-            'badge'         => $categoryName,
-            'summary'       => $validated['summary'],
-            'content'       => $validated['content'],
-            'image'         => $imagePath,
-            'read_time'     => $readTime,
-            'author_name'   => $authorName,
-            'author_title'  => $authorTitle,
-            'is_featured'   => $isFeatured,
-            'is_published'  => $request->boolean('is_published'),
+            'title'            => $validated['title'],
+            'slug'             => Str::slug($validated['slug']),
+            'category_id'      => $categoryId,
+            'category'         => $categoryName,
+            'badge'            => $categoryName,
+            'summary'          => $validated['summary'],
+            'content'          => $validated['content'],
+            'image'            => $imagePath,
+            'read_time'        => $readTime,
+            'meta_title'       => $validated['meta_title'] ?? null,
+            'meta_description' => $validated['meta_description'] ?? null,
+            'meta_keywords'    => $validated['meta_keywords'] ?? null,
+            'canonical_url'    => $validated['canonical_url'] ?? null,
+            'og_title'         => $validated['og_title'] ?? null,
+            'og_description'   => $validated['og_description'] ?? null,
+            'og_image'         => $ogImage,
+            'meta_robots'      => $validated['meta_robots'] ?? 'index, follow',
+            'schema_type'      => $validated['schema_type'] ?? 'BlogPosting',
+            'author_name'      => $authorName,
+            'author_title'     => $authorTitle,
+            'is_featured'      => $isFeatured,
+            'is_published'     => $request->boolean('is_published'),
         ]);
 
         return redirect()->route('admin.blogs.index')->with('success', 'Blog article updated successfully!');

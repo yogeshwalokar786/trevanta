@@ -40,6 +40,16 @@
     border-color: #28a9a1;
     background: #f0fdfa;
   }
+  .nav-pills .nav-link {
+    color: #475569;
+    border-radius: 6px;
+    background: #f1f5f9;
+    transition: all 0.15s ease;
+  }
+  .nav-pills .nav-link.active {
+    background: #28a9a1 !important;
+    color: #ffffff !important;
+  }
 </style>
 @endpush
 
@@ -118,6 +128,232 @@
                 </div>
                 <textarea name="content" id="editor" rows="16" class="form-control @error('content') is-invalid @enderror" required>{{ old('content', $blog->content) }}</textarea>
                 @error('content') <div class="invalid-feedback">{{ $message }}</div> @enderror
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SEO & Social Sharing Suite -->
+          <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px; overflow: hidden;">
+            <div class="card-header py-3 px-4 bg-white border-bottom d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <span class="rounded-circle d-inline-flex align-items-center justify-content-center mr-2" style="width: 28px; height: 28px; background: #e0f2fe; color: #0284c7;">
+                  <i class="fas fa-search text-xs"></i>
+                </span>
+                <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">Search Engine Optimization (SEO) &amp; Social Meta</h3>
+              </div>
+              <span class="badge badge-light border text-muted px-2 py-1" style="font-size: 11px;">
+                <i class="fab fa-google text-primary mr-1"></i> SERP Preview
+              </span>
+            </div>
+
+            <div class="card-body p-4">
+
+              <!-- Google SERP Snippet Preview Box -->
+              <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
+                <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                  <i class="fas fa-globe mr-1 text-secondary"></i>
+                  <span style="color: #202124;">https://trevanta.bluebasetechnologies.com</span>
+                  <span class="mx-1 text-muted">›</span>
+                  <span style="color: #5f6368;">blog</span>
+                  <span class="mx-1 text-muted">›</span>
+                  <span style="color: #5f6368;" id="serpSlugPreview">{{ old('slug', $blog->slug) }}</span>
+                </div>
+                <div class="font-weight-bold mb-1" id="serpTitlePreview" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3; cursor: pointer;">
+                  {{ old('meta_title', $blog->meta_title ?: $blog->title) }} | Trevanta International
+                </div>
+                <div class="text-sm" id="serpDescPreview" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
+                  {{ Str::limit(old('meta_description', $blog->meta_description ?: ($blog->summary ?: 'Article summary description...')), 160) }}
+                </div>
+              </div>
+
+              <!-- SEO Tabs: Search Meta, Social Sharing, Advanced Indexing -->
+              <ul class="nav nav-pills mb-3" id="seoTabs" role="tablist" style="gap: 6px;">
+                <li class="nav-item">
+                  <a class="nav-link active py-1 px-3 text-xs font-weight-bold" id="seo-search-tab" data-toggle="pill" href="#seo-search" role="tab">
+                    <i class="fas fa-search mr-1"></i> Search Meta
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-1 px-3 text-xs font-weight-bold" id="seo-social-tab" data-toggle="pill" href="#seo-social" role="tab">
+                    <i class="fas fa-share-alt mr-1"></i> Social Sharing (OG / Twitter)
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-1 px-3 text-xs font-weight-bold" id="seo-advanced-tab" data-toggle="pill" href="#seo-advanced" role="tab">
+                    <i class="fas fa-cog mr-1"></i> Indexing &amp; Canonical
+                  </a>
+                </li>
+              </ul>
+
+              <div class="tab-content border-top pt-3" id="seoTabsContent">
+
+                <!-- Tab 1: Search Meta -->
+                <div class="tab-pane fade show active" id="seo-search" role="tabpanel">
+
+                  <!-- Meta Title -->
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">
+                        SEO Meta Title
+                      </label>
+                      <div class="d-flex align-items-center">
+                        <span id="metaTitleCount" class="badge badge-light border text-xs mr-2">0 / 60</span>
+                        <button type="button" class="btn btn-link btn-xs p-0 text-primary" onclick="syncMetaTitleFromArticle()">
+                          <i class="fas fa-sync-alt mr-1"></i> Use Article Title
+                        </button>
+                      </div>
+                    </div>
+                    <input type="text" name="meta_title" id="meta_title" class="form-control form-control-sm @error('meta_title') is-invalid @enderror" placeholder="e.g. Navigating ICH E6(R3) Modernization | Trevanta International" value="{{ old('meta_title', $blog->meta_title) }}">
+                    <small class="text-muted text-xs d-block mt-1">Optimal length: 50–60 characters. Leave empty to automatically use the article title.</small>
+                    @error('meta_title') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                  </div>
+
+                  <!-- Meta Description -->
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">
+                        SEO Meta Description
+                      </label>
+                      <div class="d-flex align-items-center">
+                        <span id="metaDescCount" class="badge badge-light border text-xs mr-2">0 / 160</span>
+                        <button type="button" class="btn btn-link btn-xs p-0 text-primary" onclick="syncMetaDescFromSummary()">
+                          <i class="fas fa-sync-alt mr-1"></i> Use Summary
+                        </button>
+                      </div>
+                    </div>
+                    <textarea name="meta_description" id="meta_description" rows="3" class="form-control form-control-sm @error('meta_description') is-invalid @enderror" placeholder="Concise summary for search engines (e.g. In-depth analysis of finalized ICH E6(R3) guidelines for clinical trial sponsors...)">{{ old('meta_description', $blog->meta_description) }}</textarea>
+                    <small class="text-muted text-xs d-block mt-1">Optimal length: 150–160 characters. Summarize key takeaways to maximize click-through rate.</small>
+                    @error('meta_description') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                  </div>
+
+                  <!-- Meta Keywords -->
+                  <div class="form-group mb-0">
+                    <label for="meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                      Focus Keywords
+                    </label>
+                    <input type="text" name="meta_keywords" id="meta_keywords" class="form-control form-control-sm @error('meta_keywords') is-invalid @enderror" placeholder="e.g. clinical trials, oncology, pharmacovigilance, Phase III, ICH E6(R3)" value="{{ old('meta_keywords', $blog->meta_keywords) }}">
+                    <small class="text-muted text-xs d-block mt-1">Comma-separated keywords for search indexing and categorization.</small>
+                    @error('meta_keywords') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                  </div>
+
+                </div>
+
+                <!-- Tab 2: Social Sharing -->
+                <div class="tab-pane fade" id="seo-social" role="tabpanel">
+
+                  <!-- OG Title -->
+                  <div class="form-group mb-3">
+                    <label for="og_title" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                      Social Share Title (Open Graph &amp; Twitter)
+                    </label>
+                    <input type="text" name="og_title" id="og_title" class="form-control form-control-sm @error('og_title') is-invalid @enderror" placeholder="Leave empty to use SEO Meta Title" value="{{ old('og_title', $blog->og_title) }}">
+                    <small class="text-muted text-xs d-block mt-1">Overrides the headline shown on LinkedIn, Twitter/X, Facebook, and WhatsApp previews.</small>
+                    @error('og_title') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                  </div>
+
+                  <!-- OG Description -->
+                  <div class="form-group mb-3">
+                    <label for="og_description" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                      Social Share Description
+                    </label>
+                    <textarea name="og_description" id="og_description" rows="2" class="form-control form-control-sm @error('og_description') is-invalid @enderror" placeholder="Leave empty to use SEO Meta Description">{{ old('og_description', $blog->og_description) }}</textarea>
+                    <small class="text-muted text-xs d-block mt-1">Short engaging tease designed for social media feeds.</small>
+                    @error('og_description') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                  </div>
+
+                  <!-- OG Image (Media Picker) -->
+                  <div class="form-group mb-0">
+                    <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                      Custom Social Share Image (1200 &times; 630 recommended)
+                    </label>
+                    <input type="hidden" name="og_image" id="selectedOgImagePath" value="{{ old('og_image', $blog->og_image) }}">
+                    
+                    <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
+                      <div id="ogImagePreviewContainer" class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 80px; height: 50px; flex-shrink: 0;">
+                        <img id="ogPreviewImg" src="{{ old('og_image', $blog->og_image) ? asset(old('og_image', $blog->og_image)) : '' }}" alt="Social Share Preview" style="width: 100%; height: 100%; object-fit: cover;" class="{{ old('og_image', $blog->og_image) ? '' : 'd-none' }}">
+                        <i id="ogPreviewIcon" class="fas fa-image text-muted {{ old('og_image', $blog->og_image) ? 'd-none' : '' }}"></i>
+                      </div>
+                      <div class="flex-grow-1" style="min-width: 0;">
+                        <div class="text-xs font-weight-bold text-dark text-truncate" id="ogImageLabel">
+                          {{ old('og_image', $blog->og_image) ?: 'Using Featured Cover Image by default' }}
+                        </div>
+                        <small class="text-muted text-xs d-block">Shown when the article link is shared on LinkedIn, Twitter, or WhatsApp.</small>
+                      </div>
+                      <div class="d-flex align-items-center" style="gap: 0.5rem;">
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerModal('og_image')">
+                          <i class="fas fa-images mr-1 text-primary"></i> Choose Image
+                        </button>
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1 text-danger {{ old('og_image', $blog->og_image) ? '' : 'd-none' }}" id="removeOgImageBtn" onclick="removeOgImage()">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Tab 3: Advanced Indexing & Canonical -->
+                <div class="tab-pane fade" id="seo-advanced" role="tabpanel">
+                  <div class="row">
+
+                    <!-- Robots Directive -->
+                    <div class="col-md-6 mb-3">
+                      <label for="meta_robots" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                        Robots Directives
+                      </label>
+                      <select name="meta_robots" id="meta_robots" class="form-control form-control-sm">
+                        <option value="index, follow" {{ old('meta_robots', $blog->meta_robots ?: 'index, follow') == 'index, follow' ? 'selected' : '' }}>
+                          index, follow (Default - Allow search indexing &amp; link crawl)
+                        </option>
+                        <option value="noindex, follow" {{ old('meta_robots', $blog->meta_robots) == 'noindex, follow' ? 'selected' : '' }}>
+                          noindex, follow (Hide from search, follow internal links)
+                        </option>
+                        <option value="index, nofollow" {{ old('meta_robots', $blog->meta_robots) == 'index, nofollow' ? 'selected' : '' }}>
+                          index, nofollow (Index page, do not pass link equity)
+                        </option>
+                        <option value="noindex, nofollow" {{ old('meta_robots', $blog->meta_robots) == 'noindex, nofollow' ? 'selected' : '' }}>
+                          noindex, nofollow (Completely block search engines)
+                        </option>
+                      </select>
+                      <small class="text-muted text-xs d-block mt-1">Controls how Googlebot and Bingbot index this specific article.</small>
+                    </div>
+
+                    <!-- Schema.org Type -->
+                    <div class="col-md-6 mb-3">
+                      <label for="schema_type" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                        Schema.org Structured Data
+                      </label>
+                      <select name="schema_type" id="schema_type" class="form-control form-control-sm">
+                        <option value="BlogPosting" {{ old('schema_type', $blog->schema_type ?: 'BlogPosting') == 'BlogPosting' ? 'selected' : '' }}>
+                          BlogPosting (Recommended for articles &amp; insights)
+                        </option>
+                        <option value="Article" {{ old('schema_type', $blog->schema_type) == 'Article' ? 'selected' : '' }}>
+                          Article (General informational article)
+                        </option>
+                        <option value="NewsArticle" {{ old('schema_type', $blog->schema_type) == 'NewsArticle' ? 'selected' : '' }}>
+                          NewsArticle (Company updates &amp; announcements)
+                        </option>
+                        <option value="TechArticle" {{ old('schema_type', $blog->schema_type) == 'TechArticle' ? 'selected' : '' }}>
+                          TechArticle (Technical or methodology whitepapers)
+                        </option>
+                      </select>
+                      <small class="text-muted text-xs d-block mt-1">Outputs JSON-LD structured data for rich snippets in Google search.</small>
+                    </div>
+
+                    <!-- Canonical URL -->
+                    <div class="col-12 mb-0">
+                      <label for="canonical_url" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                        Custom Canonical URL (Optional)
+                      </label>
+                      <input type="text" name="canonical_url" id="canonical_url" class="form-control form-control-sm @error('canonical_url') is-invalid @enderror" placeholder="https://trevanta.bluebasetechnologies.com/blog/..." value="{{ old('canonical_url', $blog->canonical_url) }}">
+                      <small class="text-muted text-xs d-block mt-1">Leave blank to automatically use this article's primary URL. Use only if syndicate-hosting or cross-posting.</small>
+                      @error('canonical_url') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -329,10 +565,106 @@
     document.getElementById('coverPlaceholderBox').classList.remove('d-none');
   }
 
+  // Social (OG) image UI handlers
+  function setOgImage(path, fullUrl) {
+    document.getElementById('selectedOgImagePath').value = path;
+    const img = document.getElementById('ogPreviewImg');
+    const icon = document.getElementById('ogPreviewIcon');
+    img.src = fullUrl;
+    img.classList.remove('d-none');
+    icon.classList.add('d-none');
+    document.getElementById('ogImageLabel').textContent = path;
+    document.getElementById('removeOgImageBtn').classList.remove('d-none');
+  }
+
+  function removeOgImage() {
+    document.getElementById('selectedOgImagePath').value = '';
+    const img = document.getElementById('ogPreviewImg');
+    const icon = document.getElementById('ogPreviewIcon');
+    img.src = '';
+    img.classList.add('d-none');
+    icon.classList.remove('d-none');
+    document.getElementById('ogImageLabel').textContent = 'Using Featured Cover Image by default';
+    document.getElementById('removeOgImageBtn').classList.add('d-none');
+  }
+
+  // SEO Preview & Character Counter Handlers
+  function updateSeoPreview() {
+    const titleVal = document.getElementById('title')?.value || '';
+    const slugVal = document.getElementById('slug')?.value || 'article-slug';
+    const summaryVal = document.getElementById('summary')?.value || '';
+    const metaTitleVal = document.getElementById('meta_title')?.value || '';
+    const metaDescVal = document.getElementById('meta_description')?.value || '';
+
+    // Title preview
+    const effectiveTitle = metaTitleVal.trim() ? metaTitleVal.trim() : (titleVal.trim() ? titleVal.trim() : 'Article Headline');
+    const serpTitleElem = document.getElementById('serpTitlePreview');
+    if (serpTitleElem) {
+      serpTitleElem.textContent = effectiveTitle + ' | Trevanta International';
+    }
+
+    // Slug preview
+    const serpSlugElem = document.getElementById('serpSlugPreview');
+    if (serpSlugElem) {
+      serpSlugElem.textContent = slugVal.trim() || 'article-slug';
+    }
+
+    // Description preview
+    const effectiveDesc = metaDescVal.trim() ? metaDescVal.trim() : (summaryVal.trim() ? summaryVal.trim() : 'Enter a concise summary or meta description to preview how your article appears in Google search engine rankings...');
+    const serpDescElem = document.getElementById('serpDescPreview');
+    if (serpDescElem) {
+      serpDescElem.textContent = effectiveDesc.length > 160 ? effectiveDesc.substring(0, 157) + '...' : effectiveDesc;
+    }
+
+    // Title Counter (50-60 optimal)
+    const titleLen = metaTitleVal.length;
+    const titleBadge = document.getElementById('metaTitleCount');
+    if (titleBadge) {
+      titleBadge.textContent = titleLen + ' / 60';
+      titleBadge.className = 'badge border text-xs mr-2 ' + (titleLen > 60 ? 'badge-warning text-dark' : (titleLen >= 30 ? 'badge-success text-white' : 'badge-light text-muted'));
+    }
+
+    // Desc Counter (150-160 optimal)
+    const descLen = metaDescVal.length;
+    const descBadge = document.getElementById('metaDescCount');
+    if (descBadge) {
+      descBadge.textContent = descLen + ' / 160';
+      descBadge.className = 'badge border text-xs mr-2 ' + (descLen > 160 ? 'badge-warning text-dark' : (descLen >= 90 ? 'badge-success text-white' : 'badge-light text-muted'));
+    }
+  }
+
+  function syncMetaTitleFromArticle() {
+    const titleVal = document.getElementById('title')?.value || '';
+    const metaTitleInput = document.getElementById('meta_title');
+    if (metaTitleInput) {
+      metaTitleInput.value = titleVal;
+      updateSeoPreview();
+    }
+  }
+
+  function syncMetaDescFromSummary() {
+    const summaryVal = document.getElementById('summary')?.value || '';
+    const metaDescInput = document.getElementById('meta_description');
+    if (metaDescInput) {
+      metaDescInput.value = summaryVal.substring(0, 160);
+      updateSeoPreview();
+    }
+  }
+
+  // Bind input listeners for live preview
+  ['title', 'slug', 'summary', 'meta_title', 'meta_description'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', updateSeoPreview);
+  });
+
+  document.addEventListener('DOMContentLoaded', updateSeoPreview);
+
   // Media Picker Modal Controller
   function openMediaPickerModal(target) {
     activeMediaPickerTarget = target;
-    document.getElementById('modalTargetLabel').textContent = target === 'cover' ? 'Featured Cover Image' : 'Article Rich Body';
+    let targetLabel = 'Featured Cover Image';
+    if (target === 'og_image') targetLabel = 'Social Share Image (OG)';
+    else if (target === 'editor') targetLabel = 'Article Rich Body';
+    document.getElementById('modalTargetLabel').textContent = targetLabel;
     $('#mediaPickerModal').modal('show');
     loadMediaPickerItems();
   }
@@ -412,6 +744,9 @@
   function selectMediaItem(relativePath, fullUrl, filename) {
     if (activeMediaPickerTarget === 'cover') {
       setCoverImage(relativePath, fullUrl);
+      $('#mediaPickerModal').modal('hide');
+    } else if (activeMediaPickerTarget === 'og_image') {
+      setOgImage(relativePath, fullUrl);
       $('#mediaPickerModal').modal('hide');
     } else if (activeMediaPickerTarget === 'editor') {
       if (articleEditorInstance) {
