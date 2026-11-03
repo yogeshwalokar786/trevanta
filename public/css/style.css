@@ -5,17 +5,18 @@
    ========================================================================== */
 
 :root {
-  /* SIGNATURE JSS & CLINEXEL PALETTE */
-  --jss-orange: #f26224;
-  --jss-orange-hover: #d94e13;
-  --jss-orange-light: #fff3ed;
+  /* TREVANTA INTERNATIONAL SIGNATURE PALETTE */
+  --jss-orange: #28a9a1;
+  --jss-orange-hover: #1f8c85;
+  --jss-orange-light: #e8f8f7;
   
-  --jss-navy: #1c2d42;
-  --jss-navy-dark: #121e2d;
-  --jss-navy-light: #2b3e54;
+  --jss-navy: #102738;
+  --jss-navy-dark: #09182a;
+  --jss-navy-light: #183c56;
   
-  --jss-blue: #006699;
-  --jss-teal: #10b981;
+  --jss-blue: #013353;
+  --jss-teal: #319095;
+  --jss-cyan: #41cbc3;
   
   --bg-white: #ffffff;
   --bg-page: #f8fafc;
@@ -325,6 +326,22 @@ ul {
   align-items: center;
   gap: 0.85rem;
   text-decoration: none;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-img.footer-logo {
+  height: 50px;
+}
+
+.logo-img.drawer-logo {
+  height: 42px;
 }
 
 .logo-symbol {

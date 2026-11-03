@@ -21,7 +21,7 @@
   <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
     <div class="drawer-head">
       <div class="logo-graphic">
-        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+        <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" class="logo-img drawer-logo">
       </div>
       <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
     </div>
@@ -60,18 +60,8 @@
       <div class="site-container header-top-inner">
         
         <!-- BRAND LOGO -->
-        <a href="{{ route('home') }}" class="jss-logo" aria-label="AstraClinical Research">
-          <div class="logo-symbol">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <div class="logo-text-group">
-            <div class="logo-graphic">
-              <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
-            </div>
-            <span class="logo-subtext">Research &bull; Global CRO</span>
-          </div>
+        <a href="{{ route('home') }}" class="jss-logo" aria-label="Trevanta International">
+          <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" class="logo-img">
         </a>
 
         <!-- TOP ACTIONS: CONTACT HOTLINES + EMAIL + LANG + RFP BUTTON + HAMBURGER -->
@@ -144,25 +134,15 @@
   <footer class="jss-footer">
     <div class="site-container footer-grid">
       <div class="f-brand">
-        <a href="{{ route('home') }}" class="jss-logo" aria-label="AstraClinical Research" style="margin-bottom: 1rem;">
-          <div class="logo-symbol">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <div class="logo-text-group">
-            <div class="logo-graphic">
-              <span class="logo-primary" style="color: #ffffff;">Astra</span><span class="logo-accent">Clinical</span>
-            </div>
-            <span class="logo-subtext" style="color: #94a3b8;">Research &bull; Global CRO</span>
-          </div>
+        <a href="{{ route('home') }}" class="jss-logo" aria-label="Trevanta International" style="margin-bottom: 1.25rem;">
+          <img src="{{ asset('images/logo-white.png') }}" alt="Trevanta International" class="logo-img footer-logo">
         </a>
         <p class="f-about">
-          A globally recognized full-service Clinical Research Organization with over 25 years of international study leadership, high-volume patient recruitment, and comprehensive pharmacovigilance.
+          A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.
         </p>
         <p class="f-contact-info">
           <strong>Corporate HQ:</strong> 4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada<br>
-          <strong>Email:</strong> <a href="mailto:info@astraclinical.com">info@astraclinical.com</a>
+          <strong>Email:</strong> <a href="mailto:info@trevanta.com">info@trevanta.com</a>
         </p>
       </div>
 
@@ -205,7 +185,7 @@
 
     <div class="footer-legal">
       <div class="site-container legal-flex">
-        <p>&copy; {{ date('Y') }} AstraClinical Research Global Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
+        <p>&copy; {{ date('Y') }} Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
         <div class="legal-menu">
           <a href="#">Privacy Statement</a>
           <a href="#">Terms of Use</a>

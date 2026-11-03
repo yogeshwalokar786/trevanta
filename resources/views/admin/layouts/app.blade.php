@@ -37,9 +37,9 @@
       border-right: 1px solid #e9ecef !important;
     }
     .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
-      background-color: #f26224 !important;
+      background-color: #28a9a1 !important;
       color: #ffffff !important;
-      box-shadow: 0 4px 10px rgba(242, 98, 36, 0.3) !important;
+      box-shadow: 0 4px 10px rgba(40, 169, 161, 0.3) !important;
     }
     .nav-sidebar .nav-link {
       border-radius: 8px;
@@ -102,13 +102,7 @@
   <aside class="main-sidebar sidebar-light-primary elevation-1">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link border-bottom px-3 py-3 d-flex align-items-center">
-      <div class="brand-image img-circle elevation-1 d-flex align-items-center justify-content-center bg-primary text-white" style="width: 33px; height: 33px; border-radius: 50%;">
-        <i class="fas fa-dna fa-sm"></i>
-      </div>
-      <span class="brand-text font-weight-bold ml-2">
-        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
-        <span class="badge badge-light border ml-1 text-xs">Admin</span>
-      </span>
+      <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" style="height: 38px; width: auto; max-width: 100%; object-fit: contain;">
     </a>
 
     <!-- Sidebar -->

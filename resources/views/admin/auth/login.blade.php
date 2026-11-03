@@ -45,8 +45,8 @@
       font-weight: 800;
     }
     .btn-login {
-      background-color: #f26224;
-      border-color: #f26224;
+      background-color: #28a9a1;
+      border-color: #28a9a1;
       color: #ffffff;
       font-weight: 600;
       border-radius: 8px;
@@ -54,10 +54,10 @@
       transition: all 0.2s ease;
     }
     .btn-login:hover {
-      background-color: #d84f15;
-      border-color: #d84f15;
+      background-color: #1f8c85;
+      border-color: #1f8c85;
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(242, 98, 36, 0.35);
+      box-shadow: 0 4px 12px rgba(40, 169, 161, 0.35);
     }
     .form-control {
       border-radius: 8px 0 0 8px;
@@ -77,15 +77,10 @@
   
   <div class="card card-outline card-white">
     <div class="card-header text-center py-4">
-      <div class="mb-2">
-        <span class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle shadow-sm" style="width: 48px; height: 48px;">
-          <i class="fas fa-user-shield fa-lg"></i>
-        </span>
-      </div>
-      <a href="{{ route('home') }}" class="h2 text-decoration-none d-block mb-1">
-        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+      <a href="{{ route('home') }}" class="text-decoration-none d-block mb-2">
+        <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" style="height: 48px; width: auto; max-width: 250px;">
       </a>
-      <span class="badge badge-light border text-muted px-2 py-1">Secure Executive Management Portal</span>
+      <span class="badge badge-light border text-muted px-2 py-1">Secure Management Portal</span>
     </div>
     
     <div class="card-body login-card-body px-4 py-4">
