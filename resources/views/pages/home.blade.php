@@ -1027,8 +1027,6 @@
         });
       </script>
     @endif
-      </div>
-    </section>
 
     <!-- 5. CRO FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) -->
     <section class="faq-section" id="faq">
