@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Inquiry;
+use Illuminate\Support\Facades\Log;
 
 class PageController extends Controller
 {
@@ -68,6 +70,21 @@ class PageController extends Controller
             'message'      => 'required|string|max:3000',
         ]);
 
+        try {
+            Inquiry::create([
+                'type'              => 'contact',
+                'name'              => $validated['name'],
+                'email'             => $validated['email'],
+                'phone'             => $validated['phone'] ?? null,
+                'organization'      => $validated['organization'] ?? null,
+                'therapeutic_focus' => $validated['service'] ?? null,
+                'message'           => $validated['message'],
+                'status'            => 'new',
+            ]);
+        } catch (\Throwable $e) {
+            Log::warning('Could not record contact submission: ' . $e->getMessage());
+        }
+
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'status'  => 'success',
@@ -90,6 +107,20 @@ class PageController extends Controller
             'therapeutic_focus' => 'required|string|max:100',
             'description'       => 'nullable|string|max:3000',
         ]);
+
+        try {
+            Inquiry::create([
+                'type'              => 'rfp',
+                'name'              => $validated['name'],
+                'email'             => $validated['email'],
+                'phase'             => $validated['phase'],
+                'therapeutic_focus' => $validated['therapeutic_focus'],
+                'message'           => $validated['description'] ?? null,
+                'status'            => 'new',
+            ]);
+        } catch (\Throwable $e) {
+            Log::warning('Could not record RFP submission: ' . $e->getMessage());
+        }
 
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([

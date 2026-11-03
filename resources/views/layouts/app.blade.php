@@ -211,6 +211,7 @@
           <a href="#">Terms of Use</a>
           <a href="#">GCP Statement</a>
           <a href="#">Whistleblower Notice</a>
+          <a href="{{ route('admin.login') }}"><i class="fas fa-lock" style="font-size: 0.75rem;"></i> Admin Portal</a>
         </div>
       </div>
     </div>
