@@ -186,7 +186,7 @@
 
           <!-- PHOTO CARD -->
           <div class="split-photo-frame" style="margin-top: 1.5rem;">
-            <img src="../assets/images/doctor-consultation.jpg" alt="Clinical Investigation Protocol Review" style="height: 220px;">
+            <img src="{{ asset('images/doctor-consultation.jpg') }}" alt="Clinical Investigation Protocol Review" style="height: 220px;">
           </div>
 
         </div>
@@ -196,3 +196,4 @@
     </div>
   </main>
 @endsection
+

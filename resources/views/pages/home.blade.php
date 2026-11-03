@@ -136,7 +136,7 @@
 
         <!-- REAL CLINICAL LAB PHOTOGRAPHY SHOWCASE -->
         <div class="photo-banner-card">
-          <img src="../assets/images/clinical-lab.jpg" alt="AstraClinical Central Clinical Research Laboratory" class="photo-banner-img">
+          <img src="{{ asset('images/clinical-lab.jpg') }}" alt="AstraClinical Central Clinical Research Laboratory" class="photo-banner-img">
           <div class="photo-badge-overlay">
             <h4>Audited GLP &amp; GCP Clinical Research Facilities</h4>
             <p>State-of-the-art bioanalytical laboratories and automated clinical trial monitoring across 28 international territories.</p>
@@ -269,7 +269,7 @@
             </div>
           </div>
           <div class="split-photo-frame">
-            <img src="../assets/images/doctor-consultation.jpg" alt="Clinical Investigator Patient Consultation">
+            <img src="{{ asset('images/doctor-consultation.jpg') }}" alt="Clinical Investigator Patient Consultation">
           </div>
         </div>
 </section>
@@ -646,7 +646,7 @@
         </div>
       
         <div class="photo-banner-card" style="margin-top: 3rem;">
-          <img src="../assets/images/clinical-team.jpg" alt="Global Clinical Monitoring Directorate" class="photo-banner-img" style="height: 320px;">
+          <img src="{{ asset('images/clinical-team.jpg') }}" alt="Global Clinical Monitoring Directorate" class="photo-banner-img" style="height: 320px;">
           <div class="photo-badge-overlay">
             <h4>Global Clinical Operations &amp; Medical Affairs Directorate</h4>
             <p>Over 1,200+ clinical scientists, MD investigators, and regulatory liaisons collaborating across 6 corporate hubs.</p>
@@ -1169,3 +1169,4 @@
 
   </main>
 @endsection
+

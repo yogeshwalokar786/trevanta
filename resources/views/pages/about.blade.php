@@ -26,7 +26,7 @@
       <div class="site-container">
         
         <div class="photo-banner-card" style="margin: 3rem 0;">
-          <img src="../assets/images/clinical-team.jpg" alt="Executive Clinical Leadership" class="photo-banner-img" style="height: 340px;">
+          <img src="{{ asset('images/clinical-team.jpg') }}" alt="Executive Clinical Leadership" class="photo-banner-img" style="height: 340px;">
           <div class="photo-badge-overlay">
             <h4>25+ Years of Scientific Integrity &amp; Global Compliance</h4>
             <p>Our multidisciplinary investigators and study directors maintain 100% inspection success across US FDA, Health Canada, and EMA.</p>
@@ -147,3 +147,4 @@
     </section>
   </main>
 @endsection
+

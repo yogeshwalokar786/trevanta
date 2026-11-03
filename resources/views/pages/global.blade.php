@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('title', 'Global Presence & Regional Hubs | AstraClinical Research')
 @section('description', "Discover AstraClinical's global operational hubs across North America, Europe, Latin America, and APAC with local regulatory expertise in 28 countries.")
@@ -58,7 +58,7 @@
 
         <!-- REAL PHOTO BANNER -->
         <div class="photo-banner-card" style="margin: 0 auto 3rem; max-width: 100%;">
-          <img src="../assets/images/clinical-team.jpg" alt="Global Clinical Monitoring Network" class="photo-banner-img" style="height: 320px;">
+          <img src="{{ asset('images/clinical-team.jpg') }}" alt="Global Clinical Monitoring Network" class="photo-banner-img" style="height: 320px;">
           <div class="photo-badge-overlay">
             <h4>Harmonized Multi-Country Trial Monitoring</h4>
             <p>Unified SOPs, real-time risk-based monitoring (RBM), and bilingual clinical monitors operating across all 28 regulatory zones.</p>
@@ -275,3 +275,4 @@
     </section>
   </main>
 @endsection
+

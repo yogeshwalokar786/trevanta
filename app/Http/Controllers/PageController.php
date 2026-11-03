@@ -101,3 +101,4 @@ class PageController extends Controller
         return back()->with('success', 'Study proposal received. Our Medical Review Team will contact you under NDA within 24 hours.');
     }
 }
+
