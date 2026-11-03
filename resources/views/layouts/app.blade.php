@@ -31,7 +31,7 @@
       <li class="menu-item"><a href="{{ route('about') }}" class="menu-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
       <li class="menu-item"><a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
       <li class="menu-item"><a href="{{ route('global') }}" class="menu-link {{ request()->routeIs('global') ? 'active' : '' }}">Global Presence</a></li>
-      <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog') ? 'active' : '' }}">Insights &amp; Blog</a></li>
+      <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Insights &amp; Blog</a></li>
       <li class="menu-item"><a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
     </ul>
 
@@ -107,7 +107,7 @@
             <li class="menu-item"><a href="{{ route('about') }}" class="menu-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
             <li class="menu-item"><a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
             <li class="menu-item"><a href="{{ route('global') }}" class="menu-link {{ request()->routeIs('global') ? 'active' : '' }}">Global Presence</a></li>
-            <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog') ? 'active' : '' }}">Insights &amp; Blog</a></li>
+            <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Insights &amp; Blog</a></li>
             <li class="menu-item"><a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
           </ul>
         </nav>

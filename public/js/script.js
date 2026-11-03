@@ -333,7 +333,8 @@ function filterBlogs(category, btnEl) {
 }
 
 function openArticleModal(articleId) {
-  const data = blogArticlesDatabase[articleId];
+  const db = window.blogArticlesDatabase || (typeof blogArticlesDatabase !== 'undefined' ? blogArticlesDatabase : {});
+  const data = db[articleId];
   if (!data) return;
 
   const modal = document.getElementById('article-modal');

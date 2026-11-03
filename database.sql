@@ -25,7 +25,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '0001_01_01_000000_create_users_table', 1),
 (2, '0001_01_01_000001_create_cache_table', 1),
 (3, '0001_01_01_000002_create_jobs_table', 1),
-(4, '2026_11_03_000001_create_inquiries_table', 1);
+(4, '2026_11_03_000001_create_inquiries_table', 1),
+(5, '2026_11_03_000002_create_blogs_table', 1);
 
 -- --------------------------------------------------------
 -- Table structure for `users`
@@ -178,6 +179,44 @@ INSERT INTO `inquiries` (`id`, `type`, `name`, `email`, `phone`, `organization`,
 (2, 'rfp', 'Dr. Johan Lindqvist', 'j.lindqvist@nordichealth.se', '+46 8 123 4567', 'Nordic Health Sciences AB', 'Phase III (Pivotal Global)', 'Neurology', 'Pivotal Phase III neurodegenerative protocol targeting 650 patients across 45 clinical sites in the UK, Poland, and Canada. Requires full CDISC data mapping, biostatistics, and regulatory dossier submission to EMA & FDA.', 'in_review', NOW(), NOW()),
 (3, 'contact', 'Dr. Sanjay Patel', 's.patel@genomixlabs.in', '+91 22 5550 4432', 'Genomix Laboratories', 'Phase I (FIH / PK-PD)', 'Immunology', 'Seeking fast feasibility assessment for a healthy volunteer PK/PD trial with escalating single doses (SAD/MAD). Need rapid IRB review and bioanalytical assay integration.', 'contacted', NOW(), NOW()),
 (4, 'rfp', 'Dr. Émilie Dupont', 'e.dupont@biovance.fr', '+33 1 42 68 55 00', 'BioVance Pharma SAS', 'Phase II (Proof-of-Concept)', 'Rare Disease', 'Orphan drug pediatric indication protocol for lysosomal storage disorder. Multi-national feasibility study involving specialized hospital clinical networks in France, Germany, and the US.', 'closed', NOW(), NOW());
+
+-- --------------------------------------------------------
+-- Table structure for `blogs`
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `blogs`;
+CREATE TABLE `blogs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `category` varchar(100) NOT NULL DEFAULT 'Clinical Strategy',
+  `badge` varchar(100) DEFAULT NULL,
+  `summary` text DEFAULT NULL,
+  `content` longtext NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `read_time` varchar(50) NOT NULL DEFAULT '5 min read',
+  `author_name` varchar(150) NOT NULL DEFAULT 'AstraClinical Medical Director',
+  `author_title` varchar(200) DEFAULT 'Clinical Research Team',
+  `author_avatar` varchar(50) DEFAULT 'AC',
+  `is_featured` tinyint(1) NOT NULL DEFAULT 0,
+  `is_published` tinyint(1) NOT NULL DEFAULT 1,
+  `published_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `blogs_slug_unique` (`slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+-- Dumping data for table `blogs`
+-- --------------------------------------------------------
+INSERT INTO `blogs` (`id`, `title`, `slug`, `category`, `badge`, `summary`, `content`, `image`, `read_time`, `author_name`, `author_title`, `author_avatar`, `is_featured`, `is_published`, `published_at`, `created_at`, `updated_at`) VALUES
+(1, 'Navigating ICH E6(R3) Modernization: Risk-Based Quality Management in Global Submissions', 'regulatory-e6r3', 'Regulatory Affairs', 'FEATURED WHITEPAPER', 'A critical analysis of the finalized ICH E6(R3) guidelines and practical guidance on implementing governance frameworks that satisfy both FDA and EMA inspectors.', '<p>The transition to ICH E6(R3) represents the most comprehensive modernization of Good Clinical Practice (GCP) principles in a decade. With its core emphasis on \"fit-for-purpose\" trial designs, decentralized trial components, and computerized system validation, sponsors must rethink legacy operational SOPs.</p><p>AstraClinical\'s regulatory affairs task force has reviewed over 40 global clinical trial applications (CTAs) under the updated framework, establishing standardized Risk-Based Quality Management (RBQM) playbooks that harmonize expectations across both the FDA and the European Medicines Agency (EMA).</p><div class=\"article-takeaway-box\"><h4>ICH E6(R3) Strategic Checkpoints</h4><ul><li><strong>Critical to Quality (CtQ) Factors:</strong> Identify essential protocol variables that directly impact human subject protection and reliable data interpretation.</li><li><strong>Computerized System Validation:</strong> Ensure decentralized apps, wearable sensors, and electronic consent (eConsent) systems maintain unbroken audit trails.</li><li><strong>Proportionate Monitoring:</strong> Shift routine 100% Source Data Verification (SDV) to centralized statistical data monitoring to spot outliers early.</li></ul></div><p>Adopting this proactive regulatory posture safeguards investigational new drug (IND) dossiers from clinical holds and accelerates market authorization timelines.</p>', NULL, '7 min read', 'Michael Chen, MS, RAC', 'Senior Director Regulatory & Quality', 'MC', 1, 1, '2026-09-08 10:00:00', NOW(), NOW()),
+
+(2, 'Accelerating Oncology Trials Through Decentralized Architecture & Home Nursing', 'oncology-dct', 'Clinical Strategy', 'Clinical Strategy', 'How combining centralized site monitoring with localized home nursing and mobile health technologies increased patient retention by 34% in complex oncology protocols.', '<p>Traditional oncology clinical trials have historically suffered from high screening failure rates and acute patient retention challenges. In Phase II and III solid tumor trials, the burden of bi-weekly hospital visits for pharmacokinetic (PK) blood draws and toxicity monitoring frequently leads to protocol non-adherence.</p><p>At AstraClinical Research, our decentralized clinical trial (DCT) framework merges traditional brick-and-mortar investigator oversight with vetted regional home nursing networks across North America, Europe, and Asia-Pacific.</p><div class=\"article-takeaway-box\"><h4>Key Study Findings & Outcomes</h4><ul><li><strong>34% Increase in Patient Retention:</strong> Reducing travel burdens allowed fragile cancer patients to complete long-term biomarker assessment periods.</li><li><strong>42% Faster Recruitment:</strong> Broadening the geographic radius around central academic trial centers unlocked previously unreachable suburban and rural patient cohorts.</li><li><strong>100% GCP Audit Compliance:</strong> Validated ePRO and temperature-monitored investigational product (IP) direct-to-patient shipment preserved data integrity under 21 CFR Part 11.</li></ul></div><p>By leveraging connected mobile health devices and synchronized electronic source data (eSource), principal investigators retain real-time visibility into patient adverse events while dramatically expediting safety committee decision points.</p>', NULL, '6 min read', 'Dr. Sarah Jenkins, MD', 'VP Clinical Operations', 'SJ', 0, 1, '2026-09-15 10:00:00', NOW(), NOW()),
+
+(3, 'Machine Learning Signal Detection in High-Volume Post-Marketing Pharmacovigilance', 'pv-signal-ai', 'Pharmacovigilance', 'Pharmacovigilance', 'How AstraClinical implemented automated natural language processing (NLP) to reduce ICSR intake triage time by 62% while elevating adverse event detection accuracy.', '<p>Pharmacovigilance departments worldwide face exponential increases in individual case safety reports (ICSRs) driven by social listening, literature searches, and spontaneous reporting portals. Meeting stringent 7-day and 15-day regulatory submission deadlines requires robust, validated intelligence tools.</p><p>AstraClinical\'s pharmacovigilance safety hub processes over 120,000 safety events annually. By integrating validated machine learning classifiers into our safety database ingestion pipeline, our medical monitors focus their expertise where clinical judgment matters most.</p><div class=\"article-takeaway-box\"><h4>Operational Benchmarks Achieved</h4><ul><li><strong>62% Reduction in Triage Latency:</strong> MedDRA coding recommendations and duplicate screening execute automatically in under 4 seconds per narrative.</li><li><strong>99.8% Regulatory On-Time Submission:</strong> Sustained compliance across FDA FAERS, EMA EudraVigilance, and MHRA safety portals.</li><li><strong>Rapid Disproportionality Signal Detection:</strong> Proactive identification of subtle drug-drug interaction clusters before routine periodic safety reports (PBRER).</li></ul></div><p>The result is a robust, audit-proof pharmacovigilance infrastructure that protects patients while eliminating compliance risk for biotech sponsors.</p>', NULL, '5 min read', 'Dr. Elena Rostova, MD, PhD', 'Global Head of Drug Safety', 'ER', 0, 1, '2026-08-29 10:00:00', NOW(), NOW()),
+
+(4, 'Adaptive Clinical Trial Designs: Optimizing Sample Size Re-Estimation & Interim Analyses', 'adaptive-biostat', 'Biostatistics', 'Biostatistics', 'Examining Bayesian adaptive algorithms that permit sample size recalculation and early futility stopping without inflating Type I error rates.', '<p>Fixed-sample clinical trials frequently lock sponsors into conservative, over-powered patient recruitment targets or expose programs to premature termination. Adaptive trial designs offer an evidence-based alternative by allowing pre-planned modifications to study parameters based on accumulating interim trial data.</p><p>Our biostatistics and statistical programming teams specialize in group sequential designs, seamless Phase II/III transitions, and response-adaptive randomization schedules that preserve statistical rigor and regulatory defensibility.</p><div class=\"article-takeaway-box\"><h4>Benefits of Adaptive Protocol Architecture</h4><ul><li><strong>Sample Size Optimization:</strong> Recalculate enrollment requirements at interim milestones to prevent underpowered Phase IIb efficacy signals.</li><li><strong>Futility Stopping Rules:</strong> Terminate ineffective dose arms early, preserving capital and redirecting patients to promising therapeutic candidates.</li><li><strong>Strict Type I Error Control:</strong> Comprehensive simulation studies and alpha-spending functions ensure complete compliance with FDA Adaptive Design Guidance.</li></ul></div><p>Biotech sponsors partnering with AstraClinical benefit from end-to-end CDISC SDTM/ADaM programming and independent Data Safety Monitoring Board (DSMB) charter governance.</p>', NULL, '8 min read', 'Dr. Robert Vance, PhD', 'Chief Biostatistician', 'RV', 0, 1, '2026-08-14 10:00:00', NOW(), NOW());
 
 SET FOREIGN_KEY_CHECKS = 1;
 

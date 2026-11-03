@@ -133,6 +133,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('admin.blogs.index') }}" class="nav-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-newspaper"></i>
+              <p>Blogs &amp; Insights</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('home') }}" target="_blank" class="nav-link">
               <i class="nav-icon fas fa-globe"></i>
               <p>View Website</p>

@@ -16,6 +16,8 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/global', [PageController::class, 'global'])->name('global');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [PageController::class, 'blogDetail'])->name('blog.show');
+Route::get('/insights', fn () => redirect()->route('blog'))->name('insights');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 // Public Form Actions
@@ -44,6 +46,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/inquiries', fn () => redirect()->route('admin.dashboard'))->name('admin.inquiries');
         Route::patch('/inquiries/{id}/status', [DashboardController::class, 'updateStatus'])->name('admin.inquiries.status');
         Route::delete('/inquiries/{id}', [DashboardController::class, 'destroy'])->name('admin.inquiries.destroy');
+
+        // Blogs & Insights Management
+        Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class, ['as' => 'admin']);
+        Route::post('blogs/{id}/toggle-publish', [\App\Http\Controllers\Admin\BlogController::class, 'togglePublish'])->name('admin.blogs.toggle-publish');
     });
 });
 
@@ -72,11 +78,13 @@ Route::get('/test-db', function () {
         $dbName = \Illuminate\Support\Facades\DB::connection()->getDatabaseName();
         $userCount = \App\Models\User::count();
         $inquiryCount = \App\Models\Inquiry::count();
+        $blogCount = \App\Models\Blog::count();
         return '<div style="font-family:sans-serif;max-width:650px;margin:50px auto;padding:25px;border:1px solid #10b981;border-radius:10px;background:#f0fdf4;">'
             . '<h2 style="color:#065f46;margin-top:0;">MySQL Database Connected Successfully!</h2>'
             . '<p style="font-size:16px;"><strong>Database:</strong> <code>' . e($dbName) . '</code></p>'
             . '<p style="font-size:16px;"><strong>Admin Users in Table:</strong> ' . $userCount . '</p>'
             . '<p style="font-size:16px;"><strong>Clinical Inquiries in Table:</strong> ' . $inquiryCount . '</p>'
+            . '<p style="font-size:16px;"><strong>Dynamic Blogs in Table:</strong> ' . $blogCount . '</p>'
             . '<hr style="border:0;border-top:1px solid #a7f3d0;margin:20px 0;">'
             . '<a href="/admin/login" style="display:inline-block;background:#f26224;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;">Proceed to Admin Login &rarr;</a>'
             . '</div>';

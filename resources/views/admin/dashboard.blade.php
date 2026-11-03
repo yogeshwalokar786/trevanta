@@ -49,22 +49,24 @@
 
       <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box bg-white">
-          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-envelope"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text text-muted font-weight-bold">Contact Messages</span>
-            <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $totalContacts }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box bg-white">
           <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-clock"></i></span>
           <div class="info-box-content">
             <span class="info-box-text text-muted font-weight-bold">Pending Review</span>
             <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $pendingRfps }}</span>
           </div>
         </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="{{ route('admin.blogs.index') }}" class="text-decoration-none d-block">
+          <div class="info-box bg-white">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-newspaper"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text text-muted font-weight-bold">Blogs &amp; Insights</span>
+              <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $totalBlogs ?? 0 }} <small class="text-success text-xs font-weight-normal font-weight-bold">({{ $publishedBlogs ?? 0 }} pub)</small></span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
     <!-- /.row -->

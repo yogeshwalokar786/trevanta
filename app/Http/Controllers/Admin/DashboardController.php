@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
+use App\Models\Blog;
 
 class DashboardController extends Controller
 {
@@ -20,6 +21,8 @@ class DashboardController extends Controller
             $totalRfps = Inquiry::where('type', 'rfp')->count();
             $totalContacts = Inquiry::where('type', 'contact')->count();
             $pendingRfps = Inquiry::where('status', 'new')->count();
+            $totalBlogs = Blog::count();
+            $publishedBlogs = Blog::published()->count();
 
             $query = Inquiry::latest();
 
@@ -37,6 +40,8 @@ class DashboardController extends Controller
             $totalRfps = 0;
             $totalContacts = 0;
             $pendingRfps = 0;
+            $totalBlogs = 0;
+            $publishedBlogs = 0;
             $inquiries = collect();
         }
 
@@ -45,6 +50,8 @@ class DashboardController extends Controller
             'totalRfps',
             'totalContacts',
             'pendingRfps',
+            'totalBlogs',
+            'publishedBlogs',
             'inquiries'
         ));
     }

@@ -875,148 +875,97 @@
         <!-- CATEGORY FILTER PILLS -->
         <div class="blog-filter-bar">
           <button class="blog-filter-btn active" onclick="filterBlogs('all', this)">All Perspectives</button>
-          <button class="blog-filter-btn" onclick="filterBlogs('Clinical Strategy', this)">Clinical Strategy</button>
-          <button class="blog-filter-btn" onclick="filterBlogs('Regulatory Affairs', this)">Regulatory Affairs</button>
-          <button class="blog-filter-btn" onclick="filterBlogs('Pharmacovigilance', this)">Pharmacovigilance</button>
-          <button class="blog-filter-btn" onclick="filterBlogs('Biostatistics', this)">Biostatistics</button>
+          @php
+            $homeCats = isset($blogs) ? $blogs->pluck('category')->unique()->filter() : collect();
+          @endphp
+          @foreach($homeCats as $cat)
+            <button class="blog-filter-btn" onclick="filterBlogs('{{ $cat }}', this)">{{ $cat }}</button>
+          @endforeach
         </div>
 
-        <!-- BLOG CARDS GRID -->
+        <!-- BLOG CARDS GRID (DYNAMIC) -->
         <div class="blogs-grid">
-          
-          <!-- BLOG CARD 1 -->
-          <article class="blog-card" data-category="Clinical Strategy" onclick="openArticleModal('oncology-dct')">
-            <div class="blog-card-media">
-              <div class="blog-media-pattern"></div>
-              <span class="blog-card-badge">Clinical Strategy</span>
-              <span class="blog-read-time">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                6 min read
-              </span>
-              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
-              </div>
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-meta-date">September 15, 2026</span>
-              <h3 class="blog-card-title">Accelerating Oncology Trials Through Decentralized Architecture &amp; Home Nursing</h3>
-              <p class="blog-card-excerpt">
-                How combining centralized academic hospital monitoring with localized home nursing and mobile health technologies increased patient retention by 34% in complex Phase II/III solid tumor protocols.
-              </p>
-              <div class="blog-author-bar">
-                <div class="blog-author-info">
-                  <div class="blog-author-avatar">SJ</div>
-                  <div>
-                    <div class="blog-author-name">Dr. Sarah Jenkins</div>
-                    <div class="blog-author-title">VP Clinical Operations</div>
+          @if(isset($blogs) && count($blogs))
+            @foreach($blogs as $blog)
+              <article class="blog-card" data-category="{{ $blog->category }}" onclick="openArticleModal('{{ $blog->slug }}')">
+                <div class="blog-card-media">
+                  <div class="blog-media-pattern"></div>
+                  @if(!empty($blog->image))
+                    <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; opacity: 0.35;">
+                  @endif
+                  <span class="blog-card-badge">{{ $blog->badge ?: $blog->category }}</span>
+                  <span class="blog-read-time">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {{ $blog->read_time ?: '5 min read' }}
+                  </span>
+                  <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+                    @if(stripos($blog->category, 'regulat') !== false)
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    @elseif(stripos($blog->category, 'pharma') !== false || stripos($blog->category, 'safe') !== false)
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    @elseif(stripos($blog->category, 'stat') !== false || stripos($blog->category, 'data') !== false)
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    @else
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
+                    @endif
                   </div>
                 </div>
-                <span class="blog-read-btn">Read Article &rarr;</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- BLOG CARD 2 -->
-          <article class="blog-card" data-category="Regulatory Affairs" onclick="openArticleModal('regulatory-e6r3')">
-            <div class="blog-card-media">
-              <div class="blog-media-pattern"></div>
-              <span class="blog-card-badge">Regulatory Affairs</span>
-              <span class="blog-read-time">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                7 min read
-              </span>
-              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-meta-date">September 08, 2026</span>
-              <h3 class="blog-card-title">Navigating ICH E6(R3) Modernization: Risk-Based Quality Management in Global Submissions</h3>
-              <p class="blog-card-excerpt">
-                A critical analysis of the finalized ICH E6(R3) guidelines and practical guidance on implementing governance frameworks that satisfy both US FDA and European EMA inspectors.
-              </p>
-              <div class="blog-author-bar">
-                <div class="blog-author-info">
-                  <div class="blog-author-avatar">MC</div>
-                  <div>
-                    <div class="blog-author-name">Michael Chen, RAC</div>
-                    <div class="blog-author-title">Senior Director Regulatory</div>
+                <div class="blog-card-body">
+                  <span class="blog-meta-date">
+                    {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Recent' }}
+                  </span>
+                  <h3 class="blog-card-title">{{ $blog->title }}</h3>
+                  <p class="blog-card-excerpt">
+                    {{ $blog->summary }}
+                  </p>
+                  <div class="blog-author-bar">
+                    <div class="blog-author-info">
+                      <div class="blog-author-avatar">{{ $blog->author_avatar ?: 'AC' }}</div>
+                      <div>
+                        <div class="blog-author-name">{{ $blog->author_name }}</div>
+                        <div class="blog-author-title">{{ $blog->author_title ?: 'Clinical Research Team' }}</div>
+                      </div>
+                    </div>
+                    <a href="{{ route('blog.show', $blog->slug) }}" class="blog-read-btn" onclick="event.stopPropagation();">
+                      Read Article &rarr;
+                    </a>
                   </div>
                 </div>
-                <span class="blog-read-btn">Read Article &rarr;</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- BLOG CARD 3 -->
-          <article class="blog-card" data-category="Pharmacovigilance" onclick="openArticleModal('pv-signal-ai')">
-            <div class="blog-card-media">
-              <div class="blog-media-pattern"></div>
-              <span class="blog-card-badge">Pharmacovigilance</span>
-              <span class="blog-read-time">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                5 min read
-              </span>
-              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-meta-date">August 29, 2026</span>
-              <h3 class="blog-card-title">Machine Learning Signal Detection in High-Volume Post-Marketing Pharmacovigilance</h3>
-              <p class="blog-card-excerpt">
-                How AstraClinical implemented automated natural language processing (NLP) to reduce ICSR intake triage latency by 62% while maintaining a 99.8% regulatory on-time filing benchmark.
-              </p>
-              <div class="blog-author-bar">
-                <div class="blog-author-info">
-                  <div class="blog-author-avatar">ER</div>
-                  <div>
-                    <div class="blog-author-name">Dr. Elena Rostova</div>
-                    <div class="blog-author-title">Global Head of Drug Safety</div>
-                  </div>
-                </div>
-                <span class="blog-read-btn">Read Article &rarr;</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- BLOG CARD 4 -->
-          <article class="blog-card" data-category="Biostatistics" onclick="openArticleModal('adaptive-biostat')">
-            <div class="blog-card-media">
-              <div class="blog-media-pattern"></div>
-              <span class="blog-card-badge">Biostatistics</span>
-              <span class="blog-read-time">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                8 min read
-              </span>
-              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </div>
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-meta-date">August 14, 2026</span>
-              <h3 class="blog-card-title">Adaptive Clinical Trial Designs: Optimizing Sample Size Re-Estimation &amp; Interim Analyses</h3>
-              <p class="blog-card-excerpt">
-                Examining Bayesian adaptive algorithms and group sequential designs that permit sample size recalculation and early futility stopping without inflating Type I error rates.
-              </p>
-              <div class="blog-author-bar">
-                <div class="blog-author-info">
-                  <div class="blog-author-avatar">RV</div>
-                  <div>
-                    <div class="blog-author-name">Dr. Robert Vance</div>
-                    <div class="blog-author-title">Chief Biostatistician</div>
-                  </div>
-                </div>
-                <span class="blog-read-btn">Read Article &rarr;</span>
-              </div>
-            </div>
-          </article>
-
+              </article>
+            @endforeach
+          @endif
         </div>
 
         <div class="text-center" style="margin-top: 3rem;">
           <a href="{{ route('blog') }}" class="btn btn-jss-outline btn-lg">View All Clinical Whitepapers &amp; Articles &rarr;</a>
         </div>
+      </div>
+    </section>
+
+    @if(isset($blogs) && count($blogs))
+      <script>
+        window.blogArticlesDatabase = Object.assign(window.blogArticlesDatabase || {}, {
+          @foreach($blogs as $b)
+            @php
+              $bDate = $b->published_at ? $b->published_at->format('F d, Y') : 'September 2026';
+            @endphp
+            "{!! addslashes($b->slug) !!}": {
+              category: {!! json_encode($b->category) !!},
+              readTime: {!! json_encode($b->read_time ?: '5 min read') !!},
+              date: {!! json_encode($bDate) !!},
+              author: {
+                name: {!! json_encode($b->author_name) !!},
+                title: {!! json_encode($b->author_title ?: 'Clinical Research Team') !!},
+                avatar: {!! json_encode($b->author_avatar ?: 'AC') !!}
+              },
+              title: {!! json_encode($b->title) !!},
+              summary: {!! json_encode($b->summary) !!},
+              content: {!! json_encode($b->content) !!}
+            }@if(!$loop->last),@endif
+          @endforeach
+        });
+      </script>
+    @endif
       </div>
     </section>
 
