@@ -50,6 +50,12 @@ Route::prefix('admin')->group(function () {
         // Blogs & Insights Management
         Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class, ['as' => 'admin']);
         Route::post('blogs/{id}/toggle-publish', [\App\Http\Controllers\Admin\BlogController::class, 'togglePublish'])->name('admin.blogs.toggle-publish');
+
+        // Categories Management (Separate Categories Table)
+        Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin']);
+
+        // Media Library & Manager
+        Route::resource('media', \App\Http\Controllers\Admin\MediaController::class, ['as' => 'admin'])->only(['index', 'store', 'destroy']);
     });
 });
 
@@ -79,12 +85,16 @@ Route::get('/test-db', function () {
         $userCount = \App\Models\User::count();
         $inquiryCount = \App\Models\Inquiry::count();
         $blogCount = \App\Models\Blog::count();
+        $categoryCount = \App\Models\Category::count();
+        $mediaCount = \App\Models\Media::count();
         return '<div style="font-family:sans-serif;max-width:650px;margin:50px auto;padding:25px;border:1px solid #10b981;border-radius:10px;background:#f0fdf4;">'
             . '<h2 style="color:#065f46;margin-top:0;">MySQL Database Connected Successfully!</h2>'
             . '<p style="font-size:16px;"><strong>Database:</strong> <code>' . e($dbName) . '</code></p>'
             . '<p style="font-size:16px;"><strong>Admin Users in Table:</strong> ' . $userCount . '</p>'
             . '<p style="font-size:16px;"><strong>Clinical Inquiries in Table:</strong> ' . $inquiryCount . '</p>'
             . '<p style="font-size:16px;"><strong>Dynamic Blogs in Table:</strong> ' . $blogCount . '</p>'
+            . '<p style="font-size:16px;"><strong>Blog Categories in Table:</strong> ' . $categoryCount . '</p>'
+            . '<p style="font-size:16px;"><strong>Media Files in Table:</strong> ' . $mediaCount . '</p>'
             . '<hr style="border:0;border-top:1px solid #a7f3d0;margin:20px 0;">'
             . '<a href="/admin/login" style="display:inline-block;background:#f26224;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;">Proceed to Admin Login &rarr;</a>'
             . '</div>';

@@ -13,6 +13,7 @@ class Blog extends Model
     protected $fillable = [
         'title',
         'slug',
+        'category_id',
         'category',
         'badge',
         'summary',
@@ -75,6 +76,14 @@ class Blog extends Model
     public function scopeFeatured($query)
     {
         return $query->where('is_featured', true);
+    }
+
+    /**
+     * Dedicated category relationship.
+     */
+    public function categoryRelation()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
 

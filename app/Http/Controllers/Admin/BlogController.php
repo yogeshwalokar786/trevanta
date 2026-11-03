@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
@@ -28,12 +29,20 @@ class BlogController extends Controller
         }
 
         if (!empty($category) && $category !== 'all') {
-            $query->where('category', $category);
+            $query->where(function ($q) use ($category) {
+                $q->where('category', $category)
+                  ->orWhere('category_id', $category);
+            });
         }
 
         try {
-            $blogs = $query->paginate(10)->withQueryString();
-            $categories = Blog::select('category')->distinct()->pluck('category')->filter();
+            $blogs = $query->paginate(12)->withQueryString();
+            $categories = Category::orderBy('name')->get();
+            if ($categories->isEmpty()) {
+                $categories = Blog::select('category')->distinct()->pluck('category')->filter()->map(function($c) {
+                    return (object) ['id' => $c, 'name' => $c];
+                });
+            }
         } catch (\Throwable $e) {
             $blogs = collect();
             $categories = collect();
@@ -47,14 +56,25 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $categories = [
-            'Clinical Strategy',
-            'Regulatory Affairs',
-            'Pharmacovigilance',
-            'Biostatistics',
-            'Decentralized Trials',
-            'Medical Devices',
-        ];
+        try {
+            $categories = Category::orderBy('name')->get();
+            if ($categories->isEmpty()) {
+                $defaultNames = [
+                    'Clinical Strategy',
+                    'Regulatory Affairs',
+                    'Pharmacovigilance',
+                    'Biostatistics',
+                    'Decentralized Trials',
+                    'Medical Devices',
+                ];
+                foreach ($defaultNames as $name) {
+                    Category::firstOrCreate(['name' => $name], ['slug' => Str::slug($name)]);
+                }
+                $categories = Category::orderBy('name')->get();
+            }
+        } catch (\Throwable $e) {
+            $categories = collect();
+        }
 
         return view('admin.blogs.create', compact('categories'));
     }
@@ -75,7 +95,8 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title'         => 'required|string|max:255',
             'slug'          => 'nullable|string|max:255|unique:blogs,slug',
-            'category'      => 'required|string|max:100',
+            'category_id'   => 'nullable|integer',
+            'category'      => 'nullable|string|max:100',
             'badge'         => 'nullable|string|max:100',
             'summary'       => 'required|string|max:1000',
             'content'       => 'required|string',
@@ -99,15 +120,33 @@ class BlogController extends Controller
             $counter++;
         }
 
+        // Resolve Category
+        $categoryId = $request->input('category_id');
+        $categoryName = $request->input('category');
+        if (!empty($categoryId)) {
+            $cat = Category::find($categoryId);
+            if ($cat) {
+                $categoryName = $cat->name;
+            }
+        } elseif (!empty($categoryName)) {
+            $cat = Category::firstOrCreate(
+                ['name' => $categoryName],
+                ['slug' => Str::slug($categoryName)]
+            );
+            $categoryId = $cat->id;
+        } else {
+            $categoryName = 'Clinical Strategy';
+        }
+
         $imagePath = $validated['image_url'] ?? null;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/blogs'), $fileName);
-            $imagePath = 'images/blogs/' . $fileName;
+            $file->move(public_path('uploads'), $fileName);
+            $imagePath = 'uploads/' . $fileName;
         }
 
-        // If this blog is marked as featured, optionally unfeature other blogs
+        // If this blog is marked as featured, unfeature others
         $isFeatured = $request->boolean('is_featured');
         if ($isFeatured) {
             Blog::where('is_featured', true)->update(['is_featured' => false]);
@@ -116,8 +155,9 @@ class BlogController extends Controller
         Blog::create([
             'title'         => $validated['title'],
             'slug'          => $slug,
-            'category'      => $validated['category'],
-            'badge'         => $validated['badge'] ?? $validated['category'],
+            'category_id'   => $categoryId,
+            'category'      => $categoryName,
+            'badge'         => $validated['badge'] ?? $categoryName,
             'summary'       => $validated['summary'],
             'content'       => $validated['content'],
             'image'         => $imagePath,
@@ -139,14 +179,11 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::findOrFail($id);
-        $categories = [
-            'Clinical Strategy',
-            'Regulatory Affairs',
-            'Pharmacovigilance',
-            'Biostatistics',
-            'Decentralized Trials',
-            'Medical Devices',
-        ];
+        try {
+            $categories = Category::orderBy('name')->get();
+        } catch (\Throwable $e) {
+            $categories = collect();
+        }
 
         return view('admin.blogs.edit', compact('blog', 'categories'));
     }
@@ -161,7 +198,8 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title'         => 'required|string|max:255',
             'slug'          => 'required|string|max:255|unique:blogs,slug,' . $blog->id,
-            'category'      => 'required|string|max:100',
+            'category_id'   => 'nullable|integer',
+            'category'      => 'nullable|string|max:100',
             'badge'         => 'nullable|string|max:100',
             'summary'       => 'required|string|max:1000',
             'content'       => 'required|string',
@@ -175,6 +213,22 @@ class BlogController extends Controller
             'is_published'  => 'nullable|boolean',
         ]);
 
+        // Resolve Category
+        $categoryId = $request->input('category_id', $blog->category_id);
+        $categoryName = $request->input('category', $blog->category);
+        if (!empty($categoryId)) {
+            $cat = Category::find($categoryId);
+            if ($cat) {
+                $categoryName = $cat->name;
+            }
+        } elseif (!empty($categoryName)) {
+            $cat = Category::firstOrCreate(
+                ['name' => $categoryName],
+                ['slug' => Str::slug($categoryName)]
+            );
+            $categoryId = $cat->id;
+        }
+
         $imagePath = $blog->image;
         if ($request->filled('image_url')) {
             $imagePath = $request->input('image_url');
@@ -183,8 +237,8 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/blogs'), $fileName);
-            $imagePath = 'images/blogs/' . $fileName;
+            $file->move(public_path('uploads'), $fileName);
+            $imagePath = 'uploads/' . $fileName;
         }
 
         $isFeatured = $request->boolean('is_featured');
@@ -195,8 +249,9 @@ class BlogController extends Controller
         $blog->update([
             'title'         => $validated['title'],
             'slug'          => Str::slug($validated['slug']),
-            'category'      => $validated['category'],
-            'badge'         => $validated['badge'] ?? $validated['category'],
+            'category_id'   => $categoryId,
+            'category'      => $categoryName,
+            'badge'         => $validated['badge'] ?? $categoryName,
             'summary'       => $validated['summary'],
             'content'       => $validated['content'],
             'image'         => $imagePath,

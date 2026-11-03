@@ -433,12 +433,26 @@
             </a>
           </li>
 
-          <li class="sidebar-nav-heading">Clinical Management</li>
+          <li class="sidebar-nav-heading">Publications &amp; Media</li>
 
           <li class="nav-item">
             <a href="{{ route('admin.blogs.index') }}" class="nav-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>Blogs &amp; Insights</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.categories.index') }}" class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>Blog Categories</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.media.index') }}" class="nav-link {{ request()->routeIs('admin.media.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-photo-video"></i>
+              <p>Media Library</p>
             </a>
           </li>
 
