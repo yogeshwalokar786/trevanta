@@ -127,3 +127,4 @@ class AdminAuthAndDashboardTest extends TestCase
         $this->assertGuest();
     }
 }
+
