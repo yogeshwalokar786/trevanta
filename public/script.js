@@ -8,7 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoSlider();
   initFeasibilityCalculator();
   initKeyboardListeners();
+  initMobileDrawerListeners();
 });
+
+function initMobileDrawerListeners() {
+  document.querySelectorAll('#jss-nav .menu-link').forEach(link => {
+    link.addEventListener('click', () => {
+      closeNav();
+    });
+  });
+}
 
 /* ==========================================================================
    1. HERO 4-TAB SYSTEM CONTROLLER

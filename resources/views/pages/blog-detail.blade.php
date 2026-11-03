@@ -108,7 +108,7 @@
   <!-- ARTICLE CONTENT & SIDEBAR -->
   <main style="padding: 4.5rem 0; background: #ffffff;">
     <div class="site-container">
-      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;" class="article-layout-grid">
+      <div class="article-layout-grid">
         
         <!-- ARTICLE MAIN BODY -->
         <article class="article-rich-content" style="font-size: 1.05rem; line-height: 1.85; color: var(--text-body);">

@@ -331,6 +331,15 @@
           </div>
           <div class="split-photo-frame">
             <img src="{{ asset('images/doctor-consultation.jpg') }}" alt="Clinical Investigator Patient Consultation" loading="lazy">
+            <div class="split-photo-badge">
+              <div class="split-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="split-badge-text">
+                <strong>98.4% Retention Rate</strong>
+                <span>Over 500,000 Enrolled Subjects Across 8,500 Sites</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

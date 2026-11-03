@@ -1766,9 +1766,11 @@ ul {
   .topbar-container {
     display: none;
   }
-  .btn-jss-orange {
-    padding: 0.55rem 0.95rem;
-    font-size: 0.8rem;
+  .btn,
+  .btn-jss-orange,
+  .btn-jss-outline {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.85rem;
   }
   
   .nav-backdrop {
@@ -2768,4 +2770,726 @@ ul {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   MASTER COMPREHENSIVE RESPONSIVE SUITE (DESKTOP, TABLET, MOBILE, MINI)
+   Cascades after all desktop rules to ensure 100% fluid mobile responsiveness
+   ========================================================================== */
+
+/* Universal Overflow & Layout Guards */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative;
+}
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base styles for subpage components */
+.article-layout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.cta-banner {
+  background: linear-gradient(135deg, var(--jss-navy-dark) 0%, var(--jss-navy) 100%);
+  color: #ffffff;
+  padding: 4.5rem 0;
+  text-align: center;
+}
+
+.cta-inner-jss h2 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-inner-jss p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* FEATURED MEDIA SPLIT ENHANCEMENTS */
+.featured-media-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.featured-media-split .split-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-media-split h3 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--jss-navy);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.featured-media-split p {
+  font-size: 1.025rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.featured-media-split .split-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.split-photo-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  width: 100%;
+  background: var(--bg-subtle);
+}
+
+.split-photo-frame img {
+  width: 100%;
+  height: 380px;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.split-photo-frame:hover img {
+  transform: scale(1.02);
+}
+
+.split-photo-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  background: rgba(16, 39, 56, 0.90);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.split-photo-frame:hover .split-photo-badge {
+  transform: translateY(-2px);
+}
+
+.split-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--jss-orange);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.split-badge-text strong {
+  display: block;
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.split-badge-text span {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   BREAKPOINT 1: MID-DESKTOP & COMPACT LAPTOPS (<= 1199px)
+   ========================================================================== */
+@media (max-width: 1199px) {
+  .featured-media-split {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.25rem;
+  }
+  .featured-media-split h3 {
+    font-size: 1.85rem;
+  }
+  .estimator-grid {
+    gap: 2rem;
+  }
+  .phase-grid {
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 2: TABLETS & SMALL LAPTOPS (<= 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* Navigation & Top Tier */
+  .header-nav-tier {
+    display: none !important;
+  }
+  .header-contact-items {
+    display: none !important;
+  }
+  .header-lang {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  /* Hero Slider */
+  .hero-headline {
+    font-size: 2.35rem;
+  }
+  .hero-stats-banner {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Grid Sections to 2 Columns */
+  .services-grid-jss {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .case-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  .blogs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  .ta-badge-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .global-hubs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .leadership-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .office-detail-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Split Layouts Stacking */
+  .featured-media-split {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    margin-top: 3rem !important;
+  }
+  .featured-media-split h3 {
+    font-size: 1.85rem;
+  }
+  .split-photo-frame img {
+    height: 340px !important;
+  }
+  .phase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .phase-tabs-wrap {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .estimator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .two-col-layout,
+  .two-col-layout.reverse {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .article-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  .clients-card-jss {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 2.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 3: MOBILE PHONES & PORTRAIT TABLETS (<= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Container Padding */
+  .site-container {
+    padding: 0 1.25rem !important;
+  }
+  
+  /* Header Tier */
+  .header-top-tier {
+    padding: 0.65rem 0 !important;
+  }
+  .header-top-inner {
+    padding: 0 1.25rem !important;
+  }
+  .logo-img {
+    height: 38px !important;
+    max-width: 180px !important;
+  }
+  .header-top-actions {
+    gap: 0.65rem !important;
+  }
+  .header-rfp-btn {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+  }
+  .header-rfp-btn .rfp-full-txt {
+    display: none !important;
+  }
+  .header-rfp-btn .rfp-short-txt {
+    display: inline !important;
+  }
+  .mobile-menu-btn {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 6px !important;
+  }
+  
+  /* General Typography */
+  .main-title {
+    font-size: 1.85rem !important;
+  }
+  .section-title {
+    font-size: 1.85rem !important;
+  }
+  .subtitle-jss,
+  .section-subtitle {
+    font-size: 0.95rem !important;
+  }
+  
+  /* Sections Spacing */
+  .jss-services-section,
+  .phase-section,
+  .case-studies-section,
+  .estimator-section,
+  .ta-section,
+  .global-hubs-section,
+  .blogs-section,
+  .faq-section,
+  .jss-contact-section,
+  .subpage-content,
+  .cta-banner {
+    padding: 3.5rem 0 !important;
+  }
+  
+  /* Hero Section */
+  .jss-hero-slider {
+    padding: 2rem 0 !important;
+  }
+  .hero-headline {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+  }
+  .hero-intro {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .slider-tabs {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.25rem !important;
+  }
+  .slider-tab {
+    padding: 0.75rem 0.65rem !important;
+  }
+  .tab-title {
+    font-size: 0.88rem !important;
+  }
+  .slider-content-box {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .slide-pane h3 {
+    font-size: 1.35rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .slide-pane p {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .hero-stats-banner {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    padding: 1.25rem 1rem !important;
+    margin-top: 2rem !important;
+  }
+  .stat-no {
+    font-size: 1.75rem !important;
+  }
+  .stat-label {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Photo Banner Card */
+  .photo-banner-card {
+    margin: 1.75rem 0 !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .photo-banner-img {
+    height: 250px !important;
+  }
+  .photo-badge-overlay {
+    bottom: 0.75rem !important;
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    max-width: none !important;
+    padding: 0.85rem 1rem !important;
+  }
+  .photo-badge-overlay h4 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .photo-badge-overlay p {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  
+  /* Services */
+  .services-grid-jss {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .service-box-jss {
+    padding: 1.5rem 1.25rem !important;
+  }
+  
+  /* FEATURED MEDIA SPLIT (PATIENT-CENTRIC LEADERSHIP) */
+  .featured-media-split {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+    margin-top: 2.5rem !important;
+  }
+  .featured-media-split h3 {
+    font-size: 1.55rem !important;
+    line-height: 1.3 !important;
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .featured-media-split p {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.4rem !important;
+  }
+  .featured-media-split .split-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+  .featured-media-split .split-actions .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 0.75rem 1.15rem !important;
+    font-size: 0.88rem !important;
+  }
+  .split-photo-frame {
+    border-radius: var(--radius-md) !important;
+  }
+  .split-photo-frame img {
+    height: 250px !important;
+  }
+  .split-photo-badge {
+    bottom: 0.75rem !important;
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    padding: 0.65rem 0.85rem !important;
+    gap: 0.65rem !important;
+  }
+  .split-badge-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .split-badge-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .split-badge-text strong {
+    font-size: 0.825rem !important;
+  }
+  .split-badge-text span {
+    font-size: 0.7rem !important;
+  }
+  
+  /* Phase Breakdown */
+  .phase-pane-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .phase-overview h3 {
+    font-size: 1.45rem !important;
+  }
+  .phase-overview p {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .phase-metrics-box {
+    padding: 1.35rem 1.15rem !important;
+  }
+  .phase-metrics-box h4 {
+    font-size: 1.05rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .phase-metric-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+  .phase-m-item .m-value {
+    font-size: 1.5rem !important;
+  }
+  .phase-m-item .m-label {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Case Studies */
+  .case-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .case-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .case-title {
+    font-size: 1.15rem !important;
+  }
+  .case-body {
+    font-size: 0.88rem !important;
+  }
+  
+  /* Feasibility Estimator */
+  .estimator-card {
+    padding: 1.5rem 1.25rem !important;
+    margin-top: 1.5rem !important;
+  }
+  .calc-results-panel {
+    padding: 1.25rem !important;
+  }
+  .calc-metric-row {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Therapeutic Areas & Hubs */
+  .ta-badge-grid,
+  .global-hubs-grid,
+  .leadership-grid,
+  .office-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .ta-item,
+  .hub-card,
+  .leader-card,
+  .office-detail-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+  
+  /* Clients Card */
+  .clients-card-jss {
+    padding: 1.5rem 1.25rem !important;
+    gap: 1.5rem !important;
+  }
+  .quote-callout {
+    padding: 1.35rem 1.15rem !important;
+  }
+  .quote-mark {
+    font-size: 2.5rem !important;
+  }
+  
+  /* Blogs & Filter */
+  .blogs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .blog-card-body {
+    padding: 1.35rem 1.15rem !important;
+  }
+  .blog-filter-bar {
+    gap: 0.45rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .blog-filter-btn {
+    padding: 0.4rem 0.85rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* FAQ Accordion */
+  .faq-question-btn {
+    padding: 1.1rem 1.15rem !important;
+    font-size: 0.95rem !important;
+    gap: 0.75rem !important;
+  }
+  .faq-answer {
+    padding: 0 1.15rem 1.15rem 1.15rem !important;
+    font-size: 0.88rem !important;
+  }
+  
+  /* Contact Form */
+  .contact-box-jss {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .contact-header h2 {
+    font-size: 1.75rem !important;
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  .contact-btn {
+    width: 100% !important;
+  }
+  
+  /* Footer */
+  .jss-footer {
+    padding: 3.5rem 0 1.5rem 0 !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .legal-flex {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+  .legal-menu {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+  
+  /* Modals */
+  .modal-backdrop,
+  .article-modal-backdrop {
+    padding: 0.75rem !important;
+  }
+  .modal-box {
+    padding: 1.5rem 1.25rem !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  .article-modal-container {
+    padding: 1.5rem 1.25rem !important;
+    max-height: 90vh !important;
+  }
+  .article-headline {
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+  }
+  .article-modal-close {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 4: MID-MOBILE (<= 560px)
+   ========================================================================== */
+@media (max-width: 560px) {
+  /* Phase Tabs Stack to Single Column on Narrow Mobile */
+  .phase-tabs-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .phase-tab-btn {
+    padding: 0.85rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .phase-metric-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  
+  /* Subpage compliance row */
+  .compliance-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 5: SMALL MOBILE SCREENS (<= 440px)
+   ========================================================================== */
+@media (max-width: 440px) {
+  /* Ultra-Compact Header */
+  .site-container {
+    padding: 0 1rem !important;
+  }
+  .header-top-inner {
+    padding: 0 1rem !important;
+  }
+  .logo-img {
+    height: 32px !important;
+    max-width: 140px !important;
+  }
+  .header-rfp-btn {
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.75rem !important;
+  }
+  .header-top-actions {
+    gap: 0.45rem !important;
+  }
+  
+  /* Hero */
+  .hero-headline {
+    font-size: 1.6rem !important;
+  }
+  .slider-tabs {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-stats-banner {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  
+  /* Featured Media Split */
+  .featured-media-split h3 {
+    font-size: 1.35rem !important;
+  }
+  .split-photo-frame img {
+    height: 215px !important;
+  }
 }
