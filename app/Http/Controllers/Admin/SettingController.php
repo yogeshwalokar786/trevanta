@@ -55,3 +55,4 @@ class SettingController extends Controller
         return redirect()->route('admin.settings.index')->with('success', 'Site settings, branding, contact details, and SEO updated successfully!');
     }
 }
+

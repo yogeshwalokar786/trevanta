@@ -15,3 +15,4 @@ if (!function_exists('setting')) {
         return Setting::get($key, $default);
     }
 }
+

@@ -30,39 +30,37 @@
 
   <!-- JSON-LD Organization Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": {{ json_encode(setting('site_name', 'Trevanta International')) }},
-    "url": {{ json_encode(url('/')) }},
-    "logo": {{ json_encode(asset(setting('site_logo', 'images/logo.png'))) }},
-    "description": {{ json_encode(setting('home_meta_description', 'A globally recognized Clinical Research Organization delivering multi-national trial management.')) }},
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": {{ json_encode(setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada')) }}
-    },
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "telephone": {{ json_encode(setting('phone_na', '+1-514-934-0805')) }},
-        "contactType": "customer service",
-        "email": {{ json_encode(setting('contact_email', 'info@astraclinical.com')) }},
-        "areaServed": ["CA", "US"]
-      },
-      {
-        "@type": "ContactPoint",
-        "telephone": {{ json_encode(setting('phone_in', '+91-7738804988')) }},
-        "contactType": "operations",
-        "areaServed": "IN"
-      }
+  {!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    'name' => setting('site_name', 'Trevanta International'),
+    'url' => url('/'),
+    'logo' => asset(setting('site_logo', 'images/logo.png')),
+    'description' => setting('home_meta_description', 'A globally recognized Clinical Research Organization delivering multi-national trial management.'),
+    'address' => [
+      '@type' => 'PostalAddress',
+      'streetAddress' => setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada')
     ],
-    "sameAs": [
-      {{ json_encode(setting('social_linkedin', 'https://www.linkedin.com/company/trevanta-international')) }}
-      @if(setting('social_twitter')),
-      {{ json_encode(setting('social_twitter')) }}
-      @endif
-    ]
-  }
+    'contactPoint' => [
+      [
+        '@type' => 'ContactPoint',
+        'telephone' => setting('phone_na', '+1-514-934-0805'),
+        'contactType' => 'customer service',
+        'email' => setting('contact_email', 'info@astraclinical.com'),
+        'areaServed' => ['CA', 'US']
+      ],
+      [
+        '@type' => 'ContactPoint',
+        'telephone' => setting('phone_in', '+91-7738804988'),
+        'contactType' => 'operations',
+        'areaServed' => 'IN'
+      ]
+    ],
+    'sameAs' => array_values(array_filter([
+      setting('social_linkedin', 'https://www.linkedin.com/company/trevanta-international'),
+      setting('social_twitter')
+    ]))
+  ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
   </script>
 @endpush
 

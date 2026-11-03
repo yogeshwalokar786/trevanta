@@ -71,3 +71,4 @@ class Setting extends Model
         Cache::forget('site_settings_all');
     }
 }
+
