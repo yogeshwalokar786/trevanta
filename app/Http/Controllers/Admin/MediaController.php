@@ -137,3 +137,4 @@ class MediaController extends Controller
         return redirect()->route('admin.media.index')->with('success', 'Media file removed successfully.');
     }
 }
+

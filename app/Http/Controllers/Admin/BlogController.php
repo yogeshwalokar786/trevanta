@@ -96,16 +96,11 @@ class BlogController extends Controller
             'title'         => 'required|string|max:255',
             'slug'          => 'nullable|string|max:255|unique:blogs,slug',
             'category_id'   => 'nullable|integer',
-            'category'      => 'nullable|string|max:100',
-            'badge'         => 'nullable|string|max:100',
             'summary'       => 'required|string|max:1000',
             'content'       => 'required|string',
-            'image'         => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:4096',
-            'image_url'     => 'nullable|string|max:255',
-            'read_time'     => 'nullable|string|max:50',
-            'author_name'   => 'required|string|max:150',
+            'image'         => 'nullable|string|max:255',
+            'author_name'   => 'nullable|string|max:150',
             'author_title'  => 'nullable|string|max:200',
-            'author_avatar' => 'nullable|string|max:50',
             'is_featured'   => 'nullable|boolean',
             'is_published'  => 'nullable|boolean',
         ]);
@@ -122,29 +117,33 @@ class BlogController extends Controller
 
         // Resolve Category
         $categoryId = $request->input('category_id');
-        $categoryName = $request->input('category');
+        $categoryName = 'Clinical Strategy';
         if (!empty($categoryId)) {
             $cat = Category::find($categoryId);
             if ($cat) {
                 $categoryName = $cat->name;
             }
-        } elseif (!empty($categoryName)) {
-            $cat = Category::firstOrCreate(
-                ['name' => $categoryName],
-                ['slug' => Str::slug($categoryName)]
-            );
-            $categoryId = $cat->id;
         } else {
-            $categoryName = 'Clinical Strategy';
+            $firstCat = Category::first();
+            if ($firstCat) {
+                $categoryId = $firstCat->id;
+                $categoryName = $firstCat->name;
+            }
         }
 
-        $imagePath = $validated['image_url'] ?? null;
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $fileName);
-            $imagePath = 'uploads/' . $fileName;
+        // Clean image path from media library (remove leading slash if present)
+        $imagePath = $validated['image'] ?? null;
+        if ($imagePath && str_starts_with($imagePath, '/')) {
+            $imagePath = ltrim($imagePath, '/');
         }
+
+        // Auto-compute read time based on word count
+        $wordCount = str_word_count(strip_tags($validated['content']));
+        $readTime = max(1, (int) ceil($wordCount / 200)) . ' min read';
+
+        // Auto-default author
+        $authorName = !empty($validated['author_name']) ? $validated['author_name'] : (auth()->user()->name ?? 'Dr. Sarah Jenkins, MD');
+        $authorTitle = !empty($validated['author_title']) ? $validated['author_title'] : 'VP Clinical Operations';
 
         // If this blog is marked as featured, unfeature others
         $isFeatured = $request->boolean('is_featured');
@@ -157,14 +156,13 @@ class BlogController extends Controller
             'slug'          => $slug,
             'category_id'   => $categoryId,
             'category'      => $categoryName,
-            'badge'         => $validated['badge'] ?? $categoryName,
+            'badge'         => $categoryName,
             'summary'       => $validated['summary'],
             'content'       => $validated['content'],
             'image'         => $imagePath,
-            'read_time'     => $validated['read_time'] ?: '5 min read',
-            'author_name'   => $validated['author_name'],
-            'author_title'  => $validated['author_title'] ?? 'Clinical Research Team',
-            'author_avatar' => $validated['author_avatar'] ?: null,
+            'read_time'     => $readTime,
+            'author_name'   => $authorName,
+            'author_title'  => $authorTitle,
             'is_featured'   => $isFeatured,
             'is_published'  => $request->boolean('is_published', true),
             'published_at'  => now(),
@@ -199,47 +197,38 @@ class BlogController extends Controller
             'title'         => 'required|string|max:255',
             'slug'          => 'required|string|max:255|unique:blogs,slug,' . $blog->id,
             'category_id'   => 'nullable|integer',
-            'category'      => 'nullable|string|max:100',
-            'badge'         => 'nullable|string|max:100',
             'summary'       => 'required|string|max:1000',
             'content'       => 'required|string',
-            'image'         => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:4096',
-            'image_url'     => 'nullable|string|max:255',
-            'read_time'     => 'nullable|string|max:50',
-            'author_name'   => 'required|string|max:150',
+            'image'         => 'nullable|string|max:255',
+            'author_name'   => 'nullable|string|max:150',
             'author_title'  => 'nullable|string|max:200',
-            'author_avatar' => 'nullable|string|max:50',
             'is_featured'   => 'nullable|boolean',
             'is_published'  => 'nullable|boolean',
         ]);
 
         // Resolve Category
         $categoryId = $request->input('category_id', $blog->category_id);
-        $categoryName = $request->input('category', $blog->category);
+        $categoryName = $blog->category;
         if (!empty($categoryId)) {
             $cat = Category::find($categoryId);
             if ($cat) {
                 $categoryName = $cat->name;
             }
-        } elseif (!empty($categoryName)) {
-            $cat = Category::firstOrCreate(
-                ['name' => $categoryName],
-                ['slug' => Str::slug($categoryName)]
-            );
-            $categoryId = $cat->id;
         }
 
-        $imagePath = $blog->image;
-        if ($request->filled('image_url')) {
-            $imagePath = $request->input('image_url');
+        // Clean image path from media library
+        $imagePath = $validated['image'] ?? $blog->image;
+        if ($imagePath && str_starts_with($imagePath, '/')) {
+            $imagePath = ltrim($imagePath, '/');
         }
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $fileName);
-            $imagePath = 'uploads/' . $fileName;
-        }
+        // Auto-compute read time based on word count
+        $wordCount = str_word_count(strip_tags($validated['content']));
+        $readTime = max(1, (int) ceil($wordCount / 200)) . ' min read';
+
+        // Author details
+        $authorName = !empty($validated['author_name']) ? $validated['author_name'] : $blog->author_name;
+        $authorTitle = !empty($validated['author_title']) ? $validated['author_title'] : $blog->author_title;
 
         $isFeatured = $request->boolean('is_featured');
         if ($isFeatured && !$blog->is_featured) {
@@ -251,14 +240,13 @@ class BlogController extends Controller
             'slug'          => Str::slug($validated['slug']),
             'category_id'   => $categoryId,
             'category'      => $categoryName,
-            'badge'         => $validated['badge'] ?? $categoryName,
+            'badge'         => $categoryName,
             'summary'       => $validated['summary'],
             'content'       => $validated['content'],
             'image'         => $imagePath,
-            'read_time'     => $validated['read_time'] ?: '5 min read',
-            'author_name'   => $validated['author_name'],
-            'author_title'  => $validated['author_title'] ?? 'Clinical Research Team',
-            'author_avatar' => $validated['author_avatar'] ?: null,
+            'read_time'     => $readTime,
+            'author_name'   => $authorName,
+            'author_title'  => $authorTitle,
             'is_featured'   => $isFeatured,
             'is_published'  => $request->boolean('is_published'),
         ]);

@@ -53,3 +53,4 @@ class Media extends Model
         return in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg']);
     }
 }
+

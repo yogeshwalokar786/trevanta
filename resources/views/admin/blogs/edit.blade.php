@@ -27,6 +27,19 @@
     border-bottom-right-radius: 8px !important;
     border-color: var(--admin-border) !important;
   }
+  .featured-image-box {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    background: #f8fafc;
+    padding: 2rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .featured-image-box:hover {
+    border-color: #28a9a1;
+    background: #f0fdfa;
+  }
 </style>
 @endpush
 
@@ -37,14 +50,14 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Edit Article</h1>
-        <p class="text-muted text-sm mb-0">Update publication content, therapeutic category, or cover photography.</p>
+        <p class="text-muted text-sm mb-0">Update publication content, category, or cover photography.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.blogs.index') }}" class="btn btn-white btn-sm mr-1">
           <i class="fas fa-arrow-left mr-1"></i> Back to Articles
         </a>
         <a href="{{ route('blog.show', $blog->slug) }}" target="_blank" class="btn btn-view-site">
-          <i class="fas fa-external-link-alt"></i> View on Site
+          <i class="fas fa-external-link-alt"></i> View Live
         </a>
       </div>
     </div>
@@ -66,54 +79,44 @@
       </div>
     @endif
 
-    <form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data" id="articleForm">
+    <form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST" id="articleForm">
       @csrf
       @method('PUT')
 
       <div class="row">
-        <!-- Main Form Column (8) -->
+        <!-- Main Writing Column (8) -->
         <div class="col-lg-8">
           <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="card-title mb-0">
-                <i class="fas fa-edit mr-2 text-muted"></i> Article Content
-              </h3>
-              <button type="button" class="btn btn-white btn-sm" onclick="openMediaPickerModal('editor')">
-                <i class="fas fa-images mr-1 text-primary"></i> Insert Media Image
-              </button>
-            </div>
             <div class="card-body p-4">
 
-              <div class="form-group mb-4">
-                <label for="title" class="font-weight-bold text-dark">Article Title <span class="text-danger">*</span></label>
-                <input type="text" name="title" id="title" class="form-control form-control-lg @error('title') is-invalid @enderror" value="{{ old('title', $blog->title) }}" required>
+              <!-- Article Title -->
+              <div class="form-group mb-2">
+                <input type="text" name="title" id="title" class="form-control form-control-lg font-weight-bold text-dark @error('title') is-invalid @enderror" value="{{ old('title', $blog->title) }}" required style="font-size: 1.35rem; padding: 0.85rem 1rem;">
                 @error('title') <div class="invalid-feedback">{{ $message }}</div> @enderror
               </div>
 
-              <div class="form-group mb-4">
-                <label for="slug" class="font-weight-bold text-dark">URL Slug <span class="text-danger">*</span></label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-light text-muted text-xs border-right-0">/blog/</span>
-                  </div>
-                  <input type="text" name="slug" id="slug" class="form-control border-left-0 @error('slug') is-invalid @enderror" value="{{ old('slug', $blog->slug) }}" required>
-                </div>
-                @error('slug') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+              <!-- Permalink / Slug -->
+              <div class="d-flex align-items-center mb-4 text-xs text-muted pl-1">
+                <span>Permalink: <code>/blog/</code></span>
+                <input type="text" name="slug" id="slug" value="{{ old('slug', $blog->slug) }}" required style="border: none; background: transparent; color: #0f766e; font-weight: 600; padding: 2px 4px; font-size: 12px; width: auto; flex-grow: 1;">
               </div>
 
+              <!-- Summary / Excerpt -->
               <div class="form-group mb-4">
-                <label for="summary" class="font-weight-bold text-dark">Summary / Excerpt <span class="text-danger">*</span></label>
-                <textarea name="summary" id="summary" rows="3" class="form-control @error('summary') is-invalid @enderror" required>{{ old('summary', $blog->summary) }}</textarea>
-                <small class="text-muted">Brief overview shown on cards and search engines.</small>
+                <label for="summary" class="font-weight-bold text-dark text-sm">Summary / Excerpt <span class="text-danger">*</span></label>
+                <textarea name="summary" id="summary" rows="2" class="form-control @error('summary') is-invalid @enderror" required>{{ old('summary', $blog->summary) }}</textarea>
                 @error('summary') <div class="invalid-feedback">{{ $message }}</div> @enderror
               </div>
 
-              <div class="form-group mb-2">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <label for="editor" class="font-weight-bold text-dark mb-0">Full Article Body (Rich Text Editor) <span class="text-danger">*</span></label>
-                  <small class="text-muted">Use headings, formatting, and tables</small>
+              <!-- Rich Text Body -->
+              <div class="form-group mb-0">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <label for="editor" class="font-weight-bold text-dark text-sm mb-0">Article Content <span class="text-danger">*</span></label>
+                  <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerModal('editor')">
+                    <i class="fas fa-images mr-1 text-primary"></i> Insert Media Image
+                  </button>
                 </div>
-                <textarea name="content" id="editor" rows="15" class="form-control @error('content') is-invalid @enderror" required>{{ old('content', $blog->content) }}</textarea>
+                <textarea name="content" id="editor" rows="16" class="form-control @error('content') is-invalid @enderror" required>{{ old('content', $blog->content) }}</textarea>
                 @error('content') <div class="invalid-feedback">{{ $message }}</div> @enderror
               </div>
 
@@ -121,49 +124,23 @@
           </div>
         </div>
 
-        <!-- Sidebar Options Column (4) -->
+        <!-- Compact Sidebar Column (4) -->
         <div class="col-lg-4">
 
-          <!-- Publication Card -->
+          <!-- Card 1: Publish & Category -->
           <div class="card mb-4">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="fas fa-globe mr-2 text-muted"></i> Publication Status
+            <div class="card-header py-3">
+              <h3 class="card-title text-sm mb-0">
+                <i class="fas fa-paper-plane mr-2 text-muted"></i> Publish Settings
               </h3>
             </div>
             <div class="card-body p-4">
-              <div class="custom-control custom-switch mb-3">
-                <input type="checkbox" name="is_published" class="custom-control-input" id="is_published" value="1" {{ old('is_published', $blog->is_published ? '1' : '0') == '1' ? 'checked' : '' }}>
-                <label class="custom-control-label font-weight-bold text-dark" for="is_published">Published</label>
-                <small class="text-muted d-block text-xs">Uncheck to set as draft.</small>
-              </div>
-
-              <div class="custom-control custom-switch mb-4">
-                <input type="checkbox" name="is_featured" class="custom-control-input" id="is_featured" value="1" {{ old('is_featured', $blog->is_featured ? '1' : '0') == '1' ? 'checked' : '' }}>
-                <label class="custom-control-label font-weight-bold text-warning" for="is_featured">
-                  <i class="fas fa-star mr-1"></i> Spotlight Article
-                </label>
-                <small class="text-muted d-block text-xs">Pin to top of /blog perspectives.</small>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block shadow-sm">
-                <i class="fas fa-save mr-1"></i> Update Article
-              </button>
-            </div>
-          </div>
-
-          <!-- Category Card -->
-          <div class="card mb-4">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="fas fa-tags mr-2 text-muted"></i> Category &amp; Badges
-              </h3>
-            </div>
-            <div class="card-body p-4">
+              
+              <!-- Category Selector -->
               <div class="form-group mb-3">
                 <div class="d-flex justify-content-between align-items-center mb-1">
-                  <label for="category_id" class="font-weight-bold text-dark text-sm mb-0">Select Category <span class="text-danger">*</span></label>
-                  <a href="{{ route('admin.categories.index') }}" target="_blank" class="text-xs text-primary font-weight-bold">+ Add Category</a>
+                  <label for="category_id" class="font-weight-bold text-dark text-sm mb-0">Category <span class="text-danger">*</span></label>
+                  <a href="{{ route('admin.categories.index') }}" target="_blank" class="text-xs text-primary font-weight-bold">+ Manage Categories</a>
                 </div>
                 <select name="category_id" id="category_id" class="form-control" required>
                   <option value="">-- Choose Category --</option>
@@ -175,78 +152,86 @@
                 </select>
               </div>
 
+              <!-- Status Toggle -->
               <div class="form-group mb-3">
-                <label for="badge" class="font-weight-bold text-dark text-sm">Badge Text</label>
-                <input type="text" name="badge" id="badge" class="form-control" value="{{ old('badge', $blog->badge) }}">
-                <small class="text-muted text-xs">Defaults to category name if left blank.</small>
+                <label class="font-weight-bold text-dark text-sm mb-1">Publication Status</label>
+                <select name="is_published" class="form-control">
+                  <option value="1" {{ old('is_published', $blog->is_published ? '1' : '0') == '1' ? 'selected' : '' }}>Published (Live on Website)</option>
+                  <option value="0" {{ old('is_published', $blog->is_published ? '1' : '0') == '0' ? 'selected' : '' }}>Draft (Private)</option>
+                </select>
               </div>
 
-              <div class="form-group mb-0">
-                <label for="read_time" class="font-weight-bold text-dark text-sm">Read Time</label>
-                <input type="text" name="read_time" id="read_time" class="form-control" value="{{ old('read_time', $blog->read_time) }}">
-              </div>
-            </div>
-          </div>
-
-          <!-- Author Info Card -->
-          <div class="card mb-4">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="fas fa-user-edit mr-2 text-muted"></i> Author Profile
-              </h3>
-            </div>
-            <div class="card-body p-4">
-              <div class="form-group mb-3">
-                <label for="author_name" class="font-weight-bold text-dark text-sm">Author Full Name <span class="text-danger">*</span></label>
-                <input type="text" name="author_name" id="author_name" class="form-control" value="{{ old('author_name', $blog->author_name) }}" required>
+              <!-- Spotlight Switch -->
+              <div class="custom-control custom-switch mb-4">
+                <input type="checkbox" name="is_featured" class="custom-control-input" id="is_featured" value="1" {{ old('is_featured', $blog->is_featured ? '1' : '0') == '1' ? 'checked' : '' }}>
+                <label class="custom-control-label font-weight-bold text-warning text-sm" for="is_featured">
+                  <i class="fas fa-star mr-1"></i> Spotlight Whitepaper
+                </label>
+                <small class="text-muted d-block text-xs">Featured at top of the /blog page.</small>
               </div>
 
-              <div class="form-group mb-3">
-                <label for="author_title" class="font-weight-bold text-dark text-sm">Professional Title</label>
-                <input type="text" name="author_title" id="author_title" class="form-control" value="{{ old('author_title', $blog->author_title) }}">
-              </div>
-
-              <div class="form-group mb-0">
-                <label for="author_avatar" class="font-weight-bold text-dark text-sm">Avatar Initials</label>
-                <input type="text" name="author_avatar" id="author_avatar" maxlength="4" class="form-control" value="{{ old('author_avatar', $blog->author_avatar) }}">
-              </div>
-            </div>
-          </div>
-
-          <!-- Featured Cover Image Card (With Media Picker) -->
-          <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="card-title mb-0">
-                <i class="fas fa-image mr-2 text-muted"></i> Cover Image
-              </h3>
-              <button type="button" class="btn btn-white btn-xs" onclick="openMediaPickerModal('cover')">
-                <i class="fas fa-images text-primary mr-1"></i> Media Library
+              <button type="submit" class="btn btn-primary btn-block shadow-sm py-2">
+                <i class="fas fa-save mr-1"></i> Update Article
               </button>
             </div>
-            <div class="card-body p-4">
-              
-              <!-- Preview thumbnail -->
-              <div id="coverImagePreviewContainer" class="mb-3 text-center p-2 border rounded bg-light {{ empty($blog->image) ? 'd-none' : '' }}" style="border-radius: 8px;">
-                <img id="coverImagePreview" src="{{ !empty($blog->image) ? asset($blog->image) : '' }}" alt="Preview" class="img-fluid rounded" style="max-height: 120px; object-fit: cover;">
-                <small id="coverImagePreviewText" class="d-block text-muted mt-1 font-monospace text-xs">{{ $blog->image }}</small>
+          </div>
+
+          <!-- Card 2: Featured Cover Image (Directly Linked to Media Library) -->
+          <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center py-3">
+              <h3 class="card-title text-sm mb-0">
+                <i class="fas fa-image mr-2 text-muted"></i> Featured Cover Image
+              </h3>
+            </div>
+            <div class="card-body p-4 text-center">
+
+              <!-- Hidden input for selected image -->
+              <input type="hidden" name="image" id="selectedCoverImagePath" value="{{ old('image', $blog->image) }}">
+
+              <!-- Placeholder when no image is selected -->
+              <div id="coverPlaceholderBox" class="featured-image-box {{ !empty($blog->image) ? 'd-none' : '' }}" onclick="openMediaPickerModal('cover')">
+                <i class="fas fa-images fa-2x text-primary mb-2"></i>
+                <div class="font-weight-bold text-dark text-sm">Select from Media Library</div>
+                <small class="text-muted text-xs">Click to browse or upload</small>
               </div>
 
-              <div class="form-group mb-3">
-                <label for="image_url" class="font-weight-bold text-dark text-sm">Image Asset Path / URL</label>
-                <div class="input-group">
-                  <input type="text" name="image_url" id="image_url" class="form-control" value="{{ old('image_url', $blog->image) }}">
-                  <div class="input-group-append">
-                    <button type="button" class="btn btn-white" onclick="openMediaPickerModal('cover')" title="Choose from library">
-                      <i class="fas fa-photo-video text-primary"></i>
-                    </button>
-                  </div>
+              <!-- Preview box when an image is selected -->
+              <div id="coverSelectedBox" class="{{ !empty($blog->image) ? '' : 'd-none' }}">
+                <div class="position-relative rounded overflow-hidden border mb-2 bg-light" style="max-height: 180px;">
+                  <img id="coverPreviewImg" src="{{ !empty($blog->image) ? asset($blog->image) : '' }}" alt="Cover Preview" class="img-fluid" style="width: 100%; height: 160px; object-fit: cover;">
+                </div>
+                <div class="text-truncate text-xs font-monospace text-muted mb-2" id="coverSelectedPathText">
+                  {{ $blog->image }}
+                </div>
+                <div class="btn-group btn-group-sm w-100">
+                  <button type="button" class="btn btn-white" onclick="openMediaPickerModal('cover')">
+                    <i class="fas fa-sync-alt mr-1"></i> Change Image
+                  </button>
+                  <button type="button" class="btn btn-white text-danger" onclick="removeCoverImage()">
+                    <i class="fas fa-trash-alt mr-1"></i> Remove
+                  </button>
                 </div>
               </div>
 
+            </div>
+          </div>
+
+          <!-- Card 3: Author Info -->
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h3 class="card-title text-sm mb-0">
+                <i class="fas fa-user-edit mr-2 text-muted"></i> Author Information
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <div class="form-group mb-3">
+                <label for="author_name" class="font-weight-bold text-dark text-xs text-uppercase">Author Name</label>
+                <input type="text" name="author_name" id="author_name" class="form-control" value="{{ old('author_name', $blog->author_name) }}">
+              </div>
+
               <div class="form-group mb-0">
-                <label for="image" class="font-weight-bold text-dark text-sm">Replace Image File</label>
-                <input type="file" name="image" id="image" class="form-control-file" accept="image/*" onchange="previewUploadFile(this)">
-                <small class="text-muted text-xs">Leave blank to keep existing photo.</small>
+                <label for="author_title" class="font-weight-bold text-dark text-xs text-uppercase">Author Title</label>
+                <input type="text" name="author_title" id="author_title" class="form-control" value="{{ old('author_title', $blog->author_title) }}">
               </div>
             </div>
           </div>
@@ -266,8 +251,8 @@
     <div class="modal-content border-0 shadow-lg" style="border-radius: 16px; overflow: hidden;">
       <div class="modal-header border-bottom py-3 px-4 bg-light d-flex justify-content-between align-items-center">
         <div>
-          <h5 class="modal-title font-weight-bold text-dark mb-0">Select Asset from Media Library</h5>
-          <small class="text-muted">Click any asset to insert into your article</small>
+          <h5 class="modal-title font-weight-bold text-dark mb-0">Media Library</h5>
+          <small class="text-muted">Click any asset to select it, or upload a new asset below.</small>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -275,17 +260,17 @@
       </div>
 
       <div class="modal-body p-4">
-        <!-- Quick Upload Dropzone inside Modal -->
-        <div class="p-3 mb-4 rounded border text-center" style="background: #f0fdfa; border-style: dashed !important; border-color: #28a9a1 !important;">
+        <!-- Quick Fast Upload inside Modal -->
+        <div class="p-3 mb-4 rounded border text-center" style="background: #f0fdfa; border-style: dashed !important; border-color: #28a9a1 !important; border-radius: 10px;">
           <input type="file" id="modalFastFileInput" class="d-none" accept="image/*" onchange="uploadFileFromModal(this)">
-          <span class="text-dark font-weight-bold mr-2">Need a new image?</span>
+          <span class="text-dark font-weight-bold mr-2 text-sm">Need a new image?</span>
           <label for="modalFastFileInput" class="btn btn-primary btn-sm mb-0 cursor-pointer">
-            <i class="fas fa-upload mr-1"></i> Upload Image Now
+            <i class="fas fa-cloud-upload-alt mr-1"></i> Upload Image
           </label>
-          <span id="modalUploadStatus" class="ml-2 text-xs text-muted"></span>
+          <span id="modalUploadStatus" class="ml-2 text-xs"></span>
         </div>
 
-        <!-- Media Grid inside Modal -->
+        <!-- Grid of Media Assets -->
         <div id="modalMediaGridContainer" class="row" style="max-height: 440px; overflow-y: auto;">
           <div class="col-12 text-center py-4">
             <div class="spinner-border text-primary" role="status"></div>
@@ -294,8 +279,8 @@
         </div>
       </div>
 
-      <div class="modal-footer border-top bg-light py-2 px-4 d-flex justify-content-between">
-        <span class="text-muted text-xs">Target: <strong id="modalTargetLabel">Editor Content</strong></span>
+      <div class="modal-footer border-top bg-light py-2 px-4 d-flex justify-content-between align-items-center">
+        <span class="text-muted text-xs">Target: <strong id="modalTargetLabel" class="text-dark">Cover Image</strong></span>
         <button type="button" class="btn btn-white btn-sm" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -308,7 +293,7 @@
 
 <script>
   let articleEditorInstance = null;
-  let activeMediaPickerTarget = 'editor'; // 'editor' or 'cover'
+  let activeMediaPickerTarget = 'cover';
 
   // Initialize CKEditor 5
   ClassicEditor
@@ -327,44 +312,27 @@
       console.error('CKEditor init error:', error);
     });
 
-  // Cover image preview helper
-  document.getElementById('image_url')?.addEventListener('input', function() {
-    updateCoverPreview(this.value);
-  });
-
-  function updateCoverPreview(url) {
-    const container = document.getElementById('coverImagePreviewContainer');
-    const img = document.getElementById('coverImagePreview');
-    const text = document.getElementById('coverImagePreviewText');
-    if (url && url.trim() !== '') {
-      const src = url.startsWith('http') || url.startsWith('/') ? url : '/' + url;
-      img.src = src;
-      text.textContent = url;
-      container.classList.remove('d-none');
-    } else {
-      container.classList.add('d-none');
-    }
+  // Cover image UI handlers
+  function setCoverImage(path, fullUrl) {
+    document.getElementById('selectedCoverImagePath').value = path;
+    document.getElementById('coverPreviewImg').src = fullUrl;
+    document.getElementById('coverSelectedPathText').textContent = path;
+    document.getElementById('coverPlaceholderBox').classList.add('d-none');
+    document.getElementById('coverSelectedBox').classList.remove('d-none');
   }
 
-  function previewUploadFile(input) {
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const container = document.getElementById('coverImagePreviewContainer');
-        const img = document.getElementById('coverImagePreview');
-        const text = document.getElementById('coverImagePreviewText');
-        img.src = e.target.result;
-        text.textContent = input.files[0].name;
-        container.classList.remove('d-none');
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
+  function removeCoverImage() {
+    document.getElementById('selectedCoverImagePath').value = '';
+    document.getElementById('coverPreviewImg').src = '';
+    document.getElementById('coverSelectedPathText').textContent = '';
+    document.getElementById('coverSelectedBox').classList.add('d-none');
+    document.getElementById('coverPlaceholderBox').classList.remove('d-none');
   }
 
   // Media Picker Modal Controller
   function openMediaPickerModal(target) {
     activeMediaPickerTarget = target;
-    document.getElementById('modalTargetLabel').textContent = target === 'cover' ? 'Featured Cover Image' : 'Rich Text Editor Body';
+    document.getElementById('modalTargetLabel').textContent = target === 'cover' ? 'Featured Cover Image' : 'Article Rich Body';
     $('#mediaPickerModal').modal('show');
     loadMediaPickerItems();
   }
@@ -385,10 +353,11 @@
         let html = '';
         data.media.forEach(item => {
           const fileUrl = item.path.startsWith('http') || item.path.startsWith('/') ? item.path : '/' + item.path;
+          const relativePath = item.path.startsWith('/') ? item.path.substring(1) : item.path;
           html += `
             <div class="col-6 col-sm-4 col-md-3 mb-3">
               <div class="border rounded p-2 text-center bg-white shadow-xs cursor-pointer media-picker-card" 
-                   onclick="selectMediaItem('${fileUrl}', '${escapeHtml(item.filename)}')" 
+                   onclick="selectMediaItem('${relativePath}', '${fileUrl}', '${escapeHtml(item.filename)}')" 
                    style="border-radius: 10px; cursor: pointer; transition: all 0.15s ease;">
                 <div class="bg-light rounded overflow-hidden d-flex align-items-center justify-content-center mb-2" style="height: 100px;">
                   <img src="${fileUrl}" alt="${escapeHtml(item.filename)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='/images/logo.png';">
@@ -440,15 +409,13 @@
     });
   }
 
-  function selectMediaItem(url, filename) {
+  function selectMediaItem(relativePath, fullUrl, filename) {
     if (activeMediaPickerTarget === 'cover') {
-      const cleanPath = url.startsWith('/') ? url.substring(1) : url;
-      document.getElementById('image_url').value = cleanPath;
-      updateCoverPreview(url);
+      setCoverImage(relativePath, fullUrl);
       $('#mediaPickerModal').modal('hide');
     } else if (activeMediaPickerTarget === 'editor') {
       if (articleEditorInstance) {
-        const viewFragment = articleEditorInstance.data.processor.toView(`<p><img src="${url}" alt="${filename}" style="max-width: 100%; height: auto; border-radius: 8px; margin: 16px 0;" /></p>`);
+        const viewFragment = articleEditorInstance.data.processor.toView(`<p><img src="${fullUrl}" alt="${filename}" style="max-width: 100%; height: auto; border-radius: 8px; margin: 16px 0;" /></p>`);
         const modelFragment = articleEditorInstance.data.toModel(viewFragment);
         articleEditorInstance.model.insertContent(modelFragment);
       }
