@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Presence &amp; Regional Hubs | AstraClinical Research</title>
+  <meta name="description" content="Discover AstraClinical's global operational hubs across North America, Europe, Latin America, and APAC with local regulatory expertise in 28 countries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="jss-theme">
+
+  <!-- MOBILE NAV BACKDROP OVERLAY -->
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeNav()"></div>
+
+  <!-- MOBILE NAVIGATION DRAWER (LEFT-TO-RIGHT SLIDE-IN) -->
+  <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
+    <div class="drawer-head">
+      <div class="logo-graphic">
+        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+      </div>
+      <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+      <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+      <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+      <li class="menu-item"><a href="global.html" class="menu-link active">Global Presence</a></li>
+      <li class="menu-item"><a href="blog.html" class="menu-link">Insights &amp; Blog</a></li>
+      <li class="menu-item"><a href="contact.html" class="menu-link">Contact Us</a></li>
+    </ul>
+
+    <div class="drawer-foot">
+      <span class="drawer-hotlines-title">Regional Direct Hotlines</span>
+      <div class="drawer-hotlines-list">
+        <a href="tel:+15149340805"><span class="reg-pill orange">NA</span> +1 (514) 934-0805</a>
+        <a href="tel:+917738804988"><span class="reg-pill">IN</span> +91 7738804988</a>
+        <a href="tel:+971523822824"><span class="reg-pill">UAE</span> +971 52 382 2824</a>
+      </div>
+      <a href="mailto:info@astraclinical.com" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@astraclinical.com
+      </a>
+      <button class="btn btn-jss-orange drawer-foot-cta" onclick="closeNav(); openRfpModal();">
+        Request Study RFP &rarr;
+      </button>
+    </div>
+  </nav>
+
+  <!-- UNIFIED 2-TIER CORPORATE HEADER (NAME & MENU IN DEDICATED TIERS) -->
+  <header class="jss-header" id="jss-header">
+    
+    <!-- TIER 1: BRAND IDENTITY & CORPORATE ACTIONS -->
+    <div class="header-top-tier">
+      <div class="site-container header-top-inner">
+        
+        <!-- BRAND LOGO -->
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext">Research &bull; Global CRO</span>
+          </div>
+        </a>
+
+        <!-- TOP ACTIONS: CONTACT HOTLINES + EMAIL + LANG + RFP BUTTON + HAMBURGER -->
+        <div class="header-top-actions">
+          <div class="header-contact-items">
+            <a href="tel:+15149340805" class="top-contact-pill" title="Montreal Global HQ Hotline">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 (514) 934-0805</span>
+            </a>
+            <a href="mailto:info@astraclinical.com" class="top-contact-pill" title="Inquire via Corporate Email">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@astraclinical.com</span>
+            </a>
+          </div>
+
+          <div class="header-lang">
+            <button class="lang-btn active">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
+          </div>
+
+          <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
+            <span class="rfp-full-txt">Request Study RFP &rarr;</span>
+            <span class="rfp-short-txt">Study RFP &rarr;</span>
+          </button>
+
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIER 2: DEDICATED NAVIGATION MENU BAR -->
+    <div class="header-nav-tier">
+      <div class="site-container header-nav-inner">
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+            <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+            <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+            <li class="menu-item"><a href="global.html" class="menu-link active">Global Presence</a></li>
+            <li class="menu-item"><a href="blog.html" class="menu-link">Insights &amp; Blog</a></li>
+            <li class="menu-item"><a href="contact.html" class="menu-link">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-tier-extra">
+          <span class="compliance-mini-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            ICH-GCP &bull; 21 CFR Part 11
+          </span>
+          <button class="nav-search-btn" onclick="openRfpModal()" title="Fast Feasibility Assessment">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Fast Feasibility</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- SUBPAGE HERO -->
+  <section class="subpage-hero">
+    <div class="site-container">
+      <span class="eyebrow-jss">INTERNATIONAL FOOTPRINT</span>
+      <h1>Global Reach with Uncompromised Regional Agility</h1>
+      <p>
+        Operating across 28 countries, our regional operating units combine deep local regulatory relationships, rapid investigator recruitment, and harmonized global ICH-GCP standard operating procedures.
+      </p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span class="current">Global Presence</span>
+      </nav>
+    </div>
+  </section>
+
+  <main>
+    <!-- GLOBAL STATS BANNER -->
+    <section style="background-color: var(--jss-navy); color: #ffffff; padding: 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <div class="site-container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--jss-orange);">28</div>
+            <div style="font-size: 0.9rem; color: #cbd5e1; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Countries Served</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #ffffff;">8,500+</div>
+            <div style="font-size: 0.9rem; color: #cbd5e1; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Active Site Network</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--jss-orange);">500K+</div>
+            <div style="font-size: 0.9rem; color: #cbd5e1; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Patients Recruited</div>
+          </div>
+          <div>
+            <div style="font-size: 2.5rem; font-weight: 800; color: #ffffff;">6</div>
+            <div style="font-size: 0.9rem; color: #cbd5e1; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Primary Corporate Hubs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGIONAL OFFICES DIRECTORY -->
+    <section class="subpage-content">
+      <div class="site-container">
+        <div class="text-center" style="max-width: 760px; margin: 0 auto 2.5rem;">
+          <span class="eyebrow-jss">REGIONAL HUBS &amp; OPERATIONS</span>
+          <h2>Strategically Situated Across Key Regulatory Jurisdictions</h2>
+          <p>
+            Whether executing IND submissions in the United States, CTA filings under EU CTR 536/2014, or high-volume patient recruitment across Latin America and APAC, our hubs provide native-speaking teams and direct institutional access.
+          </p>
+        </div>
+
+        <!-- REAL PHOTO BANNER -->
+        <div class="photo-banner-card" style="margin: 0 auto 3rem; max-width: 100%;">
+          <img src="../assets/images/clinical-team.jpg" alt="Global Clinical Monitoring Network" class="photo-banner-img" style="height: 320px;">
+          <div class="photo-badge-overlay">
+            <h4>Harmonized Multi-Country Trial Monitoring</h4>
+            <p>Unified SOPs, real-time risk-based monitoring (RBM), and bilingual clinical monitors operating across all 28 regulatory zones.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+          
+          <!-- OFFICE 1: MONTREAL HQ -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--jss-orange);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-orange); text-transform: uppercase; letter-spacing: 0.5px;">Global Headquarters</span>
+                <h3 style="margin-top: 0.25rem; font-size: 1.4rem;">Montreal, Canada</h3>
+              </div>
+              <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">CA HQ</span>
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+              4492 Sainte-Catherine St W, Suite 400<br>
+              Westmount, QC H3Z 1R7, Canada
+            </p>
+            <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <p style="margin: 0 0 0.4rem;"><strong>Direct Phone:</strong> +1 (514) 934-0805</p>
+              <p style="margin: 0 0 0.4rem;"><strong>Key Strengths:</strong> Phase I–IV Clinical Operations, Biostatistics, Epidemiology</p>
+              <p style="margin: 0;"><strong>Primary Agency:</strong> Health Canada (TPD / BGTD)</p>
+            </div>
+            <button class="btn btn-jss-outline" style="width: 100%;" onclick="openRfpModal()">Inquire with Montreal Team &rarr;</button>
+          </div>
+
+          <!-- OFFICE 2: BOSTON & CALIFORNIA -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--jss-navy);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-navy); text-transform: uppercase; letter-spacing: 0.5px;">North America Commercial Hub</span>
+                <h3 style="margin-top: 0.25rem; font-size: 1.4rem;">Boston &amp; San Diego, USA</h3>
+              </div>
+              <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">USA</span>
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+              Cambridge Innovation Hub &amp; Torrey Pines BioPark<br>
+              Boston, MA &amp; San Diego, CA, USA
+            </p>
+            <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <p style="margin: 0 0 0.4rem;"><strong>Direct Phone:</strong> +1 (617) 849-9319</p>
+              <p style="margin: 0 0 0.4rem;"><strong>Key Strengths:</strong> US FDA Pre-IND Meetings, Biotech Clinical Programs</p>
+              <p style="margin: 0;"><strong>Primary Agency:</strong> US FDA (CDER / CBER / CDRH)</p>
+            </div>
+            <button class="btn btn-jss-outline" style="width: 100%;" onclick="openRfpModal()">Inquire with US Team &rarr;</button>
+          </div>
+
+          <!-- OFFICE 3: LONDON UK -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--jss-orange);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-orange); text-transform: uppercase; letter-spacing: 0.5px;">UK &amp; Northern Europe Hub</span>
+                <h3 style="margin-top: 0.25rem; font-size: 1.4rem;">London, United Kingdom</h3>
+              </div>
+              <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">UK</span>
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+              25 Bank Street, Canary Wharf<br>
+              London E14 5JP, United Kingdom
+            </p>
+            <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <p style="margin: 0 0 0.4rem;"><strong>Direct Phone:</strong> +44 20 7946 0912</p>
+              <p style="margin: 0 0 0.4rem;"><strong>Key Strengths:</strong> MHRA Submissions, NHS Hospital Site Management</p>
+              <p style="margin: 0;"><strong>Primary Agency:</strong> MHRA &amp; HRA</p>
+            </div>
+            <button class="btn btn-jss-outline" style="width: 100%;" onclick="openRfpModal()">Inquire with UK Team &rarr;</button>
+          </div>
+
+          <!-- OFFICE 4: WARSAW EU -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--jss-navy);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-navy); text-transform: uppercase; letter-spacing: 0.5px;">Central &amp; Eastern Europe Hub</span>
+                <h3 style="margin-top: 0.25rem; font-size: 1.4rem;">Warsaw, Poland</h3>
+              </div>
+              <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">EU</span>
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+              Al. Jerozolimskie 142B, Blue City<br>
+              02-305 Warsaw, Poland
+            </p>
+            <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <p style="margin: 0 0 0.4rem;"><strong>Direct Phone:</strong> +48 22 584 7200</p>
+              <p style="margin: 0 0 0.4rem;"><strong>Key Strengths:</strong> Fast Patient Enrollment, EU CTIS Submissions</p>
+              <p style="margin: 0;"><strong>Primary Agency:</strong> EMA / URPL</p>
+            </div>
+            <button class="btn btn-jss-outline" style="width: 100%;" onclick="openRfpModal()">Inquire with EU Team &rarr;</button>
+          </div>
+
+          <!-- OFFICE 5: MUMBAI & FARIDABAD -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--jss-orange);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-orange); text-transform: uppercase; letter-spacing: 0.5px;">APAC Pharmacovigilance &amp; Data Hub</span>
+                <h3 style="margin-top: 0.25rem; font-size: 1.4rem;">Mumbai &amp; Faridabad, India</h3>
+              </div>
+              <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">APAC</span>
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+              AstraClinical Center of Excellence, Corporate Zone<br>
+              Navi Mumbai &amp; Faridabad, India
+            </p>
+            <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <p style="margin: 0 0 0.4rem;"><strong>Direct Phone:</strong> +91 7738804988</p>
+              <p style="margin: 0 0 0.4rem;"><strong>Key Strengths:</strong> End-to-End Safety/PV, Medical Writing, CDISC Data Mgmt</p>
+              <p style="margin: 0;"><strong>Primary Agency:</strong> CDSCO / US FDA Global</p>
+            </div>
+            <button class="btn btn-jss-outline" style="width: 100%;" onclick="openRfpModal()">Inquire with India Team &rarr;</button>
+          </div>
+
+          <!-- OFFICE 6: BOGOTA LATAM -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--jss-navy);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-navy); text-transform: uppercase; letter-spacing: 0.5px;">Latin America Operational Center</span>
+                <h3 style="margin-top: 0.25rem; font-size: 1.4rem;">Bogotá, Colombia</h3>
+              </div>
+              <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">LATAM</span>
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+              Carrera 7 #116-50, Torre Cencosud<br>
+              Bogotá, Colombia
+            </p>
+            <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              <p style="margin: 0 0 0.4rem;"><strong>Direct Phone:</strong> +57 1 744 3820</p>
+              <p style="margin: 0 0 0.4rem;"><strong>Key Strengths:</strong> LATAM Multi-Country Monitoring, High Retention Rates</p>
+              <p style="margin: 0;"><strong>Primary Agency:</strong> INVIMA / ANVISA</p>
+            </div>
+            <button class="btn btn-jss-outline" style="width: 100%;" onclick="openRfpModal()">Inquire with LATAM Team &rarr;</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- REGULATORY TIMELINES TABLE -->
+    <section class="subpage-content alt-bg">
+      <div class="site-container">
+        <div class="text-center" style="max-width: 760px; margin: 0 auto 3rem;">
+          <span class="eyebrow-jss">REGULATORY BENCHMARKS</span>
+          <h2>Average Trial Startup &amp; Ethics Approval Timelines</h2>
+          <p>We leverage local institutional relationships to dramatically compress regulatory lead times.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow-x: auto; border: 1px solid var(--border-light);">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+            <thead>
+              <tr style="background-color: var(--jss-navy); color: #ffffff;">
+                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Region / Country</th>
+                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Regulatory Authority</th>
+                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Ethics (IRB/EC) Review</th>
+                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Startup to First Patient</th>
+                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Local AstraClinical Hub Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1.2rem 1.5rem; font-weight: 700;">Canada</td>
+                <td style="padding: 1.2rem 1.5rem;">Health Canada (TPD)</td>
+                <td style="padding: 1.2rem 1.5rem;">30 Days (CTA Default)</td>
+                <td style="padding: 1.2rem 1.5rem; color: var(--jss-orange); font-weight: 700;">8–10 Weeks</td>
+                <td style="padding: 1.2rem 1.5rem;">Montreal HQ Direct</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light); background: #fbfcfe;">
+                <td style="padding: 1.2rem 1.5rem; font-weight: 700;">United States</td>
+                <td style="padding: 1.2rem 1.5rem;">US FDA (IND)</td>
+                <td style="padding: 1.2rem 1.5rem;">Central IRB: 1–2 Weeks</td>
+                <td style="padding: 1.2rem 1.5rem; color: var(--jss-orange); font-weight: 700;">6–8 Weeks</td>
+                <td style="padding: 1.2rem 1.5rem;">Boston / San Diego Hub</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1.2rem 1.5rem; font-weight: 700;">European Union (Poland)</td>
+                <td style="padding: 1.2rem 1.5rem;">EU CTIS / URPL</td>
+                <td style="padding: 1.2rem 1.5rem;">Harmonized CTIS (Part I &amp; II)</td>
+                <td style="padding: 1.2rem 1.5rem; color: var(--jss-orange); font-weight: 700;">10–12 Weeks</td>
+                <td style="padding: 1.2rem 1.5rem;">Warsaw EU Center</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light); background: #fbfcfe;">
+                <td style="padding: 1.2rem 1.5rem; font-weight: 700;">India</td>
+                <td style="padding: 1.2rem 1.5rem;">CDSCO (SUGAM)</td>
+                <td style="padding: 1.2rem 1.5rem;">Parallel Institutional EC</td>
+                <td style="padding: 1.2rem 1.5rem; color: var(--jss-orange); font-weight: 700;">10–14 Weeks</td>
+                <td style="padding: 1.2rem 1.5rem;">AstraClinical Mumbai &amp; Faridabad</td>
+              </tr>
+              <tr>
+                <td style="padding: 1.2rem 1.5rem; font-weight: 700;">Colombia &amp; LATAM</td>
+                <td style="padding: 1.2rem 1.5rem;">INVIMA / CEC</td>
+                <td style="padding: 1.2rem 1.5rem;">Independent Ethics: 4–6 Wks</td>
+                <td style="padding: 1.2rem 1.5rem; color: var(--jss-orange); font-weight: 700;">12–14 Weeks</td>
+                <td style="padding: 1.2rem 1.5rem;">Bogotá LATAM Team</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="cta-banner">
+      <div class="site-container">
+        <div class="cta-inner-jss">
+          <h2>Planning a Multi-Country Clinical Trial?</h2>
+          <p>Connect with our International Study Planning Directorate for country feasibility reports and patient enrollment projections.</p>
+          <div style="margin-top: 1.5rem;">
+            <button class="btn btn-jss-orange btn-lg" onclick="openRfpModal()">
+              Request Multi-Country Feasibility &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="jss-footer">
+    <div class="site-container footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research" style="margin-bottom: 1rem;">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary" style="color: #ffffff;">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext" style="color: #94a3b8;">Research &bull; Global CRO</span>
+          </div>
+        </a>
+        <p class="f-about">
+          A globally recognized full-service Clinical Research Organization with over 25 years of international study leadership, high-volume patient recruitment, and comprehensive pharmacovigilance.
+        </p>
+        <p class="f-contact-info">
+          <strong>Corporate HQ:</strong> 4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada<br>
+          <strong>Email:</strong> <a href="mailto:info@astraclinical.com">info@astraclinical.com</a>
+        </p>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Clinical Trial Operations</a></li>
+          <li><a href="services.html">Pharmacovigilance &amp; Safety</a></li>
+          <li><a href="services.html">Regulatory Submissions</a></li>
+          <li><a href="services.html">Medical Writing &amp; CSR</a></li>
+          <li><a href="services.html">Biostatistics &amp; Data Science</a></li>
+          <li><a href="services.html">Medical Devices &amp; CER</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Regional Offices</h4>
+        <ul>
+          <li><a href="global.html">Montreal, Canada (HQ)</a></li>
+          <li><a href="global.html">Boston &amp; California, USA</a></li>
+          <li><a href="global.html">London, United Kingdom</a></li>
+          <li><a href="global.html">Mumbai &amp; Faridabad, India</a></li>
+          <li><a href="global.html">Bogotá, Colombia</a></li>
+          <li><a href="global.html">Warsaw, Poland</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Quick Access</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="global.html">Global Presence</a></li>
+          <li><a href="blog.html">Insights &amp; Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="site-container legal-flex">
+        <p>&copy; 2026 AstraClinical Research Global Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
+        <div class="legal-menu">
+          <a href="#">Privacy Statement</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">GCP Statement</a>
+          <a href="#">Whistleblower Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL RFP -->
+  <div class="modal-backdrop" id="rfp-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeRfpModal()">&times;</button>
+      <span class="eyebrow-jss">STUDY INQUIRY</span>
+      <h3>Request Clinical Trial Proposal</h3>
+      <p>Submit your protocol criteria. Our Medical Directors will reply within 24 business hours.</p>
+      
+      <form onsubmit="handleModalSubmit(event)">
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Name *</label>
+            <input type="text" required placeholder="Dr. Jane Doe">
+          </div>
+          <div class="j-field">
+            <label>Corporate Email *</label>
+            <input type="email" required placeholder="jdoe@sponsor.com">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Trial Phase *</label>
+            <select required>
+              <option>Phase I (FIH / PK-PD)</option>
+              <option selected>Phase II (Proof-of-Concept)</option>
+              <option>Phase III (Pivotal Global)</option>
+              <option>Phase IV / RWE / PASS</option>
+            </select>
+          </div>
+          <div class="j-field">
+            <label>Therapeutic Focus *</label>
+            <select required>
+              <option>Oncology</option>
+              <option>Immunology</option>
+              <option>Neurology</option>
+              <option>Rare Disease</option>
+              <option>Cardiovascular</option>
+            </select>
+          </div>
+        </div>
+        <div class="j-field">
+          <label>Brief Protocol Description</label>
+          <textarea rows="3" placeholder="Target sample size, timeline, and countries..."></textarea>
+        </div>
+        <div style="margin-top: 1.25rem; text-align: right;">
+          <button type="button" class="btn btn-jss-outline" onclick="closeRfpModal()" style="margin-right: 0.5rem;">Cancel</button>
+          <button type="submit" class="btn btn-jss-orange">Transmit RFP &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="jss-toast" id="jss-toast" role="status">
+    <div class="toast-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <div>
+      <strong id="toast-title">Study Proposal Received</strong>
+      <p id="toast-msg">Our Medical Review Team will contact you under NDA within 24 hours.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

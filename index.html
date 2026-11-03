@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AstraClinical Research | Global Clinical Research Organization (CRO)</title>
+  <meta name="description" content="AstraClinical Research is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="jss-theme">
+
+  <!-- MOBILE NAV BACKDROP OVERLAY -->
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeNav()"></div>
+
+  <!-- MOBILE NAVIGATION DRAWER (LEFT-TO-RIGHT SLIDE-IN) -->
+  <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
+    <div class="drawer-head">
+      <div class="logo-graphic">
+        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+      </div>
+      <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="menu-item"><a href="index.html" class="menu-link active">Home</a></li>
+      <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+      <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+      <li class="menu-item"><a href="global.html" class="menu-link">Global Presence</a></li>
+      <li class="menu-item"><a href="blog.html" class="menu-link">Insights &amp; Blog</a></li>
+      <li class="menu-item"><a href="contact.html" class="menu-link">Contact Us</a></li>
+    </ul>
+
+    <div class="drawer-foot">
+      <span class="drawer-hotlines-title">Regional Direct Hotlines</span>
+      <div class="drawer-hotlines-list">
+        <a href="tel:+15149340805"><span class="reg-pill orange">NA</span> +1 (514) 934-0805</a>
+        <a href="tel:+917738804988"><span class="reg-pill">IN</span> +91 7738804988</a>
+        <a href="tel:+971523822824"><span class="reg-pill">UAE</span> +971 52 382 2824</a>
+      </div>
+      <a href="mailto:info@astraclinical.com" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@astraclinical.com
+      </a>
+      <button class="btn btn-jss-orange drawer-foot-cta" onclick="closeNav(); openRfpModal();">
+        Request Study RFP &rarr;
+      </button>
+    </div>
+  </nav>
+
+  <!-- UNIFIED 2-TIER CORPORATE HEADER (NAME & MENU IN DEDICATED TIERS) -->
+  <header class="jss-header" id="jss-header">
+    
+    <!-- TIER 1: BRAND IDENTITY & CORPORATE ACTIONS -->
+    <div class="header-top-tier">
+      <div class="site-container header-top-inner">
+        
+        <!-- BRAND LOGO -->
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext">Research &bull; Global CRO</span>
+          </div>
+        </a>
+
+        <!-- TOP ACTIONS: CONTACT HOTLINES + EMAIL + LANG + RFP BUTTON + HAMBURGER -->
+        <div class="header-top-actions">
+          <div class="header-contact-items">
+            <a href="tel:+15149340805" class="top-contact-pill" title="Montreal Global HQ Hotline">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 (514) 934-0805</span>
+            </a>
+            <a href="mailto:info@astraclinical.com" class="top-contact-pill" title="Inquire via Corporate Email">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@astraclinical.com</span>
+            </a>
+          </div>
+
+          <div class="header-lang">
+            <button class="lang-btn active">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
+          </div>
+
+          <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
+            <span class="rfp-full-txt">Request Study RFP &rarr;</span>
+            <span class="rfp-short-txt">Study RFP &rarr;</span>
+          </button>
+
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIER 2: DEDICATED NAVIGATION MENU BAR -->
+    <div class="header-nav-tier">
+      <div class="site-container header-nav-inner">
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li class="menu-item"><a href="index.html" class="menu-link active">Home</a></li>
+            <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+            <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+            <li class="menu-item"><a href="global.html" class="menu-link">Global Presence</a></li>
+            <li class="menu-item"><a href="blog.html" class="menu-link">Insights &amp; Blog</a></li>
+            <li class="menu-item"><a href="contact.html" class="menu-link">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-tier-extra">
+          <span class="compliance-mini-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            ICH-GCP &bull; 21 CFR Part 11
+          </span>
+          <button class="nav-search-btn" onclick="openRfpModal()" title="Fast Feasibility Assessment">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Fast Feasibility</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="home">
+
+    <!-- HERO SECTION WITH SIGNATURE JSS 4-TAB CAROUSEL -->
+    <section class="jss-hero">
+      <div class="hero-backdrop"></div>
+      <div class="site-container hero-container">
+        
+        <div class="hero-top-announcement">
+          <span class="orange-beacon"></span>
+          <span>Over 500,000+ Patients Navigated Across 8,500+ Sites in 28 Countries</span>
+        </div>
+
+        <h1 class="hero-headline">
+          Global Reach, Regional Agility, <br>
+          <span class="highlight-orange">Patient-Centric Clinical Research.</span>
+        </h1>
+
+        <p class="hero-intro">
+          AstraClinical Research is a full-service international Contract Research Organization (CRO) delivering Phase I–IV clinical trials, pharmacovigilance, regulatory affairs, and biostatistics with proven scientific excellence and cost efficiency.
+        </p>
+
+        <!-- SIGNATURE 4-TAB SLIDER SYSTEM -->
+        <div class="jss-tab-slider">
+          <div class="slider-tabs" role="tablist">
+            <button class="slider-tab active" data-slide="global" onclick="switchSlide('global', this)">
+              <span class="tab-no">01</span>
+              <span class="tab-title">Global</span>
+            </button>
+            <button class="slider-tab" data-slide="regional" onclick="switchSlide('regional', this)">
+              <span class="tab-no">02</span>
+              <span class="tab-title">Regional</span>
+            </button>
+            <button class="slider-tab" data-slide="people" onclick="switchSlide('people', this)">
+              <span class="tab-no">03</span>
+              <span class="tab-title">People</span>
+            </button>
+            <button class="slider-tab" data-slide="clients" onclick="switchSlide('clients', this)">
+              <span class="tab-no">04</span>
+              <span class="tab-title">Our Clients</span>
+            </button>
+          </div>
+
+          <!-- SLIDER CONTENT BOX -->
+          <div class="slider-content-box" id="slider-content-box">
+            <div class="slide-pane active" id="slide-global">
+              <div class="slide-badge">INTERNATIONAL CLINICAL FOOTPRINT</div>
+              <h3>Worldwide Study Involvement Across 28+ Countries</h3>
+              <p>
+                From our corporate headquarters in Montreal (Canada) and regional operations in Boston (USA), London (UK), Mumbai (India), Faridabad (India), Chennai (India), Bogotá (Colombia), and Warsaw (Poland), AstraClinical conducts clinical research in North America, Latin America, Europe, the Middle East, and Asia-Pacific.
+              </p>
+              <div class="slide-bullets">
+                <span>&bull; Established agreements with top-tier hospital sites and academic medical centers</span>
+                <span>&bull; Advanced risk-based monitoring (RBM) and decentralized clinical trial methodologies</span>
+                <span>&bull; Seamless multi-national ethics committee and health authority clearances</span>
+              </div>
+              <div class="slide-action">
+                <a href="#global" class="btn btn-jss-outline">Explore Regional Hubs &rarr;</a>
+              </div>
+            </div>
+
+            <div class="slide-pane" id="slide-regional" style="display: none;">
+              <div class="slide-badge">MARKET PENETRATION &amp; DIVERSITY</div>
+              <h3>Emerging Markets Access &amp; Established Global Hubs</h3>
+              <p>
+                Our strategic expansion into India, Colombia, and Eastern Europe enables biopharma clients to access vast, diverse patient populations with rapid recruitment velocity, while maintaining strict compliance with US FDA, EMA, Health Canada, and local health authorities.
+              </p>
+              <div class="slide-bullets">
+                <span>&bull; Access to key opinion leaders (KOLs) and high-volume investigator sites</span>
+                <span>&bull; Multi-lingual clinical research associates (CRAs) with in-depth local knowledge</span>
+                <span>&bull; 30% to 50% cost optimization without compromising data integrity</span>
+              </div>
+              <div class="slide-action">
+                <a href="#services" class="btn btn-jss-outline">View Clinical Trial Services &rarr;</a>
+              </div>
+            </div>
+
+            <div class="slide-pane" id="slide-people" style="display: none;">
+              <div class="slide-badge">SCIENTIFIC &amp; OPERATIONAL BENCH</div>
+              <h3>Critical Mass of Highly Trained Professionals</h3>
+              <p>
+                Our success depends on our people. Our team brings together senior physicians, board-certified medical monitors, doctoral-level biostatisticians, certified regulatory affairs specialists, and seasoned project managers across four continents.
+              </p>
+              <div class="slide-bullets">
+                <span>&bull; Dedicated project teams assigned throughout the complete study lifecycle</span>
+                <span>&bull; 24/7 Medical Monitoring and Pharmacovigilance safety oversight</span>
+                <span>&bull; Customer-centric culture providing agile responses to regulatory amendments</span>
+              </div>
+              <div class="slide-action">
+                <a href="#about" class="btn btn-jss-outline">Learn About Our Leadership &rarr;</a>
+              </div>
+            </div>
+
+            <div class="slide-pane" id="slide-clients" style="display: none;">
+              <div class="slide-badge">TAILORED PARTNERSHIP MODELS</div>
+              <h3>Nimble Enough to Care, Large Enough to Deliver</h3>
+              <p>
+                As an international mid-tier niche CRO, we work with global pharmaceutical giants, emerging biotechnology companies, and innovative medical device and nutraceutical sponsors. Biotechnology companies rely on our agile, consultative approach, while large pharma leverages our niche post-marketing surveillance and pharmacovigilance services.
+              </p>
+              <div class="slide-bullets">
+                <span>&bull; Early Phase I–II First-in-Human &amp; Proof-of-Concept execution</span>
+                <span>&bull; Large-scale multinational Phase III registrational studies</span>
+                <span>&bull; Post-marketing Phase IV, Real-World Evidence (RWE), and PASS/PAES studies</span>
+              </div>
+              <div class="slide-action">
+                <button class="btn btn-jss-orange" onclick="openRfpModal()">Partner with Us Today &rarr;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATS COUNTER BAR (Direct from JSS / Clinexel benchmarks) -->
+        <div class="hero-stats-banner">
+          <div class="h-stat-item">
+            <span class="stat-number">500,000+</span>
+            <span class="stat-desc">Patients Enrolled Worldwide</span>
+          </div>
+          <div class="h-stat-item">
+            <span class="stat-number">8,500+</span>
+            <span class="stat-desc">Investigator Hospital Sites</span>
+          </div>
+          <div class="h-stat-item">
+            <span class="stat-number">28+</span>
+            <span class="stat-desc">Countries with Active Trials</span>
+          </div>
+          <div class="h-stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-desc">Inspection Success (Zero 483s)</span>
+          </div>
+        </div>
+
+        <!-- REAL CLINICAL LAB PHOTOGRAPHY SHOWCASE -->
+        <div class="photo-banner-card">
+          <img src="../assets/images/clinical-lab.jpg" alt="AstraClinical Central Clinical Research Laboratory" class="photo-banner-img">
+          <div class="photo-badge-overlay">
+            <h4>Audited GLP &amp; GCP Clinical Research Facilities</h4>
+            <p>State-of-the-art bioanalytical laboratories and automated clinical trial monitoring across 28 international territories.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FULL SERVICES SECTION (JSS & Clinexel Synthesis) -->
+    <section class="jss-services-section" id="services">
+      <div class="site-container">
+        <div class="section-title-wrap text-center">
+          <span class="eyebrow-jss">COMPREHENSIVE CRO SERVICES</span>
+          <h2 class="main-title">End-to-End Clinical Development Solutions</h2>
+          <p class="subtitle-jss">
+            From early-phase protocol design to post-marketing safety, we cover all scientific and operational aspects of clinical research.
+          </p>
+        </div>
+
+        <div class="services-grid-jss">
+          <!-- SERVICE 1 -->
+          <article class="service-box-jss">
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="6.5" y1="16" x2="17.5" y2="16"/></svg></div>
+            <span class="s-phase-tag">PHASE I TO IV</span>
+            <h3>Clinical Operations &amp; Site Management</h3>
+            <p>
+              Full-service management of early and late-phase trials. Rapid site feasibility, patient recruitment campaigns, investigator management, and remote &amp; risk-based monitoring (RBM) aligned with ICH-GCP.
+            </p>
+            <ul class="s-checklist">
+              <li>Comprehensive site identification &amp; startup</li>
+              <li>Decentralized &amp; Hybrid clinical trials (DCT)</li>
+              <li>High-velocity patient retention strategies</li>
+            </ul>
+            <a href="#contact" class="s-more-link">Consult Operations &rarr;</a>
+          </article>
+
+          <!-- SERVICE 2 -->
+          <article class="service-box-jss">
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="s-phase-tag">24/7/365 SAFETY</span>
+            <h3>Pharmacovigilance &amp; Drug Safety</h3>
+            <p>
+              End-to-end drug safety services for clinical trials and post-marketing. 24/7 medical triage, ICSR processing, aggregate reporting (PSUR/PBRER/DSUR), signal detection, and Qualified Person (QPPV) coverage.
+            </p>
+            <ul class="s-checklist">
+              <li>E2B(R3) compliant safety database hosting</li>
+              <li>Risk Management Plans (RMP) &amp; REMS authoring</li>
+              <li>Expedited reporting to US FDA, EMA &amp; local agencies</li>
+            </ul>
+            <a href="#contact" class="s-more-link">Inspect PV Systems &rarr;</a>
+          </article>
+
+          <!-- SERVICE 3 -->
+          <article class="service-box-jss">
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <span class="s-phase-tag">GLOBAL SUBMISSIONS</span>
+            <h3>Regulatory Affairs &amp; Strategic Filings</h3>
+            <p>
+              Comprehensive regulatory authoring and submission management. Navigating IND, NDA, BLA, MAA, and clinical trial authorizations (CTA/CTIS) with health authorities in North America, Europe, and Asia.
+            </p>
+            <ul class="s-checklist">
+              <li>Pre-IND briefings &amp; Scientific Advice meetings</li>
+              <li>eCTD publishing &amp; lifecycle dossier submissions</li>
+              <li>In-country authorized representative sponsorship</li>
+            </ul>
+            <a href="#contact" class="s-more-link">Review Regulatory Pathways &rarr;</a>
+          </article>
+
+          <!-- SERVICE 4 -->
+          <article class="service-box-jss">
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <span class="s-phase-tag">SCIENTIFIC WRITING</span>
+            <h3>Medical Writing &amp; Scientific Dossiers</h3>
+            <p>
+              Authored by PhD and MD medical writers with specialized disease expertise. Clear, scientifically robust, and audit-ready documentation compliant with ICH E3, E6, and ICMJE guidelines.
+            </p>
+            <ul class="s-checklist">
+              <li>Clinical Study Protocols &amp; Investigator Brochures</li>
+              <li>ICH E3 compliant Clinical Study Reports (CSR)</li>
+              <li>Clinical Evaluation Reports (CER) for Medical Devices</li>
+            </ul>
+            <a href="#contact" class="s-more-link">Request Protocol Writing &rarr;</a>
+          </article>
+
+          <!-- SERVICE 5 -->
+          <article class="service-box-jss">
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <span class="s-phase-tag">CDISC GOLD STANDARD</span>
+            <h3>Biostatistics &amp; Clinical Data Management</h3>
+            <p>
+              Statistical programming in SAS and R. Production of CDISC SDTM and ADaM dataset packages, electronic data capture (EDC) setup, MedDRA/WHO-DD medical coding, and validated statistical analysis plans (SAP).
+            </p>
+            <ul class="s-checklist">
+              <li>21 CFR Part 11 compliant EDC &amp; eCRF builds</li>
+              <li>Database lock within 15 business days</li>
+              <li>Interim futility and DSMB statistical support</li>
+            </ul>
+            <a href="#contact" class="s-more-link">Explore Data Solutions &rarr;</a>
+          </article>
+
+          <!-- SERVICE 6 -->
+          <article class="service-box-jss">
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3h15M12 3v18M8 21h8"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <span class="s-phase-tag">EU MDR &amp; FDA 510(K)</span>
+            <h3>Medical Devices &amp; Real-World Evidence (RWE)</h3>
+            <p>
+              Dedicated clinical evaluations for Class I, II, and III medical devices under EU MDR 2017/745 and ISO 14155, along with longitudinal patient registries and Post-Authorization Safety Studies (PASS).
+            </p>
+            <ul class="s-checklist">
+              <li>Post-Market Clinical Follow-up (PMCF) registries</li>
+              <li>Health Economics &amp; Outcomes Research (HEOR)</li>
+              <li>Comparative effectiveness research dossiers</li>
+            </ul>
+            <a href="#contact" class="s-more-link">Consult Device Specialists &rarr;</a>
+          </article>
+        </div>
+      </div>
+    
+        <div class="featured-media-split" style="margin-top: 3.5rem;">
+          <div>
+            <span class="eyebrow-jss">PATIENT-CENTRIC LEADERSHIP</span>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Bridging Breakthrough Science with Compassionate Care</h3>
+            <p style="line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+              With over 500,000 enrolled subjects across 8,500 investigator hospital networks, our trial teams prioritize ethical retention, diverse cohort enrollment, and seamless patient experience.
+            </p>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn btn-jss-orange" onclick="openRfpModal()">Request Feasibility Study &rarr;</button>
+              <a href="about.html" class="btn btn-jss-outline">Explore Our History</a>
+            </div>
+          </div>
+          <div class="split-photo-frame">
+            <img src="../assets/images/doctor-consultation.jpg" alt="Clinical Investigator Patient Consultation">
+          </div>
+        </div>
+</section>
+
+    <!-- 1. CLINICAL TRIAL PHASE LIFECYCLE NAVIGATOR -->
+    <section class="phase-section" id="phases">
+      <div class="site-container">
+        <div class="section-header-centered">
+          <span class="eyebrow-accent">CLINICAL DEVELOPMENT SPECTRUM</span>
+          <h2 class="section-title">End-to-End Trial Execution Across Every Phase</h2>
+          <p class="section-subtitle">
+            From First-in-Human dose escalation to multinational pivotal registrational trials, AstraClinical combines regulatory agility with investigator site reach.
+          </p>
+        </div>
+
+        <!-- PHASE SELECTOR TABS -->
+        <div class="phase-tabs-wrap" role="tablist">
+          <button class="phase-tab-btn active" onclick="switchPhase('phase1', this)" role="tab">
+            <span class="phase-num-tag">PHASE 01</span>
+            <span class="phase-tab-title">Phase I: FIH &amp; PK/PD</span>
+            <span class="phase-tab-sub">Bioavailability &amp; Dose Finding</span>
+          </button>
+          <button class="phase-tab-btn" onclick="switchPhase('phase2', this)" role="tab">
+            <span class="phase-num-tag">PHASE 02</span>
+            <span class="phase-tab-title">Phase II: Proof of Concept</span>
+            <span class="phase-tab-sub">Efficacy &amp; Biomarker Signal</span>
+          </button>
+          <button class="phase-tab-btn" onclick="switchPhase('phase3', this)" role="tab">
+            <span class="phase-num-tag">PHASE 03</span>
+            <span class="phase-tab-title">Phase III: Global Pivotal</span>
+            <span class="phase-tab-sub">Multicenter Registrational</span>
+          </button>
+          <button class="phase-tab-btn" onclick="switchPhase('phase4', this)" role="tab">
+            <span class="phase-num-tag">PHASE 04</span>
+            <span class="phase-tab-title">Phase IV &amp; Real-World</span>
+            <span class="phase-tab-sub">PASS, Registries &amp; HEOR</span>
+          </button>
+        </div>
+
+        <!-- PHASE 1 PANEL -->
+        <div class="phase-pane-card active" id="phase-pane-phase1">
+          <div class="phase-grid">
+            <div class="phase-overview">
+              <span class="eyebrow-accent" style="margin-bottom: 0.5rem;">EARLY PHASE CLINICAL EXCELLENCE</span>
+              <h3>Phase I First-in-Human (FIH) &amp; Translational Pharmacology</h3>
+              <p>
+                Early-stage drug development demands flawless volunteer safety monitoring, precise pharmacokinetic sampling, and rapid bioanalytical quantification. Our dedicated Phase I medical directors design adaptive dose-escalation protocols (3+3, Bayesian CRM) that deliver actionable PK/PD data safely and rapidly.
+              </p>
+              <div class="phase-highlights-list">
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Single &amp; Multiple Ascending Dose (SAD/MAD) safety governance with 24/7 telemetry</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Validated LC-MS/MS bioanalytical assays for rapid analyte quantification</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Direct submission to FDA, EMA, and Health Canada with accelerated 30-day clearance</span>
+                </div>
+              </div>
+              <button class="btn btn-jss-orange" onclick="openRfpModal()">Inquire Phase I Study &rarr;</button>
+            </div>
+            <div class="phase-metrics-box">
+              <h4>Phase I Execution Benchmarks</h4>
+              <div class="phase-metric-grid">
+                <div class="phase-m-item">
+                  <div class="m-value">6-8 Wks</div>
+                  <div class="m-label">Ethics &amp; Health Authority Approval Speed</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">100%</div>
+                  <div class="m-label">First-in-Human Safety Compliance Record</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">48 Hrs</div>
+                  <div class="m-label">Interim PK Blood Analysis Turnaround</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">&gt;12,000</div>
+                  <div class="m-label">Screened Healthy Volunteers in Verified Registry</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHASE 2 PANEL -->
+        <div class="phase-pane-card" id="phase-pane-phase2">
+          <div class="phase-grid">
+            <div class="phase-overview">
+              <span class="eyebrow-accent" style="margin-bottom: 0.5rem;">PROOF-OF-CONCEPT &amp; EFFICACY</span>
+              <h3>Phase II Dose Exploration &amp; Surrogate Endpoint Validation</h3>
+              <p>
+                Phase II studies are the crucible of biopharma development. We deploy targeted patient recruitment algorithms, specialized site networks in Oncology, CNS, and Rare Diseases, and interim adaptive analysis models to confirm clinical signals while protecting sponsor capital.
+              </p>
+              <div class="phase-highlights-list">
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Specialized investigator networks with verified diagnostic imaging &amp; pathology</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Adaptive group sequential and response-adaptive randomization protocols</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Decentralized ePRO/eCOA modules supporting localized patient convenience</span>
+                </div>
+              </div>
+              <button class="btn btn-jss-orange" onclick="openRfpModal()">Inquire Phase II Study &rarr;</button>
+            </div>
+            <div class="phase-metrics-box">
+              <h4>Phase II Performance Benchmarks</h4>
+              <div class="phase-metric-grid">
+                <div class="phase-m-item">
+                  <div class="m-value">10-12 Wks</div>
+                  <div class="m-label">Full Multi-Site Activation Velocity</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">96.4%</div>
+                  <div class="m-label">Target Patient Retention Across Disease Indication</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">15 Days</div>
+                  <div class="m-label">Clean Database Lock from Last Patient Out</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">350+</div>
+                  <div class="m-label">Phase II Trials Successfully Completed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHASE 3 PANEL -->
+        <div class="phase-pane-card" id="phase-pane-phase3">
+          <div class="phase-grid">
+            <div class="phase-overview">
+              <span class="eyebrow-accent" style="margin-bottom: 0.5rem;">GLOBAL REGISTRATIONAL STUDIES</span>
+              <h3>Phase III Multinational Pivotal Trials with Scale &amp; Speed</h3>
+              <p>
+                Large-scale confirmatory trials require robust global logistics, harmonized multi-country regulatory clearances, and vigilant risk-based monitoring. AstraClinical coordinates multicenter trials across 28+ countries with high recruitment volume and pristine audit records.
+              </p>
+              <div class="phase-highlights-list">
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>8,500+ pre-qualified hospital sites with established master clinical trial agreements (MCTA)</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Centralized 24/7 Medical Monitoring and independent DSMB / Endpoint Adjudication</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Complete CDISC SDTM/ADaM package ready for direct FDA/EMA NDA submissions</span>
+                </div>
+              </div>
+              <button class="btn btn-jss-orange" onclick="openRfpModal()">Inquire Phase III Study &rarr;</button>
+            </div>
+            <div class="phase-metrics-box">
+              <h4>Phase III Performance Benchmarks</h4>
+              <div class="phase-metric-grid">
+                <div class="phase-m-item">
+                  <div class="m-value">28+</div>
+                  <div class="m-label">Countries Integrated into Active Study Footprint</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">114%</div>
+                  <div class="m-label">Average Patient Enrollment Target Realization</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">Zero 483s</div>
+                  <div class="m-label">Perfect Regulatory Inspection Track Record</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">500k+</div>
+                  <div class="m-label">Total Patients Managed in Registrational Cohorts</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHASE 4 PANEL -->
+        <div class="phase-pane-card" id="phase-pane-phase4">
+          <div class="phase-grid">
+            <div class="phase-overview">
+              <span class="eyebrow-accent" style="margin-bottom: 0.5rem;">POST-MARKETING &amp; RWE</span>
+              <h3>Phase IV, Real-World Evidence &amp; Post-Authorization Safety</h3>
+              <p>
+                Demonstrating real-world effectiveness, expanding market access, and fulfilling post-authorization commitments (PASS/PAES) require deep epidemiological insight. AstraClinical leverages electronic health record (EHR) registries, patient-reported outcomes, and long-term pharmacovigilance.
+              </p>
+              <div class="phase-highlights-list">
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Longitudinal disease registries and Post-Market Clinical Follow-up (PMCF) under EU MDR</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>Health Economics &amp; Outcomes Research (HEOR) for payer reimbursement dossiers</span>
+                </div>
+                <div class="phase-highlight-item">
+                  <span class="phase-check-icon">&#10003;</span>
+                  <span>24/7 spontaneous reporting ingestion with automated signal detection</span>
+                </div>
+              </div>
+              <button class="btn btn-jss-orange" onclick="openRfpModal()">Inquire Phase IV Study &rarr;</button>
+            </div>
+            <div class="phase-metrics-box">
+              <h4>Phase IV Performance Benchmarks</h4>
+              <div class="phase-metric-grid">
+                <div class="phase-m-item">
+                  <div class="m-value">&gt;120k</div>
+                  <div class="m-label">Annual Safety Reports Processed with 99.8% On-Time Rate</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">98.9%</div>
+                  <div class="m-label">Registry Patient Follow-up Completion Rate</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">40+</div>
+                  <div class="m-label">Active PASS/PAES Registries Across North America &amp; EU</div>
+                </div>
+                <div class="phase-m-item">
+                  <div class="m-value">ISO 9001</div>
+                  <div class="m-label">Certified Global Data Quality Management Systems</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. SPONSOR CASE STUDIES & PROVEN RESULTS -->
+    <section class="case-studies-section" id="case-studies">
+      <div class="site-container">
+        <div class="section-header-centered">
+          <span class="eyebrow-accent">DEMONSTRATED RESULTS</span>
+          <h2 class="section-title">Case Studies in Clinical Execution</h2>
+          <p class="section-subtitle">
+            How AstraClinical helped biopharmaceutical and medical device sponsors overcome recruitment bottlenecks, regulatory hurdles, and compressed timelines.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <!-- CASE 1 -->
+          <article class="case-card">
+            <span class="case-metric-pill">+114% Target Enrollment</span>
+            <span class="case-indication">Oncology • Phase III Global Trial</span>
+            <h3 class="case-title">Pivotal Non-Small Cell Lung Cancer Multi-Regional Study</h3>
+            <p class="case-body">
+              A US biotech faced severe enrollment stagnation in North America due to competing trials. AstraClinical activated 42 additional vetted hospital sites across Eastern Europe and India within 9 weeks, completing full enrollment 3 months ahead of corporate milestones.
+            </p>
+            <div class="case-stats-row">
+              <span>Timeline: <strong>-3 Months</strong></span>
+              <span>Sites: <strong>68 Total</strong></span>
+              <span>Data Cleanliness: <strong>99.6%</strong></span>
+            </div>
+          </article>
+
+          <!-- CASE 2 -->
+          <article class="case-card">
+            <span class="case-metric-pill">6 Weeks IND Clearance</span>
+            <span class="case-indication">Rare Disease • Phase II PoC</span>
+            <h3 class="case-title">Expedited Orphan Drug Authorization for Pediatric Neurodegenerative Indication</h3>
+            <p class="case-body">
+              Sponsor needed synchronized submissions across FDA, EMA, and Health Canada for an ultra-rare pediatric formulation. Our regulatory team drafted complete eCTD Modules 1-5, secured orphan drug designation (ODD), and obtained ethical approvals with zero clinical holds.
+            </p>
+            <div class="case-stats-row">
+              <span>Regulatory Speed: <strong>6 Weeks</strong></span>
+              <span>Agency Holds: <strong>Zero</strong></span>
+              <span>Retention: <strong>100%</strong></span>
+            </div>
+          </article>
+
+          <!-- CASE 3 -->
+          <article class="case-card">
+            <span class="case-metric-pill">99.8% On-Time Submission</span>
+            <span class="case-indication">Pharmacovigilance • Global Outsourcing</span>
+            <h3 class="case-title">Enterprise Safety &amp; ICSR Processing for Commercialized Biologic Portfolio</h3>
+            <p class="case-body">
+              Mid-sized commercial pharma needed to outsource post-marketing safety oversight for 14 licensed oncology therapeutics. AstraClinical deployed a 24/7 multi-lingual intake and automated signal detection pipeline processing 45,000 cases annually without a single late filing.
+            </p>
+            <div class="case-stats-row">
+              <span>Annual Cases: <strong>45,000+</strong></span>
+              <span>Audit Result: <strong>Clean Pass</strong></span>
+              <span>Cost Savings: <strong>38%</strong></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL NETWORK & INTERACTIVE MAP SECTION (Directly from JSS & Clinexel) -->
+    <section class="jss-global-section" id="global">
+      <div class="site-container">
+        <div class="section-title-wrap text-center">
+          <span class="eyebrow-jss">INTERNATIONAL REACH</span>
+          <h2 class="main-title">Strategic Regional Hubs &amp; Clinical Operations</h2>
+          <p class="subtitle-jss">
+            Coordinated global trials with seamless local execution across the Americas, Europe, and Asia.
+          </p>
+        </div>
+
+        <div class="global-hubs-grid">
+          <!-- HUB 1: MONTREAL HQ -->
+          <div class="hub-card">
+            <div class="hub-header">
+              <span class="reg-pill orange">CA HQ</span>
+              <div>
+                <h4>Montreal, Canada</h4>
+                <span class="hub-role">Corporate Global Headquarters</span>
+              </div>
+            </div>
+            <p>Clinical study oversight, medical writing, international biostatistics center, and North American sponsor relations.</p>
+            <div class="hub-specs">
+              <span><strong>Phone:</strong> +1 (514) 934-0805</span>
+              <span><strong>Sites Managed:</strong> 3,200+ Hospitals</span>
+            </div>
+          </div>
+
+          <!-- HUB 2: BOSTON USA -->
+          <div class="hub-card">
+            <div class="hub-header">
+              <span class="reg-pill orange">USA</span>
+              <div>
+                <h4>Boston &amp; California, USA</h4>
+                <span class="hub-role">FDA Regulatory &amp; Biotech Center</span>
+              </div>
+            </div>
+            <p>Pre-IND submissions, FDA agency liaison, and US academic oncology &amp; rare disease clinical site networks.</p>
+            <div class="hub-specs">
+              <span><strong>Phone:</strong> +1 (617) 849-9319</span>
+              <span><strong>FDA Track Record:</strong> 100% First-Pass</span>
+            </div>
+          </div>
+
+          <!-- HUB 3: INDIA HUBS -->
+          <div class="hub-card">
+            <div class="hub-header">
+              <span class="reg-pill orange">INDIA</span>
+              <div>
+                <h4>Mumbai &amp; Faridabad, India</h4>
+                <span class="hub-role">High-Volume Operational Hub</span>
+              </div>
+            </div>
+            <p>Rapid clinical trial execution, centralized pharmacovigilance safety triage, and CDISC statistical programming.</p>
+            <div class="hub-specs">
+              <span><strong>Phone:</strong> +91 7738804988</span>
+              <span><strong>Recruitment Velocity:</strong> 2.4x Industry Benchmark</span>
+            </div>
+          </div>
+
+          <!-- HUB 4: BOGOTA & LATAM -->
+          <div class="hub-card">
+            <div class="hub-header">
+              <span class="reg-pill orange">LATAM</span>
+              <div>
+                <h4>Bogotá, Colombia</h4>
+                <span class="hub-role">Latin America Regional Center</span>
+              </div>
+            </div>
+            <p>Access to major hospital institutions across Colombia, Mexico, Argentina, and Brazil with high patient retention.</p>
+            <div class="hub-specs">
+              <span><strong>Coverage:</strong> INVIMA &amp; ANVISA Regulatory</span>
+              <span><strong>Retention Rate:</strong> 96.8% Average</span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="photo-banner-card" style="margin-top: 3rem;">
+          <img src="../assets/images/clinical-team.jpg" alt="Global Clinical Monitoring Directorate" class="photo-banner-img" style="height: 320px;">
+          <div class="photo-badge-overlay">
+            <h4>Global Clinical Operations &amp; Medical Affairs Directorate</h4>
+            <p>Over 1,200+ clinical scientists, MD investigators, and regulatory liaisons collaborating across 6 corporate hubs.</p>
+          </div>
+        </div>
+</div>
+    </section>
+
+    <!-- THERAPEUTIC EXPERTISE SECTION -->
+    <section class="jss-therapeutic-section" id="therapeutic">
+      <div class="site-container">
+        <div class="section-title-wrap text-center">
+          <span class="eyebrow-jss">DISEASE FOCUS</span>
+          <h2 class="main-title">Therapeutic Areas of Distinction</h2>
+          <p class="subtitle-jss">
+            Experienced medical directors and specialized investigative sites dedicated to your indication.
+          </p>
+        </div>
+
+        <div class="ta-badge-grid">
+          <div class="ta-item">
+            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></span>
+            <h4>Oncology &amp; Hematology</h4>
+            <p>Solid tumors, CAR-T, immuno-oncology, and biomarker-driven clinical protocols.</p>
+          </div>
+          <div class="ta-item">
+            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z"/></svg></span>
+            <h4>CNS &amp; Neurology</h4>
+            <p>Alzheimer's, Parkinson's, ALS, Epilepsy, and Neuro-psychiatric trials.</p>
+          </div>
+          <div class="ta-item">
+            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <h4>Immunology &amp; Inflammation</h4>
+            <p>Rheumatoid arthritis, Lupus, IBD (Crohn's/Colitis), and Psoriasis studies.</p>
+          </div>
+          <div class="ta-item">
+            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/></svg></span>
+            <h4>Rare &amp; Orphan Indications</h4>
+            <p>Pediatric and adult orphan designations with specialized decentralized logistics.</p>
+          </div>
+          <div class="ta-item">
+            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><polyline points="12 5 9 14 15 14 12 21"/></svg></span>
+            <h4>Orthopedics &amp; Surgery</h4>
+            <p>Surgical implants, regenerative orthobiologics, and musculoskeletal devices.</p>
+          </div>
+          <div class="ta-item">
+            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="9" x2="12" y2="3"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="9" y1="12" x2="3" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg></span>
+            <h4>Infectious Diseases &amp; Vaccines</h4>
+            <p>Rapid surge enrollment, respiratory vaccines, and antimicrobial therapeutics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR CLIENTS & PARTNERSHIP SECTION -->
+    <section class="jss-clients-section" id="clients">
+      <div class="site-container">
+        <div class="clients-card-jss">
+          <div class="clients-left">
+            <span class="eyebrow-jss">WHO WE SERVE</span>
+            <h2>Tailored Clinical Partnerships for Every Sponsor Scale</h2>
+            <p>
+              Whether you are an emerging biotechnology firm conducting a critical First-in-Human trial, or a global pharmaceutical enterprise requiring turnkey pharmacovigilance across 20 markets, our agile structure adapts directly to your operating rhythm.
+            </p>
+            <div class="sponsor-types">
+              <div class="st-box">
+                <strong>Biotechnology Innovators</strong>
+                <p>Knowledgeable project teams, flexible approaches, and dedicated C-suite attention.</p>
+              </div>
+              <div class="st-box">
+                <strong>Global Pharmaceutical</strong>
+                <p>Niche post-marketing services, multi-country site networks, and inspection readiness.</p>
+              </div>
+              <div class="st-box">
+                <strong>Medical Device Companies</strong>
+                <p>EU MDR and FDA 510(k)/PMA clinical investigations with full ISO 14155 adherence.</p>
+              </div>
+            </div>
+          </div>
+          <div class="clients-right">
+            <div class="quote-callout">
+              <span class="quote-mark">&ldquo;</span>
+              <blockquote>
+                AstraClinical delivered our Phase II oncology trial 4 months ahead of schedule with 99.4% data completeness. Their responsiveness and regulatory insights made all the difference.
+              </blockquote>
+              <div class="quote-author">
+                <strong>Chief Medical Officer</strong>
+                <span>Clinical-Stage US Oncology Sponsor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US & COMPLIANCE BADGES -->
+    <section class="jss-about-section" id="about">
+      <div class="site-container">
+        <div class="section-title-wrap text-center">
+          <span class="eyebrow-jss">QUALITY &amp; COMPLIANCE</span>
+          <h2 class="main-title">Rigorous Standards, Certified Quality</h2>
+          <p class="subtitle-jss">
+            Fully audited and compliant with worldwide healthcare agency mandates.
+          </p>
+        </div>
+
+        <div class="compliance-row">
+          <div class="c-badge-jss">
+            <strong>US FDA</strong>
+            <span>21 CFR Part 11 Validated</span>
+          </div>
+          <div class="c-badge-jss">
+            <strong>ICH-GCP</strong>
+            <span>E6(R2/R3) Standard of Care</span>
+          </div>
+          <div class="c-badge-jss">
+            <strong>EMA &amp; MHRA</strong>
+            <span>European Directives</span>
+          </div>
+          <div class="c-badge-jss">
+            <strong>CDISC</strong>
+            <span>SDTM &amp; ADaM Platinum</span>
+          </div>
+          <div class="c-badge-jss">
+            <strong>ISO 9001:2015</strong>
+            <span>Quality Management</span>
+          </div>
+          <div class="c-badge-jss">
+            <strong>HIPAA &amp; GDPR</strong>
+            <span>Data Privacy Guard</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. STUDY FEASIBILITY & TIMELINE ESTIMATOR -->
+    <section class="estimator-section" id="feasibility-calculator">
+      <div class="site-container">
+        <div class="section-header-centered">
+          <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.2); color: #ffa07a;">INSTANT PROTOCOL ESTIMATOR</span>
+          <h2 class="section-title" style="color: #ffffff;">Calculate Your Study Feasibility &amp; Timelines</h2>
+          <p class="section-subtitle" style="color: #cbd5e1;">
+            Select your trial phase and therapeutic focus to generate preliminary site startup intervals, site network projections, and database lock targets.
+          </p>
+        </div>
+
+        <div class="estimator-card">
+          <div class="estimator-grid">
+            <div class="calc-controls">
+              <div class="calc-field-group">
+                <label for="calc-phase">Clinical Trial Phase</label>
+                <select id="calc-phase">
+                  <option value="Phase I">Phase I (First-in-Human / PK-PD)</option>
+                  <option value="Phase II" selected>Phase II (Proof-of-Concept / Dose Finding)</option>
+                  <option value="Phase III">Phase III (Pivotal Global Confirmatory)</option>
+                  <option value="Phase IV">Phase IV / Post-Marketing / RWE</option>
+                </select>
+              </div>
+
+              <div class="calc-field-group">
+                <label for="calc-ta">Primary Therapeutic Area</label>
+                <select id="calc-ta">
+                  <option value="Oncology" selected>Oncology &amp; Hematology</option>
+                  <option value="Rare Disease">Rare &amp; Orphan Disease</option>
+                  <option value="Neurology">Neurology &amp; CNS</option>
+                  <option value="Immunology">Immunology &amp; Inflammation</option>
+                  <option value="Cardiovascular">Cardiovascular &amp; Metabolic</option>
+                </select>
+              </div>
+
+              <div class="calc-field-group">
+                <label for="calc-patients">Projected Patient Target Cohort</label>
+                <input type="number" id="calc-patients" value="150" min="10" max="10000" step="10">
+              </div>
+            </div>
+
+            <div class="calc-results-panel">
+              <h4>
+                <span>Feasibility Projection</span>
+                <span style="font-size: 0.75rem; color: var(--jss-orange); font-weight: 800;">ALIGNED WITH ICH-GCP</span>
+              </h4>
+
+              <div class="calc-metric-row">
+                <span>Site Initiation &amp; Startup:</span>
+                <span class="calc-val-highlight" id="est-startup">12 - 14 Weeks</span>
+              </div>
+
+              <div class="calc-metric-row">
+                <span>Recommended Hospital Sites:</span>
+                <span class="calc-val-highlight" id="est-sites">15 - 19 Sites (Multi-Region)</span>
+              </div>
+
+              <div class="calc-metric-row">
+                <span>Clean Database Lock Speed:</span>
+                <span class="calc-val-highlight" id="est-datalock">4 Weeks Post LPO</span>
+              </div>
+
+              <div class="calc-metric-row">
+                <span>AstraClinical Feasibility Index:</span>
+                <span class="calc-val-highlight" id="est-confidence">98.4%</span>
+              </div>
+
+              <div style="margin-top: 0.5rem; text-align: center;">
+                <button class="btn btn-jss-orange" style="width: 100%;" onclick="openRfpModal()">
+                  Request Full Feasibility Dossier &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BLOGS & CLINICAL RESEARCH INSIGHTS SECTION -->
+    <section class="blogs-section" id="blogs">
+      <div class="site-container">
+        <div class="section-header-centered">
+          <span class="eyebrow-accent">CLINICAL INSIGHTS &amp; WHITEPAPERS</span>
+          <h2 class="section-title">Latest Perspectives in Clinical Research</h2>
+          <p class="section-subtitle">
+            Expert analyses on decentralized trials, global regulatory harmonization, AI in pharmacovigilance, and advanced biostatistics.
+          </p>
+        </div>
+
+        <!-- CATEGORY FILTER PILLS -->
+        <div class="blog-filter-bar">
+          <button class="blog-filter-btn active" onclick="filterBlogs('all', this)">All Perspectives</button>
+          <button class="blog-filter-btn" onclick="filterBlogs('Clinical Strategy', this)">Clinical Strategy</button>
+          <button class="blog-filter-btn" onclick="filterBlogs('Regulatory Affairs', this)">Regulatory Affairs</button>
+          <button class="blog-filter-btn" onclick="filterBlogs('Pharmacovigilance', this)">Pharmacovigilance</button>
+          <button class="blog-filter-btn" onclick="filterBlogs('Biostatistics', this)">Biostatistics</button>
+        </div>
+
+        <!-- BLOG CARDS GRID -->
+        <div class="blogs-grid">
+          
+          <!-- BLOG CARD 1 -->
+          <article class="blog-card" data-category="Clinical Strategy" onclick="openArticleModal('oncology-dct')">
+            <div class="blog-card-media">
+              <div class="blog-media-pattern"></div>
+              <span class="blog-card-badge">Clinical Strategy</span>
+              <span class="blog-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                6 min read
+              </span>
+              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-meta-date">September 15, 2026</span>
+              <h3 class="blog-card-title">Accelerating Oncology Trials Through Decentralized Architecture &amp; Home Nursing</h3>
+              <p class="blog-card-excerpt">
+                How combining centralized academic hospital monitoring with localized home nursing and mobile health technologies increased patient retention by 34% in complex Phase II/III solid tumor protocols.
+              </p>
+              <div class="blog-author-bar">
+                <div class="blog-author-info">
+                  <div class="blog-author-avatar">SJ</div>
+                  <div>
+                    <div class="blog-author-name">Dr. Sarah Jenkins</div>
+                    <div class="blog-author-title">VP Clinical Operations</div>
+                  </div>
+                </div>
+                <span class="blog-read-btn">Read Article &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- BLOG CARD 2 -->
+          <article class="blog-card" data-category="Regulatory Affairs" onclick="openArticleModal('regulatory-e6r3')">
+            <div class="blog-card-media">
+              <div class="blog-media-pattern"></div>
+              <span class="blog-card-badge">Regulatory Affairs</span>
+              <span class="blog-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                7 min read
+              </span>
+              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-meta-date">September 08, 2026</span>
+              <h3 class="blog-card-title">Navigating ICH E6(R3) Modernization: Risk-Based Quality Management in Global Submissions</h3>
+              <p class="blog-card-excerpt">
+                A critical analysis of the finalized ICH E6(R3) guidelines and practical guidance on implementing governance frameworks that satisfy both US FDA and European EMA inspectors.
+              </p>
+              <div class="blog-author-bar">
+                <div class="blog-author-info">
+                  <div class="blog-author-avatar">MC</div>
+                  <div>
+                    <div class="blog-author-name">Michael Chen, RAC</div>
+                    <div class="blog-author-title">Senior Director Regulatory</div>
+                  </div>
+                </div>
+                <span class="blog-read-btn">Read Article &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- BLOG CARD 3 -->
+          <article class="blog-card" data-category="Pharmacovigilance" onclick="openArticleModal('pv-signal-ai')">
+            <div class="blog-card-media">
+              <div class="blog-media-pattern"></div>
+              <span class="blog-card-badge">Pharmacovigilance</span>
+              <span class="blog-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                5 min read
+              </span>
+              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-meta-date">August 29, 2026</span>
+              <h3 class="blog-card-title">Machine Learning Signal Detection in High-Volume Post-Marketing Pharmacovigilance</h3>
+              <p class="blog-card-excerpt">
+                How AstraClinical implemented automated natural language processing (NLP) to reduce ICSR intake triage latency by 62% while maintaining a 99.8% regulatory on-time filing benchmark.
+              </p>
+              <div class="blog-author-bar">
+                <div class="blog-author-info">
+                  <div class="blog-author-avatar">ER</div>
+                  <div>
+                    <div class="blog-author-name">Dr. Elena Rostova</div>
+                    <div class="blog-author-title">Global Head of Drug Safety</div>
+                  </div>
+                </div>
+                <span class="blog-read-btn">Read Article &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- BLOG CARD 4 -->
+          <article class="blog-card" data-category="Biostatistics" onclick="openArticleModal('adaptive-biostat')">
+            <div class="blog-card-media">
+              <div class="blog-media-pattern"></div>
+              <span class="blog-card-badge">Biostatistics</span>
+              <span class="blog-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                8 min read
+              </span>
+              <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-meta-date">August 14, 2026</span>
+              <h3 class="blog-card-title">Adaptive Clinical Trial Designs: Optimizing Sample Size Re-Estimation &amp; Interim Analyses</h3>
+              <p class="blog-card-excerpt">
+                Examining Bayesian adaptive algorithms and group sequential designs that permit sample size recalculation and early futility stopping without inflating Type I error rates.
+              </p>
+              <div class="blog-author-bar">
+                <div class="blog-author-info">
+                  <div class="blog-author-avatar">RV</div>
+                  <div>
+                    <div class="blog-author-name">Dr. Robert Vance</div>
+                    <div class="blog-author-title">Chief Biostatistician</div>
+                  </div>
+                </div>
+                <span class="blog-read-btn">Read Article &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem;">
+          <a href="blog.html" class="btn btn-jss-outline btn-lg">View All Clinical Whitepapers &amp; Articles &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CRO FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) -->
+    <section class="faq-section" id="faq">
+      <div class="site-container">
+        <div class="section-header-centered">
+          <span class="eyebrow-accent">SPONSOR INQUIRIES</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Essential answers on study start-up speed, investigator site oversight, electronic systems, and rescue trial management.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <!-- FAQ ITEM 1 -->
+          <div class="faq-item active">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>How rapidly can AstraClinical activate clinical investigator sites globally?</span>
+              <div class="faq-chevron">&#9660;</div>
+            </button>
+            <div class="faq-answer">
+              Our average site startup velocity across North America and Western Europe is 10 to 12 weeks from finalized protocol synopsis to First Patient In (FPI). In high-recruiting regional hubs such as Eastern Europe and India, we frequently achieve regulatory approval and site initiation within 7 to 9 weeks due to pre-negotiated Master Clinical Trial Agreements (MCTAs) with over 8,500 qualified hospital institutions.
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>What Electronic Data Capture (EDC) and eClinical platforms do you support?</span>
+              <div class="faq-chevron">&#9660;</div>
+            </button>
+            <div class="faq-answer">
+              We operate fully validated 21 CFR Part 11 compliant environments supporting industry-standard platforms including Medidata Rave, Oracle InForm, Castor, and Veeva Vault CDMS. Our data management team standardizes all eCRF builds directly onto CDISC SDTM structures, accelerating clean database locks to within 15 business days post Last Patient Out (LPO).
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Can AstraClinical rescue an underperforming or stalled trial from another CRO?</span>
+              <div class="faq-chevron">&#9660;</div>
+            </button>
+            <div class="faq-answer">
+              Yes. Over 25% of our historical Phase II and III workload consists of study rescue transitions. Our rapid-response Transition Task Force performs comprehensive regulatory gap analyses, reconciles investigator trial master files (eTMF), stabilizes site relationships, and activates backup patient recruitment sites within 30 days of sponsor handover.
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>How do your pharmacovigilance teams manage expedited regulatory safety reporting?</span>
+              <div class="faq-chevron">&#9660;</div>
+            </button>
+            <div class="faq-answer">
+              Our safety directorate operates 24/7/365 multi-lingual medical triage handling ICSR intake, medical coding (MedDRA), and serious adverse event (SAE) narratives. We maintain direct electronic gateways (E2B-R3) to US FDA FAERS, EMA EudraVigilance, and MHRA, consistently maintaining a 99.8% on-time submission rate for 7-day and 15-day expedited alerts.
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>What is your audit track record with the US FDA and European health authorities?</span>
+              <div class="faq-chevron">&#9660;</div>
+            </button>
+            <div class="faq-answer">
+              AstraClinical maintains an unblemished regulatory inspection track record, with zero FDA Form 483 critical observations and zero European inspection findings across all corporate headquarters and audited investigator sites. We are ISO 9001:2015 certified and offer sponsors unrestricted audit access to our Quality Management System (QMS).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & STUDY INQUIRY SECTION -->
+    <section class="jss-contact-section" id="contact">
+      <div class="site-container">
+        <div class="contact-box-jss">
+          <div class="contact-header text-center">
+            <span class="eyebrow-jss">CONFIDENTIAL STUDY CONSULTATION</span>
+            <h2>Initiate Your Clinical Study RFP</h2>
+            <p>Connect with our Medical Directors and Biostatistical leads for a preliminary feasibility review.</p>
+          </div>
+
+          <form class="jss-form" id="jss-contact-form" onsubmit="handleJssSubmit(event)">
+            <div class="form-row-2">
+              <div class="j-field">
+                <label for="j-name">Full Name *</label>
+                <input type="text" id="j-name" required placeholder="Dr. Sarah Jenkins">
+              </div>
+              <div class="j-field">
+                <label for="j-email">Corporate Work Email *</label>
+                <input type="email" id="j-email" required placeholder="sjenkins@biopharma.com">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="j-field">
+                <label for="j-company">Company / Organization *</label>
+                <input type="text" id="j-company" required placeholder="Apex Therapeutics Inc.">
+              </div>
+              <div class="j-field">
+                <label for="j-phone">Direct Phone *</label>
+                <input type="tel" id="j-phone" required placeholder="+1 (555) 234-5678">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="j-field">
+                <label for="j-phase">Clinical Trial Phase *</label>
+                <select id="j-phase" required>
+                  <option value="Phase I">Phase I (First-in-Human / PK/PD)</option>
+                  <option value="Phase II" selected>Phase II (Proof-of-Concept / Dose Finding)</option>
+                  <option value="Phase III">Phase III (Pivotal Global Confirmatory)</option>
+                  <option value="Phase IV">Phase IV / Post-Marketing Surveillance / RWE</option>
+                  <option value="Medical Device">Medical Device Clinical Evaluation</option>
+                  <option value="PV Outsourcing">Pharmacovigilance Dedicated Outsourcing</option>
+                </select>
+              </div>
+              <div class="j-field">
+                <label for="j-ta">Therapeutic Area *</label>
+                <select id="j-ta" required>
+                  <option value="Oncology">Oncology &amp; Hematology</option>
+                  <option value="Neurology">Neurology &amp; CNS</option>
+                  <option value="Immunology">Immunology &amp; Inflammation</option>
+                  <option value="Rare Disease">Rare &amp; Orphan Indications</option>
+                  <option value="Cardiovascular">Cardiovascular &amp; Metabolic</option>
+                  <option value="Other">Other Indication</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="j-field">
+              <label for="j-synopsis">Study Objectives &amp; Synopsis (Confidential)</label>
+              <textarea id="j-synopsis" rows="3" placeholder="Provide target enrollment size, projected start date, countries of interest, and required services (Clinical Ops, Pharmacovigilance, Biostatistics)..."></textarea>
+            </div>
+
+            <div class="j-checkbox">
+              <input type="checkbox" id="j-nda" checked required>
+              <label for="j-nda">Request mutual non-disclosure agreement (CDA/NDA) executed prior to protocol exchange.</label>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-jss-orange btn-lg" id="j-submit-btn">
+                Submit Formal Study Proposal (RFP) &rarr;
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ASTRACLINICAL FOOTER -->
+  <footer class="jss-footer">
+    <div class="site-container footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research" style="margin-bottom: 1rem;">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary" style="color: #ffffff;">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext" style="color: #94a3b8;">Research &bull; Global CRO</span>
+          </div>
+        </a>
+        <p class="f-about">
+          A globally recognized full-service Clinical Research Organization with over 25 years of international study leadership, high-volume patient recruitment, and comprehensive pharmacovigilance.
+        </p>
+        <p class="f-contact-info">
+          <strong>Corporate HQ:</strong> 4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada<br>
+          <strong>Email:</strong> <a href="mailto:info@astraclinical.com">info@astraclinical.com</a>
+        </p>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Clinical Trial Operations</a></li>
+          <li><a href="services.html">Pharmacovigilance &amp; Safety</a></li>
+          <li><a href="services.html">Regulatory Submissions</a></li>
+          <li><a href="services.html">Medical Writing &amp; CSR</a></li>
+          <li><a href="services.html">Biostatistics &amp; Data Science</a></li>
+          <li><a href="services.html">Medical Devices &amp; CER</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Regional Offices</h4>
+        <ul>
+          <li><a href="global.html">Montreal, Canada (HQ)</a></li>
+          <li><a href="global.html">Boston &amp; California, USA</a></li>
+          <li><a href="global.html">London, United Kingdom</a></li>
+          <li><a href="global.html">Mumbai &amp; Faridabad, India</a></li>
+          <li><a href="global.html">Bogotá, Colombia</a></li>
+          <li><a href="global.html">Warsaw, Poland</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Quick Access</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="global.html">Global Presence</a></li>
+          <li><a href="blog.html">Insights &amp; Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="site-container legal-flex">
+        <p>&copy; 2026 AstraClinical Research Global Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
+        <div class="legal-menu">
+          <a href="#">Privacy Statement</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">GCP Statement</a>
+          <a href="#">Whistleblower Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL RFP POPUP -->
+  <div class="modal-backdrop" id="rfp-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeRfpModal()">&times;</button>
+      <span class="eyebrow-jss">STUDY INQUIRY</span>
+      <h3>Request Clinical Trial Proposal</h3>
+      <p>Submit your protocol criteria. Our Medical Directors will reply within 24 business hours.</p>
+      
+      <form onsubmit="handleModalSubmit(event)">
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Name *</label>
+            <input type="text" required placeholder="Dr. Jane Doe">
+          </div>
+          <div class="j-field">
+            <label>Corporate Email *</label>
+            <input type="email" required placeholder="jdoe@sponsor.com">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Trial Phase *</label>
+            <select required>
+              <option>Phase I (FIH / PK-PD)</option>
+              <option selected>Phase II (Proof-of-Concept)</option>
+              <option>Phase III (Pivotal Global)</option>
+              <option>Phase IV / RWE / PASS</option>
+            </select>
+          </div>
+          <div class="j-field">
+            <label>Therapeutic Focus *</label>
+            <select required>
+              <option>Oncology</option>
+              <option>Immunology</option>
+              <option>Neurology</option>
+              <option>Rare Disease</option>
+              <option>Cardiovascular</option>
+            </select>
+          </div>
+        </div>
+        <div class="j-field">
+          <label>Brief Protocol Description</label>
+          <textarea rows="3" placeholder="Target sample size, timeline, and countries..."></textarea>
+        </div>
+        <div style="margin-top: 1.25rem; text-align: right;">
+          <button type="button" class="btn btn-jss-outline" onclick="closeRfpModal()" style="margin-right: 0.5rem;">Cancel</button>
+          <button type="submit" class="btn btn-jss-orange">Transmit RFP &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ARTICLE READER MODAL (FULL WHITEPAPERS) -->
+  <div class="article-modal-backdrop" id="article-modal" aria-hidden="true">
+    <div class="article-modal-container">
+      <button class="article-modal-close" onclick="closeArticleModal()" aria-label="Close article">&times;</button>
+      <div class="article-meta-header">
+        <span class="blog-card-badge" id="modal-art-badge">Clinical Strategy</span>
+        <span style="font-size: 0.85rem; color: var(--text-light);" id="modal-art-date">September 15, 2026 • 6 min read</span>
+      </div>
+      <h2 class="article-headline" id="modal-art-title">Article Headline</h2>
+      <div class="article-author-callout">
+        <div class="blog-author-avatar" id="modal-art-avatar">SJ</div>
+        <div>
+          <div class="blog-author-name" id="modal-art-author-name">Dr. Sarah Jenkins</div>
+          <div class="blog-author-title" id="modal-art-author-title">VP Clinical Operations</div>
+        </div>
+      </div>
+      <div class="article-content-body" id="modal-art-body">
+        <!-- Injected dynamically by script.js -->
+      </div>
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Published by AstraClinical Research Scientific Intelligence Unit</span>
+        <button class="btn btn-jss-orange" onclick="closeArticleModal(); openRfpModal();">Discuss Study Application &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="jss-toast" id="jss-toast" role="status">
+    <div class="toast-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <div>
+      <strong id="toast-title">Study Proposal Received</strong>
+      <p id="toast-msg">Our Medical Review Team will contact you under NDA within 24 hours.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

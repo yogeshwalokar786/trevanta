@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights &amp; Clinical Research Blogs | AstraClinical Research</title>
+  <meta name="description" content="Explore peer-reviewed perspectives, regulatory briefings, decentralized trial methodologies, and biostatistical breakthroughs from AstraClinical Research Medical Directors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="jss-theme">
+
+  <!-- MOBILE NAV BACKDROP OVERLAY -->
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeNav()"></div>
+
+  <!-- MOBILE NAVIGATION DRAWER (LEFT-TO-RIGHT SLIDE-IN) -->
+  <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
+    <div class="drawer-head">
+      <div class="logo-graphic">
+        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+      </div>
+      <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+      <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+      <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+      <li class="menu-item"><a href="global.html" class="menu-link">Global Presence</a></li>
+      <li class="menu-item"><a href="blog.html" class="menu-link active">Insights &amp; Blog</a></li>
+      <li class="menu-item"><a href="contact.html" class="menu-link">Contact Us</a></li>
+    </ul>
+
+    <div class="drawer-foot">
+      <span class="drawer-hotlines-title">Regional Direct Hotlines</span>
+      <div class="drawer-hotlines-list">
+        <a href="tel:+15149340805"><span class="reg-pill orange">NA</span> +1 (514) 934-0805</a>
+        <a href="tel:+917738804988"><span class="reg-pill">IN</span> +91 7738804988</a>
+        <a href="tel:+971523822824"><span class="reg-pill">UAE</span> +971 52 382 2824</a>
+      </div>
+      <a href="mailto:info@astraclinical.com" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@astraclinical.com
+      </a>
+      <button class="btn btn-jss-orange drawer-foot-cta" onclick="closeNav(); openRfpModal();">
+        Request Study RFP &rarr;
+      </button>
+    </div>
+  </nav>
+
+  <!-- UNIFIED 2-TIER CORPORATE HEADER (NAME & MENU IN DEDICATED TIERS) -->
+  <header class="jss-header" id="jss-header">
+    
+    <!-- TIER 1: BRAND IDENTITY & CORPORATE ACTIONS -->
+    <div class="header-top-tier">
+      <div class="site-container header-top-inner">
+        
+        <!-- BRAND LOGO -->
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext">Research &bull; Global CRO</span>
+          </div>
+        </a>
+
+        <!-- TOP ACTIONS: CONTACT HOTLINES + EMAIL + LANG + RFP BUTTON + HAMBURGER -->
+        <div class="header-top-actions">
+          <div class="header-contact-items">
+            <a href="tel:+15149340805" class="top-contact-pill" title="Montreal Global HQ Hotline">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 (514) 934-0805</span>
+            </a>
+            <a href="mailto:info@astraclinical.com" class="top-contact-pill" title="Inquire via Corporate Email">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@astraclinical.com</span>
+            </a>
+          </div>
+
+          <div class="header-lang">
+            <button class="lang-btn active">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
+          </div>
+
+          <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
+            <span class="rfp-full-txt">Request Study RFP &rarr;</span>
+            <span class="rfp-short-txt">Study RFP &rarr;</span>
+          </button>
+
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIER 2: DEDICATED NAVIGATION MENU BAR -->
+    <div class="header-nav-tier">
+      <div class="site-container header-nav-inner">
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+            <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+            <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+            <li class="menu-item"><a href="global.html" class="menu-link">Global Presence</a></li>
+            <li class="menu-item"><a href="blog.html" class="menu-link active">Insights &amp; Blog</a></li>
+            <li class="menu-item"><a href="contact.html" class="menu-link">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-tier-extra">
+          <span class="compliance-mini-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            ICH-GCP &bull; 21 CFR Part 11
+          </span>
+          <button class="nav-search-btn" onclick="openRfpModal()" title="Fast Feasibility Assessment">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Fast Feasibility</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- SUBPAGE HERO -->
+  <section class="subpage-hero" style="background: linear-gradient(135deg, var(--jss-navy-dark) 0%, var(--jss-navy) 100%); color: #ffffff; padding: 4.5rem 0 3.5rem 0;">
+    <div class="site-container">
+      <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.2); color: #ffa07a;">SCIENTIFIC INTELLIGENCE UNIT</span>
+      <h1 style="color: #ffffff; font-size: 2.8rem; margin-top: 0.5rem; margin-bottom: 1rem;">Clinical Insights, Regulatory Briefs &amp; Whitepapers</h1>
+      <p style="color: #cbd5e1; max-width: 760px; font-size: 1.1rem; line-height: 1.7;">
+        Authoritative guidance from AstraClinical's medical monitors, biostatisticians, and regulatory specialists on accelerating drug approvals while upholding GCP integrity.
+      </p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb" style="display: flex; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.875rem; color: #94a3b8;">
+        <a href="index.html" style="color: #cbd5e1;">Home</a>
+        <span>/</span>
+        <span class="current" style="color: var(--jss-orange);">Insights &amp; Blog</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- MAIN BLOG CONTENT -->
+  <main class="blogs-section" style="padding-top: 4rem;">
+    <div class="site-container">
+
+      <!-- FEATURED SPOTLIGHT ARTICLE -->
+      <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 4rem; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0;" class="featured-spotlight-card">
+        <div style="padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
+          <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem;">
+            <span class="blog-card-badge" style="position: static;">FEATURED WHITEPAPER</span>
+            <span style="font-size: 0.8rem; color: var(--text-light);">September 08, 2026 • 7 min read</span>
+          </div>
+          <h2 style="font-size: 2rem; line-height: 1.3; margin-bottom: 1rem; color: var(--jss-navy);">
+            Navigating ICH E6(R3) Modernization: Risk-Based Quality Management in Global Submissions
+          </h2>
+          <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;">
+            The transition to ICH E6(R3) marks the most significant GCP update in a decade. Our regulatory team examines critical-to-quality factors, computer system validation for decentralized apps, and proportional monitoring frameworks harmonized between the US FDA and European EMA.
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="blog-author-avatar">MC</div>
+              <div>
+                <div class="blog-author-name">Michael Chen, RAC</div>
+                <div class="blog-author-title">Senior Director Regulatory &amp; Quality</div>
+              </div>
+            </div>
+            <button class="btn btn-jss-orange" onclick="openArticleModal('regulatory-e6r3')">
+              Read Whitepaper &rarr;
+            </button>
+          </div>
+        </div>
+        <div style="background: linear-gradient(135deg, var(--jss-navy) 0%, var(--jss-navy-light) 100%); display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px;">
+          <div class="blog-media-pattern"></div>
+          <div style="text-align: center; color: #ffffff; padding: 2rem; z-index: 2;">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: rgba(242, 98, 36, 0.2); border: 2px solid var(--jss-orange); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h4 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 0.5rem;">ICH E6(R3) Regulatory Playbook</h4>
+            <p style="color: #cbd5e1; font-size: 0.9rem; max-width: 320px; margin: 0 auto;">Full Sponsor Implementation Guide &amp; SOP Audit Checklist</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER TABS BAR -->
+      <div class="blog-filter-bar">
+        <button class="blog-filter-btn active" onclick="filterBlogs('all', this)">All Perspectives</button>
+        <button class="blog-filter-btn" onclick="filterBlogs('Clinical Strategy', this)">Clinical Strategy</button>
+        <button class="blog-filter-btn" onclick="filterBlogs('Regulatory Affairs', this)">Regulatory Affairs</button>
+        <button class="blog-filter-btn" onclick="filterBlogs('Pharmacovigilance', this)">Pharmacovigilance</button>
+        <button class="blog-filter-btn" onclick="filterBlogs('Biostatistics', this)">Biostatistics</button>
+      </div>
+
+      <!-- BLOGS ARTICLES GRID -->
+      <div class="blogs-grid">
+        
+        <!-- ARTICLE 1 -->
+        <article class="blog-card" data-category="Clinical Strategy" onclick="openArticleModal('oncology-dct')">
+          <div class="blog-card-media">
+            <div class="blog-media-pattern"></div>
+            <span class="blog-card-badge">Clinical Strategy</span>
+            <span class="blog-read-time">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              6 min read
+            </span>
+            <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-meta-date">September 15, 2026</span>
+            <h3 class="blog-card-title">Accelerating Oncology Trials Through Decentralized Architecture &amp; Home Nursing</h3>
+            <p class="blog-card-excerpt">
+              How combining centralized academic hospital monitoring with localized home nursing and mobile health technologies increased patient retention by 34% in complex Phase II/III solid tumor protocols.
+            </p>
+            <div class="blog-author-bar">
+              <div class="blog-author-info">
+                <div class="blog-author-avatar">SJ</div>
+                <div>
+                  <div class="blog-author-name">Dr. Sarah Jenkins</div>
+                  <div class="blog-author-title">VP Clinical Operations</div>
+                </div>
+              </div>
+              <span class="blog-read-btn">Read Article &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 2 -->
+        <article class="blog-card" data-category="Regulatory Affairs" onclick="openArticleModal('regulatory-e6r3')">
+          <div class="blog-card-media">
+            <div class="blog-media-pattern"></div>
+            <span class="blog-card-badge">Regulatory Affairs</span>
+            <span class="blog-read-time">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              7 min read
+            </span>
+            <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-meta-date">September 08, 2026</span>
+            <h3 class="blog-card-title">Navigating ICH E6(R3) Modernization: Risk-Based Quality Management in Global Submissions</h3>
+            <p class="blog-card-excerpt">
+              A critical analysis of the finalized ICH E6(R3) guidelines and practical guidance on implementing governance frameworks that satisfy both US FDA and European EMA inspectors.
+            </p>
+            <div class="blog-author-bar">
+              <div class="blog-author-info">
+                <div class="blog-author-avatar">MC</div>
+                <div>
+                  <div class="blog-author-name">Michael Chen, RAC</div>
+                  <div class="blog-author-title">Senior Director Regulatory</div>
+                </div>
+              </div>
+              <span class="blog-read-btn">Read Article &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 3 -->
+        <article class="blog-card" data-category="Pharmacovigilance" onclick="openArticleModal('pv-signal-ai')">
+          <div class="blog-card-media">
+            <div class="blog-media-pattern"></div>
+            <span class="blog-card-badge">Pharmacovigilance</span>
+            <span class="blog-read-time">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              5 min read
+            </span>
+            <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-meta-date">August 29, 2026</span>
+            <h3 class="blog-card-title">Machine Learning Signal Detection in High-Volume Post-Marketing Pharmacovigilance</h3>
+            <p class="blog-card-excerpt">
+              How AstraClinical implemented automated natural language processing (NLP) to reduce ICSR intake triage latency by 62% while maintaining a 99.8% regulatory on-time filing benchmark.
+            </p>
+            <div class="blog-author-bar">
+              <div class="blog-author-info">
+                <div class="blog-author-avatar">ER</div>
+                <div>
+                  <div class="blog-author-name">Dr. Elena Rostova</div>
+                  <div class="blog-author-title">Global Head of Drug Safety</div>
+                </div>
+              </div>
+              <span class="blog-read-btn">Read Article &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 4 -->
+        <article class="blog-card" data-category="Biostatistics" onclick="openArticleModal('adaptive-biostat')">
+          <div class="blog-card-media">
+            <div class="blog-media-pattern"></div>
+            <span class="blog-card-badge">Biostatistics</span>
+            <span class="blog-read-time">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              8 min read
+            </span>
+            <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-meta-date">August 14, 2026</span>
+            <h3 class="blog-card-title">Adaptive Clinical Trial Designs: Optimizing Sample Size Re-Estimation &amp; Interim Analyses</h3>
+            <p class="blog-card-excerpt">
+              Examining Bayesian adaptive algorithms and group sequential designs that permit sample size recalculation and early futility stopping without inflating Type I error rates.
+            </p>
+            <div class="blog-author-bar">
+              <div class="blog-author-info">
+                <div class="blog-author-avatar">RV</div>
+                <div>
+                  <div class="blog-author-name">Dr. Robert Vance</div>
+                  <div class="blog-author-title">Chief Biostatistician</div>
+                </div>
+              </div>
+              <span class="blog-read-btn">Read Article &rarr;</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- SPONSOR SCIENTIFIC BRIEFING SUBSCRIPTION -->
+      <div style="background: linear-gradient(135deg, var(--jss-navy) 0%, var(--jss-navy-dark) 100%); border-radius: var(--radius-lg); padding: 3.5rem; color: #ffffff; margin-top: 5rem; text-align: center;">
+        <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.25); color: #ffa07a;">REGULATORY &amp; CLINICAL UPDATES</span>
+        <h3 style="color: #ffffff; font-size: 2.2rem; margin-top: 0.75rem; margin-bottom: 1rem;">Receive Monthly Clinical Trial Intelligence</h3>
+        <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
+          Join over 4,500 biotech executives, clinical operations directors, and regulatory affairs professionals who rely on AstraClinical briefings.
+        </p>
+        <form onsubmit="event.preventDefault(); showJssToast('Subscription Confirmed', 'You have been registered for our Monthly Clinical Intelligence Briefings.'); this.reset();" style="max-width: 520px; margin: 0 auto; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+          <input type="email" required placeholder="Enter corporate work email..." style="flex-grow: 1; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #ffffff; outline: none; font-size: 0.95rem;">
+          <button type="submit" class="btn btn-jss-orange" style="padding: 0.85rem 1.75rem;">Subscribe &rarr;</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ASTRACLINICAL FOOTER -->
+  <footer class="jss-footer">
+    <div class="site-container footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research" style="margin-bottom: 1rem;">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary" style="color: #ffffff;">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext" style="color: #94a3b8;">Research &bull; Global CRO</span>
+          </div>
+        </a>
+        <p class="f-about">
+          A globally recognized full-service Clinical Research Organization with over 25 years of international study leadership, high-volume patient recruitment, and comprehensive pharmacovigilance.
+        </p>
+        <p class="f-contact-info">
+          <strong>Corporate HQ:</strong> 4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada<br>
+          <strong>Email:</strong> <a href="mailto:info@astraclinical.com">info@astraclinical.com</a>
+        </p>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Clinical Trial Operations</a></li>
+          <li><a href="services.html">Pharmacovigilance &amp; Safety</a></li>
+          <li><a href="services.html">Regulatory Submissions</a></li>
+          <li><a href="services.html">Medical Writing &amp; CSR</a></li>
+          <li><a href="services.html">Biostatistics &amp; Data Science</a></li>
+          <li><a href="services.html">Medical Devices &amp; CER</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Regional Offices</h4>
+        <ul>
+          <li><a href="global.html">Montreal, Canada (HQ)</a></li>
+          <li><a href="global.html">Boston &amp; California, USA</a></li>
+          <li><a href="global.html">London, United Kingdom</a></li>
+          <li><a href="global.html">Mumbai &amp; Faridabad, India</a></li>
+          <li><a href="global.html">Bogotá, Colombia</a></li>
+          <li><a href="global.html">Warsaw, Poland</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Quick Access</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="global.html">Global Presence</a></li>
+          <li><a href="blog.html">Insights &amp; Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="site-container legal-flex">
+        <p>&copy; 2026 AstraClinical Research Global Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
+        <div class="legal-menu">
+          <a href="#">Privacy Statement</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">GCP Statement</a>
+          <a href="#">Whistleblower Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL RFP POPUP -->
+  <div class="modal-backdrop" id="rfp-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeRfpModal()">&times;</button>
+      <span class="eyebrow-jss">STUDY INQUIRY</span>
+      <h3>Request Clinical Trial Proposal</h3>
+      <p>Submit your protocol criteria. Our Medical Directors will reply within 24 business hours.</p>
+      
+      <form onsubmit="handleModalSubmit(event)">
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Name *</label>
+            <input type="text" required placeholder="Dr. Jane Doe">
+          </div>
+          <div class="j-field">
+            <label>Corporate Email *</label>
+            <input type="email" required placeholder="jdoe@sponsor.com">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Trial Phase *</label>
+            <select required>
+              <option>Phase I (FIH / PK-PD)</option>
+              <option selected>Phase II (Proof-of-Concept)</option>
+              <option>Phase III (Pivotal Global)</option>
+              <option>Phase IV / RWE / PASS</option>
+            </select>
+          </div>
+          <div class="j-field">
+            <label>Therapeutic Focus *</label>
+            <select required>
+              <option>Oncology</option>
+              <option>Immunology</option>
+              <option>Neurology</option>
+              <option>Rare Disease</option>
+              <option>Cardiovascular</option>
+            </select>
+          </div>
+        </div>
+        <div class="j-field">
+          <label>Brief Protocol Description</label>
+          <textarea rows="3" placeholder="Target sample size, timeline, and countries..."></textarea>
+        </div>
+        <div style="margin-top: 1.25rem; text-align: right;">
+          <button type="button" class="btn btn-jss-outline" onclick="closeRfpModal()" style="margin-right: 0.5rem;">Cancel</button>
+          <button type="submit" class="btn btn-jss-orange">Transmit RFP &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ARTICLE READER MODAL (FULL WHITEPAPERS) -->
+  <div class="article-modal-backdrop" id="article-modal" aria-hidden="true">
+    <div class="article-modal-container">
+      <button class="article-modal-close" onclick="closeArticleModal()" aria-label="Close article">&times;</button>
+      <div class="article-meta-header">
+        <span class="blog-card-badge" id="modal-art-badge">Clinical Strategy</span>
+        <span style="font-size: 0.85rem; color: var(--text-light);" id="modal-art-date">September 15, 2026 • 6 min read</span>
+      </div>
+      <h2 class="article-headline" id="modal-art-title">Article Headline</h2>
+      <div class="article-author-callout">
+        <div class="blog-author-avatar" id="modal-art-avatar">SJ</div>
+        <div>
+          <div class="blog-author-name" id="modal-art-author-name">Dr. Sarah Jenkins</div>
+          <div class="blog-author-title" id="modal-art-author-title">VP Clinical Operations</div>
+        </div>
+      </div>
+      <div class="article-content-body" id="modal-art-body">
+        <!-- Injected dynamically by script.js -->
+      </div>
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Published by AstraClinical Research Scientific Intelligence Unit</span>
+        <button class="btn btn-jss-orange" onclick="closeArticleModal(); openRfpModal();">Discuss Study Application &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="jss-toast" id="jss-toast" role="status">
+    <div class="toast-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <div>
+      <strong id="toast-title">Study Proposal Received</strong>
+      <p id="toast-msg">Our Medical Review Team will contact you under NDA within 24 hours.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

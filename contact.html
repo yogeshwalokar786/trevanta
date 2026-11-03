@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us &amp; Request Study RFP | AstraClinical Research</title>
+  <meta name="description" content="Get in touch with AstraClinical Research. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="jss-theme">
+
+  <!-- MOBILE NAV BACKDROP OVERLAY -->
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeNav()"></div>
+
+  <!-- MOBILE NAVIGATION DRAWER (LEFT-TO-RIGHT SLIDE-IN) -->
+  <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
+    <div class="drawer-head">
+      <div class="logo-graphic">
+        <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+      </div>
+      <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+      <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+      <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+      <li class="menu-item"><a href="global.html" class="menu-link">Global Presence</a></li>
+      <li class="menu-item"><a href="blog.html" class="menu-link">Insights &amp; Blog</a></li>
+      <li class="menu-item"><a href="contact.html" class="menu-link active">Contact Us</a></li>
+    </ul>
+
+    <div class="drawer-foot">
+      <span class="drawer-hotlines-title">Regional Direct Hotlines</span>
+      <div class="drawer-hotlines-list">
+        <a href="tel:+15149340805"><span class="reg-pill orange">NA</span> +1 (514) 934-0805</a>
+        <a href="tel:+917738804988"><span class="reg-pill">IN</span> +91 7738804988</a>
+        <a href="tel:+971523822824"><span class="reg-pill">UAE</span> +971 52 382 2824</a>
+      </div>
+      <a href="mailto:info@astraclinical.com" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@astraclinical.com
+      </a>
+      <button class="btn btn-jss-orange drawer-foot-cta" onclick="closeNav(); openRfpModal();">
+        Request Study RFP &rarr;
+      </button>
+    </div>
+  </nav>
+
+  <!-- UNIFIED 2-TIER CORPORATE HEADER (NAME & MENU IN DEDICATED TIERS) -->
+  <header class="jss-header" id="jss-header">
+    
+    <!-- TIER 1: BRAND IDENTITY & CORPORATE ACTIONS -->
+    <div class="header-top-tier">
+      <div class="site-container header-top-inner">
+        
+        <!-- BRAND LOGO -->
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext">Research &bull; Global CRO</span>
+          </div>
+        </a>
+
+        <!-- TOP ACTIONS: CONTACT HOTLINES + EMAIL + LANG + RFP BUTTON + HAMBURGER -->
+        <div class="header-top-actions">
+          <div class="header-contact-items">
+            <a href="tel:+15149340805" class="top-contact-pill" title="Montreal Global HQ Hotline">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 (514) 934-0805</span>
+            </a>
+            <a href="mailto:info@astraclinical.com" class="top-contact-pill" title="Inquire via Corporate Email">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@astraclinical.com</span>
+            </a>
+          </div>
+
+          <div class="header-lang">
+            <button class="lang-btn active">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
+          </div>
+
+          <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
+            <span class="rfp-full-txt">Request Study RFP &rarr;</span>
+            <span class="rfp-short-txt">Study RFP &rarr;</span>
+          </button>
+
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIER 2: DEDICATED NAVIGATION MENU BAR -->
+    <div class="header-nav-tier">
+      <div class="site-container header-nav-inner">
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+            <li class="menu-item"><a href="about.html" class="menu-link">About Us</a></li>
+            <li class="menu-item"><a href="services.html" class="menu-link">Services</a></li>
+            <li class="menu-item"><a href="global.html" class="menu-link">Global Presence</a></li>
+            <li class="menu-item"><a href="blog.html" class="menu-link">Insights &amp; Blog</a></li>
+            <li class="menu-item"><a href="contact.html" class="menu-link active">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-tier-extra">
+          <span class="compliance-mini-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            ICH-GCP &bull; 21 CFR Part 11
+          </span>
+          <button class="nav-search-btn" onclick="openRfpModal()" title="Fast Feasibility Assessment">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Fast Feasibility</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- SUBPAGE HERO -->
+  <section class="subpage-hero">
+    <div class="site-container">
+      <span class="eyebrow-jss">GET IN TOUCH</span>
+      <h1>Connect With Our Clinical &amp; Medical Affairs Leadership</h1>
+      <p>
+        Whether planning an impending IND submission, seeking expert safety oversight, or requesting comprehensive clinical trial proposals, our team responds promptly within 24 hours.
+      </p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span class="current">Contact Us</span>
+      </nav>
+    </div>
+  </section>
+
+  <main class="subpage-content">
+    <div class="site-container">
+      
+      <!-- 2-COLUMN CONTACT LAYOUT -->
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3.5rem; align-items: flex-start;">
+        
+        <!-- COLUMN 1: COMPREHENSIVE STUDY RFP FORM -->
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+          <span class="eyebrow-jss">STUDY INQUIRY &amp; RFP</span>
+          <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Request a Clinical Trial Proposal</h2>
+          <p style="margin-bottom: 2rem;">Please submit your study outline. All discussions and protocol synopses are protected by strict corporate confidentiality.</p>
+
+          <form onsubmit="handleContactSubmit(event)">
+            <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Full Name *</label>
+                <input type="text" required placeholder="Dr. Jane Doe" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+              </div>
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Corporate Email *</label>
+                <input type="email" required placeholder="j.doe@pharma.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+              </div>
+            </div>
+
+            <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Company / Sponsor Name *</label>
+                <input type="text" required placeholder="e.g. BioTherapeutics Inc." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+              </div>
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Phone Number *</label>
+                <input type="tel" required placeholder="+1 (555) 000-0000" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+              </div>
+            </div>
+
+            <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Clinical Phase *</label>
+                <select required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                  <option value="">Select Study Phase</option>
+                  <option>Phase I (First-in-Human / PK / PD)</option>
+                  <option>Phase II (Proof-of-Concept / Dose Finding)</option>
+                  <option>Phase III (Pivotal Global Registration)</option>
+                  <option>Phase IV (Post-Marketing / PASS / Registry)</option>
+                  <option>Medical Device Feasibility / Pivotal</option>
+                  <option>Standalone Pharmacovigilance Support</option>
+                  <option>Standalone Biostatistics &amp; CDISC</option>
+                </select>
+              </div>
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Therapeutic Area *</label>
+                <select required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                  <option value="">Select Therapeutic Focus</option>
+                  <option>Oncology / Hematology</option>
+                  <option>Immunology &amp; Inflammation</option>
+                  <option>Neurology &amp; CNS Disorders</option>
+                  <option>Cardiovascular &amp; Metabolic</option>
+                  <option>Infectious Diseases &amp; Vaccines</option>
+                  <option>Rare Diseases &amp; Orphan Drugs</option>
+                  <option>Dermatology &amp; Aesthetics</option>
+                  <option>Other Therapeutic Focus</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Target Geographic Scope</label>
+                <select style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                  <option>North America (USA &amp; Canada)</option>
+                  <option>Europe &amp; UK</option>
+                  <option>Asia Pacific / India</option>
+                  <option>Latin America (Colombia, Brazil, etc.)</option>
+                  <option>Multi-Region Global Trial</option>
+                </select>
+              </div>
+              <div class="j-field">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Projected Trial Start</label>
+                <select style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                  <option>Immediate (Within 3 months)</option>
+                  <option>3 to 6 months</option>
+                  <option>6 to 12 months</option>
+                  <option>Protocol Planning / Budgeting</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="j-field" style="margin-bottom: 1.25rem;">
+              <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Study Synopsis / Protocol Overview</label>
+              <textarea rows="4" placeholder="Briefly describe trial objectives, primary endpoints, estimated patient sample size, or specific vendor requirements..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.85rem;">
+              <input type="checkbox" id="contact-nda" checked required>
+              <label for="contact-nda">Execute Mutual Non-Disclosure Agreement (NDA) prior to confidential protocol review.</label>
+            </div>
+
+            <button type="submit" class="btn btn-jss-orange btn-lg" style="width: 100%;">
+              Submit Protocol for RFP Analysis &rarr;
+            </button>
+          </form>
+        </div>
+
+        <!-- COLUMN 2: DIRECT INQUIRIES & REGIONAL HOTLINES -->
+        <div>
+          <!-- QUICK CONTACT CARD -->
+          <div style="background: var(--jss-navy); color: #ffffff; border-radius: var(--radius-md); padding: 2rem; margin-bottom: 2rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--jss-orange); text-transform: uppercase; letter-spacing: 0.8px;">DIRECT ACCESS</span>
+            <h3 style="color: #ffffff; margin-top: 0.25rem; font-size: 1.35rem;">General Inquiries</h3>
+            <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.5rem;">Our business development and medical directorates are available worldwide.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jss-orange)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:info@astraclinical.com" style="color: #ffffff;">info@astraclinical.com</a>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jss-orange)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="tel:+15149340805" style="color: #ffffff;">+1 (514) 934-0805 (Montreal HQ)</a>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jss-orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span style="color: #cbd5e1;">Hours: Mon–Fri, 8:30 AM – 6:00 PM EST</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHARMACOVIGILANCE HOTLINE -->
+          <div style="background: #ffffff; border: 2px dashed var(--jss-orange); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; animation: pulse 2s infinite;"></span>
+              <strong style="color: var(--jss-navy); font-size: 0.95rem;">24/7 Safety &amp; ICSR Reporting Hotline</strong>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              For ongoing trial investigators reporting SUSARs, SAEs, or unexpected adverse drug events:
+            </p>
+            <p style="font-size: 0.95rem; font-weight: 700; color: var(--jss-orange); margin: 0;">
+              Hotline: +1 (800) 577-7233 | safety@astraclinical.com
+            </p>
+          </div>
+
+          <!-- REGIONAL CONTACTS SUMMARY -->
+          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
+            <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">Corporate Regional Contacts</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.85rem;">
+              <div>
+                <strong>North America (Montreal &amp; Boston):</strong><br>
+                <a href="tel:+15149340805" style="color: var(--jss-orange);">+1 (514) 934-0805</a> &bull; na-trials@astraclinical.com
+              </div>
+              <div>
+                <strong>India &amp; APAC (Mumbai &amp; Faridabad):</strong><br>
+                <a href="tel:+917738804988" style="color: var(--jss-orange);">+91 7738804988</a> &bull; apac-trials@astraclinical.com
+              </div>
+              <div>
+                <strong>Europe &amp; UK (London &amp; Warsaw):</strong><br>
+                <a href="tel:+442079460912" style="color: var(--jss-orange);">+44 20 7946 0912</a> &bull; eu-trials@astraclinical.com
+              </div>
+              <div>
+                <strong>Latin America (Bogotá):</strong><br>
+                <a href="tel:+5717443820" style="color: var(--jss-orange);">+57 1 744 3820</a> &bull; latam-trials@astraclinical.com
+              </div>
+            </div>
+          </div>
+
+          <!-- PHOTO CARD -->
+          <div class="split-photo-frame" style="margin-top: 1.5rem;">
+            <img src="../assets/images/doctor-consultation.jpg" alt="Clinical Investigation Protocol Review" style="height: 220px;">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="jss-footer">
+    <div class="site-container footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="jss-logo" aria-label="AstraClinical Research" style="margin-bottom: 1rem;">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-graphic">
+              <span class="logo-primary" style="color: #ffffff;">Astra</span><span class="logo-accent">Clinical</span>
+            </div>
+            <span class="logo-subtext" style="color: #94a3b8;">Research &bull; Global CRO</span>
+          </div>
+        </a>
+        <p class="f-about">
+          A globally recognized full-service Clinical Research Organization with over 25 years of international study leadership, high-volume patient recruitment, and comprehensive pharmacovigilance.
+        </p>
+        <p class="f-contact-info">
+          <strong>Corporate HQ:</strong> 4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada<br>
+          <strong>Email:</strong> <a href="mailto:info@astraclinical.com">info@astraclinical.com</a>
+        </p>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Clinical Trial Operations</a></li>
+          <li><a href="services.html">Pharmacovigilance &amp; Safety</a></li>
+          <li><a href="services.html">Regulatory Submissions</a></li>
+          <li><a href="services.html">Medical Writing &amp; CSR</a></li>
+          <li><a href="services.html">Biostatistics &amp; Data Science</a></li>
+          <li><a href="services.html">Medical Devices &amp; CER</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Regional Offices</h4>
+        <ul>
+          <li><a href="global.html">Montreal, Canada (HQ)</a></li>
+          <li><a href="global.html">Boston &amp; California, USA</a></li>
+          <li><a href="global.html">London, United Kingdom</a></li>
+          <li><a href="global.html">Mumbai &amp; Faridabad, India</a></li>
+          <li><a href="global.html">Bogotá, Colombia</a></li>
+          <li><a href="global.html">Warsaw, Poland</a></li>
+        </ul>
+      </div>
+
+      <div class="f-links-col">
+        <h4>Quick Access</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="global.html">Global Presence</a></li>
+          <li><a href="blog.html">Insights &amp; Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="site-container legal-flex">
+        <p>&copy; 2026 AstraClinical Research Global Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
+        <div class="legal-menu">
+          <a href="#">Privacy Statement</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">GCP Statement</a>
+          <a href="#">Whistleblower Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL RFP -->
+  <div class="modal-backdrop" id="rfp-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeRfpModal()">&times;</button>
+      <span class="eyebrow-jss">STUDY INQUIRY</span>
+      <h3>Request Clinical Trial Proposal</h3>
+      <p>Submit your protocol criteria. Our Medical Directors will reply within 24 business hours.</p>
+      
+      <form onsubmit="handleModalSubmit(event)">
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Name *</label>
+            <input type="text" required placeholder="Dr. Jane Doe">
+          </div>
+          <div class="j-field">
+            <label>Corporate Email *</label>
+            <input type="email" required placeholder="jdoe@sponsor.com">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="j-field">
+            <label>Trial Phase *</label>
+            <select required>
+              <option>Phase I (FIH / PK-PD)</option>
+              <option selected>Phase II (Proof-of-Concept)</option>
+              <option>Phase III (Pivotal Global)</option>
+              <option>Phase IV / RWE / PASS</option>
+            </select>
+          </div>
+          <div class="j-field">
+            <label>Therapeutic Focus *</label>
+            <select required>
+              <option>Oncology</option>
+              <option>Immunology</option>
+              <option>Neurology</option>
+              <option>Rare Disease</option>
+              <option>Cardiovascular</option>
+            </select>
+          </div>
+        </div>
+        <div class="j-field">
+          <label>Brief Protocol Description</label>
+          <textarea rows="3" placeholder="Target sample size, timeline, and countries..."></textarea>
+        </div>
+        <div style="margin-top: 1.25rem; text-align: right;">
+          <button type="button" class="btn btn-jss-outline" onclick="closeRfpModal()" style="margin-right: 0.5rem;">Cancel</button>
+          <button type="submit" class="btn btn-jss-orange">Transmit RFP &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="jss-toast" id="jss-toast" role="status">
+    <div class="toast-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <div>
+      <strong id="toast-title">Study Proposal Received</strong>
+      <p id="toast-msg">Our Medical Review Team will contact you under NDA within 24 hours.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      var toast = document.getElementById('jss-toast');
+      var toastTitle = document.getElementById('toast-title');
+      var toastMsg = document.getElementById('toast-msg');
+      if (toastTitle) toastTitle.textContent = "Protocol Submission Received!";
+      if (toastMsg) toastMsg.textContent = "Our Medical Affairs Director has received your outline and will reply under NDA within 24 hours.";
+      if (toast) {
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 4500);
+      }
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
