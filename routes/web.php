@@ -41,7 +41,7 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-        Route::get('/inquiries', [DashboardController::class, 'inquiries'])->name('admin.inquiries');
+        Route::get('/inquiries', fn () => redirect()->route('admin.dashboard'))->name('admin.inquiries');
         Route::patch('/inquiries/{id}/status', [DashboardController::class, 'updateStatus'])->name('admin.inquiries.status');
         Route::delete('/inquiries/{id}', [DashboardController::class, 'destroy'])->name('admin.inquiries.destroy');
     });

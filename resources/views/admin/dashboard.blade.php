@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Clinical Trial Executive Dashboard')
+@section('title', 'Admin Dashboard')
 
 @section('content')
 <!-- Content Header (Page header) -->
@@ -8,13 +8,12 @@
   <div class="container-fluid">
     <div class="row mb-2 align-items-center">
       <div class="col-sm-6">
-        <h1 class="m-0 font-weight-bold text-dark">Clinical Operations Executive Dashboard</h1>
-        <p class="text-muted text-sm mb-0">Phase I–IV Trial Inquiries, Site Feasibility &amp; Regulatory Submissions</p>
+        <h1 class="m-0 font-weight-bold text-dark">Dashboard</h1>
+        <p class="text-muted text-sm mb-0">Overview of website study proposals &amp; contact inquiries</p>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right bg-transparent p-0 mb-0">
-          <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active"><i class="fas fa-home mr-1"></i> Dashboard</li>
         </ol>
       </div>
     </div>
@@ -30,64 +29,70 @@
     <div class="row">
       <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box bg-white">
-          <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-file-signature"></i></span>
+          <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-inbox"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text text-muted font-weight-bold">Total Inquiries</span>
+            <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $totalInquiries }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box bg-white">
+          <span class="info-box-icon bg-warning text-white elevation-1"><i class="fas fa-file-medical"></i></span>
           <div class="info-box-content">
             <span class="info-box-text text-muted font-weight-bold">Study RFPs</span>
             <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $totalRfps }}</span>
-            <small class="text-success"><i class="fas fa-arrow-up"></i> Trial Proposals</small>
           </div>
         </div>
       </div>
 
       <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box bg-white">
-          <span class="info-box-icon bg-warning text-white elevation-1"><i class="fas fa-clock"></i></span>
+          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-envelope"></i></span>
           <div class="info-box-content">
-            <span class="info-box-text text-muted font-weight-bold">New &amp; Pending Review</span>
-            <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $pendingRfps }}</span>
-            <small class="text-warning font-weight-bold">Awaiting Medical Director</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box bg-white">
-          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-comments"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text text-muted font-weight-bold">General Inquiries</span>
+            <span class="info-box-text text-muted font-weight-bold">Contact Messages</span>
             <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $totalContacts }}</span>
-            <small class="text-muted">Direct Sponsor Contacts</small>
           </div>
         </div>
       </div>
 
       <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box bg-white">
-          <span class="info-box-icon bg-success elevation-1"><i class="fas fa-globe-americas"></i></span>
+          <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-clock"></i></span>
           <div class="info-box-content">
-            <span class="info-box-text text-muted font-weight-bold">Global Footprint</span>
-            <span class="info-box-number text-dark h4 mb-0 font-weight-bold">28 Countries</span>
-            <small class="text-success">8,500+ Qualified Sites</small>
+            <span class="info-box-text text-muted font-weight-bold">Pending Review</span>
+            <span class="info-box-number text-dark h4 mb-0 font-weight-bold">{{ $pendingRfps }}</span>
           </div>
         </div>
       </div>
     </div>
     <!-- /.row -->
 
-    <!-- Main row -->
+    <!-- Inquiries & RFPs Table Card (Full Width) -->
     <div class="row">
-      <!-- Left col (Recent Inquiries Table) -->
-      <section class="col-lg-8 connectedSortable">
-        
+      <div class="col-12">
         <div class="card card-white">
-          <div class="card-header border-bottom d-flex align-items-center justify-content-between py-3">
+          <div class="card-header border-bottom d-flex flex-wrap align-items-center justify-content-between py-3">
             <h3 class="card-title font-weight-bold text-dark mb-0">
-              <i class="fas fa-inbox mr-2 text-primary"></i> Recent Protocol Proposals &amp; Inquiries
+              <i class="fas fa-list-alt mr-2 text-primary"></i> Inquiries &amp; Study RFPs
             </h3>
+            
             <div class="card-tools ml-auto">
-              <a href="{{ route('admin.inquiries') }}" class="btn btn-sm btn-outline-primary font-weight-bold">
-                View All Inquiries <i class="fas fa-arrow-right ml-1"></i>
-              </a>
+              <div class="btn-group btn-group-sm">
+                <a href="{{ route('admin.dashboard') }}" class="btn {{ !request()->has('filter') ? 'btn-primary' : 'btn-outline-secondary' }}">
+                  All
+                </a>
+                <a href="{{ route('admin.dashboard', ['filter' => 'rfp']) }}" class="btn {{ request('filter') === 'rfp' ? 'btn-warning text-dark font-weight-bold' : 'btn-outline-secondary' }}">
+                  RFPs
+                </a>
+                <a href="{{ route('admin.dashboard', ['filter' => 'contact']) }}" class="btn {{ request('filter') === 'contact' ? 'btn-info' : 'btn-outline-secondary' }}">
+                  Contacts
+                </a>
+                <a href="{{ route('admin.dashboard', ['filter' => 'pending']) }}" class="btn {{ request('filter') === 'pending' ? 'btn-danger' : 'btn-outline-secondary' }}">
+                  Pending
+                </a>
+              </div>
             </div>
           </div>
           <!-- /.card-header -->
@@ -95,42 +100,59 @@
           <div class="card-body p-0">
             <div class="table-responsive">
               <table class="table table-hover table-striped align-middle mb-0">
-                <thead class="bg-light">
-                  <tr class="text-muted text-xs text-uppercase">
+                <thead class="bg-light text-muted text-xs text-uppercase">
+                  <tr>
+                    <th>#</th>
                     <th>Type</th>
-                    <th>Investigator / Lead</th>
-                    <th>Phase / Service</th>
-                    <th>Therapeutic Focus</th>
+                    <th>Name &amp; Contact</th>
+                    <th>Company</th>
+                    <th>Phase / Area</th>
+                    <th>Message / Synopsis</th>
                     <th>Status</th>
                     <th>Date</th>
-                    <th class="text-right">Actions</th>
+                    <th class="text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @forelse($recentInquiries as $inquiry)
+                  @forelse($inquiries as $inquiry)
                     <tr>
+                      <td class="font-weight-bold text-muted text-xs">#{{ $inquiry->id }}</td>
                       <td>
                         @if($inquiry->type === 'rfp')
-                          <span class="badge badge-warning text-dark font-weight-bold px-2 py-1"><i class="fas fa-dna mr-1"></i> RFP</span>
+                          <span class="badge badge-warning text-dark font-weight-bold px-2 py-1">RFP</span>
                         @else
-                          <span class="badge badge-info px-2 py-1"><i class="fas fa-envelope mr-1"></i> Contact</span>
+                          <span class="badge badge-info px-2 py-1">Contact</span>
                         @endif
                       </td>
                       <td>
                         <div class="font-weight-bold text-dark">{{ $inquiry->name }}</div>
-                        <small class="text-muted">{{ $inquiry->email }}</small>
+                        <small class="text-muted d-block">{{ $inquiry->email }}</small>
+                        @if($inquiry->phone)
+                          <small class="text-muted">{{ $inquiry->phone }}</small>
+                        @endif
                       </td>
                       <td>
-                        <span class="text-sm font-weight-semibold">{{ $inquiry->phase ?? 'Clinical Inquiry' }}</span>
+                        <span class="text-sm">{{ $inquiry->organization ?? '-' }}</span>
                       </td>
                       <td>
-                        <span class="badge badge-light border text-muted px-2 py-1">
-                          {{ $inquiry->therapeutic_focus ?? 'General' }}
+                        @if($inquiry->phase)
+                          <div class="text-xs font-weight-bold text-dark">{{ $inquiry->phase }}</div>
+                        @endif
+                        @if($inquiry->therapeutic_focus)
+                          <small class="text-muted">{{ $inquiry->therapeutic_focus }}</small>
+                        @endif
+                        @if(!$inquiry->phase && !$inquiry->therapeutic_focus)
+                          <span class="text-muted">-</span>
+                        @endif
+                      </td>
+                      <td style="max-width: 250px;">
+                        <span class="text-truncate d-block text-sm" style="max-width: 240px;" title="{{ $inquiry->message }}">
+                          {{ $inquiry->message ?? '-' }}
                         </span>
                       </td>
                       <td>
                         @if($inquiry->status === 'new')
-                          <span class="badge badge-warning text-dark font-weight-bold">Pending Review</span>
+                          <span class="badge badge-warning text-dark font-weight-bold">Pending</span>
                         @elseif($inquiry->status === 'in_review')
                           <span class="badge badge-primary font-weight-bold">In Review</span>
                         @elseif($inquiry->status === 'contacted')
@@ -140,10 +162,11 @@
                         @endif
                       </td>
                       <td class="text-muted text-xs">
-                        {{ $inquiry->created_at ? $inquiry->created_at->format('M d, Y') : 'Recent' }}
+                        {{ $inquiry->created_at ? $inquiry->created_at->format('M d, Y') : '-' }}
                       </td>
                       <td class="text-right">
                         <div class="btn-group btn-group-sm">
+                          <!-- Status changer dropdown -->
                           <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
                             Status
                           </button>
@@ -157,14 +180,88 @@
                               <button type="submit" name="status" value="closed" class="dropdown-item text-xs font-weight-bold text-success"><i class="fas fa-check-circle mr-2"></i> Closed</button>
                             </form>
                           </div>
+
+                          <!-- View Details Modal Trigger -->
+                          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal-view-{{ $inquiry->id }}" title="View details">
+                            <i class="fas fa-eye"></i>
+                          </button>
+
+                          <!-- Delete Action -->
+                          <form action="{{ route('admin.inquiries.destroy', $inquiry->id) }}" method="POST" onsubmit="return confirm('Delete this inquiry?');" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger" title="Delete">
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </form>
                         </div>
+
+                        <!-- Modal for View Details -->
+                        <div class="modal fade text-left" id="modal-view-{{ $inquiry->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content shadow">
+                              <div class="modal-header bg-light">
+                                <h5 class="modal-title font-weight-bold">
+                                  {{ $inquiry->type === 'rfp' ? 'Study RFP Proposal' : 'Contact Inquiry' }} #{{ $inquiry->id }}
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <dl class="row mb-0">
+                                  <dt class="col-sm-4 text-muted">Name:</dt>
+                                  <dd class="col-sm-8 font-weight-bold">{{ $inquiry->name }}</dd>
+
+                                  <dt class="col-sm-4 text-muted">Email:</dt>
+                                  <dd class="col-sm-8"><a href="mailto:{{ $inquiry->email }}">{{ $inquiry->email }}</a></dd>
+
+                                  @if($inquiry->phone)
+                                    <dt class="col-sm-4 text-muted">Phone:</dt>
+                                    <dd class="col-sm-8">{{ $inquiry->phone }}</dd>
+                                  @endif
+
+                                  @if($inquiry->organization)
+                                    <dt class="col-sm-4 text-muted">Company:</dt>
+                                    <dd class="col-sm-8">{{ $inquiry->organization }}</dd>
+                                  @endif
+
+                                  @if($inquiry->phase)
+                                    <dt class="col-sm-4 text-muted">Trial Phase:</dt>
+                                    <dd class="col-sm-8">{{ $inquiry->phase }}</dd>
+                                  @endif
+
+                                  @if($inquiry->therapeutic_focus)
+                                    <dt class="col-sm-4 text-muted">Therapeutic Focus:</dt>
+                                    <dd class="col-sm-8">{{ $inquiry->therapeutic_focus }}</dd>
+                                  @endif
+
+                                  <dt class="col-sm-4 text-muted">Message:</dt>
+                                  <dd class="col-sm-8 bg-light p-2 rounded text-dark">
+                                    {{ $inquiry->message ?? 'No additional message provided.' }}
+                                  </dd>
+
+                                  <dt class="col-sm-4 text-muted">Date:</dt>
+                                  <dd class="col-sm-8 text-muted">{{ $inquiry->created_at ? $inquiry->created_at->format('M d, Y H:i') : '-' }}</dd>
+                                </dl>
+                              </div>
+                              <div class="modal-footer bg-light py-2">
+                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                <a href="mailto:{{ $inquiry->email }}" class="btn btn-primary btn-sm">
+                                  <i class="fas fa-reply mr-1"></i> Reply via Email
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
                       </td>
                     </tr>
                   @empty
                     <tr>
-                      <td colspan="7" class="text-center py-4 text-muted">
+                      <td colspan="9" class="text-center py-5 text-muted">
                         <i class="fas fa-inbox fa-3x mb-3 text-muted d-block"></i>
-                        No protocol inquiries received yet. Submit test inquiries from the <a href="{{ route('home') }}" target="_blank">public website</a>.
+                        No inquiries found.
                       </td>
                     </tr>
                   @endforelse
@@ -173,109 +270,18 @@
             </div>
           </div>
           <!-- /.card-body -->
+
+          @if(method_exists($inquiries, 'hasPages') && $inquiries->hasPages())
+            <div class="card-footer bg-white border-top d-flex justify-content-center py-3">
+              {{ $inquiries->withQueryString()->links() }}
+            </div>
+          @endif
         </div>
-        <!-- /.card -->
-
-      </section>
-      <!-- /.Left col -->
-
-      <!-- Right col -->
-      <section class="col-lg-4 connectedSortable">
-        
-        <!-- Therapeutic Focus Card -->
-        <div class="card card-white">
-          <div class="card-header border-bottom py-3">
-            <h3 class="card-title font-weight-bold text-dark">
-              <i class="fas fa-chart-pie mr-2 text-warning"></i> Therapeutic Pipeline
-            </h3>
-          </div>
-          <div class="card-body">
-            
-            <div class="progress-group mb-3">
-              <span class="font-weight-semibold text-sm">Oncology &amp; Hematology</span>
-              <span class="float-right text-xs font-weight-bold text-primary">40%</span>
-              <div class="progress progress-sm mt-1">
-                <div class="progress-bar bg-primary" style="width: 40%"></div>
-              </div>
-            </div>
-
-            <div class="progress-group mb-3">
-              <span class="font-weight-semibold text-sm">Neurology &amp; CNS</span>
-              <span class="float-right text-xs font-weight-bold text-success">25%</span>
-              <div class="progress progress-sm mt-1">
-                <div class="progress-bar bg-success" style="width: 25%"></div>
-              </div>
-            </div>
-
-            <div class="progress-group mb-3">
-              <span class="font-weight-semibold text-sm">Immunology &amp; Inflammation</span>
-              <span class="float-right text-xs font-weight-bold text-warning">20%</span>
-              <div class="progress progress-sm mt-1">
-                <div class="progress-bar bg-warning" style="width: 20%"></div>
-              </div>
-            </div>
-
-            <div class="progress-group mb-3">
-              <span class="font-weight-semibold text-sm">Rare &amp; Orphan Disease</span>
-              <span class="float-right text-xs font-weight-bold text-danger">10%</span>
-              <div class="progress progress-sm mt-1">
-                <div class="progress-bar bg-danger" style="width: 10%"></div>
-              </div>
-            </div>
-
-            <div class="progress-group mb-0">
-              <span class="font-weight-semibold text-sm">Cardiovascular &amp; Metabolic</span>
-              <span class="float-right text-xs font-weight-bold text-info">5%</span>
-              <div class="progress progress-sm mt-1">
-                <div class="progress-bar bg-info" style="width: 5%"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <!-- System Status Card -->
-        <div class="card card-white">
-          <div class="card-header border-bottom py-3">
-            <h3 class="card-title font-weight-bold text-dark">
-              <i class="fas fa-server mr-2 text-info"></i> Operations Platform
-            </h3>
-          </div>
-          <div class="card-body p-0">
-            <ul class="list-group list-group-flush text-sm">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Theme</span>
-                <span class="badge badge-light border font-weight-bold">AdminLTE v3 (Light)</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Framework</span>
-                <span class="badge badge-light border">Laravel {{ app()->version() }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Compliance</span>
-                <span class="badge badge-success">ICH-GCP &bull; 21 CFR 11</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Session Engine</span>
-                <span class="badge badge-info">{{ config('session.driver') }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Database</span>
-                <span class="badge badge-primary">{{ config('database.default') }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- /.card -->
-
-      </section>
-      <!-- /.Right col -->
+      </div>
     </div>
-    <!-- /.row (main row) -->
+    <!-- /.row -->
 
   </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 @endsection
-

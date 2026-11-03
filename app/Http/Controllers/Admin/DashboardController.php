@@ -5,39 +5,39 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     /**
      * Display the AdminLTE Light Dashboard.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $filter = $request->query('filter');
+
         try {
             $totalInquiries = Inquiry::count();
             $totalRfps = Inquiry::where('type', 'rfp')->count();
             $totalContacts = Inquiry::where('type', 'contact')->count();
             $pendingRfps = Inquiry::where('status', 'new')->count();
-            $reviewedRfps = Inquiry::whereIn('status', ['in_review', 'contacted', 'closed'])->count();
 
-            $recentInquiries = Inquiry::latest()->take(8)->get();
+            $query = Inquiry::latest();
 
-            $therapeuticStats = Inquiry::whereNotNull('therapeutic_focus')
-                ->select('therapeutic_focus', DB::raw('count(*) as total'))
-                ->groupBy('therapeutic_focus')
-                ->pluck('total', 'therapeutic_focus')
-                ->toArray();
+            if ($filter === 'rfp') {
+                $query->where('type', 'rfp');
+            } elseif ($filter === 'contact') {
+                $query->where('type', 'contact');
+            } elseif ($filter === 'pending') {
+                $query->where('status', 'new');
+            }
+
+            $inquiries = $query->paginate(15);
         } catch (\Throwable $e) {
-            // Graceful fallback if database table not yet migrated
             $totalInquiries = 0;
             $totalRfps = 0;
             $totalContacts = 0;
             $pendingRfps = 0;
-            $reviewedRfps = 0;
-            $recentInquiries = collect();
-            $therapeuticStats = [];
+            $inquiries = collect();
         }
 
         return view('admin.dashboard', compact(
@@ -45,37 +45,8 @@ class DashboardController extends Controller
             'totalRfps',
             'totalContacts',
             'pendingRfps',
-            'reviewedRfps',
-            'recentInquiries',
-            'therapeuticStats'
+            'inquiries'
         ));
-    }
-
-    /**
-     * Display all inquiries and RFPs table view.
-     */
-    public function inquiries(Request $request)
-    {
-        $type = $request->query('type');
-        $status = $request->query('status');
-
-        try {
-            $query = Inquiry::latest();
-
-            if ($type) {
-                $query->where('type', $type);
-            }
-
-            if ($status) {
-                $query->where('status', $status);
-            }
-
-            $inquiries = $query->paginate(15);
-        } catch (\Throwable $e) {
-            $inquiries = collect();
-        }
-
-        return view('admin.inquiries', compact('inquiries', 'type', 'status'));
     }
 
     /**
@@ -116,4 +87,3 @@ class DashboardController extends Controller
         }
     }
 }
-

@@ -74,7 +74,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
+        <a href="{{ route('admin.dashboard') }}" class="nav-link font-weight-bold">Dashboard</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" target="_blank" class="nav-link text-primary"><i class="fas fa-external-link-alt mr-1"></i> View Website</a>
@@ -82,35 +82,17 @@
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Admin User Dropdown Menu -->
-      <li class="nav-item dropdown user-menu">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <i class="far fa-user-circle fa-lg mr-1 text-muted"></i>
-          <span class="d-none d-md-inline font-weight-bold">{{ Auth::user()->name ?? 'Administrator' }}</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right shadow-sm border-0">
-          <!-- User image -->
-          <div class="dropdown-header text-center bg-light py-3">
-            <i class="fas fa-user-shield fa-2x text-primary mb-2"></i>
-            <h6 class="mb-0 font-weight-bold">{{ Auth::user()->name ?? 'Admin' }}</h6>
-            <small class="text-muted">{{ Auth::user()->email ?? 'admin@trevanta.com' }}</small>
-          </div>
-          <div class="dropdown-divider"></div>
-          <a href="{{ route('admin.inquiries') }}" class="dropdown-item">
-            <i class="fas fa-clipboard-list mr-2 text-info"></i> All Inquiries &amp; RFPs
-          </a>
-          <a href="{{ route('home') }}" target="_blank" class="dropdown-item">
-            <i class="fas fa-globe mr-2 text-success"></i> Public Live Website
-          </a>
-          <div class="dropdown-divider"></div>
-          <form action="{{ route('admin.logout') }}" method="POST" class="p-2">
-            @csrf
-            <button type="submit" class="btn btn-danger btn-block btn-sm">
-              <i class="fas fa-sign-out-alt mr-1"></i> Sign Out
-            </button>
-          </form>
-        </div>
+    <ul class="navbar-nav ml-auto align-items-center">
+      <li class="nav-item mr-3 text-muted text-sm d-none d-md-inline">
+        <i class="far fa-user-circle mr-1"></i> {{ Auth::user()->name ?? 'Administrator' }}
+      </li>
+      <li class="nav-item">
+        <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
+          @csrf
+          <button type="submit" class="btn btn-outline-danger btn-sm">
+            <i class="fas fa-sign-out-alt mr-1"></i> Sign Out
+          </button>
+        </form>
       </li>
     </ul>
   </nav>
@@ -131,6 +113,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+      
       <!-- Sidebar user panel -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center px-2">
         <div class="image">
@@ -139,8 +122,8 @@
           </div>
         </div>
         <div class="info">
-          <a href="{{ route('admin.dashboard') }}" class="d-block font-weight-bold text-dark">{{ Auth::user()->name ?? 'Administrator' }}</a>
-          <span class="text-xs text-success"><i class="fas fa-circle text-xs mr-1"></i> Online (Active)</span>
+          <span class="d-block font-weight-bold text-dark">{{ Auth::user()->name ?? 'Administrator' }}</span>
+          <small class="text-muted">{{ Auth::user()->email ?? 'admin@trevanta.com' }}</small>
         </div>
       </div>
 
@@ -148,69 +131,21 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
-          <li class="nav-header text-uppercase text-xs font-weight-bold text-muted">Core Management</li>
-          
           <li class="nav-item">
             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>Executive Dashboard</p>
+              <p>Dashboard</p>
             </a>
           </li>
-
-          <li class="nav-item">
-            <a href="{{ route('admin.inquiries') }}" class="nav-link {{ request()->routeIs('admin.inquiries') && !request()->has('type') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-inbox"></i>
-              <p>All Inquiries</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('admin.inquiries', ['type' => 'rfp']) }}" class="nav-link {{ request()->get('type') === 'rfp' ? 'active' : '' }}">
-              <i class="nav-icon fas fa-file-signature text-warning"></i>
-              <p>Study RFPs &amp; Trials</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('admin.inquiries', ['type' => 'contact']) }}" class="nav-link {{ request()->get('type') === 'contact' ? 'active' : '' }}">
-              <i class="nav-icon fas fa-comments text-info"></i>
-              <p>General Inquiries</p>
-            </a>
-          </li>
-
-          <li class="nav-header text-uppercase text-xs font-weight-bold text-muted mt-3">Live Website</li>
 
           <li class="nav-item">
             <a href="{{ route('home') }}" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-home text-muted"></i>
-              <p>Home Page</p>
+              <i class="nav-icon fas fa-globe"></i>
+              <p>View Website</p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="{{ route('services') }}" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-stethoscope text-muted"></i>
-              <p>Clinical Services</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('global') }}" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-globe-americas text-muted"></i>
-              <p>Global Hubs</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('blog') }}" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-newspaper text-muted"></i>
-              <p>Scientific Blog</p>
-            </a>
-          </li>
-
-          <li class="nav-header text-uppercase text-xs font-weight-bold text-muted mt-3">Account</li>
-
-          <li class="nav-item">
+          <li class="nav-item mt-3">
             <form action="{{ route('admin.logout') }}" method="POST" id="sidebar-logout-form">
               @csrf
               <a href="#" onclick="event.preventDefault(); document.getElementById('sidebar-logout-form').submit();" class="nav-link text-danger">
@@ -259,7 +194,7 @@
   <!-- Main Footer -->
   <footer class="main-footer bg-white border-top text-sm">
     <div class="float-right d-none d-sm-inline">
-      AstraClinical Clinical Trial Operations &bull; <strong>AdminLTE 3 Light</strong>
+      <strong>AdminLTE 3 Light</strong>
     </div>
     <strong>&copy; {{ date('Y') }} <a href="{{ route('home') }}" class="text-primary font-weight-bold">AstraClinical Research</a>.</strong> All rights reserved.
   </footer>
@@ -277,4 +212,3 @@
 @stack('scripts')
 </body>
 </html>
-

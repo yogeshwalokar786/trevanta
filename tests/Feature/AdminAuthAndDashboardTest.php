@@ -76,12 +76,12 @@ class AdminAuthAndDashboardTest extends TestCase
 
         $response = $this->actingAs($this->admin)->get('/admin/dashboard');
         $response->assertStatus(200);
-        $response->assertSee('Clinical Operations Executive Dashboard');
+        $response->assertSee('Dashboard');
         $response->assertSee('Dr. Alice Martin');
         $response->assertSee('AdminLTE', false);
     }
 
-    public function test_authenticated_admin_can_view_inquiries_list(): void
+    public function test_authenticated_admin_can_view_inquiries_on_dashboard(): void
     {
         Inquiry::create([
             'type'              => 'contact',
@@ -92,7 +92,7 @@ class AdminAuthAndDashboardTest extends TestCase
             'status'            => 'contacted',
         ]);
 
-        $response = $this->actingAs($this->admin)->get('/admin/inquiries');
+        $response = $this->actingAs($this->admin)->get('/admin/dashboard');
         $response->assertStatus(200);
         $response->assertSee('Dr. Bob Henderson');
         $response->assertSee('Henderson Bio');
@@ -127,4 +127,3 @@ class AdminAuthAndDashboardTest extends TestCase
         $this->assertGuest();
     }
 }
-
