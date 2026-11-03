@@ -1,4 +1,4 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'AstraClinical Research | Global Clinical Research Organization (CRO)')
 @section('description', 'AstraClinical Research is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.')
@@ -254,24 +254,25 @@
             <a href="#contact" class="s-more-link">Consult Device Specialists &rarr;</a>
           </article>
         </div>
-      </div>
-    
-        <div class="featured-media-split" style="margin-top: 3.5rem;">
-          <div>
+
+        <!-- FEATURED PATIENT-CENTRIC LEADERSHIP -->
+        <div class="featured-media-split">
+          <div class="split-content">
             <span class="eyebrow-jss">PATIENT-CENTRIC LEADERSHIP</span>
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Bridging Breakthrough Science with Compassionate Care</h3>
-            <p style="line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+            <h3>Bridging Breakthrough Science with Compassionate Care</h3>
+            <p>
               With over 500,000 enrolled subjects across 8,500 investigator hospital networks, our trial teams prioritize ethical retention, diverse cohort enrollment, and seamless patient experience.
             </p>
-            <div style="display: flex; gap: 1rem;">
+            <div class="split-actions">
               <button class="btn btn-jss-orange" onclick="openRfpModal()">Request Feasibility Study &rarr;</button>
               <a href="{{ route('about') }}" class="btn btn-jss-outline">Explore Our History</a>
             </div>
           </div>
           <div class="split-photo-frame">
-            <img src="{{ asset('images/doctor-consultation.jpg') }}" alt="Clinical Investigator Patient Consultation">
+            <img src="{{ asset('images/doctor-consultation.jpg') }}" alt="Clinical Investigator Patient Consultation" loading="lazy">
           </div>
         </div>
+      </div>
 </section>
 
     <!-- 1. CLINICAL TRIAL PHASE LIFECYCLE NAVIGATOR -->

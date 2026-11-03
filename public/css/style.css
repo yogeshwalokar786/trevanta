@@ -235,26 +235,118 @@ ul {
   line-height: 1.4;
 }
 
+/* FEATURED MEDIA SPLIT (RESPONSIVE) */
 .featured-media-split {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 3.5rem;
   align-items: center;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.featured-media-split .split-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-media-split h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--jss-navy);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.featured-media-split p {
+  font-size: 1.025rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.featured-media-split .split-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
 .split-photo-frame {
   position: relative;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-light);
+  width: 100%;
+  background: var(--bg-subtle);
 }
 
 .split-photo-frame img {
   width: 100%;
-  height: 360px;
+  height: 380px;
+  max-height: 420px;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.split-photo-frame:hover img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 992px) {
+  .featured-media-split {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    margin-top: 3rem;
+  }
+
+  .featured-media-split h3 {
+    font-size: 1.75rem;
+  }
+
+  .split-photo-frame img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-media-split {
+    margin-top: 2rem;
+    gap: 1.5rem;
+  }
+
+  .featured-media-split h3 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .featured-media-split p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .featured-media-split .split-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .featured-media-split .split-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .split-photo-frame {
+    border-radius: var(--radius-md);
+  }
+
+  .split-photo-frame img {
+    height: 240px;
+  }
 }
 
 .topbar-mail {
