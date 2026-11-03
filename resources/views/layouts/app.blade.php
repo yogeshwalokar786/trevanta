@@ -23,29 +23,68 @@
   <!-- MOBILE NAVIGATION DRAWER (LEFT-TO-RIGHT SLIDE-IN) -->
   <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
     <div class="drawer-head">
-      <div class="logo-graphic">
+      <a href="{{ route('home') }}" class="drawer-logo-wrap" onclick="closeNav()" aria-label="{{ setting('site_name', 'Trevanta International') }}">
         <img src="{{ asset(setting('site_logo', 'images/logo.png')) }}" alt="{{ setting('site_name', 'Trevanta International') }}" class="logo-img drawer-logo">
-      </div>
+      </a>
       <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
     </div>
 
+    <!-- Quick Actions in Drawer: Language Switcher -->
+    <div class="drawer-lang-row">
+      <span class="drawer-lang-lbl">Language</span>
+      <div class="drawer-lang-pills">
+        <button class="lang-btn active">EN</button>
+        <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
+      </div>
+    </div>
+
     <ul class="nav-menu">
-      <li class="menu-item"><a href="{{ route('home') }}" class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
-      <li class="menu-item"><a href="{{ route('about') }}" class="menu-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
-      <li class="menu-item"><a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
-      <li class="menu-item"><a href="{{ route('global') }}" class="menu-link {{ request()->routeIs('global') ? 'active' : '' }}">Global Presence</a></li>
-      <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Insights &amp; Blog</a></li>
-      <li class="menu-item"><a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
+      <li class="menu-item">
+        <a href="{{ route('home') }}" class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}">
+          <span>Home</span>
+          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('about') }}" class="menu-link {{ request()->routeIs('about') ? 'active' : '' }}">
+          <span>About Us</span>
+          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">
+          <span>Services</span>
+          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('global') }}" class="menu-link {{ request()->routeIs('global') ? 'active' : '' }}">
+          <span>Global Presence</span>
+          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">
+          <span>Insights &amp; Blog</span>
+          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">
+          <span>Contact Us</span>
+          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </li>
     </ul>
 
     <div class="drawer-foot">
-      <span class="drawer-hotlines-title">Regional Direct Hotlines</span>
+      <span class="drawer-hotlines-title">Direct Regional Inquiries</span>
       <div class="drawer-hotlines-list">
         <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}"><span class="reg-pill orange">NA</span> {{ setting('phone_na', '+1 (514) 934-0805') }}</a>
         <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_in', '+91 7738804988')) }}"><span class="reg-pill">IN</span> {{ setting('phone_in', '+91 7738804988') }}</a>
         <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_uae', '+971 52 382 2824')) }}"><span class="reg-pill">UAE</span> {{ setting('phone_uae', '+971 52 382 2824') }}</a>
       </div>
-      <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+      <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" class="drawer-email-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         {{ setting('contact_email', 'info@astraclinical.com') }}
       </a>
@@ -89,6 +128,7 @@
           <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
             <span class="rfp-full-txt">Request Study RFP &rarr;</span>
             <span class="rfp-short-txt">Study RFP &rarr;</span>
+            <span class="rfp-mini-txt">RFP &rarr;</span>
           </button>
 
           <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleNav()">

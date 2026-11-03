@@ -360,6 +360,49 @@
       align-items: center;
       justify-content: space-between;
     }
+
+    /* Admin Navbar & Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .main-header.navbar {
+        padding: 0.5rem 1rem !important;
+        min-height: 56px !important;
+      }
+      .content-header {
+        padding: 1.25rem 1rem 0.5rem !important;
+      }
+      .content-header h1 {
+        font-size: 1.35rem !important;
+      }
+      .btn-view-site {
+        padding: 0.35rem 0.7rem !important;
+        font-size: 0.75rem !important;
+      }
+      .card-header {
+        padding: 0.9rem 1.15rem !important;
+      }
+      .card-body {
+        padding: 1.15rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-header.navbar {
+        padding: 0.45rem 0.65rem !important;
+      }
+      .btn-view-site {
+        padding: 0.3rem 0.55rem !important;
+        font-size: 0.75rem !important;
+      }
+      .btn-view-site span.btn-txt-full {
+        display: none !important;
+      }
+      .btn-view-site span.btn-txt-short {
+        display: inline !important;
+      }
+    }
+    .btn-view-site span.btn-txt-short {
+      display: none;
+    }
   </style>
 
   @stack('styles')
@@ -387,7 +430,7 @@
     <ul class="navbar-nav ml-auto align-items-center">
       <li class="nav-item mr-3">
         <a href="{{ route('home') }}" target="_blank" class="btn-view-site">
-          <i class="fas fa-external-link-alt"></i> View Website
+          <i class="fas fa-external-link-alt"></i> <span class="btn-txt-full">View Website</span><span class="btn-txt-short">Site</span>
         </a>
       </li>
       <li class="nav-item d-none d-md-flex align-items-center mr-3">
