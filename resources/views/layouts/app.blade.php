@@ -131,7 +131,6 @@
           <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
             <span class="rfp-full-txt">Request Study RFP &rarr;</span>
             <span class="rfp-short-txt">Study RFP &rarr;</span>
-            <span class="rfp-mini-txt">RFP &rarr;</span>
           </button>
 
           <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleNav()">
