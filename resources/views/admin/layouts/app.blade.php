@@ -416,7 +416,7 @@
   <aside class="main-sidebar">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
-      <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" style="height: 38px; width: auto; max-width: 100%; object-fit: contain;">
+      <img src="{{ asset(setting('admin_logo', 'images/logo.png')) }}" alt="{{ setting('site_name', 'Trevanta International') }}" style="height: 38px; width: auto; max-width: 100%; object-fit: contain;">
     </a>
 
     <!-- Sidebar Navigation -->
@@ -453,6 +453,15 @@
             <a href="{{ route('admin.media.index') }}" class="nav-link {{ request()->routeIs('admin.media.*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-photo-video"></i>
               <p>Media Library</p>
+            </a>
+          </li>
+
+          <li class="sidebar-nav-heading">Configuration</li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.settings.index') }}" class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>Site Settings</p>
             </a>
           </li>
 

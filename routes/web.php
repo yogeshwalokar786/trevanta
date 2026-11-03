@@ -56,6 +56,10 @@ Route::prefix('admin')->group(function () {
 
         // Media Library & Manager
         Route::resource('media', \App\Http\Controllers\Admin\MediaController::class, ['as' => 'admin'])->only(['index', 'store', 'destroy']);
+
+        // Site Settings Management (Contact, Addresses, Logos, SEO, Branding)
+        Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings.index');
+        Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin.settings.update');
     });
 });
 

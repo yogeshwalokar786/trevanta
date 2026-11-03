@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>@yield('title', 'AstraClinical Research | Global Clinical Research Organization (CRO)')</title>
-  <meta name="description" content="@yield('description', 'AstraClinical Research is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.')">
+  <title>@yield('title', setting('home_meta_title', 'Trevanta International | Global Clinical Research Organization (CRO)'))</title>
+  <meta name="description" content="@yield('description', setting('home_meta_description', 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.'))">
+  <link rel="icon" type="image/png" href="{{ asset(setting('site_favicon', 'images/logo.png')) }}">
   @yield('meta')
   @stack('seo')
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +24,7 @@
   <nav class="jss-nav" id="jss-nav" aria-label="Mobile Navigation">
     <div class="drawer-head">
       <div class="logo-graphic">
-        <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" class="logo-img drawer-logo">
+        <img src="{{ asset(setting('site_logo', 'images/logo.png')) }}" alt="{{ setting('site_name', 'Trevanta International') }}" class="logo-img drawer-logo">
       </div>
       <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
     </div>
@@ -40,13 +41,13 @@
     <div class="drawer-foot">
       <span class="drawer-hotlines-title">Regional Direct Hotlines</span>
       <div class="drawer-hotlines-list">
-        <a href="tel:+15149340805"><span class="reg-pill orange">NA</span> +1 (514) 934-0805</a>
-        <a href="tel:+917738804988"><span class="reg-pill">IN</span> +91 7738804988</a>
-        <a href="tel:+971523822824"><span class="reg-pill">UAE</span> +971 52 382 2824</a>
+        <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}"><span class="reg-pill orange">NA</span> {{ setting('phone_na', '+1 (514) 934-0805') }}</a>
+        <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_in', '+91 7738804988')) }}"><span class="reg-pill">IN</span> {{ setting('phone_in', '+91 7738804988') }}</a>
+        <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_uae', '+971 52 382 2824')) }}"><span class="reg-pill">UAE</span> {{ setting('phone_uae', '+971 52 382 2824') }}</a>
       </div>
-      <a href="mailto:info@astraclinical.com" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+      <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        info@astraclinical.com
+        {{ setting('contact_email', 'info@astraclinical.com') }}
       </a>
       <button class="btn btn-jss-orange drawer-foot-cta" onclick="closeNav(); openRfpModal();">
         Request Study RFP &rarr;
@@ -62,20 +63,20 @@
       <div class="site-container header-top-inner">
         
         <!-- BRAND LOGO -->
-        <a href="{{ route('home') }}" class="jss-logo" aria-label="Trevanta International">
-          <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" class="logo-img">
+        <a href="{{ route('home') }}" class="jss-logo" aria-label="{{ setting('site_name', 'Trevanta International') }}">
+          <img src="{{ asset(setting('site_logo', 'images/logo.png')) }}" alt="{{ setting('site_name', 'Trevanta International') }}" class="logo-img">
         </a>
 
         <!-- TOP ACTIONS: CONTACT HOTLINES + EMAIL + LANG + RFP BUTTON + HAMBURGER -->
         <div class="header-top-actions">
           <div class="header-contact-items">
-            <a href="tel:+15149340805" class="top-contact-pill" title="Montreal Global HQ Hotline">
+            <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}" class="top-contact-pill" title="Montreal Global HQ Hotline">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>+1 (514) 934-0805</span>
+              <span>{{ setting('phone_na', '+1 (514) 934-0805') }}</span>
             </a>
-            <a href="mailto:info@astraclinical.com" class="top-contact-pill" title="Inquire via Corporate Email">
+            <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" class="top-contact-pill" title="Inquire via Corporate Email">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>info@astraclinical.com</span>
+              <span>{{ setting('contact_email', 'info@astraclinical.com') }}</span>
             </a>
           </div>
 
@@ -136,15 +137,15 @@
   <footer class="jss-footer">
     <div class="site-container footer-grid">
       <div class="f-brand">
-        <a href="{{ route('home') }}" class="jss-logo" aria-label="Trevanta International" style="margin-bottom: 1.25rem;">
-          <img src="{{ asset('images/logo-white.png') }}" alt="Trevanta International" class="logo-img footer-logo">
+        <a href="{{ route('home') }}" class="jss-logo" aria-label="{{ setting('site_name', 'Trevanta International') }}" style="margin-bottom: 1.25rem;">
+          <img src="{{ asset(setting('site_logo_white', 'images/logo-white.png')) }}" alt="{{ setting('site_name', 'Trevanta International') }}" class="logo-img footer-logo">
         </a>
         <p class="f-about">
-          A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.
+          {{ setting('footer_about', 'A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.') }}
         </p>
         <p class="f-contact-info">
-          <strong>Corporate HQ:</strong> 4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada<br>
-          <strong>Email:</strong> <a href="mailto:info@trevanta.com">info@trevanta.com</a>
+          <strong>Corporate HQ:</strong> {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}<br>
+          <strong>Email:</strong> <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}">{{ setting('contact_email', 'info@trevanta.com') }}</a>
         </p>
       </div>
 
@@ -187,7 +188,7 @@
 
     <div class="footer-legal">
       <div class="site-container legal-flex">
-        <p>&copy; {{ date('Y') }} Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.</p>
+        <p>{{ setting('footer_copyright', '© ' . date('Y') . ' Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.') }}</p>
         <div class="legal-menu">
           <a href="#">Privacy Statement</a>
           <a href="#">Terms of Use</a>

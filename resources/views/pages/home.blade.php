@@ -1,7 +1,70 @@
 @extends('layouts.app')
 
-@section('title', 'AstraClinical Research | Global Clinical Research Organization (CRO)')
-@section('description', 'AstraClinical Research is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.')
+@section('title', setting('home_meta_title', 'Trevanta International | Global Clinical Research Organization (CRO)'))
+@section('description', setting('home_meta_description', 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.'))
+
+@push('seo')
+  <link rel="canonical" href="{{ setting('canonical_url_base', url('/')) }}">
+  <meta name="robots" content="{{ setting('meta_robots_default', 'index, follow') }}">
+  @if(setting('home_meta_keywords'))
+    <meta name="keywords" content="{{ setting('home_meta_keywords') }}">
+  @endif
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ setting('site_name', 'Trevanta International') }}">
+  <meta property="og:title" content="{{ setting('home_meta_title', 'Trevanta International | Global Clinical Research Organization (CRO)') }}">
+  <meta property="og:description" content="{{ setting('home_meta_description', 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.') }}">
+  <meta property="og:url" content="{{ url('/') }}">
+  @php
+    $homeOg = setting('home_og_image', 'images/doctor-consultation.jpg');
+    $homeOgUrl = $homeOg ? asset($homeOg) : asset('images/logo.png');
+  @endphp
+  <meta property="og:image" content="{{ $homeOgUrl }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ setting('home_meta_title', 'Trevanta International | Global Clinical Research Organization (CRO)') }}">
+  <meta name="twitter:description" content="{{ setting('home_meta_description', 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.') }}">
+  <meta name="twitter:image" content="{{ $homeOgUrl }}">
+
+  <!-- JSON-LD Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ json_encode(setting('site_name', 'Trevanta International')) }},
+    "url": {{ json_encode(url('/')) }},
+    "logo": {{ json_encode(asset(setting('site_logo', 'images/logo.png'))) }},
+    "description": {{ json_encode(setting('home_meta_description', 'A globally recognized Clinical Research Organization delivering multi-national trial management.')) }},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": {{ json_encode(setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada')) }}
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": {{ json_encode(setting('phone_na', '+1-514-934-0805')) }},
+        "contactType": "customer service",
+        "email": {{ json_encode(setting('contact_email', 'info@astraclinical.com')) }},
+        "areaServed": ["CA", "US"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": {{ json_encode(setting('phone_in', '+91-7738804988')) }},
+        "contactType": "operations",
+        "areaServed": "IN"
+      }
+    ],
+    "sameAs": [
+      {{ json_encode(setting('social_linkedin', 'https://www.linkedin.com/company/trevanta-international')) }}
+      @if(setting('social_twitter')),
+      {{ json_encode(setting('social_twitter')) }}
+      @endif
+    ]
+  }
+  </script>
+@endpush
 
 @section('content')
   <main id="home">

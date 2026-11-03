@@ -29,7 +29,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2026_11_03_000002_create_blogs_table', 1),
 (6, '2026_11_03_000003_create_categories_table', 1),
 (7, '2026_11_03_000004_create_media_table', 1),
-(8, '2026_11_03_000005_add_seo_fields_to_blogs_table', 1);
+(8, '2026_11_03_000005_add_seo_fields_to_blogs_table', 1),
+(9, '2026_11_03_000006_create_settings_table', 1);
 
 -- --------------------------------------------------------
 -- Table structure for `users`
@@ -281,6 +282,61 @@ INSERT INTO `media` (`id`, `filename`, `path`, `mime_type`, `size`, `alt_text`, 
 (1, 'clinical-lab.jpg', 'images/clinical-lab.jpg', 'image/jpeg', 245760, 'Central Clinical Laboratory', NOW(), NOW()),
 (2, 'doctor-consultation.jpg', 'images/doctor-consultation.jpg', 'image/jpeg', 312320, 'Doctor Consultation', NOW(), NOW()),
 (3, 'logo.png', 'images/logo.png', 'image/png', 52140, 'Trevanta International Logo', NOW(), NOW());
+
+-- --------------------------------------------------------
+-- Table structure for `settings`
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE `settings` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `key` varchar(100) NOT NULL,
+  `value` longtext DEFAULT NULL,
+  `group` varchar(50) NOT NULL DEFAULT 'general',
+  `type` varchar(50) NOT NULL DEFAULT 'text',
+  `label` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `settings_key_unique` (`key`),
+  KEY `settings_group_index` (`group`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+-- Dumping data for table `settings`
+-- --------------------------------------------------------
+INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, `updated_at`) VALUES
+('site_name', 'Trevanta International', 'branding', 'text', 'Company / Brand Name', NOW(), NOW()),
+('site_tagline', 'Global Reach, Regional Agility, Patient-Centric Clinical Research', 'branding', 'text', 'Tagline', NOW(), NOW()),
+('site_logo', 'images/logo.png', 'branding', 'media_image', 'Primary Header Logo', NOW(), NOW()),
+('site_logo_white', 'images/logo-white.png', 'branding', 'media_image', 'Footer White Logo', NOW(), NOW()),
+('site_favicon', 'images/logo.png', 'branding', 'media_image', 'Favicon Icon', NOW(), NOW()),
+('admin_logo', 'images/logo.png', 'branding', 'media_image', 'Admin Sidebar Logo', NOW(), NOW()),
+
+('contact_email', 'info@astraclinical.com', 'contact', 'email', 'Primary General Inquiry Email', NOW(), NOW()),
+('rfp_email', 'info@astraclinical.com', 'contact', 'email', 'Study RFP & Protocol Email', NOW(), NOW()),
+('safety_email', 'safety@astraclinical.com', 'contact', 'email', '24/7 Safety & Pharmacovigilance Email', NOW(), NOW()),
+('phone_na', '+1 (514) 934-0805', 'contact', 'text', 'North America (Canada HQ) Hotline', NOW(), NOW()),
+('phone_in', '+91 7738804988', 'contact', 'text', 'India & APAC Hotline', NOW(), NOW()),
+('phone_uae', '+971 52 382 2824', 'contact', 'text', 'Middle East / UAE Hotline', NOW(), NOW()),
+('phone_safety', '+1 (800) 577-7233', 'contact', 'text', '24/7 SAE & Safety Reporting Hotline', NOW(), NOW()),
+('operating_hours', 'Mon–Fri, 8:30 AM – 6:00 PM EST', 'contact', 'text', 'Operating Hours', NOW(), NOW()),
+
+('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada', 'addresses', 'textarea', 'Corporate HQ (Montreal, Canada)', NOW(), NOW()),
+('address_india', 'Express Trade Towers 2, Sector 132, Noida & Mumbai, India', 'addresses', 'textarea', 'India Operations Hub', NOW(), NOW()),
+('address_uae', 'Dubai Science Park, Nucleus Tower, Dubai, United Arab Emirates', 'addresses', 'textarea', 'Middle East Regional Office', NOW(), NOW()),
+('address_uk', '124 City Road, London EC1V 2NX, United Kingdom', 'addresses', 'textarea', 'UK & Europe Liaison Office', NOW(), NOW()),
+
+('home_meta_title', 'Trevanta International | Global Clinical Research Organization (CRO)', 'seo', 'text', 'Homepage Meta Title', NOW(), NOW()),
+('home_meta_description', 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.', 'seo', 'textarea', 'Homepage Meta Description', NOW(), NOW()),
+('home_meta_keywords', 'clinical research organization, CRO, Phase I-IV trials, pharmacovigilance, regulatory affairs, biostatistics, ICH GCP, clinical trials, Trevanta International', 'seo', 'textarea', 'Homepage Focus Keywords', NOW(), NOW()),
+('home_og_image', 'images/doctor-consultation.jpg', 'seo', 'media_image', 'Homepage Social Share Banner (OG Image)', NOW(), NOW()),
+('meta_robots_default', 'index, follow', 'seo', 'text', 'Search Robots Directive', NOW(), NOW()),
+('canonical_url_base', 'https://trevanta.bluebasetechnologies.com', 'seo', 'url', 'Canonical Base URL', NOW(), NOW()),
+
+('social_linkedin', 'https://www.linkedin.com/company/trevanta-international', 'social', 'url', 'LinkedIn URL', NOW(), NOW()),
+('social_twitter', 'https://twitter.com/trevantacro', 'social', 'url', 'Twitter / X URL', NOW(), NOW()),
+('footer_about', 'A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.', 'social', 'textarea', 'Footer About Blurb', NOW(), NOW()),
+('footer_copyright', '© 2026 Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.', 'social', 'text', 'Footer Copyright Notice', NOW(), NOW());
 
 SET FOREIGN_KEY_CHECKS = 1;
 
