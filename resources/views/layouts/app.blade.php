@@ -87,9 +87,9 @@
         <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_in', '+91 7738804988')) }}"><span class="reg-pill">IN</span> {{ setting('phone_in', '+91 7738804988') }}</a>
         <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_uae', '+971 52 382 2824')) }}"><span class="reg-pill">UAE</span> {{ setting('phone_uae', '+971 52 382 2824') }}</a>
       </div>
-      <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" class="drawer-email-link">
+      <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" class="drawer-email-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        {{ setting('contact_email', 'info@astraclinical.com') }}
+        {{ setting('contact_email', 'info@trevanta.com') }}
       </a>
       <button class="btn btn-jss-orange drawer-foot-cta" onclick="closeNav(); openRfpModal();">
         Request Study RFP &rarr;
@@ -116,9 +116,9 @@
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>{{ setting('phone_na', '+1 (514) 934-0805') }}</span>
             </a>
-            <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" class="top-contact-pill" title="Inquire via Corporate Email">
+            <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" class="top-contact-pill" title="Inquire via Corporate Email">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>{{ setting('contact_email', 'info@astraclinical.com') }}</span>
+              <span>{{ setting('contact_email', 'info@trevanta.com') }}</span>
             </a>
           </div>
 
@@ -175,7 +175,7 @@
   <!-- DYNAMIC PAGE CONTENT -->
   @yield('content')
 
-  <!-- ASTRACLINICAL FOOTER -->
+  <!-- TREVANTA INTERNATIONAL FOOTER -->
   <footer class="jss-footer">
     <div class="site-container footer-grid">
       <div class="f-brand">
@@ -315,7 +315,7 @@
         <!-- Injected dynamically by script.js -->
       </div>
       <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <span style="font-size: 0.85rem; color: var(--text-muted);">Published by AstraClinical Research Scientific Intelligence Unit</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Published by Trevanta International Scientific Intelligence Unit</span>
         <button class="btn btn-jss-orange" onclick="closeArticleModal(); openRfpModal();">Discuss Study Application &rarr;</button>
       </div>
     </div>

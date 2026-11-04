@@ -253,17 +253,17 @@
               <div class="row mb-4">
                 <div class="col-md-4 mb-3">
                   <label for="contact_email" class="font-weight-bold text-dark text-xs text-uppercase mb-1">General Inquiries Email</label>
-                  <input type="email" name="contact_email" id="contact_email" class="form-control" value="{{ $settings['contact_email'] ?? 'info@astraclinical.com' }}" required>
+                  <input type="email" name="contact_email" id="contact_email" class="form-control" value="{{ $settings['contact_email'] ?? 'info@trevanta.com' }}" required>
                   <small class="text-muted text-xs">Main public contact address.</small>
                 </div>
                 <div class="col-md-4 mb-3">
                   <label for="rfp_email" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Study RFP / Proposals Email</label>
-                  <input type="email" name="rfp_email" id="rfp_email" class="form-control" value="{{ $settings['rfp_email'] ?? 'info@astraclinical.com' }}" required>
+                  <input type="email" name="rfp_email" id="rfp_email" class="form-control" value="{{ $settings['rfp_email'] ?? 'info@trevanta.com' }}" required>
                   <small class="text-muted text-xs">Receives study RFP submissions.</small>
                 </div>
                 <div class="col-md-4 mb-3">
                   <label for="safety_email" class="font-weight-bold text-dark text-xs text-uppercase mb-1">24/7 Safety &amp; ICSR Email</label>
-                  <input type="email" name="safety_email" id="safety_email" class="form-control" value="{{ $settings['safety_email'] ?? 'safety@astraclinical.com' }}" required>
+                  <input type="email" name="safety_email" id="safety_email" class="form-control" value="{{ $settings['safety_email'] ?? 'safety@trevanta.com' }}" required>
                   <small class="text-muted text-xs">Pharmacovigilance adverse event triage.</small>
                 </div>
               </div>

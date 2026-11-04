@@ -1,5 +1,5 @@
 -- ========================================================
--- AstraClinical Research / Trevanta Database Dump
+-- Trevanta International Database Dump
 -- Compatible with MySQL 5.7+, MySQL 8.0+, MariaDB 10.3+
 -- Generated for phpMyAdmin / Direct SQL Import
 -- ========================================================

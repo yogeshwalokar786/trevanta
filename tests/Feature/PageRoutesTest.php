@@ -10,14 +10,14 @@ class PageRoutesTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
-        $response->assertSee('AstraClinical');
+        $response->assertSee('Trevanta International');
     }
 
     public function test_about_page_loads_successfully(): void
     {
         $response = $this->get('/about');
         $response->assertStatus(200);
-        $response->assertSee('ABOUT ASTRACLINICAL', false);
+        $response->assertSee('ABOUT TREVANTA INTERNATIONAL', false);
     }
 
     public function test_services_page_loads_successfully(): void

@@ -22,3 +22,4 @@ class DisableBrowserCache
         return $response;
     }
 }
+

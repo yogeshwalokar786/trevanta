@@ -1,7 +1,7 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
-@section('title', 'Global Presence & Regional Hubs | AstraClinical Research')
-@section('description', "Discover AstraClinical's global operational hubs across North America, Europe, Latin America, and APAC with local regulatory expertise in 28 countries.")
+@section('title', 'Global Presence & Regional Hubs | Trevanta International')
+@section('description', "Discover Trevanta International's global operational hubs across North America, Europe, Latin America, and APAC with local regulatory expertise in 28 countries.")
 
 @section('content')
   <!-- SUBPAGE HERO -->
@@ -161,7 +161,7 @@
               <span class="reg-pill orange" style="font-size: 1rem; padding: 0.35rem 0.75rem;">APAC</span>
             </div>
             <p style="font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--text-muted);">
-              AstraClinical Center of Excellence, Corporate Zone<br>
+              Trevanta International Center of Excellence, Corporate Zone<br>
               Navi Mumbai &amp; Faridabad, India
             </p>
             <div style="font-size: 0.85rem; background: var(--bg-page); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
@@ -214,7 +214,7 @@
                 <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Regulatory Authority</th>
                 <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Ethics (IRB/EC) Review</th>
                 <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Startup to First Patient</th>
-                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Local AstraClinical Hub Support</th>
+                <th style="padding: 1.2rem 1.5rem; font-weight: 700;">Local Trevanta International Hub Support</th>
               </tr>
             </thead>
             <tbody>
@@ -244,7 +244,7 @@
                 <td style="padding: 1.2rem 1.5rem;">CDSCO (SUGAM)</td>
                 <td style="padding: 1.2rem 1.5rem;">Parallel Institutional EC</td>
                 <td style="padding: 1.2rem 1.5rem; color: var(--jss-orange); font-weight: 700;">10–14 Weeks</td>
-                <td style="padding: 1.2rem 1.5rem;">AstraClinical Mumbai &amp; Faridabad</td>
+                <td style="padding: 1.2rem 1.5rem;">Trevanta International Mumbai &amp; Faridabad</td>
               </tr>
               <tr>
                 <td style="padding: 1.2rem 1.5rem; font-weight: 700;">Colombia &amp; LATAM</td>

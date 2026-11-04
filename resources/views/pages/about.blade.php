@@ -1,13 +1,13 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
-@section('title', 'About Us | AstraClinical Research - Global Clinical CRO')
-@section('description', 'Learn about AstraClinical Research: our 25-year history, executive leadership, scientific governance, and global mission to advance life-saving therapies.')
+@section('title', 'About Us | Trevanta International - Global Clinical CRO')
+@section('description', 'Learn about Trevanta International: our 25-year history, executive leadership, scientific governance, and global mission to advance life-saving therapies.')
 
 @section('content')
   <!-- SUBPAGE HERO -->
   <section class="subpage-hero">
     <div class="site-container">
-      <span class="eyebrow-jss">ABOUT ASTRACLINICAL</span>
+      <span class="eyebrow-jss">ABOUT TREVANTA INTERNATIONAL</span>
       <h1>Over 25 Years of Scientific Rigor &amp; Clinical Excellence</h1>
       <p>
         From our origins as an academic clinical epidemiology group in Montreal to an international full-service CRO managing trials across 28 countries, our mission is to accelerate life-saving cures to market.
@@ -37,7 +37,7 @@
             <span class="eyebrow-jss">OUR STORY &amp; EVOLUTION</span>
             <h2>A Globally Recognized Canadian-Based Mid-Tier Powerhouse</h2>
             <p>
-              Over the past decade, AstraClinical has navigated high-volume studies involving over <strong>500,000 patients across 8,500 investigator hospital sites worldwide</strong>. We bridge the gap between large multinational biopharma sponsors and specialized academic medical centers.
+              Over the past decade, Trevanta International has navigated high-volume studies involving over <strong>500,000 patients across 8,500 investigator hospital sites worldwide</strong>. We bridge the gap between large multinational biopharma sponsors and specialized academic medical centers.
             </p>
             <p>
               Unlike massive bureaucratic CROs where mid-sized sponsors are deprioritized, our mid-tier niche positioning ensures direct C-suite oversight, agile protocol amendments, and committed project leadership from Phase I First-in-Human through Phase IV Real-World Evidence.
@@ -56,7 +56,7 @@
               </blockquote>
               <div class="quote-author">
                 <strong>Executive Leadership Board</strong>
-                <span>AstraClinical Research</span>
+                <span>Trevanta International</span>
               </div>
             </div>
           </div>

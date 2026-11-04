@@ -306,7 +306,7 @@
                           </div>
                           <div class="modal-footer border-top bg-light py-2 px-4 d-flex justify-content-between">
                             <button type="button" class="btn btn-white btn-sm" data-dismiss="modal">Close</button>
-                            <a href="mailto:{{ $inquiry->email }}?subject=Re:%20AstraClinical%20Inquiry%20#{{ $inquiry->id }}" class="btn btn-primary btn-sm">
+                            <a href="mailto:{{ $inquiry->email }}?subject=Re:%20Trevanta%20International%20Inquiry%20#{{ $inquiry->id }}" class="btn btn-primary btn-sm">
                               <i class="fas fa-reply mr-1"></i> Reply via Email
                             </a>
                           </div>

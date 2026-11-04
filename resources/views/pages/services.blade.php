@@ -1,7 +1,7 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
-@section('title', 'Clinical Services | AstraClinical Research - Global CRO')
-@section('description', 'Explore full-spectrum clinical research organization services by AstraClinical Research: Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, Medical Writing & Biostatistics.')
+@section('title', 'Clinical Services | Trevanta International - Global CRO')
+@section('description', 'Explore full-spectrum clinical research organization services by Trevanta International: Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, Medical Writing & Biostatistics.')
 
 @section('content')
   <!-- SUBPAGE HERO -->

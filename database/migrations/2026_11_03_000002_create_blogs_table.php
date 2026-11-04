@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('content');
             $table->string('image')->nullable();
             $table->string('read_time')->default('5 min read');
-            $table->string('author_name')->default('AstraClinical Medical Director');
+            $table->string('author_name')->default('Trevanta International Medical Director');
             $table->string('author_title')->nullable()->default('Clinical Research Team');
             $table->string('author_avatar')->nullable()->default('AC');
             $table->boolean('is_featured')->default(false);

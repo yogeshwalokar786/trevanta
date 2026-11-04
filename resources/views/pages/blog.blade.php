@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Insights & Clinical Research Blogs | AstraClinical Research')
-@section('description', 'Explore peer-reviewed perspectives, regulatory briefings, decentralized trial methodologies, and biostatistical breakthroughs from AstraClinical Research Medical Directors.')
+@section('title', 'Insights & Clinical Research Blogs | Trevanta International')
+@section('description', 'Explore peer-reviewed perspectives, regulatory briefings, decentralized trial methodologies, and biostatistical breakthroughs from Trevanta International Medical Directors.')
 
 @section('content')
   <!-- SUBPAGE HERO -->
@@ -10,7 +10,7 @@
       <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.2); color: #ffa07a;">SCIENTIFIC INTELLIGENCE UNIT</span>
       <h1 style="color: #ffffff; font-size: 2.8rem; margin-top: 0.5rem; margin-bottom: 1rem;">Clinical Insights, Regulatory Briefs &amp; Whitepapers</h1>
       <p style="color: #cbd5e1; max-width: 760px; font-size: 1.1rem; line-height: 1.7;">
-        Authoritative guidance from AstraClinical's medical monitors, biostatisticians, and regulatory specialists on accelerating drug approvals while upholding GCP integrity.
+        Authoritative guidance from Trevanta International's medical monitors, biostatisticians, and regulatory specialists on accelerating drug approvals while upholding GCP integrity.
       </p>
       <nav class="breadcrumbs" aria-label="Breadcrumb" style="display: flex; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.875rem; color: #94a3b8;">
         <a href="{{ route('home') }}" style="color: #cbd5e1;">Home</a>
@@ -146,7 +146,7 @@
         <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.25); color: #ffa07a;">REGULATORY &amp; CLINICAL UPDATES</span>
         <h3 style="color: #ffffff; font-size: 2.2rem; margin-top: 0.75rem; margin-bottom: 1rem;">Receive Monthly Clinical Trial Intelligence</h3>
         <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
-          Join over 4,500 biotech executives, clinical operations directors, and regulatory affairs professionals who rely on AstraClinical briefings.
+          Join over 4,500 biotech executives, clinical operations directors, and regulatory affairs professionals who rely on Trevanta International briefings.
         </p>
         <form onsubmit="event.preventDefault(); showJssToast('Subscription Confirmed', 'You have been registered for our Monthly Clinical Intelligence Briefings.'); this.reset();" style="max-width: 520px; margin: 0 auto; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
           <input type="email" required placeholder="Enter corporate work email..." style="flex-grow: 1; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #ffffff; outline: none; font-size: 0.95rem;">

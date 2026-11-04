@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us & Request Study RFP | AstraClinical Research')
-@section('description', 'Get in touch with AstraClinical Research. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.')
+@section('title', 'Contact Us & Request Study RFP | Trevanta International')
+@section('description', 'Get in touch with Trevanta International. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.')
 
 @section('content')
   <!-- SUBPAGE HERO -->
@@ -134,7 +134,7 @@
             <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem;">
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jss-orange)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <a href="mailto:{{ setting('contact_email', 'info@astraclinical.com') }}" style="color: #ffffff;">{{ setting('contact_email', 'info@astraclinical.com') }}</a>
+                <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="color: #ffffff;">{{ setting('contact_email', 'info@trevanta.com') }}</a>
               </div>
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jss-orange)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -157,7 +157,7 @@
               For ongoing trial investigators reporting SUSARs, SAEs, or unexpected adverse drug events:
             </p>
             <p style="font-size: 0.95rem; font-weight: 700; color: var(--jss-orange); margin: 0;">
-              Hotline: {{ setting('phone_safety', '+1 (800) 577-7233') }} | {{ setting('safety_email', 'safety@astraclinical.com') }}
+              Hotline: {{ setting('phone_safety', '+1 (800) 577-7233') }} | {{ setting('safety_email', 'safety@trevanta.com') }}
             </p>
           </div>
 
@@ -167,19 +167,19 @@
             <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.85rem;">
               <div>
                 <strong>North America (Montreal &amp; Boston):</strong><br>
-                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}" style="color: var(--jss-orange);">{{ setting('phone_na', '+1 (514) 934-0805') }}</a> &bull; {{ setting('contact_email', 'info@astraclinical.com') }}
+                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}" style="color: var(--jss-orange);">{{ setting('phone_na', '+1 (514) 934-0805') }}</a> &bull; {{ setting('contact_email', 'info@trevanta.com') }}
               </div>
               <div>
                 <strong>India &amp; APAC (Mumbai &amp; Noida):</strong><br>
-                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_in', '+91 7738804988')) }}" style="color: var(--jss-orange);">{{ setting('phone_in', '+91 7738804988') }}</a> &bull; apac-trials@astraclinical.com
+                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_in', '+91 7738804988')) }}" style="color: var(--jss-orange);">{{ setting('phone_in', '+91 7738804988') }}</a> &bull; apac-trials@trevanta.com
               </div>
               <div>
                 <strong>Middle East &amp; UAE (Dubai):</strong><br>
-                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_uae', '+971 52 382 2824')) }}" style="color: var(--jss-orange);">{{ setting('phone_uae', '+971 52 382 2824') }}</a> &bull; uae-trials@astraclinical.com
+                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_uae', '+971 52 382 2824')) }}" style="color: var(--jss-orange);">{{ setting('phone_uae', '+971 52 382 2824') }}</a> &bull; uae-trials@trevanta.com
               </div>
               <div>
                 <strong>Europe &amp; UK (London):</strong><br>
-                <a href="tel:+442079460912" style="color: var(--jss-orange);">+44 20 7946 0912</a> &bull; eu-trials@astraclinical.com
+                <a href="tel:+442079460912" style="color: var(--jss-orange);">+44 20 7946 0912</a> &bull; eu-trials@trevanta.com
               </div>
             </div>
           </div>

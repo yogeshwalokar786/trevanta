@@ -147,7 +147,7 @@
               </div>
             </div>
             <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
-              Contributing scientific and regulatory director at AstraClinical Research, specializing in Phase I-IV trials and global submissions.
+              Contributing scientific and regulatory director at Trevanta International, specializing in Phase I-IV trials and global submissions.
             </p>
           </div>
 

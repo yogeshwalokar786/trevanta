@@ -46,7 +46,7 @@
         '@type' => 'ContactPoint',
         'telephone' => setting('phone_na', '+1-514-934-0805'),
         'contactType' => 'customer service',
-        'email' => setting('contact_email', 'info@astraclinical.com'),
+        'email' => setting('contact_email', 'info@trevanta.com'),
         'areaServed' => ['CA', 'US']
       ],
       [
@@ -83,7 +83,7 @@
         </h1>
 
         <p class="hero-intro">
-          AstraClinical Research is a full-service international Contract Research Organization (CRO) delivering Phase I–IV clinical trials, pharmacovigilance, regulatory affairs, and biostatistics with proven scientific excellence and cost efficiency.
+          Trevanta International is a full-service international Contract Research Organization (CRO) delivering Phase I–IV clinical trials, pharmacovigilance, regulatory affairs, and biostatistics with proven scientific excellence and cost efficiency.
         </p>
 
         <!-- SIGNATURE 4-TAB SLIDER SYSTEM -->
@@ -113,7 +113,7 @@
               <div class="slide-badge">INTERNATIONAL CLINICAL FOOTPRINT</div>
               <h3>Worldwide Study Involvement Across 28+ Countries</h3>
               <p>
-                From our corporate headquarters in Montreal (Canada) and regional operations in Boston (USA), London (UK), Mumbai (India), Faridabad (India), Chennai (India), Bogotá (Colombia), and Warsaw (Poland), AstraClinical conducts clinical research in North America, Latin America, Europe, the Middle East, and Asia-Pacific.
+                From our corporate headquarters in Montreal (Canada) and regional operations in Boston (USA), London (UK), Mumbai (India), Faridabad (India), Chennai (India), Bogotá (Colombia), and Warsaw (Poland), Trevanta International conducts clinical research in North America, Latin America, Europe, the Middle East, and Asia-Pacific.
               </p>
               <div class="slide-bullets">
                 <span>&bull; Established agreements with top-tier hospital sites and academic medical centers</span>
@@ -197,7 +197,7 @@
 
         <!-- REAL CLINICAL LAB PHOTOGRAPHY SHOWCASE -->
         <div class="photo-banner-card">
-          <img src="{{ asset('images/clinical-lab.jpg') }}" alt="AstraClinical Central Clinical Research Laboratory" class="photo-banner-img">
+          <img src="{{ asset('images/clinical-lab.jpg') }}" alt="Trevanta International Central Clinical Research Laboratory" class="photo-banner-img">
           <div class="photo-badge-overlay">
             <h4>Audited GLP &amp; GCP Clinical Research Facilities</h4>
             <p>State-of-the-art bioanalytical laboratories and automated clinical trial monitoring across 28 international territories.</p>
@@ -352,7 +352,7 @@
           <span class="eyebrow-accent">CLINICAL DEVELOPMENT SPECTRUM</span>
           <h2 class="section-title">End-to-End Trial Execution Across Every Phase</h2>
           <p class="section-subtitle">
-            From First-in-Human dose escalation to multinational pivotal registrational trials, AstraClinical combines regulatory agility with investigator site reach.
+            From First-in-Human dose escalation to multinational pivotal registrational trials, Trevanta International combines regulatory agility with investigator site reach.
           </p>
         </div>
 
@@ -485,7 +485,7 @@
               <span class="eyebrow-accent" style="margin-bottom: 0.5rem;">GLOBAL REGISTRATIONAL STUDIES</span>
               <h3>Phase III Multinational Pivotal Trials with Scale &amp; Speed</h3>
               <p>
-                Large-scale confirmatory trials require robust global logistics, harmonized multi-country regulatory clearances, and vigilant risk-based monitoring. AstraClinical coordinates multicenter trials across 28+ countries with high recruitment volume and pristine audit records.
+                Large-scale confirmatory trials require robust global logistics, harmonized multi-country regulatory clearances, and vigilant risk-based monitoring. Trevanta International coordinates multicenter trials across 28+ countries with high recruitment volume and pristine audit records.
               </p>
               <div class="phase-highlights-list">
                 <div class="phase-highlight-item">
@@ -534,7 +534,7 @@
               <span class="eyebrow-accent" style="margin-bottom: 0.5rem;">POST-MARKETING &amp; RWE</span>
               <h3>Phase IV, Real-World Evidence &amp; Post-Authorization Safety</h3>
               <p>
-                Demonstrating real-world effectiveness, expanding market access, and fulfilling post-authorization commitments (PASS/PAES) require deep epidemiological insight. AstraClinical leverages electronic health record (EHR) registries, patient-reported outcomes, and long-term pharmacovigilance.
+                Demonstrating real-world effectiveness, expanding market access, and fulfilling post-authorization commitments (PASS/PAES) require deep epidemiological insight. Trevanta International leverages electronic health record (EHR) registries, patient-reported outcomes, and long-term pharmacovigilance.
               </p>
               <div class="phase-highlights-list">
                 <div class="phase-highlight-item">
@@ -586,7 +586,7 @@
           <span class="eyebrow-accent">DEMONSTRATED RESULTS</span>
           <h2 class="section-title">Case Studies in Clinical Execution</h2>
           <p class="section-subtitle">
-            How AstraClinical helped biopharmaceutical and medical device sponsors overcome recruitment bottlenecks, regulatory hurdles, and compressed timelines.
+            How Trevanta International helped biopharmaceutical and medical device sponsors overcome recruitment bottlenecks, regulatory hurdles, and compressed timelines.
           </p>
         </div>
 
@@ -597,7 +597,7 @@
             <span class="case-indication">Oncology • Phase III Global Trial</span>
             <h3 class="case-title">Pivotal Non-Small Cell Lung Cancer Multi-Regional Study</h3>
             <p class="case-body">
-              A US biotech faced severe enrollment stagnation in North America due to competing trials. AstraClinical activated 42 additional vetted hospital sites across Eastern Europe and India within 9 weeks, completing full enrollment 3 months ahead of corporate milestones.
+              A US biotech faced severe enrollment stagnation in North America due to competing trials. Trevanta International activated 42 additional vetted hospital sites across Eastern Europe and India within 9 weeks, completing full enrollment 3 months ahead of corporate milestones.
             </p>
             <div class="case-stats-row">
               <span>Timeline: <strong>-3 Months</strong></span>
@@ -627,7 +627,7 @@
             <span class="case-indication">Pharmacovigilance • Global Outsourcing</span>
             <h3 class="case-title">Enterprise Safety &amp; ICSR Processing for Commercialized Biologic Portfolio</h3>
             <p class="case-body">
-              Mid-sized commercial pharma needed to outsource post-marketing safety oversight for 14 licensed oncology therapeutics. AstraClinical deployed a 24/7 multi-lingual intake and automated signal detection pipeline processing 45,000 cases annually without a single late filing.
+              Mid-sized commercial pharma needed to outsource post-marketing safety oversight for 14 licensed oncology therapeutics. Trevanta International deployed a 24/7 multi-lingual intake and automated signal detection pipeline processing 45,000 cases annually without a single late filing.
             </p>
             <div class="case-stats-row">
               <span>Annual Cases: <strong>45,000+</strong></span>
@@ -801,7 +801,7 @@
             <div class="quote-callout">
               <span class="quote-mark">&ldquo;</span>
               <blockquote>
-                AstraClinical delivered our Phase II oncology trial 4 months ahead of schedule with 99.4% data completeness. Their responsiveness and regulatory insights made all the difference.
+                Trevanta International delivered our Phase II oncology trial 4 months ahead of schedule with 99.4% data completeness. Their responsiveness and regulatory insights made all the difference.
               </blockquote>
               <div class="quote-author">
                 <strong>Chief Medical Officer</strong>
@@ -916,7 +916,7 @@
               </div>
 
               <div class="calc-metric-row">
-                <span>AstraClinical Feasibility Index:</span>
+                <span>Trevanta International Feasibility Index:</span>
                 <span class="calc-val-highlight" id="est-confidence">98.4%</span>
               </div>
 
@@ -1052,7 +1052,7 @@
           <!-- FAQ ITEM 1 -->
           <div class="faq-item active">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>How rapidly can AstraClinical activate clinical investigator sites globally?</span>
+              <span>How rapidly can Trevanta International activate clinical investigator sites globally?</span>
               <div class="faq-chevron">&#9660;</div>
             </button>
             <div class="faq-answer">
@@ -1074,7 +1074,7 @@
           <!-- FAQ ITEM 3 -->
           <div class="faq-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>Can AstraClinical rescue an underperforming or stalled trial from another CRO?</span>
+              <span>Can Trevanta International rescue an underperforming or stalled trial from another CRO?</span>
               <div class="faq-chevron">&#9660;</div>
             </button>
             <div class="faq-answer">
@@ -1100,7 +1100,7 @@
               <div class="faq-chevron">&#9660;</div>
             </button>
             <div class="faq-answer">
-              AstraClinical maintains an unblemished regulatory inspection track record, with zero FDA Form 483 critical observations and zero European inspection findings across all corporate headquarters and audited investigator sites. We are ISO 9001:2015 certified and offer sponsors unrestricted audit access to our Quality Management System (QMS).
+              Trevanta International maintains an unblemished regulatory inspection track record, with zero FDA Form 483 critical observations and zero European inspection findings across all corporate headquarters and audited investigator sites. We are ISO 9001:2015 certified and offer sponsors unrestricted audit access to our Quality Management System (QMS).
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 /**
- * AstraClinical Research - Global Clinical CRO JavaScript Engine
+ * Trevanta International - Global Clinical CRO JavaScript Engine
  * Fully responsive, zero dependencies, ES6+.
  */
 
@@ -225,7 +225,7 @@ const blogArticlesDatabase = {
     content: `
       <p>Traditional oncology clinical trials have historically suffered from high screening failure rates and acute patient retention challenges. In Phase II and III solid tumor trials, the burden of bi-weekly hospital visits for pharmacokinetic (PK) blood draws and toxicity monitoring frequently leads to protocol non-adherence.</p>
       
-      <p>At AstraClinical Research, our decentralized clinical trial (DCT) framework merges traditional brick-and-mortar investigator oversight with vetted regional home nursing networks across North America, Europe, and Asia-Pacific.</p>
+      <p>At Trevanta International, our decentralized clinical trial (DCT) framework merges traditional brick-and-mortar investigator oversight with vetted regional home nursing networks across North America, Europe, and Asia-Pacific.</p>
       
       <div class="article-takeaway-box">
         <h4>Key Study Findings & Outcomes</h4>
@@ -253,7 +253,7 @@ const blogArticlesDatabase = {
     content: `
       <p>The transition to ICH E6(R3) represents the most comprehensive modernization of Good Clinical Practice (GCP) principles in a decade. With its core emphasis on "fit-for-purpose" trial designs, decentralized trial components, and computerized system validation, sponsors must rethink legacy operational SOPs.</p>
 
-      <p>AstraClinical's regulatory affairs task force has reviewed over 40 global clinical trial applications (CTAs) under the updated framework, establishing standardized Risk-Based Quality Management (RBQM) playbooks that harmonize expectations across both the FDA and the European Medicines Agency (EMA).</p>
+      <p>Trevanta International's regulatory affairs task force has reviewed over 40 global clinical trial applications (CTAs) under the updated framework, establishing standardized Risk-Based Quality Management (RBQM) playbooks that harmonize expectations across both the FDA and the European Medicines Agency (EMA).</p>
 
       <div class="article-takeaway-box">
         <h4>ICH E6(R3) Strategic Checkpoints</h4>
@@ -277,11 +277,11 @@ const blogArticlesDatabase = {
       avatar: 'ER'
     },
     title: 'Machine Learning Signal Detection in High-Volume Post-Marketing Pharmacovigilance',
-    summary: 'How AstraClinical implemented automated natural language processing (NLP) to reduce ICSR intake triage time by 62% while elevating adverse event detection accuracy.',
+    summary: 'How Trevanta International implemented automated natural language processing (NLP) to reduce ICSR intake triage time by 62% while elevating adverse event detection accuracy.',
     content: `
       <p>Pharmacovigilance departments worldwide face exponential increases in individual case safety reports (ICSRs) driven by social listening, literature searches, and spontaneous reporting portals. Meeting stringent 7-day and 15-day regulatory submission deadlines requires robust, validated intelligence tools.</p>
 
-      <p>AstraClinical's pharmacovigilance safety hub processes over 120,000 safety events annually. By integrating validated machine learning classifiers into our safety database ingestion pipeline, our medical monitors focus their expertise where clinical judgment matters most.</p>
+      <p>Trevanta International's pharmacovigilance safety hub processes over 120,000 safety events annually. By integrating validated machine learning classifiers into our safety database ingestion pipeline, our medical monitors focus their expertise where clinical judgment matters most.</p>
 
       <div class="article-takeaway-box">
         <h4>Operational Benchmarks Achieved</h4>
@@ -320,7 +320,7 @@ const blogArticlesDatabase = {
         </ul>
       </div>
 
-      <p>Biotech sponsors partnering with AstraClinical benefit from end-to-end CDISC SDTM/ADaM programming and independent Data Safety Monitoring Board (DSMB) charter governance.</p>
+      <p>Biotech sponsors partnering with Trevanta International benefit from end-to-end CDISC SDTM/ADaM programming and independent Data Safety Monitoring Board (DSMB) charter governance.</p>
     `
   }
 };
@@ -385,7 +385,7 @@ function toggleFaq(btnEl) {
 }
 
 /* ==========================================================================
-   7. RFP MODAL & FORMS (ASTRACLINICAL)
+   7. RFP MODAL & FORMS (TREVANTA INTERNATIONAL)
    ========================================================================== */
 function openRfpModal() {
   const modal = document.getElementById('rfp-modal');
