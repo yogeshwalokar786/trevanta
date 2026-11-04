@@ -66,7 +66,7 @@ class Blog extends Model
                         $initials .= strtoupper($cleaned[0]);
                     }
                 }
-                $blog->author_avatar = substr($initials ?: 'AC', 0, 2);
+                $blog->author_avatar = substr($initials ?: 'TI', 0, 2);
             }
         });
     }
@@ -93,6 +93,48 @@ class Blog extends Model
     public function categoryRelation()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    /**
+     * Dynamic branding sanitizers.
+     */
+    public function getTitleAttribute($value)
+    {
+        return $this->sanitizeBranding($value);
+    }
+
+    public function getSummaryAttribute($value)
+    {
+        return $this->sanitizeBranding($value);
+    }
+
+    public function getContentAttribute($value)
+    {
+        return $this->sanitizeBranding($value);
+    }
+
+    public function getMetaTitleAttribute($value)
+    {
+        return $this->sanitizeBranding($value);
+    }
+
+    public function getMetaDescriptionAttribute($value)
+    {
+        return $this->sanitizeBranding($value);
+    }
+
+    public function getAuthorNameAttribute($value)
+    {
+        return $this->sanitizeBranding($value);
+    }
+
+    protected function sanitizeBranding($value)
+    {
+        if (is_string($value) && (stripos($value, 'astraclinical') !== false || stripos($value, 'astra') !== false)) {
+            $value = str_ireplace('astraclinical.com', 'trevanta.com', $value);
+            $value = str_ireplace('astraclinical', 'Trevanta International', $value);
+        }
+        return $value;
     }
 
     /**

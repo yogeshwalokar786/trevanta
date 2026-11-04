@@ -25,7 +25,11 @@ class Setting extends Model
     {
         $all = static::getAll();
         if (array_key_exists($key, $all) && $all[$key] !== null && $all[$key] !== '') {
-            return $all[$key];
+            $val = $all[$key];
+            if (is_string($val)) {
+                $val = static::sanitizeBranding($val);
+            }
+            return $val;
         }
         return $default;
     }
@@ -55,12 +59,37 @@ class Setting extends Model
     public static function getAll(): array
     {
         try {
-            return Cache::remember('site_settings_all', 86400, function () {
+            $settings = Cache::remember('site_settings_all', 86400, function () {
                 return static::pluck('value', 'key')->toArray();
             });
+
+            if (is_array($settings)) {
+                foreach ($settings as $k => $v) {
+                    if (is_string($v)) {
+                        $settings[$k] = static::sanitizeBranding($v);
+                    }
+                }
+            }
+
+            return $settings ?: [];
         } catch (\Throwable $e) {
             return [];
         }
+    }
+
+    /**
+     * Sanitize branding strings on the fly.
+     */
+    public static function sanitizeBranding(?string $val): ?string
+    {
+        if ($val === null) {
+            return null;
+        }
+        if (stripos($val, 'astraclinical') !== false || stripos($val, 'astra') !== false) {
+            $val = str_ireplace('astraclinical.com', 'trevanta.com', $val);
+            $val = str_ireplace('astraclinical', 'Trevanta International', $val);
+        }
+        return $val;
     }
 
     /**
