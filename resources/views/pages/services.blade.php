@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Clinical & BA/BE Services | Clineva')
-@section('description', 'Comprehensive Clinical Trial, BA/BE, and Medical Affairs services delivered by Clineva for global Pharmaceutical, Biotechnology, and Medical Device sponsors.')
+@section('title', 'Clinical & BA/BE Services | Trevanta')
+@section('description', 'Comprehensive Clinical Trial, BA/BE, and Medical Affairs services delivered by Trevanta for global Pharmaceutical, Biotechnology, and Medical Device sponsors.')
 
 @section('content')
   <!-- SUBPAGE HERO -->
