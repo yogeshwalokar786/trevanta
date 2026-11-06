@@ -132,7 +132,13 @@
           <!-- VALUE 3: INTEGRITY -->
           <div class="value-box">
             <div class="value-icon-box">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="3" x2="12" y2="21"></line>
+                <line x1="3" y1="7" x2="21" y2="7"></line>
+                <polyline points="5 7 2 15 8 15 5 7"></polyline>
+                <polyline points="19 7 16 15 22 15 19 7"></polyline>
+                <line x1="9" y1="21" x2="15" y2="21"></line>
+              </svg>
             </div>
             <span class="s-phase-tag">CORE PRINCIPLE 03</span>
             <h3>Integrity</h3>
