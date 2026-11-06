@@ -79,8 +79,8 @@
             <li><a href="{{ route('services') }}#study-monitoring">Study Monitoring</a></li>
             <li><a href="{{ route('services') }}#ba-regulatory-affairs">Regulatory Affairs</a></li>
             <li><a href="{{ route('services') }}#gcp-glp-audit">GCP and GLP Audit</a></li>
-            <li><a href="{{ route('services') }}#medical-affairs">Medical affairs and Medico marketing</a></li>
           </ul>
+          <h5 class="mobile-dropdown-heading"><a href="{{ route('services') }}#medical-affairs" style="color: inherit; text-decoration: none;">Medical affairs and Medico marketing</a></h5>
         </div>
       </li>
       <li class="menu-item">
@@ -195,8 +195,8 @@
                     <li><a href="{{ route('services') }}#study-monitoring">Study Monitoring</a></li>
                     <li><a href="{{ route('services') }}#ba-regulatory-affairs">Regulatory Affairs</a></li>
                     <li><a href="{{ route('services') }}#gcp-glp-audit">GCP and GLP Audit</a></li>
-                    <li><a href="{{ route('services') }}#medical-affairs">Medical affairs and Medico marketing</a></li>
                   </ul>
+                  <h4 class="dropdown-heading" style="margin-top: 1.25rem;"><a href="{{ route('services') }}#medical-affairs" class="dropdown-heading-link">Medical affairs and Medico marketing</a></h4>
                 </div>
               </div>
             </li>

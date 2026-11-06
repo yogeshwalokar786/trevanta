@@ -682,6 +682,16 @@ ul {
   padding-left: 6px;
 }
 
+.dropdown-heading-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.dropdown-heading-link:hover {
+  color: var(--jss-orange, #f26224);
+}
+
 /* ── Mobile Services Dropdown ── */
 .mobile-has-dropdown .mobile-dropdown-chevron {
   transition: transform 0.25s ease;
