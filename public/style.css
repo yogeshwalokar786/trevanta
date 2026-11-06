@@ -550,14 +550,14 @@ ul {
 
 .header-nav-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .desktop-nav .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 3.5rem;
   margin: 0;
   padding: 0;
 }
@@ -3091,7 +3091,7 @@ img, video, iframe, embed, object {
 @media (max-width: 1199px) {
   /* Desktop Navigation Bar Compression */
   .desktop-nav .nav-menu {
-    gap: 1.15rem !important;
+    gap: 2rem !important;
   }
   .desktop-nav .menu-link {
     font-size: 0.86rem !important;
