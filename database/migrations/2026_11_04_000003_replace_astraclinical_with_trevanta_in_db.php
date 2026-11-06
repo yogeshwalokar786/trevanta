@@ -58,3 +58,4 @@ return new class extends Migration
         // One-way brand name modernization
     }
 };
+
