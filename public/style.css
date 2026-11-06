@@ -887,6 +887,144 @@ ul {
   flex-grow: 1;
 }
 
+/* ── Careers Page Specialized Styling ── */
+.job-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.job-card:hover {
+  border-color: var(--jss-orange);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.job-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.job-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-subtle);
+  color: var(--jss-navy);
+  letter-spacing: 0.2px;
+}
+
+.job-badge.dept {
+  background-color: var(--jss-orange-light);
+  color: var(--jss-orange);
+}
+
+.job-card h3 {
+  font-size: 1.35rem;
+  color: var(--jss-navy);
+  margin-bottom: 0.65rem;
+}
+
+.job-card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.job-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+.hiring-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .hiring-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .hiring-process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.process-step-box {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.process-step-box:hover {
+  border-color: var(--jss-orange);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.process-step-num {
+  font-family: var(--font-main);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--jss-orange);
+  line-height: 1;
+  margin-bottom: 0.85rem;
+  opacity: 0.85;
+}
+
+.process-step-box h4 {
+  font-size: 1.15rem;
+  color: var(--jss-navy);
+  margin-bottom: 0.5rem;
+}
+
+.process-step-box p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
 .nav-tier-extra {
   display: flex;
   align-items: center;
