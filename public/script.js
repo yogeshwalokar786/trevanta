@@ -117,6 +117,20 @@ function toggleMobileDropdown(el) {
   if (parent) parent.classList.toggle('open');
 }
 
+function switchAboutTab(tabKey, btnEl) {
+  const buttons = document.querySelectorAll('.about-tab-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+
+  const panes = document.querySelectorAll('.about-tab-pane');
+  panes.forEach(p => {
+    p.classList.remove('active');
+    if (p.id === `about-pane-${tabKey}`) {
+      p.classList.add('active');
+    }
+  });
+}
+
 function initKeyboardListeners() {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
