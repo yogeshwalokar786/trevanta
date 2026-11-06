@@ -187,6 +187,14 @@ class PageController extends Controller
     }
 
     /**
+     * Display the careers page.
+     */
+    public function careers()
+    {
+        return view('pages.careers');
+    }
+
+    /**
      * Display the contact us page.
      */
     public function contact()

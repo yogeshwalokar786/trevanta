@@ -54,21 +54,38 @@
           <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">
+      <li class="menu-item mobile-has-dropdown">
+        <a href="javascript:void(0)" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}" onclick="toggleMobileDropdown(this)">
           <span>Services</span>
-          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg class="menu-chevron mobile-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
+        <div class="mobile-services-dropdown">
+          <h5 class="mobile-dropdown-heading">Clinical Trial</h5>
+          <ul>
+            <li><a href="{{ route('services') }}#clinical-operations">Clinical Operations</a></li>
+            <li><a href="{{ route('services') }}#project-management">Project Management</a></li>
+            <li><a href="{{ route('services') }}#clinical-trial-monitoring">Clinical Trial Monitoring</a></li>
+            <li><a href="{{ route('services') }}#medical-monitoring">Medical Monitoring</a></li>
+            <li><a href="{{ route('services') }}#quality-assurance">Quality Assurance</a></li>
+            <li><a href="{{ route('services') }}#medical-writing">Medical Writing</a></li>
+            <li><a href="{{ route('services') }}#etmf-management">eTMF Management</a></li>
+            <li><a href="{{ route('services') }}#regulatory-affairs">Regulatory Affairs</a></li>
+            <li><a href="{{ route('services') }}#statistical-services">Statistical services</a></li>
+          </ul>
+          <h5 class="mobile-dropdown-heading">BA/BE Services</h5>
+          <ul>
+            <li><a href="{{ route('services') }}#cro-selection">CRO Selection</a></li>
+            <li><a href="{{ route('services') }}#ba-medical-writing">Medical Writing</a></li>
+            <li><a href="{{ route('services') }}#study-monitoring">Study Monitoring</a></li>
+            <li><a href="{{ route('services') }}#ba-regulatory-affairs">Regulatory Affairs</a></li>
+            <li><a href="{{ route('services') }}#gcp-glp-audit">GCP and GLP Audit</a></li>
+            <li><a href="{{ route('services') }}#medical-affairs">Medical affairs and Medico marketing</a></li>
+          </ul>
+        </div>
       </li>
       <li class="menu-item">
-        <a href="{{ route('global') }}" class="menu-link {{ request()->routeIs('global') ? 'active' : '' }}">
-          <span>Global Presence</span>
-          <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">
-          <span>Insights &amp; Blog</span>
+        <a href="{{ route('careers') }}" class="menu-link {{ request()->routeIs('careers') ? 'active' : '' }}">
+          <span>Career's</span>
           <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </li>
@@ -150,9 +167,40 @@
           <ul class="nav-menu">
             <li class="menu-item"><a href="{{ route('home') }}" class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
             <li class="menu-item"><a href="{{ route('about') }}" class="menu-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
-            <li class="menu-item"><a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
-            <li class="menu-item"><a href="{{ route('global') }}" class="menu-link {{ request()->routeIs('global') ? 'active' : '' }}">Global Presence</a></li>
-            <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Insights &amp; Blog</a></li>
+            <li class="menu-item has-dropdown">
+              <a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">
+                Services
+                <svg class="menu-dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </a>
+              <div class="services-dropdown">
+                <div class="dropdown-section">
+                  <h4 class="dropdown-heading">Clinical Trial</h4>
+                  <ul class="dropdown-list">
+                    <li><a href="{{ route('services') }}#clinical-operations">Clinical Operations</a></li>
+                    <li><a href="{{ route('services') }}#project-management">Project Management</a></li>
+                    <li><a href="{{ route('services') }}#clinical-trial-monitoring">Clinical Trial Monitoring</a></li>
+                    <li><a href="{{ route('services') }}#medical-monitoring">Medical Monitoring</a></li>
+                    <li><a href="{{ route('services') }}#quality-assurance">Quality Assurance</a></li>
+                    <li><a href="{{ route('services') }}#medical-writing">Medical Writing</a></li>
+                    <li><a href="{{ route('services') }}#etmf-management">eTMF Management</a></li>
+                    <li><a href="{{ route('services') }}#regulatory-affairs">Regulatory Affairs</a></li>
+                    <li><a href="{{ route('services') }}#statistical-services">Statistical services</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown-section">
+                  <h4 class="dropdown-heading">BA/BE Services</h4>
+                  <ul class="dropdown-list">
+                    <li><a href="{{ route('services') }}#cro-selection">CRO Selection</a></li>
+                    <li><a href="{{ route('services') }}#ba-medical-writing">Medical Writing</a></li>
+                    <li><a href="{{ route('services') }}#study-monitoring">Study Monitoring</a></li>
+                    <li><a href="{{ route('services') }}#ba-regulatory-affairs">Regulatory Affairs</a></li>
+                    <li><a href="{{ route('services') }}#gcp-glp-audit">GCP and GLP Audit</a></li>
+                    <li><a href="{{ route('services') }}#medical-affairs">Medical affairs and Medico marketing</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="menu-item"><a href="{{ route('careers') }}" class="menu-link {{ request()->routeIs('careers') ? 'active' : '' }}">Career's</a></li>
             <li class="menu-item"><a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
           </ul>
         </nav>
@@ -221,7 +269,7 @@
           <li><a href="{{ route('home') }}">Home</a></li>
           <li><a href="{{ route('about') }}">About Us</a></li>
           <li><a href="{{ route('services') }}">Services</a></li>
-          <li><a href="{{ route('global') }}">Global Presence</a></li>
+          <li><a href="{{ route('careers') }}">Career's</a></li>
           <li><a href="{{ route('blog') }}">Insights &amp; Blog</a></li>
           <li><a href="{{ route('contact') }}">Contact Us</a></li>
         </ul>

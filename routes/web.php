@@ -18,6 +18,7 @@ Route::get('/global', [PageController::class, 'global'])->name('global');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [PageController::class, 'blogDetail'])->name('blog.show');
 Route::get('/insights', fn () => redirect()->route('blog'))->name('insights');
+Route::get('/careers', [PageController::class, 'careers'])->name('careers');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 // Public Form Actions

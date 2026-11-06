@@ -112,6 +112,11 @@ function closeNav() {
   document.body.style.overflow = '';
 }
 
+function toggleMobileDropdown(el) {
+  const parent = el.closest('.mobile-has-dropdown');
+  if (parent) parent.classList.toggle('open');
+}
+
 function initKeyboardListeners() {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
