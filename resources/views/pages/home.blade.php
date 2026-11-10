@@ -789,59 +789,83 @@
       </div>
     </section>
 
-    <!-- FINAL SECTION: CONTACT US (SIMPLE & ELEGANT) -->
-    <section class="home-contact-simple" id="contact" style="padding: 5.5rem 0; background: #ffffff; border-top: 1px solid #eef2f6; text-align: center;">
+    <!-- FINAL SECTION: CONTACT US (PROPER CARD STRUCTURE) -->
+    <section class="home-contact-cards" id="contact">
       <div class="site-container">
-        <div style="max-width: 820px; margin: 0 auto;">
-          
+        
+        <!-- SECTION TITLE -->
+        <div style="max-width: 780px; margin: 0 auto 3.5rem;">
           <div class="hero-top-announcement" style="margin-bottom: 1rem;">
             <span class="orange-beacon"></span>
             <span>Contact Us</span>
           </div>
-
-          <h2 style="font-size: 2.6rem; font-weight: 800; color: #1e293b; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 2.75rem;">
+          <h2 style="font-size: 2.75rem; font-weight: 800; color: #1e293b; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 1rem;">
             Let’s accelerate your <span class="highlight-orange">next breakthrough.</span>
           </h2>
+          <p style="font-size: 1.05rem; color: #64748b; line-height: 1.6; margin: 0;">
+            Partner with our global clinical research teams to advance your therapeutics with scientific precision.
+          </p>
+        </div>
 
-          <!-- SIMPLE CONTACT DETAILS ROW -->
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem 4rem; margin-bottom: 3rem; text-align: left;">
-            
-            <!-- EMAIL -->
-            <div style="display: flex; align-items: flex-start; gap: 1rem;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(242, 98, 36, 0.08); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; border: 1px solid rgba(242, 98, 36, 0.18);">
-                <i class="fa-solid fa-envelope"></i>
-              </div>
-              <div>
-                <span style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #64748b; margin-bottom: 0.25rem;">Email</span>
-                <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.15rem; font-weight: 600; color: #1e293b; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='var(--jss-orange)'" onmouseout="this.style.color='#1e293b'">
-                  {{ setting('contact_email', 'info@trevanta.com') }}
-                </a>
-              </div>
-            </div>
-
-            <!-- GLOBAL OFFICES (SINGLE ADDRESS) -->
-            <div style="display: flex; align-items: flex-start; gap: 1rem; max-width: 440px;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(242, 98, 36, 0.08); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; border: 1px solid rgba(242, 98, 36, 0.18);">
-                <i class="fa-solid fa-location-dot"></i>
-              </div>
-              <div>
-                <span style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #64748b; margin-bottom: 0.25rem;">Global Offices</span>
-                <span style="font-size: 1.05rem; font-weight: 500; color: #334155; line-height: 1.5; display: block;">
-                  {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}
+        <!-- 2 PROPER CONTACT CARDS -->
+        <div style="max-width: 900px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; text-align: left;">
+          
+          <!-- CARD 1: EMAIL -->
+          <div class="contact-info-card">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+                <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(242, 98, 36, 0.1); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.2);">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: var(--jss-orange); background: rgba(242, 98, 36, 0.1); padding: 0.3rem 0.75rem; border-radius: 999px;">
+                  Direct Inquiry
                 </span>
               </div>
+              <h3 style="font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Email</h3>
+              <p style="font-size: 0.92rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.55;">
+                For protocol submissions, clinical trial feasibility, and commercial proposals:
+              </p>
             </div>
-
+            <div style="padding-top: 1.25rem; border-top: 1px dashed #e2e8f0;">
+              <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.1rem; font-weight: 700; color: var(--jss-orange); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; word-break: break-all;">
+                <span>{{ setting('contact_email', 'info@trevanta.com') }}</span>
+                <span class="contact-card-arrow" style="transition: transform 0.2s ease;">&rarr;</span>
+              </a>
+            </div>
           </div>
 
-          <!-- CTA BUTTON -->
-          <div>
-            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2.5rem; font-size: 1.05rem;">
-              Get in Touch &rarr;
-            </button>
+          <!-- CARD 2: GLOBAL OFFICES -->
+          <div class="contact-info-card">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+                <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(242, 98, 36, 0.1); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.2);">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #1e293b; background: #f1f5f9; padding: 0.3rem 0.75rem; border-radius: 999px;">
+                  Global HQ
+                </span>
+              </div>
+              <h3 style="font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Global Offices</h3>
+              <p style="font-size: 0.92rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.55;">
+                Corporate Headquarters &amp; Global Executive Clinical Operations:
+              </p>
+            </div>
+            <div style="padding-top: 1.25rem; border-top: 1px dashed #e2e8f0;">
+              <span style="font-size: 0.98rem; font-weight: 600; color: #334155; line-height: 1.5; display: block;">
+                {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}
+              </span>
+            </div>
           </div>
 
         </div>
+
+        <!-- CTA BUTTON -->
+        <div>
+          <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.75rem; font-size: 1.1rem; box-shadow: 0 6px 22px rgba(242, 98, 36, 0.35);">
+            Get in Touch &rarr;
+          </button>
+        </div>
+
       </div>
     </section>
 

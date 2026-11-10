@@ -2141,6 +2141,41 @@ ul {
   }
 }
 
+/* ── Final Contact Cards Section ── */
+.home-contact-cards {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.contact-info-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(18, 30, 45, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.contact-info-card:hover {
+  border-color: var(--jss-orange);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(242, 98, 36, 0.14), 0 6px 16px -4px rgba(0, 0, 0, 0.04);
+}
+
+.contact-info-card a {
+  transition: all 0.2s ease;
+}
+
+.contact-info-card:hover a .contact-card-arrow {
+  transform: translateX(4px);
+}
+
 /* CLIENTS & PARTNERSHIP SECTION */
 .jss-clients-section {
   padding: 6rem 0;
