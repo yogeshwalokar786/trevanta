@@ -153,17 +153,18 @@
         </div>
       @endif
 
-      <!-- SPONSOR SCIENTIFIC BRIEFING SUBSCRIPTION -->
+      <!-- CONTACT PAGE CTA -->
       <div style="background: linear-gradient(135deg, var(--jss-navy) 0%, var(--jss-navy-dark) 100%); border-radius: var(--radius-lg); padding: 3.5rem; color: #ffffff; margin-top: 5rem; text-align: center;">
-        <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.25); color: #ffa07a;">REGULATORY &amp; CLINICAL UPDATES</span>
-        <h3 style="color: #ffffff; font-size: 2.2rem; margin-top: 0.75rem; margin-bottom: 1rem;">Receive Monthly Clinical Trial Intelligence</h3>
+        <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.25); color: #ffa07a;">LET’S ACCELERATE YOUR NEXT BREAKTHROUGH</span>
+        <h3 style="color: #ffffff; font-size: 2.2rem; margin-top: 0.75rem; margin-bottom: 1rem;">Have Questions About Your Clinical Program?</h3>
         <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
-          Join over 4,500 biotech executives, clinical operations directors, and regulatory affairs professionals who rely on Trevanta International briefings.
+          Our regulatory, medical writing, and clinical operations directors are ready to support your trials worldwide. Reach out to discuss feasibility, protocol design, or global submissions.
         </p>
-        <form onsubmit="event.preventDefault(); showJssToast('Subscription Confirmed', 'You have been registered for our Monthly Clinical Intelligence Briefings.'); this.reset();" style="max-width: 520px; margin: 0 auto; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
-          <input type="email" required placeholder="Enter corporate work email..." style="flex-grow: 1; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #ffffff; outline: none; font-size: 0.95rem;">
-          <button type="submit" class="btn btn-jss-orange" style="padding: 0.85rem 1.75rem;">Subscribe &rarr;</button>
-        </form>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="{{ route('contact') }}" class="btn btn-jss-orange" style="padding: 0.85rem 2rem; font-size: 1rem; font-weight: 700; text-decoration: none;">
+            Get in Touch &rarr;
+          </a>
+        </div>
       </div>
 
     </div>
