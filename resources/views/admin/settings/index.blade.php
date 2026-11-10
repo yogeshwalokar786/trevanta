@@ -123,6 +123,11 @@
             <i class="fas fa-share-alt mr-2"></i> Social &amp; Legal
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="tab-careers-nav" data-toggle="pill" href="#tab-careers" role="tab">
+            <i class="fas fa-briefcase mr-2"></i> Careers Page
+          </a>
+        </li>
       </ul>
 
       <div class="tab-content" id="settingsTabContent">
@@ -489,6 +494,52 @@
                 <small class="text-muted text-xs">Shown at the bottom copyright bar of every page.</small>
               </div>
 
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 6: CAREERS PAGE -->
+        <!-- ================================================================= -->
+        <div class="tab-pane fade" id="tab-careers" role="tabpanel">
+          <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
+            <div class="card-header py-3 px-4 bg-white border-bottom">
+              <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
+                <i class="fas fa-briefcase mr-2 text-primary"></i> Careers Page Content &amp; Call-to-Action
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="careers_heading" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Main Heading</label>
+                  <input type="text" name="careers_heading" id="careers_heading" class="form-control" value="{{ $settings['careers_heading'] ?? 'Join a team committed to improving global health.' }}">
+                  <small class="text-muted text-xs">Primary headline displayed on the Careers page.</small>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                  <label for="careers_description" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Body Description</label>
+                  <textarea name="careers_description" id="careers_description" rows="3" class="form-control">{{ $settings['careers_description'] ?? 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.' }}</textarea>
+                  <small class="text-muted text-xs">Paragraph displayed directly below the heading.</small>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="careers_btn_text" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Action Button Text</label>
+                  <input type="text" name="careers_btn_text" id="careers_btn_text" class="form-control" value="{{ $settings['careers_btn_text'] ?? 'Explore Opportunities →' }}">
+                  <small class="text-muted text-xs">Label on the primary action button.</small>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="careers_btn_url" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Action Button Link / URL</label>
+                  <input type="text" name="careers_btn_url" id="careers_btn_url" class="form-control" value="{{ $settings['careers_btn_url'] ?? route('contact') }}">
+                  <small class="text-muted text-xs">Destination URL (e.g. contact page or external jobs portal).</small>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                  <label for="careers_email" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Careers / HR Email</label>
+                  <input type="email" name="careers_email" id="careers_email" class="form-control" value="{{ $settings['careers_email'] ?? ($settings['contact_email'] ?? 'info@trevanta.com') }}">
+                  <small class="text-muted text-xs">Direct email for applicants to submit resumes or inquiries.</small>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -30,6 +30,8 @@ class SettingController extends Controller
             $group = 'general';
             if (str_starts_with($key, 'site_') || str_starts_with($key, 'admin_')) {
                 $group = 'branding';
+            } elseif (str_starts_with($key, 'career_') || str_starts_with($key, 'careers_')) {
+                $group = 'careers';
             } elseif (str_starts_with($key, 'phone_') || str_ends_with($key, '_email') || str_starts_with($key, 'contact_') || $key === 'operating_hours') {
                 $group = 'contact';
             } elseif (str_starts_with($key, 'address_')) {

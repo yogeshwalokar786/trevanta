@@ -329,7 +329,13 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 ('social_linkedin', 'https://www.linkedin.com/company/trevanta-international', 'social', 'url', 'LinkedIn URL', NOW(), NOW()),
 ('social_twitter', 'https://twitter.com/trevantacro', 'social', 'url', 'Twitter / X URL', NOW(), NOW()),
 ('footer_about', 'A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.', 'social', 'textarea', 'Footer About Blurb', NOW(), NOW()),
-('footer_copyright', '© 2026 Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.', 'social', 'text', 'Footer Copyright Notice', NOW(), NOW());
+('footer_copyright', '© 2026 Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.', 'social', 'text', 'Footer Copyright Notice', NOW(), NOW()),
+
+('careers_heading', 'Join a team committed to improving global health.', 'careers', 'text', 'Careers Page Heading', NOW(), NOW()),
+('careers_description', 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.', 'careers', 'textarea', 'Careers Page Description', NOW(), NOW()),
+('careers_btn_text', 'Explore Opportunities →', 'careers', 'text', 'Careers Action Button Text', NOW(), NOW()),
+('careers_btn_url', '/contact', 'careers', 'text', 'Careers Action Button URL', NOW(), NOW()),
+('careers_email', 'info@trevanta.com', 'careers', 'email', 'Careers Inquiry Email', NOW(), NOW());
 
 SET FOREIGN_KEY_CHECKS = 1;
 
