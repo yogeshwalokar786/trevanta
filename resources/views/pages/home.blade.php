@@ -932,6 +932,7 @@
     </section>
 
     <!-- 4. BLOGS & CLINICAL RESEARCH INSIGHTS SECTION -->
+    @if(isset($blogs) && count($blogs))
     <section class="blogs-section" id="blogs">
       <div class="site-container">
         <div class="section-header-centered">
@@ -955,55 +956,53 @@
 
         <!-- BLOG CARDS GRID (DYNAMIC) -->
         <div class="blogs-grid">
-          @if(isset($blogs) && count($blogs))
-            @foreach($blogs as $blog)
-              <article class="blog-card" data-category="{{ $blog->category }}" onclick="openArticleModal('{{ $blog->slug }}')">
-                <div class="blog-card-media">
-                  <div class="blog-media-pattern"></div>
-                  @if(!empty($blog->image))
-                    <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; opacity: 0.35;">
+          @foreach($blogs as $blog)
+            <article class="blog-card" data-category="{{ $blog->category }}" onclick="openArticleModal('{{ $blog->slug }}')">
+              <div class="blog-card-media">
+                <div class="blog-media-pattern"></div>
+                @if(!empty($blog->image))
+                  <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; opacity: 0.35;">
+                @endif
+                <span class="blog-card-badge">{{ $blog->badge ?: $blog->category }}</span>
+                <span class="blog-read-time">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {{ $blog->read_time ?: '5 min read' }}
+                </span>
+                <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
+                  @if(stripos($blog->category, 'regulat') !== false)
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  @elseif(stripos($blog->category, 'pharma') !== false || stripos($blog->category, 'safe') !== false)
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  @elseif(stripos($blog->category, 'stat') !== false || stripos($blog->category, 'data') !== false)
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  @else
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
                   @endif
-                  <span class="blog-card-badge">{{ $blog->badge ?: $blog->category }}</span>
-                  <span class="blog-read-time">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    {{ $blog->read_time ?: '5 min read' }}
-                  </span>
-                  <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
-                    @if(stripos($blog->category, 'regulat') !== false)
-                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    @elseif(stripos($blog->category, 'pharma') !== false || stripos($blog->category, 'safe') !== false)
-                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    @elseif(stripos($blog->category, 'stat') !== false || stripos($blog->category, 'data') !== false)
-                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    @else
-                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
-                    @endif
-                  </div>
                 </div>
-                <div class="blog-card-body">
-                  <span class="blog-meta-date">
-                    {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Recent' }}
-                  </span>
-                  <h3 class="blog-card-title">{{ $blog->title }}</h3>
-                  <p class="blog-card-excerpt">
-                    {{ $blog->summary }}
-                  </p>
-                  <div class="blog-author-bar">
-                    <div class="blog-author-info">
-                      <div class="blog-author-avatar">{{ $blog->author_avatar ?: 'AC' }}</div>
-                      <div>
-                        <div class="blog-author-name">{{ $blog->author_name }}</div>
-                        <div class="blog-author-title">{{ $blog->author_title ?: 'Clinical Research Team' }}</div>
-                      </div>
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-meta-date">
+                  {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Recent' }}
+                </span>
+                <h3 class="blog-card-title">{{ $blog->title }}</h3>
+                <p class="blog-card-excerpt">
+                  {{ $blog->summary }}
+                </p>
+                <div class="blog-author-bar">
+                  <div class="blog-author-info">
+                    <div class="blog-author-avatar">{{ $blog->author_avatar ?: 'AC' }}</div>
+                    <div>
+                      <div class="blog-author-name">{{ $blog->author_name }}</div>
+                      <div class="blog-author-title">{{ $blog->author_title ?: 'Clinical Research Team' }}</div>
                     </div>
-                    <a href="{{ route('blog.show', $blog->slug) }}" class="blog-read-btn" onclick="event.stopPropagation();">
-                      Read Article &rarr;
-                    </a>
                   </div>
+                  <a href="{{ route('blog.show', $blog->slug) }}" class="blog-read-btn" onclick="event.stopPropagation();">
+                    Read Article &rarr;
+                  </a>
                 </div>
-              </article>
-            @endforeach
-          @endif
+              </div>
+            </article>
+          @endforeach
         </div>
 
         <div class="text-center" style="margin-top: 3rem;">
@@ -1011,6 +1010,7 @@
         </div>
       </div>
     </section>
+    @endif
 
     @if(isset($blogs) && count($blogs))
       <script>
