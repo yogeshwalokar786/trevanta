@@ -81,14 +81,15 @@ function initAutoSlider() {
 function initStickyHeader() {
   const header = document.getElementById('jss-header');
   if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        header.style.boxShadow = '0 4px 20px rgba(28, 45, 66, 0.12)';
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        header.classList.add('is-scrolled');
       } else {
-        header.style.boxShadow = '0 2px 12px rgba(28, 45, 66, 0.06)';
+        header.classList.remove('is-scrolled');
       }
-    });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
   }
 
   // Close mobile drawer when clicking any navigation link

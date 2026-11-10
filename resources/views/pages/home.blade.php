@@ -783,69 +783,123 @@
       </div>
     </section>
 
-    <!-- FINAL SECTION: CONTACT US (PROPER CARD STRUCTURE) -->
+    <!-- FINAL SECTION: CONTACT US (REDESIGNED PREMIUM CLINICAL CARDS & ACTION BANNER) -->
     <section class="home-contact-cards" id="contact">
       <div class="site-container">
         
         <!-- SECTION TITLE -->
-        <div style="max-width: 780px; margin: 0 auto 3.5rem;">
-          <div class="hero-top-announcement" style="margin-bottom: 1rem;">
+        <div style="max-width: 820px; margin: 0 auto 3.5rem; text-align: center;">
+          <div class="hero-top-announcement" style="margin-bottom: 1rem; display: inline-flex;">
             <span class="orange-beacon"></span>
-            <span>Contact Us</span>
+            <span>Global Clinical Access &bull; Contact Us</span>
           </div>
           <h2 style="font-size: 2.75rem; font-weight: 800; color: #1e293b; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 1rem;">
             Let’s accelerate your <span class="highlight-orange">next breakthrough.</span>
           </h2>
           <p style="font-size: 1.05rem; color: #64748b; line-height: 1.6; margin: 0;">
-            Partner with our global clinical research teams to advance your therapeutics with scientific precision.
+            Partner with Trevanta International’s multi-national clinical operations team. Experience rapid protocol appraisal, strict NDA confidentiality, and direct therapeutic leadership access.
           </p>
         </div>
 
-        <!-- 2 PROPER CONTACT CARDS -->
-        <div style="max-width: 900px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; text-align: left;">
+        <!-- 3 COMPREHENSIVE CONTACT PILLARS -->
+        <div class="home-contact-grid">
           
-          <!-- CARD 1: EMAIL -->
+          <!-- CARD 1: EMAIL & PROTOCOL SUBMISSIONS -->
           <div class="contact-info-card">
             <div>
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
-                <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(242, 98, 36, 0.1); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.2);">
-                  <i class="fa-solid fa-envelope"></i>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                <div class="contact-card-icon-wrap" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
-                <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: var(--jss-orange); background: rgba(242, 98, 36, 0.1); padding: 0.3rem 0.75rem; border-radius: 999px;">
-                  Direct Inquiry
+                <span class="contact-card-pill orange">
+                  Direct RFP &bull; 24h
                 </span>
               </div>
-              <h3 style="font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Email</h3>
-              <p style="font-size: 0.92rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.55;">
-                For protocol submissions, clinical trial feasibility, and commercial proposals:
+              <h3 class="contact-card-title">Study Proposals</h3>
+              <p class="contact-card-desc">
+                For fast-track protocol submissions, clinical feasibility analyses, and commercial agreements.
               </p>
+              <ul class="contact-card-features">
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Strict Bilateral Mutual NDA Protection</span>
+                </li>
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Physician-Led Protocol Review</span>
+                </li>
+              </ul>
             </div>
-            <div style="padding-top: 1.25rem; border-top: 1px dashed #e2e8f0;">
-              <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.1rem; font-weight: 700; color: var(--jss-orange); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; word-break: break-all;">
+            <div class="contact-card-footer">
+              <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}">
                 <span>{{ setting('contact_email', 'info@trevanta.com') }}</span>
-                <span class="contact-card-arrow" style="transition: transform 0.2s ease;">&rarr;</span>
+                <span class="contact-card-arrow">&rarr;</span>
               </a>
             </div>
           </div>
 
-          <!-- CARD 2: GLOBAL OFFICES -->
+          <!-- CARD 2: CORPORATE CLINICAL HOTLINE -->
           <div class="contact-info-card">
             <div>
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
-                <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(242, 98, 36, 0.1); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.2);">
-                  <i class="fa-solid fa-location-dot"></i>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                <div class="contact-card-icon-wrap" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
-                <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #1e293b; background: #f1f5f9; padding: 0.3rem 0.75rem; border-radius: 999px;">
-                  Global HQ
+                <span class="contact-card-pill navy">
+                  Live Switchboard
                 </span>
               </div>
-              <h3 style="font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 0 0 0.5rem 0;">Global Offices</h3>
-              <p style="font-size: 0.92rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.55;">
-                Corporate Headquarters &amp; Global Executive Clinical Operations:
+              <h3 class="contact-card-title">Corporate Hotline</h3>
+              <p class="contact-card-desc">
+                Direct telephone connection to our North American operations leads, medical monitors, and coordinators.
               </p>
+              <ul class="contact-card-features">
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Mon &ndash; Fri &bull; 8:00 AM &ndash; 6:00 PM EST</span>
+                </li>
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Direct Sponsor Executive Access</span>
+                </li>
+              </ul>
             </div>
-            <div style="padding-top: 1.25rem; border-top: 1px dashed #e2e8f0;">
-              <span style="font-size: 0.98rem; font-weight: 600; color: #334155; line-height: 1.5; display: block;">
+            <div class="contact-card-footer">
+              <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}">
+                <span>{{ setting('phone_na', '+1 (514) 934-0805') }}</span>
+                <span class="contact-card-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 3: GLOBAL HEADQUARTERS -->
+          <div class="contact-info-card">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                <div class="contact-card-icon-wrap" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="contact-card-pill navy">
+                  Montreal, QC Canada
+                </span>
+              </div>
+              <h3 class="contact-card-title">Global Headquarters</h3>
+              <p class="contact-card-desc">
+                Executive clinical management, regulatory dossier compilation hub, and data sciences centre.
+              </p>
+              <ul class="contact-card-features">
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Sponsor Site &amp; Protocol Audits</span>
+                </li>
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Multi-National Trial Coordination</span>
+                </li>
+              </ul>
+            </div>
+            <div class="contact-card-footer">
+              <span style="font-size: 0.95rem; font-weight: 600; color: #334155; line-height: 1.5; display: block;">
                 {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}
               </span>
             </div>
@@ -853,12 +907,33 @@
 
         </div>
 
-        <!-- CTA BUTTON -->
-        <div>
-          <a href="{{ route('contact') }}" class="btn btn-jss-orange btn-lg" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.75rem; font-size: 1.1rem; box-shadow: 0 6px 22px rgba(242, 98, 36, 0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-            <span>Get in Touch</span>
-            <span>&rarr;</span>
-          </a>
+        <!-- HIGH-IMPACT CRO ACTION BANNER -->
+        <div class="contact-action-banner">
+          <div class="contact-banner-content">
+            <span class="contact-banner-tag">
+              <span class="orange-beacon"></span>
+              Fast-Track Feasibility Assessment
+            </span>
+            <h3 class="contact-banner-heading">Ready to evaluate trial feasibility or initiate your clinical study?</h3>
+            <p class="contact-banner-text">
+              Our clinical project directors evaluate protocol requirements, sample sizes, and regulatory pathways with rapid turnaround.
+            </p>
+          </div>
+
+          <div class="contact-banner-actions">
+            <div class="contact-banner-buttons">
+              <button class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2rem; font-size: 1.05rem; box-shadow: 0 6px 20px rgba(242, 98, 36, 0.4); cursor: pointer;">
+                Request Study RFP &rarr;
+              </button>
+              <a href="{{ route('contact') }}" class="btn btn-jss-outline btn-lg" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 1.85rem; font-size: 1.05rem; color: #ffffff; border-color: rgba(255, 255, 255, 0.4); text-decoration: none;">
+                Contact Us Page &rarr;
+              </a>
+            </div>
+            <div class="contact-banner-guarantee">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Protected by Bilateral NDA &bull; 24-Hour Response Guarantee</span>
+            </div>
+          </div>
         </div>
 
       </div>
