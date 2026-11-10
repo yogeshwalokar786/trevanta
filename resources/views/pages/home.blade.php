@@ -730,6 +730,65 @@
       </div>
     </section>
 
+    <!-- CAREERS SPOTLIGHT SECTION -->
+    <section class="careers-spotlight-section" id="careers-spotlight">
+      <div class="site-container">
+        
+        <div class="careers-spotlight-card">
+          
+          <div class="careers-spotlight-content">
+            <div class="hero-top-announcement" style="margin-bottom: 1rem;">
+              <span class="orange-beacon"></span>
+              <span>PEOPLE &amp; CULTURE</span>
+            </div>
+
+            <h2>
+              Join a Team Committed to <br>
+              <span class="highlight-orange">Improving Global Health.</span>
+            </h2>
+
+            <p>
+              At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.
+            </p>
+
+            <ul class="careers-perks-list">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>Global cross-functional collaboration across multi-national clinical hubs</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>Continuous GCP certification, leadership pathways &amp; mentorship</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>Direct involvement in pivotal Phase I–IV clinical trials saving lives</span>
+              </li>
+            </ul>
+
+            <a href="{{ route('careers') }}" class="btn btn-jss-orange btn-lg" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2.25rem; font-size: 1.05rem;">
+              Explore Opportunities &rarr;
+            </a>
+          </div>
+
+          <div class="careers-photo-wrap">
+            <img src="{{ asset('images/clinical-team.jpg') }}" alt="Trevanta International Global Clinical Team" loading="lazy">
+            <div class="careers-photo-badge">
+              <div class="careers-badge-icon">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div class="careers-badge-text">
+                <strong>Empowering Scientific Minds</strong>
+                <span>Join physicians, biostatisticians, CRAs &amp; regulatory experts worldwide</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- 3. STUDY FEASIBILITY & TIMELINE ESTIMATOR -->
     <section class="estimator-section" id="feasibility-calculator">
       <div class="site-container">
