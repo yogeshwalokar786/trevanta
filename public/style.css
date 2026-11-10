@@ -1661,6 +1661,21 @@ ul {
   font-size: 0.9rem;
 }
 
+.te-item-card {
+  transition: all 0.25s ease;
+}
+
+.te-item-card:hover {
+  border-color: var(--jss-orange) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+  background: #ffffff !important;
+}
+
+.te-tab-btn:hover {
+  transform: translateY(-2px);
+}
+
 /* CLIENTS & PARTNERSHIP SECTION */
 .jss-clients-section {
   padding: 6rem 0;

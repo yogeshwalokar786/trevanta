@@ -360,48 +360,146 @@
     </section>
 
     <!-- THERAPEUTIC EXPERTISE SECTION -->
-    <section class="jss-therapeutic-section" id="therapeutic">
+    <section class="jss-therapeutic-section" id="therapeutic" style="padding: 5rem 0; background: #ffffff;">
       <div class="site-container">
-        <div class="section-title-wrap text-center">
-          <span class="eyebrow-jss">DISEASE FOCUS</span>
-          <h2 class="main-title">Therapeutic Areas of Distinction</h2>
+        <div class="section-title-wrap text-center" style="max-width: 820px; margin: 0 auto 3rem;">
+          <span class="eyebrow-jss">COMPREHENSIVE CAPABILITIES</span>
+          <h2 class="main-title">Therapeutic Expertise</h2>
           <p class="subtitle-jss">
-            Experienced medical directors and specialized investigative sites dedicated to your indication.
+            Trevanta International supports a wide range of therapeutic areas and clinical development disciplines. Our multidisciplinary teams bring deep expertise to complex clinical programs, mirroring global CRO capabilities in diverse therapeutic areas.
           </p>
         </div>
 
-        <div class="ta-badge-grid">
-          <div class="ta-item">
-            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></span>
-            <h4>Oncology &amp; Hematology</h4>
-            <p>Solid tumors, CAR-T, immuno-oncology, and biomarker-driven clinical protocols.</p>
-          </div>
-          <div class="ta-item">
-            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z"/></svg></span>
-            <h4>CNS &amp; Neurology</h4>
-            <p>Alzheimer's, Parkinson's, ALS, Epilepsy, and Neuro-psychiatric trials.</p>
-          </div>
-          <div class="ta-item">
-            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-            <h4>Immunology &amp; Inflammation</h4>
-            <p>Rheumatoid arthritis, Lupus, IBD (Crohn's/Colitis), and Psoriasis studies.</p>
-          </div>
-          <div class="ta-item">
-            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/></svg></span>
-            <h4>Rare &amp; Orphan Indications</h4>
-            <p>Pediatric and adult orphan designations with specialized decentralized logistics.</p>
-          </div>
-          <div class="ta-item">
-            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><polyline points="12 5 9 14 15 14 12 21"/></svg></span>
-            <h4>Orthopedics &amp; Surgery</h4>
-            <p>Surgical implants, regenerative orthobiologics, and musculoskeletal devices.</p>
-          </div>
-          <div class="ta-item">
-            <span class="ta-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="9" x2="12" y2="3"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="9" y1="12" x2="3" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg></span>
-            <h4>Infectious Diseases &amp; Vaccines</h4>
-            <p>Rapid surge enrollment, respiratory vaccines, and antimicrobial therapeutics.</p>
+        <!-- CATEGORY TABS -->
+        <div class="te-tabs-wrapper" style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+          <button type="button" class="te-tab-btn active" onclick="switchTherapeuticTab('areas', this)" style="padding: 0.85rem 1.75rem; border-radius: 999px; font-weight: 700; font-size: 0.95rem; border: 2px solid var(--jss-orange); background: var(--jss-orange); color: #ffffff; cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span>Therapeutic Areas</span>
+            <span style="background: rgba(255,255,255,0.25); padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.8rem;">21</span>
+          </button>
+          <button type="button" class="te-tab-btn" onclick="switchTherapeuticTab('cro', this)" style="padding: 0.85rem 1.75rem; border-radius: 999px; font-weight: 700; font-size: 0.95rem; border: 2px solid #cbd5e1; background: #f8fafc; color: var(--jss-navy); cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span>CRO &amp; Clinical Research Services</span>
+            <span style="background: #e2e8f0; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.8rem;">12</span>
+          </button>
+          <button type="button" class="te-tab-btn" onclick="switchTherapeuticTab('writing', this)" style="padding: 0.85rem 1.75rem; border-radius: 999px; font-weight: 700; font-size: 0.95rem; border: 2px solid #cbd5e1; background: #f8fafc; color: var(--jss-navy); cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span>Medical Writing &amp; Scientific Publications</span>
+            <span style="background: #e2e8f0; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.8rem;">14</span>
+          </button>
+        </div>
+
+        <!-- PANE 1: THERAPEUTIC AREAS -->
+        <div class="te-tab-pane" id="te-pane-areas" style="display: block;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+            @php
+              $therapeuticAreas = [
+                'Oncology & Hematology',
+                'Infectious Diseases & Vaccines',
+                'Cardiovascular & Metabolic Disorders',
+                'Neurology & Central Nervous System (CNS)',
+                'Rare Diseases & Orphan Drugs',
+                'Diabetes, Endocrinology & Obesity',
+                'Nephrology & Urology',
+                'Gastroenterology & Hepatology',
+                'Respiratory & Pulmonary Diseases',
+                'Immunology & Autoimmune Disorders',
+                'Dermatology & Skin Diseases',
+                "Women's Health & Reproductive Medicine",
+                'Pediatrics & Neonatology',
+                'Orthopedics & Musculoskeletal Disorders',
+                'Ophthalmology & Vision Disorders',
+                'Psychiatry & Mental Health',
+                'Genetic & Hereditary Disorders',
+                'Nutrition & Nutritional Deficiency Disorders',
+                'Geriatrics & Age-Related Disorders',
+                'Preventive Healthcare & Lifestyle Diseases',
+                'Public Health & Epidemiological Research'
+              ];
+            @endphp
+            @foreach($therapeuticAreas as $area)
+              <div class="te-item-card" style="display: flex; align-items: center; gap: 0.85rem; background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.1rem 1.25rem; border-radius: 10px; transition: all 0.2s ease;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: rgba(242, 98, 36, 0.12); color: var(--jss-orange); display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; flex-shrink: 0;">✓</span>
+                <span style="font-size: 0.95rem; font-weight: 600; color: #1e293b; line-height: 1.4;">{{ $area }}</span>
+              </div>
+            @endforeach
           </div>
         </div>
+
+        <!-- PANE 2: CRO & CLINICAL RESEARCH SERVICES -->
+        <div class="te-tab-pane" id="te-pane-cro" style="display: none;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+            @php
+              $croServices = [
+                'Clinical Trial Management & Coordination',
+                'Clinical Operations & Site Management',
+                'Clinical Monitoring & Quality Assurance',
+                'Clinical Data Management',
+                'Biostatistics & Statistical Analysis',
+                'Patient Recruitment & Retention',
+                'Regulatory Affairs & Regulatory Documentation',
+                'Ethics Committee (EC/IEC) Submissions & Approvals Support',
+                'Clinical Study Design & Protocol Development',
+                'Pharmacovigilance & Drug Safety Support',
+                'Real-World Evidence (RWE) & Observational Studies',
+                'Post-Marketing Surveillance & Phase IV Studies'
+              ];
+            @endphp
+            @foreach($croServices as $service)
+              <div class="te-item-card" style="display: flex; align-items: center; gap: 0.85rem; background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.1rem 1.25rem; border-radius: 10px; transition: all 0.2s ease;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: rgba(18, 30, 45, 0.08); color: var(--jss-navy); display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; flex-shrink: 0;">✓</span>
+                <span style="font-size: 0.95rem; font-weight: 600; color: #1e293b; line-height: 1.4;">{{ $service }}</span>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
+        <!-- PANE 3: MEDICAL WRITING & PUBLICATIONS -->
+        <div class="te-tab-pane" id="te-pane-writing" style="display: none;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+            @php
+              $writingServices = [
+                'Clinical Study Protocol Writing',
+                'Clinical Study Reports (CSR)',
+                'Scientific Manuscript Writing',
+                'Research Article & Review Article Preparation',
+                'Systematic Reviews & Meta-Analysis',
+                'Case Reports & Case Series',
+                'Abstract, Poster & Conference Presentation Preparation',
+                'Investigator Brochures (IB)',
+                'Informed Consent Documents (ICF)',
+                'Patient Information Sheets',
+                'Statistical Analysis Reports',
+                'Regulatory & Scientific Documentation',
+                'Journal Selection, Submission & Publication Support',
+                'Medical Literature Review & Scientific Editing'
+              ];
+            @endphp
+            @foreach($writingServices as $writing)
+              <div class="te-item-card" style="display: flex; align-items: center; gap: 0.85rem; background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.1rem 1.25rem; border-radius: 10px; transition: all 0.2s ease;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: rgba(242, 98, 36, 0.12); color: var(--jss-orange); display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; flex-shrink: 0;">✓</span>
+                <span style="font-size: 0.95rem; font-weight: 600; color: #1e293b; line-height: 1.4;">{{ $writing }}</span>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
+        <!-- SUMMARY CALLOUT CARD -->
+        <div style="margin-top: 3.5rem; background: linear-gradient(135deg, #121e2d 0%, #1e2e42 100%); border-radius: 14px; padding: 2.25rem 2.5rem; color: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+          <div style="max-width: 680px;">
+            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; color: var(--jss-orange); text-transform: uppercase; margin-bottom: 0.5rem;">GLOBAL CRO CAPABILITIES</span>
+            <h3 style="font-size: 1.45rem; font-weight: 700; color: #ffffff; margin-bottom: 0.65rem;">Customized Scientific Expertise For Your Clinical Program</h3>
+            <p style="font-size: 0.975rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+              Our multidisciplinary teams bring deep expertise to complex clinical programs, mirroring global CRO capabilities in diverse therapeutic areas.
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 0.85rem 1.75rem;">
+              Discuss Your Protocol &rarr;
+            </button>
+            <a href="{{ route('services') }}" class="btn btn-jss-outline btn-lg" style="border-radius: 8px; font-weight: 700; padding: 0.85rem 1.75rem; color: #ffffff; border-color: rgba(255,255,255,0.4);">
+              Explore All Services
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
