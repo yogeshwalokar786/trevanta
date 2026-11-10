@@ -700,13 +700,36 @@
                   <label for="social_linkedin" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
                     <i class="fab fa-linkedin text-primary mr-1"></i> LinkedIn Profile URL
                   </label>
-                  <input type="url" name="social_linkedin" id="social_linkedin" class="form-control" value="{{ $settings['social_linkedin'] ?? 'https://www.linkedin.com/company/trevanta-international' }}">
+                  <input type="url" name="social_linkedin" id="social_linkedin" class="form-control" value="{{ $settings['social_linkedin'] ?? 'https://www.linkedin.com/company/trevanta-international' }}" placeholder="https://linkedin.com/company/...">
+                  <small class="text-muted text-xs">Leave empty to hide from the footer.</small>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="social_twitter" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
                     <i class="fab fa-twitter text-info mr-1"></i> Twitter / X Profile URL
                   </label>
-                  <input type="url" name="social_twitter" id="social_twitter" class="form-control" value="{{ $settings['social_twitter'] ?? 'https://twitter.com/trevantacro' }}">
+                  <input type="url" name="social_twitter" id="social_twitter" class="form-control" value="{{ $settings['social_twitter'] ?? 'https://twitter.com/trevantacro' }}" placeholder="https://twitter.com/...">
+                  <small class="text-muted text-xs">Leave empty to hide from the footer.</small>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="social_facebook" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                    <i class="fab fa-facebook text-primary mr-1"></i> Facebook Page URL (Optional)
+                  </label>
+                  <input type="url" name="social_facebook" id="social_facebook" class="form-control" value="{{ $settings['social_facebook'] ?? '' }}" placeholder="https://facebook.com/...">
+                  <small class="text-muted text-xs">Leave empty to hide.</small>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="social_youtube" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                    <i class="fab fa-youtube text-danger mr-1"></i> YouTube Channel URL (Optional)
+                  </label>
+                  <input type="url" name="social_youtube" id="social_youtube" class="form-control" value="{{ $settings['social_youtube'] ?? '' }}" placeholder="https://youtube.com/...">
+                  <small class="text-muted text-xs">Leave empty to hide.</small>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="social_instagram" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
+                    <i class="fab fa-instagram text-danger mr-1"></i> Instagram Profile URL (Optional)
+                  </label>
+                  <input type="url" name="social_instagram" id="social_instagram" class="form-control" value="{{ $settings['social_instagram'] ?? '' }}" placeholder="https://instagram.com/...">
+                  <small class="text-muted text-xs">Leave empty to hide.</small>
                 </div>
               </div>
 
