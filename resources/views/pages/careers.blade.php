@@ -21,7 +21,7 @@
   </section>
 
   <main>
-    <!-- SECTION 1: PEOPLE & CULTURE (Two-Column Layout with Motto & Stats) -->
+    <!-- SECTION 1: PEOPLE & CULTURE (Two-Column Layout with Motto) -->
     <section class="subpage-content">
       <div class="site-container">
         <div class="two-col-layout">
@@ -35,17 +35,11 @@
               {{ setting('careers_description', 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.') }}
             </p>
 
-            <div class="slide-bullets" style="margin-bottom: 2rem;">
+            <div class="slide-bullets">
               <span>&bull; Collaborative cross-functional teams across North America, Europe, and Asia</span>
               <span>&bull; Comprehensive continuing education, GCP certification, and leadership paths</span>
               <span>&bull; Direct involvement in pivotal Phase I–IV trials and life-saving therapies</span>
               <span>&bull; Flexible hybrid work arrangements and modern digital trial infrastructure</span>
-            </div>
-
-            <div>
-              <a href="#openings" class="btn btn-jss-orange btn-lg">
-                {{ setting('careers_btn_text', 'Explore Opportunities →') }}
-              </a>
             </div>
           </div>
 
@@ -61,28 +55,6 @@
                 <strong>Executive Leadership Board</strong>
                 <span>Trevanta International</span>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STATS BANNER -->
-        <div style="margin-top: 4rem;">
-          <div class="hero-stats-banner">
-            <div class="h-stat-item">
-              <span class="stat-number">28+</span>
-              <span class="stat-desc">Countries of Active Operations</span>
-            </div>
-            <div class="h-stat-item">
-              <span class="stat-number">500+</span>
-              <span class="stat-desc">Global Team Members</span>
-            </div>
-            <div class="h-stat-item">
-              <span class="stat-number">25+</span>
-              <span class="stat-desc">Years of Scientific Excellence</span>
-            </div>
-            <div class="h-stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-desc">Audit &amp; Inspection Readiness</span>
             </div>
           </div>
         </div>
@@ -169,9 +141,6 @@
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <a href="mailto:{{ setting('careers_email', setting('contact_email', 'info@trevanta.com')) }}?subject=Spontaneous%20Application%20-%20Trevanta%20Careers" class="btn btn-jss-orange btn-lg">
             Email Your Resume to {{ setting('careers_email', setting('contact_email', 'info@trevanta.com')) }} &rarr;
-          </a>
-          <a href="{{ setting('careers_btn_url', route('contact')) }}" class="btn btn-jss-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
-            General Inquiry &rarr;
           </a>
         </div>
       </div>
