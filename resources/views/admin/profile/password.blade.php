@@ -171,21 +171,6 @@
         </form>
       </div>
     </div>
-
-    <!-- Quick Help Card -->
-    <div class="card border-0 shadow-sm" style="border-radius: 12px; background: #fafafa;">
-      <div class="card-body p-4 text-xs text-muted">
-        <h6 class="font-weight-bold text-dark mb-2 text-xs text-uppercase">
-          <i class="fas fa-question-circle mr-1 text-primary"></i> Need Access Assistance?
-        </h6>
-        <p class="mb-2">
-          If you ever lose access to this administrator account, credentials can also be reset directly via the server database CLI or via cPanel phpMyAdmin in the <code>users</code> table.
-        </p>
-        <p class="mb-0">
-          Last login verified via session authentication.
-        </p>
-      </div>
-    </div>
   </div>
 
 </div>
@@ -212,3 +197,4 @@
 </script>
 @endpush
 @endsection
+
