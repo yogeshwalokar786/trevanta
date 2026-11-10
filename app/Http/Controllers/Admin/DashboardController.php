@@ -61,9 +61,12 @@ class DashboardController extends Controller
             $inquiries          = collect();
         }
 
+        $pendingRfps = $pendingInquiries;
+
         return view('admin.dashboard', compact(
             'totalInquiries',
             'pendingInquiries',
+            'pendingRfps',
             'totalRfps',
             'totalContacts',
             'totalBlogs',

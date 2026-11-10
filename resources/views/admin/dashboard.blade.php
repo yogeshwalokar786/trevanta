@@ -143,7 +143,7 @@
               Contacts ({{ $totalContacts }})
             </a>
             <a href="{{ route('admin.dashboard', ['filter' => 'pending']) }}" class="btn {{ request('filter') === 'pending' ? 'btn-danger' : 'btn-white' }}">
-              Pending ({{ $pendingRfps }})
+              Pending ({{ $pendingInquiries ?? $pendingRfps ?? 0 }})
             </a>
           </div>
           <a href="{{ route('admin.inquiries.index') }}" class="btn btn-white btn-sm ml-2 text-primary font-weight-bold" title="Open dedicated Enquiries manager">
