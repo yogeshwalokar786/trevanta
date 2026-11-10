@@ -945,3 +945,27 @@
   </main>
 @endsection
 
+@push('scripts')
+<script>
+window.switchTherapeuticTab = function(tabKey, btn) {
+  var allBtns = document.querySelectorAll('.te-tab-btn');
+  allBtns.forEach(function(b) { b.classList.remove('active'); });
+
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    var matchingBtn = document.querySelector('.te-tab-btn[data-tab="' + tabKey + '"]');
+    if (matchingBtn) matchingBtn.classList.add('active');
+  }
+
+  var allPanes = document.querySelectorAll('.te-tab-pane');
+  allPanes.forEach(function(p) { p.style.display = 'none'; });
+
+  var targetPane = document.getElementById('te-pane-' + tabKey);
+  if (targetPane) {
+    targetPane.style.display = 'block';
+  }
+};
+</script>
+@endpush
+

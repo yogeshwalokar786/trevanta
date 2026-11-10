@@ -511,6 +511,3 @@ function switchTherapeuticTab(tabKey, btn) {
     targetPane.style.display = 'block';
   }
 }
-    targetPane.style.display = 'block';
-  }
-}
