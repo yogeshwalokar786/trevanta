@@ -52,6 +52,10 @@ Route::prefix('admin')->group(function () {
         Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class, ['as' => 'admin']);
         Route::post('blogs/{id}/toggle-publish', [\App\Http\Controllers\Admin\BlogController::class, 'togglePublish'])->name('admin.blogs.toggle-publish');
 
+        // Job Openings & Careers Management
+        Route::resource('jobs', \App\Http\Controllers\Admin\JobOpeningController::class, ['as' => 'admin']);
+        Route::post('jobs/{id}/toggle-active', [\App\Http\Controllers\Admin\JobOpeningController::class, 'toggleActive'])->name('admin.jobs.toggle-active');
+
         // Categories Management (Separate Categories Table)
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin']);
 

@@ -337,5 +337,29 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 ('careers_btn_url', '/contact', 'careers', 'text', 'Careers Action Button URL', NOW(), NOW()),
 ('careers_email', 'info@trevanta.com', 'careers', 'email', 'Careers Inquiry Email', NOW(), NOW());
 
+-- --------------------------------------------------------
+-- Table structure for `job_openings`
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `job_openings`;
+CREATE TABLE `job_openings` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `department` varchar(100) DEFAULT NULL,
+  `job_type` varchar(50) NOT NULL DEFAULT 'Full-Time',
+  `location` varchar(255) DEFAULT NULL,
+  `experience` varchar(100) DEFAULT NULL,
+  `description` text NOT NULL,
+  `requirements` longtext DEFAULT NULL,
+  `apply_email` varchar(255) DEFAULT NULL,
+  `apply_url` varchar(255) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `order` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `job_openings_slug_unique` (`slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 SET FOREIGN_KEY_CHECKS = 1;
 

@@ -110,7 +110,13 @@ class PageController extends Controller
      */
     public function careers()
     {
-        return view('pages.careers');
+        try {
+            $jobs = \App\Models\JobOpening::active()->orderBy('order')->latest()->get();
+        } catch (\Throwable $e) {
+            $jobs = collect([]);
+        }
+
+        return view('pages.careers', compact('jobs'));
     }
 
     /**

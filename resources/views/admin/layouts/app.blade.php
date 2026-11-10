@@ -502,6 +502,15 @@
             </a>
           </li>
 
+          <li class="sidebar-nav-heading">Careers &amp; Recruitment</li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.jobs.index') }}" class="nav-link {{ request()->routeIs('admin.jobs.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-briefcase"></i>
+              <p>Job Openings</p>
+            </a>
+          </li>
+
           <li class="sidebar-nav-heading">Configuration</li>
 
           <li class="nav-item">
