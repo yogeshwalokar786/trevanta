@@ -42,7 +42,7 @@
       <div class="site-container">
         <div class="two-col-layout">
           <div>
-            <span class="eyebrow-jss">PEOPLE &amp; CULTURE</span>
+            <span class="eyebrow-jss">{{ setting('careers_eyebrow', 'PEOPLE & CULTURE') }}</span>
             <h2 style="font-size: 2.2rem; margin-bottom: 1.25rem;">
               {{ setting('careers_heading', 'Join a team committed to improving global health.') }}
             </h2>
@@ -58,8 +58,12 @@
                   <i class="fas fa-globe-americas"></i>
                 </div>
                 <div>
-                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">Global Cross-Functional Collaboration</strong>
-                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Multi-national clinical teams operating across North America, Europe, and Asia.</span>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">
+                    {{ setting('careers_feat1_title', 'Global Cross-Functional Collaboration') }}
+                  </strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">
+                    {{ setting('careers_feat1_desc', 'Multi-national clinical teams operating across North America, Europe, and Asia.') }}
+                  </span>
                 </div>
               </div>
 
@@ -68,8 +72,12 @@
                   <i class="fas fa-graduation-cap"></i>
                 </div>
                 <div>
-                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">Continuous Growth &amp; GCP Certification</strong>
-                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Comprehensive continuing education, international GCP credentials, and leadership tracks.</span>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">
+                    {{ setting('careers_feat2_title', 'Continuous Growth & GCP Certification') }}
+                  </strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">
+                    {{ setting('careers_feat2_desc', 'Comprehensive continuing education, international GCP credentials, and leadership tracks.') }}
+                  </span>
                 </div>
               </div>
 
@@ -78,8 +86,12 @@
                   <i class="fas fa-dna"></i>
                 </div>
                 <div>
-                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">High-Impact Clinical Research</strong>
-                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Direct involvement in pivotal Phase I–IV trials delivering life-saving medical innovations.</span>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">
+                    {{ setting('careers_feat3_title', 'High-Impact Clinical Research') }}
+                  </strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">
+                    {{ setting('careers_feat3_desc', 'Direct involvement in pivotal Phase I–IV trials delivering life-saving medical innovations.') }}
+                  </span>
                 </div>
               </div>
 
@@ -88,8 +100,12 @@
                   <i class="fas fa-laptop-code"></i>
                 </div>
                 <div>
-                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">Flexible Infrastructure &amp; Modern Systems</strong>
-                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Modern digital clinical systems, flexible work models, and collaborative support.</span>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">
+                    {{ setting('careers_feat4_title', 'Flexible Infrastructure & Modern Systems') }}
+                  </strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">
+                    {{ setting('careers_feat4_desc', 'Modern digital clinical systems, flexible work models, and collaborative support.') }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -99,13 +115,15 @@
             <!-- PROJECT SIGNATURE MOTTO CALLOUT -->
             <div class="about-motto-callout">
               <span class="quote-mark">&ldquo;</span>
-              <span class="s-phase-tag" style="display: block; margin-bottom: 0.5rem;">OUR COMMITMENT</span>
+              <span class="s-phase-tag" style="display: block; margin-bottom: 0.5rem;">
+                {{ setting('careers_motto_tag', 'OUR COMMITMENT') }}
+              </span>
               <blockquote>
-                Our world-class team of highly qualified and experienced workforce enables us to meet client expectations and deliver projects within the timeframe.
+                {{ setting('careers_motto_quote', 'Our world-class team of highly qualified and experienced workforce enables us to meet client expectations and deliver projects within the timeframe.') }}
               </blockquote>
               <div class="quote-author">
-                <strong>Executive Leadership Board</strong>
-                <span>Trevanta International</span>
+                <strong>{{ setting('careers_motto_author', 'Executive Leadership Board') }}</strong>
+                <span>{{ setting('careers_motto_org', 'Trevanta International') }}</span>
               </div>
             </div>
           </div>

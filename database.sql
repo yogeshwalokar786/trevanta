@@ -331,11 +331,24 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 ('footer_about', 'A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.', 'social', 'textarea', 'Footer About Blurb', NOW(), NOW()),
 ('footer_copyright', '© 2026 Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.', 'social', 'text', 'Footer Copyright Notice', NOW(), NOW()),
 
+('careers_eyebrow', 'PEOPLE & CULTURE', 'careers', 'text', 'Careers Section Eyebrow', NOW(), NOW()),
 ('careers_heading', 'Join a team committed to improving global health.', 'careers', 'text', 'Careers Page Heading', NOW(), NOW()),
 ('careers_description', 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.', 'careers', 'textarea', 'Careers Page Description', NOW(), NOW()),
-('careers_btn_text', 'Explore Opportunities →', 'careers', 'text', 'Careers Action Button Text', NOW(), NOW()),
-('careers_btn_url', '/contact', 'careers', 'text', 'Careers Action Button URL', NOW(), NOW()),
-('careers_email', 'info@trevanta.com', 'careers', 'email', 'Careers Inquiry Email', NOW(), NOW());
+('careers_email', 'info@trevanta.com', 'careers', 'email', 'Careers Inquiry Email', NOW(), NOW()),
+
+('careers_feat1_title', 'Global Cross-Functional Collaboration', 'careers', 'text', 'Culture Highlight 1 Title', NOW(), NOW()),
+('careers_feat1_desc', 'Multi-national clinical teams operating across North America, Europe, and Asia.', 'careers', 'textarea', 'Culture Highlight 1 Description', NOW(), NOW()),
+('careers_feat2_title', 'Continuous Growth & GCP Certification', 'careers', 'text', 'Culture Highlight 2 Title', NOW(), NOW()),
+('careers_feat2_desc', 'Comprehensive continuing education, international GCP credentials, and leadership tracks.', 'careers', 'textarea', 'Culture Highlight 2 Description', NOW(), NOW()),
+('careers_feat3_title', 'High-Impact Clinical Research', 'careers', 'text', 'Culture Highlight 3 Title', NOW(), NOW()),
+('careers_feat3_desc', 'Direct involvement in pivotal Phase I–IV trials delivering life-saving medical innovations.', 'careers', 'textarea', 'Culture Highlight 3 Description', NOW(), NOW()),
+('careers_feat4_title', 'Flexible Infrastructure & Modern Systems', 'careers', 'text', 'Culture Highlight 4 Title', NOW(), NOW()),
+('careers_feat4_desc', 'Modern digital clinical systems, flexible work models, and collaborative support.', 'careers', 'textarea', 'Culture Highlight 4 Description', NOW(), NOW()),
+
+('careers_motto_tag', 'OUR COMMITMENT', 'careers', 'text', 'Motto Card Badge', NOW(), NOW()),
+('careers_motto_quote', 'Our world-class team of highly qualified and experienced workforce enables us to meet client expectations and deliver projects within the timeframe.', 'careers', 'textarea', 'Motto Card Quote', NOW(), NOW()),
+('careers_motto_author', 'Executive Leadership Board', 'careers', 'text', 'Motto Card Author', NOW(), NOW()),
+('careers_motto_org', 'Trevanta International', 'careers', 'text', 'Motto Card Organization', NOW(), NOW());
 
 -- --------------------------------------------------------
 -- Table structure for `job_openings`

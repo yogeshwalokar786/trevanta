@@ -502,15 +502,23 @@
         <!-- TAB 6: CAREERS PAGE -->
         <!-- ================================================================= -->
         <div class="tab-pane fade" id="tab-careers" role="tabpanel">
+          
+          <!-- 1. Header & Main Overview -->
           <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
             <div class="card-header py-3 px-4 bg-white border-bottom">
               <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
-                <i class="fas fa-briefcase mr-2 text-primary"></i> Careers Page Content &amp; Contact Info
+                <i class="fas fa-heading mr-2 text-primary"></i> Main Headline &amp; Overview
               </h3>
             </div>
             <div class="card-body p-4">
               <div class="row">
-                <div class="col-md-12 mb-3">
+                <div class="col-md-4 mb-3">
+                  <label for="careers_eyebrow" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Eyebrow Tag</label>
+                  <input type="text" name="careers_eyebrow" id="careers_eyebrow" class="form-control" value="{{ $settings['careers_eyebrow'] ?? 'PEOPLE & CULTURE' }}">
+                  <small class="text-muted text-xs">Small top badge above the headline.</small>
+                </div>
+
+                <div class="col-md-8 mb-3">
                   <label for="careers_heading" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Main Heading</label>
                   <input type="text" name="careers_heading" id="careers_heading" class="form-control" value="{{ $settings['careers_heading'] ?? 'Join a team committed to improving global health.' }}">
                   <small class="text-muted text-xs">Primary headline displayed on the Careers page.</small>
@@ -519,10 +527,10 @@
                 <div class="col-md-12 mb-3">
                   <label for="careers_description" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Body Description</label>
                   <textarea name="careers_description" id="careers_description" rows="3" class="form-control">{{ $settings['careers_description'] ?? 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.' }}</textarea>
-                  <small class="text-muted text-xs">Paragraph displayed directly below the heading.</small>
+                  <small class="text-muted text-xs">Introductory paragraph displayed directly below the heading.</small>
                 </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-0">
                   <label for="careers_email" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Careers / HR Email</label>
                   <input type="email" name="careers_email" id="careers_email" class="form-control" value="{{ $settings['careers_email'] ?? ($settings['contact_email'] ?? 'info@trevanta.com') }}">
                   <small class="text-muted text-xs">Direct email for applicants to submit resumes or inquiries.</small>
@@ -530,6 +538,129 @@
               </div>
             </div>
           </div>
+
+          <!-- 2. Culture & Career Highlights (4 Points) -->
+          <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
+            <div class="card-header py-3 px-4 bg-white border-bottom">
+              <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
+                <i class="fas fa-list-ul mr-2 text-primary"></i> Culture &amp; Career Highlights (4 Points)
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <div class="row">
+                
+                <!-- Point 1 -->
+                <div class="col-md-6 mb-4">
+                  <div class="p-3 border rounded bg-light" style="border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge badge-primary mr-2">Point 1</span>
+                      <strong class="text-xs text-uppercase text-dark">Global Collaboration</strong>
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="careers_feat1_title" class="font-weight-bold text-dark text-xs mb-1">Title</label>
+                      <input type="text" name="careers_feat1_title" id="careers_feat1_title" class="form-control" value="{{ $settings['careers_feat1_title'] ?? 'Global Cross-Functional Collaboration' }}">
+                    </div>
+                    <div class="form-group mb-0">
+                      <label for="careers_feat1_desc" class="font-weight-bold text-dark text-xs mb-1">Description</label>
+                      <textarea name="careers_feat1_desc" id="careers_feat1_desc" rows="2" class="form-control">{{ $settings['careers_feat1_desc'] ?? 'Multi-national clinical teams operating across North America, Europe, and Asia.' }}</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="col-md-6 mb-4">
+                  <div class="p-3 border rounded bg-light" style="border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge badge-primary mr-2">Point 2</span>
+                      <strong class="text-xs text-uppercase text-dark">Continuous Growth</strong>
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="careers_feat2_title" class="font-weight-bold text-dark text-xs mb-1">Title</label>
+                      <input type="text" name="careers_feat2_title" id="careers_feat2_title" class="form-control" value="{{ $settings['careers_feat2_title'] ?? 'Continuous Growth & GCP Certification' }}">
+                    </div>
+                    <div class="form-group mb-0">
+                      <label for="careers_feat2_desc" class="font-weight-bold text-dark text-xs mb-1">Description</label>
+                      <textarea name="careers_feat2_desc" id="careers_feat2_desc" rows="2" class="form-control">{{ $settings['careers_feat2_desc'] ?? 'Comprehensive continuing education, international GCP credentials, and leadership tracks.' }}</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="col-md-6 mb-4">
+                  <div class="p-3 border rounded bg-light" style="border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge badge-primary mr-2">Point 3</span>
+                      <strong class="text-xs text-uppercase text-dark">High-Impact Research</strong>
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="careers_feat3_title" class="font-weight-bold text-dark text-xs mb-1">Title</label>
+                      <input type="text" name="careers_feat3_title" id="careers_feat3_title" class="form-control" value="{{ $settings['careers_feat3_title'] ?? 'High-Impact Clinical Research' }}">
+                    </div>
+                    <div class="form-group mb-0">
+                      <label for="careers_feat3_desc" class="font-weight-bold text-dark text-xs mb-1">Description</label>
+                      <textarea name="careers_feat3_desc" id="careers_feat3_desc" rows="2" class="form-control">{{ $settings['careers_feat3_desc'] ?? 'Direct involvement in pivotal Phase I–IV trials delivering life-saving medical innovations.' }}</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Point 4 -->
+                <div class="col-md-6 mb-4">
+                  <div class="p-3 border rounded bg-light" style="border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge badge-primary mr-2">Point 4</span>
+                      <strong class="text-xs text-uppercase text-dark">Modern Systems</strong>
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="careers_feat4_title" class="font-weight-bold text-dark text-xs mb-1">Title</label>
+                      <input type="text" name="careers_feat4_title" id="careers_feat4_title" class="form-control" value="{{ $settings['careers_feat4_title'] ?? 'Flexible Infrastructure & Modern Systems' }}">
+                    </div>
+                    <div class="form-group mb-0">
+                      <label for="careers_feat4_desc" class="font-weight-bold text-dark text-xs mb-1">Description</label>
+                      <textarea name="careers_feat4_desc" id="careers_feat4_desc" rows="2" class="form-control">{{ $settings['careers_feat4_desc'] ?? 'Modern digital clinical systems, flexible work models, and collaborative support.' }}</textarea>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Our Commitment Motto Callout Card -->
+          <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
+            <div class="card-header py-3 px-4 bg-white border-bottom">
+              <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
+                <i class="fas fa-quote-left mr-2 text-primary"></i> Commitment Motto Callout
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label for="careers_motto_tag" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Callout Badge / Tag</label>
+                  <input type="text" name="careers_motto_tag" id="careers_motto_tag" class="form-control" value="{{ $settings['careers_motto_tag'] ?? 'OUR COMMITMENT' }}">
+                  <small class="text-muted text-xs">Top badge on the quote box.</small>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="careers_motto_author" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Author Title</label>
+                  <input type="text" name="careers_motto_author" id="careers_motto_author" class="form-control" value="{{ $settings['careers_motto_author'] ?? 'Executive Leadership Board' }}">
+                  <small class="text-muted text-xs">Author title displayed under quote.</small>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="careers_motto_org" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Organization Subtitle</label>
+                  <input type="text" name="careers_motto_org" id="careers_motto_org" class="form-control" value="{{ $settings['careers_motto_org'] ?? 'Trevanta International' }}">
+                  <small class="text-muted text-xs">Company or board subtitle.</small>
+                </div>
+
+                <div class="col-md-12 mb-0">
+                  <label for="careers_motto_quote" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Commitment Statement / Quote</label>
+                  <textarea name="careers_motto_quote" id="careers_motto_quote" rows="3" class="form-control">{{ $settings['careers_motto_quote'] ?? 'Our world-class team of highly qualified and experienced workforce enables us to meet client expectations and deliver projects within the timeframe.' }}</textarea>
+                  <small class="text-muted text-xs">Exact quote displayed inside the motto callout box.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
