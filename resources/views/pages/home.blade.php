@@ -627,6 +627,109 @@
       </div>
     </section>
 
+    <!-- WHY CHOOSE TREVANTA INTERNATIONAL SECTION -->
+    <section class="why-choose-section" id="why-choose">
+      <div class="site-container">
+        
+        <div class="why-choose-grid">
+          
+          <!-- LEFT COLUMN: PROPOSITION & STATEMENT -->
+          <div class="why-choose-left">
+            <div class="hero-top-announcement" style="margin-bottom: 1rem;">
+              <span class="orange-beacon"></span>
+              <span>THE TREVANTA ADVANTAGE</span>
+            </div>
+            
+            <h2 class="main-title" style="font-size: 2.75rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 1.5rem; color: #1e293b;">
+              Why Choose <br>
+              <span class="highlight-orange">Trevanta International.</span>
+            </h2>
+
+            <div style="background: #ffffff; border-left: 4px solid var(--jss-orange); border-radius: 0 14px 14px 0; padding: 1.75rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-bottom: 2rem;">
+              <p style="font-size: 1.15rem; line-height: 1.75; color: #1e293b; font-weight: 600; margin: 0;">
+                &ldquo;We combine the responsiveness of a boutique CRO with the capabilities of a global organization—delivering excellence at every stage.&rdquo;
+              </p>
+            </div>
+
+            <p style="font-size: 1rem; line-height: 1.7; color: #475569; margin-bottom: 2rem;">
+              Whether navigating early proof-of-concept trials or orchestrating multi-region pivotal studies, biopharma innovators rely on our agility, data integrity, and dedicated clinical leadership.
+            </p>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2rem;">
+                Partner With Us &rarr;
+              </button>
+              <a href="{{ route('services') }}" class="btn btn-jss-navy-outline btn-lg" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2rem; border: 2px solid #121e2d; color: #121e2d; background: transparent;">
+                Our Solutions
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: 5 ADVANTAGE CARDS -->
+          <div class="why-choose-list" style="display: flex; flex-direction: column; gap: 1rem;">
+            
+            <!-- ITEM 1 -->
+            <div class="why-card">
+              <div class="why-card-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0 0 0.25rem 0;">End-to-End CRO Solutions</h4>
+                <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Comprehensive coverage from Phase I first-in-human trials to post-marketing safety.</p>
+              </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="why-card">
+              <div class="why-card-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0 0 0.25rem 0;">Global Network of Investigative Sites</h4>
+                <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Access to verified investigator hospital networks across North America, Europe, and Asia.</p>
+              </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="why-card">
+              <div class="why-card-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0 0 0.25rem 0;">Advanced Digital &amp; Data Capabilities</h4>
+                <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Modern eClinical systems, real-time data monitoring, and CDISC-validated biometrics.</p>
+              </div>
+            </div>
+
+            <!-- ITEM 4 -->
+            <div class="why-card">
+              <div class="why-card-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0 0 0.25rem 0;">Strong Regulatory Expertise</h4>
+                <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Proven track record navigating US FDA, EMA, Health Canada, and local health authorities.</p>
+              </div>
+            </div>
+
+            <!-- ITEM 5 -->
+            <div class="why-card">
+              <div class="why-card-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0 0 0.25rem 0;">Patient-Centric Trial Design</h4>
+                <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Decentralized methodologies, diverse recruitment models, and high volunteer retention.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- 3. STUDY FEASIBILITY & TIMELINE ESTIMATOR -->
     <section class="estimator-section" id="feasibility-calculator">
       <div class="site-container">
