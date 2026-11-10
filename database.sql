@@ -326,12 +326,6 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 ('meta_robots_default', 'index, follow', 'seo', 'text', 'Search Robots Directive', NOW(), NOW()),
 ('canonical_url_base', 'https://trevanta.bluebasetechnologies.com', 'seo', 'url', 'Canonical Base URL', NOW(), NOW()),
 
-('home_hero_headline', 'Transforming Scientific Discoveries Into <br><span class=\"highlight-orange\">Life-Changing Therapies.</span>', 'seo', 'text', 'Homepage Hero Headline', NOW(), NOW()),
-('home_hero_intro', 'At Trevanta International we partner with biopharmaceutical innovators to transform scientific discoveries into life-changing therapies. As a global Contract Research Organization (CRO), we deliver end-to-end clinical development solutions with precision, speed, and uncompromising quality.', 'seo', 'textarea', 'Homepage Hero Primary Paragraph', NOW(), NOW()),
-('home_hero_subintro', 'From early development to post-marketing support, we help bring therapies to patients—faster, safer, and smarter.', 'seo', 'text', 'Homepage Hero Sub-Lead Paragraph', NOW(), NOW()),
-('home_hero_cta1_text', 'Start Your Clinical Journey', 'seo', 'text', 'Homepage Hero Primary CTA Label', NOW(), NOW()),
-('home_hero_cta2_text', 'Partner With Us', 'seo', 'text', 'Homepage Hero Secondary CTA Label', NOW(), NOW()),
-
 ('social_linkedin', 'https://www.linkedin.com/company/trevanta-international', 'social', 'url', 'LinkedIn URL', NOW(), NOW()),
 ('social_twitter', 'https://twitter.com/trevantacro', 'social', 'url', 'Twitter / X URL', NOW(), NOW()),
 ('footer_about', 'A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.', 'social', 'textarea', 'Footer About Blurb', NOW(), NOW()),

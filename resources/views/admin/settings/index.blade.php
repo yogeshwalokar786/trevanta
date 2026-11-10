@@ -115,7 +115,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="tab-seo-nav" data-toggle="pill" href="#tab-seo" role="tab">
-            <i class="fas fa-desktop mr-2"></i> Homepage Hero &amp; SEO
+            <i class="fas fa-search-location mr-2"></i> Homepage SEO
           </a>
         </li>
         <li class="nav-item">
@@ -360,47 +360,10 @@
         </div>
 
         <!-- ================================================================= -->
-        <!-- TAB 4: HOMEPAGE CONTENT & SEO -->
+        <!-- TAB 4: HOMEPAGE SEO -->
         <!-- ================================================================= -->
         <div class="tab-pane fade" id="tab-seo" role="tabpanel">
 
-          <!-- Homepage Hero Section Content -->
-          <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
-            <div class="card-header py-3 px-4 bg-white border-bottom">
-              <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
-                <i class="fas fa-desktop mr-2 text-primary"></i> Homepage Hero Section &amp; Main Call-to-Actions (CTAs)
-              </h3>
-            </div>
-            <div class="card-body p-4">
-              <div class="row">
-                <div class="col-md-12 mb-3">
-                  <label for="home_hero_headline" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Hero Main Headline</label>
-                  <input type="text" name="home_hero_headline" id="home_hero_headline" class="form-control" value="{{ $settings['home_hero_headline'] ?? 'Transforming Scientific Discoveries Into <br><span class=\"highlight-orange\">Life-Changing Therapies.</span>' }}">
-                  <small class="text-muted text-xs">Primary H1 displayed on the homepage hero banner (HTML tags like &lt;span class="highlight-orange"&gt; supported).</small>
-                </div>
-
-                <div class="col-md-12 mb-3">
-                  <label for="home_hero_intro" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Hero Primary Paragraph</label>
-                  <textarea name="home_hero_intro" id="home_hero_intro" rows="3" class="form-control">{{ $settings['home_hero_intro'] ?? 'At Trevanta International we partner with biopharmaceutical innovators to transform scientific discoveries into life-changing therapies. As a global Contract Research Organization (CRO), we deliver end-to-end clinical development solutions with precision, speed, and uncompromising quality.' }}</textarea>
-                </div>
-
-                <div class="col-md-12 mb-3">
-                  <label for="home_hero_subintro" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Hero Sub-Lead / Secondary Paragraph</label>
-                  <input type="text" name="home_hero_subintro" id="home_hero_subintro" class="form-control" value="{{ $settings['home_hero_subintro'] ?? 'From early development to post-marketing support, we help bring therapies to patients—faster, safer, and smarter.' }}">
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="home_hero_cta1_text" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Primary CTA Button Label</label>
-                  <input type="text" name="home_hero_cta1_text" id="home_hero_cta1_text" class="form-control" value="{{ $settings['home_hero_cta1_text'] ?? 'Start Your Clinical Journey' }}">
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="home_hero_cta2_text" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Secondary CTA Button Label</label>
-                  <input type="text" name="home_hero_cta2_text" id="home_hero_cta2_text" class="form-control" value="{{ $settings['home_hero_cta2_text'] ?? 'Partner With Us' }}">
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
             <div class="card-header py-3 px-4 bg-white border-bottom d-flex justify-content-between align-items-center">
               <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">

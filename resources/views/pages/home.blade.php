@@ -78,24 +78,25 @@
         </div>
 
         <h1 class="hero-headline">
-          {!! setting('home_hero_headline', 'Transforming Scientific Discoveries Into <br><span class="highlight-orange">Life-Changing Therapies.</span>') !!}
+          Transforming Scientific Discoveries Into <br>
+          <span class="highlight-orange">Life-Changing Therapies.</span>
         </h1>
 
         <p class="hero-intro" style="max-width: 860px; margin-bottom: 1.25rem;">
-          {{ setting('home_hero_intro', 'At Trevanta International we partner with biopharmaceutical innovators to transform scientific discoveries into life-changing therapies. As a global Contract Research Organization (CRO), we deliver end-to-end clinical development solutions with precision, speed, and uncompromising quality.') }}
+          At Trevanta International we partner with biopharmaceutical innovators to transform scientific discoveries into life-changing therapies. As a global Contract Research Organization (CRO), we deliver end-to-end clinical development solutions with precision, speed, and uncompromising quality.
         </p>
 
         <p class="hero-subintro" style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 780px; margin-bottom: 2rem; font-weight: 500;">
-          {{ setting('home_hero_subintro', 'From early development to post-marketing support, we help bring therapies to patients—faster, safer, and smarter.') }}
+          From early development to post-marketing support, we help bring therapies to patients—faster, safer, and smarter.
         </p>
 
         <!-- HERO CTAS -->
         <div class="hero-cta-group" style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 3.5rem;">
           <a href="{{ route('services') }}" class="btn btn-jss-orange btn-lg" style="padding: 0.95rem 2.25rem; font-size: 1.05rem; font-weight: 700; border-radius: 8px;">
-            {{ setting('home_hero_cta1_text', 'Start Your Clinical Journey') }} &rarr;
+            Start Your Clinical Journey &rarr;
           </a>
           <button type="button" class="btn btn-jss-outline btn-lg" onclick="openRfpModal()" style="padding: 0.95rem 2.25rem; font-size: 1.05rem; font-weight: 700; border-radius: 8px; color: #ffffff; border-color: rgba(255,255,255,0.6);">
-            {{ setting('home_hero_cta2_text', 'Partner With Us') }} &rarr;
+            Partner With Us &rarr;
           </button>
         </div>
 
