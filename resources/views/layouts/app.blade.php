@@ -89,8 +89,7 @@
           <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </li>
-      <!-- HIDDEN BLOG MENU ITEM (MOBILE) -->
-      <li class="menu-item nav-blog-hidden" style="display: none;">
+      <li class="menu-item">
         <a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">
           <span>Blog</span>
           <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
@@ -208,8 +207,7 @@
               </div>
             </li>
             <li class="menu-item"><a href="{{ route('careers') }}" class="menu-link {{ request()->routeIs('careers') ? 'active' : '' }}">Career's</a></li>
-            <!-- HIDDEN BLOG MENU ITEM (DESKTOP) -->
-            <li class="menu-item nav-blog-hidden" style="display: none;"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Blog</a></li>
+            <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Blog</a></li>
             <li class="menu-item"><a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
           </ul>
         </nav>

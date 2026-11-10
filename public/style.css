@@ -557,7 +557,7 @@ ul {
 .desktop-nav .nav-menu {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  gap: 2.8rem;
   margin: 0;
   padding: 0;
 }
@@ -597,10 +597,6 @@ ul {
 
 .menu-link:hover::after, .menu-link.active::after {
   width: 100%;
-}
-
-.nav-blog-hidden {
-  display: none !important;
 }
 
 /* ── Services Dropdown (Desktop) ── */
