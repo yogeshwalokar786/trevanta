@@ -259,98 +259,101 @@
         <div class="services-grid-jss">
           <!-- SERVICE 1 -->
           <article class="service-box-jss">
-            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="6.5" y1="16" x2="17.5" y2="16"/></svg></div>
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
             <span class="s-phase-tag">PHASE I TO IV</span>
-            <h3>Clinical Operations &amp; Site Management</h3>
+            <h3>Clinical Development (Phase I–IV)</h3>
             <p>
-              Full-service management of early and late-phase trials. Rapid site feasibility, patient recruitment campaigns, investigator management, and remote &amp; risk-based monitoring (RBM) aligned with ICH-GCP.
+              We deliver comprehensive clinical trial solutions across all phases. Like leading CROs, we ensure protocol optimization, patient recruitment, and regulatory compliance for successful trial outcomes.
             </p>
             <ul class="s-checklist">
-              <li>Comprehensive site identification &amp; startup</li>
-              <li>Decentralized &amp; Hybrid clinical trials (DCT)</li>
-              <li>High-velocity patient retention strategies</li>
+              <li>Phase I: First-in-human &amp; early safety studies</li>
+              <li>Phase II–III: Efficacy and large-scale trials</li>
+              <li>Phase IV: Post-marketing surveillance</li>
             </ul>
-            <a href="#contact" class="s-more-link">Consult Operations &rarr;</a>
+            <a href="{{ route('services') }}" class="s-more-link">Explore Clinical Trials &rarr;</a>
           </article>
 
           <!-- SERVICE 2 -->
           <article class="service-box-jss">
-            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <span class="s-phase-tag">24/7/365 SAFETY</span>
-            <h3>Pharmacovigilance &amp; Drug Safety</h3>
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <span class="s-phase-tag">GLOBAL REGULATORY</span>
+            <h3>Regulatory Affairs &amp; Strategy</h3>
             <p>
-              End-to-end drug safety services for clinical trials and post-marketing. 24/7 medical triage, ICSR processing, aggregate reporting (PSUR/PBRER/DSUR), signal detection, and Qualified Person (QPPV) coverage.
+              We streamline approval pathways to reduce delays and maximize success across global health authorities.
             </p>
             <ul class="s-checklist">
-              <li>E2B(R3) compliant safety database hosting</li>
-              <li>Risk Management Plans (RMP) &amp; REMS authoring</li>
-              <li>Expedited reporting to US FDA, EMA &amp; local agencies</li>
+              <li>Global regulatory submissions</li>
+              <li>IND / NDA / BLA support</li>
+              <li>Compliance &amp; lifecycle management</li>
+              <li>Market access strategy</li>
             </ul>
-            <a href="#contact" class="s-more-link">Inspect PV Systems &rarr;</a>
+            <a href="{{ route('services') }}" class="s-more-link">Review Regulatory Pathways &rarr;</a>
           </article>
 
           <!-- SERVICE 3 -->
           <article class="service-box-jss">
-            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-            <span class="s-phase-tag">GLOBAL SUBMISSIONS</span>
-            <h3>Regulatory Affairs &amp; Strategic Filings</h3>
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <span class="s-phase-tag">DIGITAL ECOSYSTEMS</span>
+            <h3>Biometrics &amp; Data Management</h3>
             <p>
-              Comprehensive regulatory authoring and submission management. Navigating IND, NDA, BLA, MAA, and clinical trial authorizations (CTA/CTIS) with health authorities in North America, Europe, and Asia.
+              Leveraging advanced digital tools, we ensure data integrity and actionable insights—similar to modern CRO digital ecosystems.
             </p>
             <ul class="s-checklist">
-              <li>Pre-IND briefings &amp; Scientific Advice meetings</li>
-              <li>eCTD publishing &amp; lifecycle dossier submissions</li>
-              <li>In-country authorized representative sponsorship</li>
+              <li>Clinical data management (CDM)</li>
+              <li>Biostatistics &amp; statistical programming</li>
+              <li>Real-world evidence (RWE)</li>
+              <li>Data analytics &amp; visualization</li>
             </ul>
-            <a href="#contact" class="s-more-link">Review Regulatory Pathways &rarr;</a>
+            <a href="{{ route('services') }}" class="s-more-link">Explore Data Solutions &rarr;</a>
           </article>
 
           <!-- SERVICE 4 -->
           <article class="service-box-jss">
-            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-            <span class="s-phase-tag">SCIENTIFIC WRITING</span>
-            <h3>Medical Writing &amp; Scientific Dossiers</h3>
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="s-phase-tag">LIFECYCLE SAFETY</span>
+            <h3>Pharmacovigilance &amp; Drug Safety</h3>
             <p>
-              Authored by PhD and MD medical writers with specialized disease expertise. Clear, scientifically robust, and audit-ready documentation compliant with ICH E3, E6, and ICMJE guidelines.
+              Ensuring patient safety throughout the product lifecycle with comprehensive safety oversight, monitoring, and compliant reporting.
             </p>
             <ul class="s-checklist">
-              <li>Clinical Study Protocols &amp; Investigator Brochures</li>
-              <li>ICH E3 compliant Clinical Study Reports (CSR)</li>
-              <li>Clinical Evaluation Reports (CER) for Medical Devices</li>
+              <li>Safety monitoring &amp; reporting</li>
+              <li>Risk management plans</li>
+              <li>Signal detection &amp; evaluation</li>
             </ul>
-            <a href="#contact" class="s-more-link">Request Protocol Writing &rarr;</a>
+            <a href="{{ route('services') }}" class="s-more-link">Inspect PV Systems &rarr;</a>
           </article>
 
           <!-- SERVICE 5 -->
           <article class="service-box-jss">
-            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <span class="s-phase-tag">CDISC GOLD STANDARD</span>
-            <h3>Biostatistics &amp; Clinical Data Management</h3>
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <span class="s-phase-tag">SCIENTIFIC WRITING</span>
+            <h3>Medical Writing &amp; Scientific Communications</h3>
             <p>
-              Statistical programming in SAS and R. Production of CDISC SDTM and ADaM dataset packages, electronic data capture (EDC) setup, MedDRA/WHO-DD medical coding, and validated statistical analysis plans (SAP).
+              Clear, scientifically robust, and audit-ready documentation compliant with global regulatory guidelines.
             </p>
             <ul class="s-checklist">
-              <li>21 CFR Part 11 compliant EDC &amp; eCRF builds</li>
-              <li>Database lock within 15 business days</li>
-              <li>Interim futility and DSMB statistical support</li>
+              <li>Clinical study reports (CSRs)</li>
+              <li>Protocol development</li>
+              <li>Regulatory documentation</li>
+              <li>Publications &amp; manuscripts</li>
             </ul>
-            <a href="#contact" class="s-more-link">Explore Data Solutions &rarr;</a>
+            <a href="{{ route('services') }}" class="s-more-link">Request Medical Writing &rarr;</a>
           </article>
 
           <!-- SERVICE 6 -->
           <article class="service-box-jss">
-            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3h15M12 3v18M8 21h8"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <span class="s-phase-tag">EU MDR &amp; FDA 510(K)</span>
-            <h3>Medical Devices &amp; Real-World Evidence (RWE)</h3>
+            <div class="s-icon-jss"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="6.5" y1="16" x2="17.5" y2="16"/></svg></div>
+            <span class="s-phase-tag">PRECISION MEDICINE</span>
+            <h3>Laboratory &amp; Biomarker Services</h3>
             <p>
-              Dedicated clinical evaluations for Class I, II, and III medical devices under EU MDR 2017/745 and ISO 14155, along with longitudinal patient registries and Post-Authorization Safety Studies (PASS).
+              Supporting precision medicine and advanced therapeutic development with certified lab capabilities and bioanalytical testing.
             </p>
             <ul class="s-checklist">
-              <li>Post-Market Clinical Follow-up (PMCF) registries</li>
-              <li>Health Economics &amp; Outcomes Research (HEOR)</li>
-              <li>Comparative effectiveness research dossiers</li>
+              <li>Central lab services</li>
+              <li>Bioanalytical testing</li>
+              <li>Biomarker assay support</li>
             </ul>
-            <a href="#contact" class="s-more-link">Consult Device Specialists &rarr;</a>
+            <a href="{{ route('services') }}" class="s-more-link">Inquire Lab Services &rarr;</a>
           </article>
         </div>
 
