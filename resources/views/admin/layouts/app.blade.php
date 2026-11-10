@@ -471,15 +471,15 @@
         </a>
       </li>
       <li class="nav-item d-none d-md-flex align-items-center mr-3">
-        <div class="d-flex align-items-center">
+        <a href="{{ route('admin.password.edit') }}" class="d-flex align-items-center text-decoration-none" title="Change Admin Password &amp; Profile">
           <div class="bg-light border text-primary rounded-circle d-flex align-items-center justify-content-center mr-2 font-weight-bold text-xs" style="width: 32px; height: 32px; background-color: #f0fdfa !important; color: #0d9488 !important;">
             {{ strtoupper(substr(Auth::user()->name ?? 'A', 0, 1)) }}
           </div>
           <div>
             <span class="font-weight-bold text-sm text-dark d-block leading-tight">{{ Auth::user()->name ?? 'Administrator' }}</span>
-            <small class="text-muted text-xs">Admin</small>
+            <small class="text-primary font-weight-bold" style="font-size: 11px;"><i class="fas fa-lock mr-1"></i>Security</small>
           </div>
-        </div>
+        </a>
       </li>
       <li class="nav-item">
         <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
@@ -592,19 +592,12 @@
             </a>
           </li>
 
-          <li class="sidebar-nav-heading">Quick Links</li>
+          <li class="sidebar-nav-heading">Account &amp; Security</li>
 
           <li class="nav-item">
-            <a href="{{ route('home') }}" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-globe"></i>
-              <p>Public Website</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('blog') }}" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-book-open"></i>
-              <p>Live Blog Page</p>
+            <a href="{{ route('admin.password.edit') }}" class="nav-link {{ request()->routeIs('admin.password.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-key"></i>
+              <p>Change Password</p>
             </a>
           </li>
 
@@ -615,13 +608,15 @@
     <!-- Sidebar Bottom User Footnote -->
     <div class="sidebar-user-footer">
       <div class="d-flex align-items-center">
-        <div class="rounded-circle mr-2 d-flex align-items-center justify-content-center text-xs font-weight-bold" style="width: 32px; height: 32px; background: #f0fdfa; color: #0d9488; border: 1px solid #ccfbf1;">
-          {{ strtoupper(substr(Auth::user()->name ?? 'A', 0, 1)) }}
-        </div>
-        <div style="line-height: 1.2;">
-          <small class="font-weight-bold text-dark d-block text-truncate" style="max-width: 120px;">{{ Auth::user()->name ?? 'Admin' }}</small>
-          <small class="text-muted" style="font-size: 11px;">Signed In</small>
-        </div>
+        <a href="{{ route('admin.password.edit') }}" class="d-flex align-items-center text-decoration-none" title="Update Admin Password">
+          <div class="rounded-circle mr-2 d-flex align-items-center justify-content-center text-xs font-weight-bold" style="width: 32px; height: 32px; background: #f0fdfa; color: #0d9488; border: 1px solid #ccfbf1;">
+            {{ strtoupper(substr(Auth::user()->name ?? 'A', 0, 1)) }}
+          </div>
+          <div style="line-height: 1.2;">
+            <small class="font-weight-bold text-dark d-block text-truncate" style="max-width: 120px;">{{ Auth::user()->name ?? 'Admin' }}</small>
+            <small class="text-primary font-weight-bold" style="font-size: 11px;"><i class="fas fa-lock mr-1"></i>Password</small>
+          </div>
+        </a>
       </div>
       <form action="{{ route('admin.logout') }}" method="POST">
         @csrf

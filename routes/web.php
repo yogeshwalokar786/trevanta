@@ -92,6 +92,11 @@ Route::prefix('admin')->group(function () {
         // Site Settings Management (Contact, Addresses, Logos, SEO, Branding)
         Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings.index');
         Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin.settings.update');
+
+        // Admin Password & Account Security
+        Route::get('password', [\App\Http\Controllers\Admin\ProfileController::class, 'edit'])->name('admin.password.edit');
+        Route::put('password', [\App\Http\Controllers\Admin\ProfileController::class, 'updatePassword'])->name('admin.password.update');
+        Route::put('profile', [\App\Http\Controllers\Admin\ProfileController::class, 'updateProfile'])->name('admin.profile.update');
     });
 });
 
