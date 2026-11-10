@@ -987,6 +987,91 @@ ul {
   color: var(--text-muted);
 }
 
+/* ── Career Application Modal ── */
+.career-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+.career-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 35, 58, 0.7);
+  backdrop-filter: blur(4px);
+}
+.career-modal-dialog {
+  position: relative;
+  z-index: 100000;
+  width: 100%;
+  max-width: 680px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+}
+.career-modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.career-modal-header {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.career-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.85rem;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.career-modal-close:hover {
+  color: var(--jss-orange);
+}
+.career-modal-body {
+  padding: 1.5rem 1.75rem;
+  overflow-y: auto;
+  max-height: calc(85vh - 130px);
+}
+.career-modal-footer {
+  padding: 1rem 1.75rem;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+.form-control-modal {
+  width: 100%;
+  padding: 0.65rem 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1e293b;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+.form-control-modal:focus {
+  outline: none;
+  border-color: #28a9a1;
+  box-shadow: 0 0 0 3px rgba(40, 169, 161, 0.15);
+}
+
 .hiring-process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

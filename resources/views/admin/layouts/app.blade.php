@@ -511,6 +511,24 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('admin.applications.index') }}" class="nav-link {{ request()->routeIs('admin.applications.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-user-tie"></i>
+              <p>
+                Applications
+                @php
+                  $newAppsCount = 0;
+                  try {
+                    $newAppsCount = \App\Models\JobApplication::where('status', 'new')->count();
+                  } catch (\Throwable $e) {}
+                @endphp
+                @if($newAppsCount > 0)
+                  <span class="badge badge-warning right font-weight-bold" style="background-color: #f59e0b; color: #fff;">{{ $newAppsCount }}</span>
+                @endif
+              </p>
+            </a>
+          </li>
+
           <li class="sidebar-nav-heading">Configuration</li>
 
           <li class="nav-item">

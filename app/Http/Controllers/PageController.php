@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
 use App\Models\Blog;
+use App\Models\JobOpening;
+use App\Models\JobApplication;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -201,6 +205,62 @@ class PageController extends Controller
         }
 
         return back()->with('success', 'Study proposal received. Our Medical Review Team will contact you under NDA within 24 hours.');
+    }
+
+    /**
+     * Handle job application form submission.
+     */
+    public function submitApplication(Request $request)
+    {
+        $validated = $request->validate([
+            'name'             => 'required|string|max:150',
+            'email'            => 'required|email|max:150',
+            'phone'            => 'nullable|string|max:50',
+            'job_opening_id'   => 'nullable|integer',
+            'position_title'   => 'required|string|max:255',
+            'current_location' => 'nullable|string|max:150',
+            'experience'       => 'nullable|string|max:100',
+            'resume'           => 'required|file|mimes:pdf,doc,docx|max:10240',
+            'cover_letter'     => 'nullable|string|max:4000',
+        ]);
+
+        $resumePath = null;
+        if ($request->hasFile('resume') && $request->file('resume')->isValid()) {
+            $file = $request->file('resume');
+            $uploadDir = public_path('uploads/resumes');
+            if (!File::isDirectory($uploadDir)) {
+                File::makeDirectory($uploadDir, 0755, true, true);
+            }
+            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadDir, $filename);
+            $resumePath = 'uploads/resumes/' . $filename;
+        }
+
+        try {
+            JobApplication::create([
+                'job_opening_id'   => $validated['job_opening_id'] ?? null,
+                'position_title'   => $validated['position_title'],
+                'name'             => $validated['name'],
+                'email'            => $validated['email'],
+                'phone'            => $validated['phone'] ?? null,
+                'current_location' => $validated['current_location'] ?? null,
+                'experience'       => $validated['experience'] ?? null,
+                'resume_path'      => $resumePath,
+                'cover_letter'     => $validated['cover_letter'] ?? null,
+                'status'           => 'new',
+            ]);
+        } catch (\Throwable $e) {
+            Log::warning('Could not record job application: ' . $e->getMessage());
+        }
+
+        if ($request->wantsJson() || $request->ajax()) {
+            return response()->json([
+                'status'  => 'success',
+                'message' => 'Thank you, ' . e($validated['name']) . '! Your application for "' . e($validated['position_title']) . '" has been submitted successfully. Our Talent Acquisition team will review your profile.',
+            ]);
+        }
+
+        return redirect()->back()->with('application_success', 'Thank you, ' . $validated['name'] . '! Your application for "' . $validated['position_title'] . '" has been submitted successfully. Our Talent Acquisition team will review your profile.');
     }
 }
 

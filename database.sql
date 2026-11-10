@@ -361,5 +361,29 @@ CREATE TABLE `job_openings` (
   UNIQUE KEY `job_openings_slug_unique` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+-- Table structure for `job_applications`
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `job_applications`;
+CREATE TABLE `job_applications` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `job_opening_id` bigint(20) unsigned DEFAULT NULL,
+  `position_title` varchar(255) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `current_location` varchar(150) DEFAULT NULL,
+  `experience` varchar(100) DEFAULT NULL,
+  `resume_path` varchar(255) DEFAULT NULL,
+  `cover_letter` text DEFAULT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'new',
+  `notes` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `job_applications_job_opening_id_foreign` (`job_opening_id`),
+  CONSTRAINT `job_applications_job_opening_id_foreign` FOREIGN KEY (`job_opening_id`) REFERENCES `job_openings` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 SET FOREIGN_KEY_CHECKS = 1;
 

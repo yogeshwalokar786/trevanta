@@ -24,6 +24,7 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 // Public Form Actions
 Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
 Route::post('/rfp', [PageController::class, 'submitRfp'])->name('rfp.submit');
+Route::post('/careers/apply', [PageController::class, 'submitApplication'])->name('careers.apply');
 
 // Default Login Route Redirect to Admin Login
 Route::get('/login', fn () => redirect()->route('admin.login'))->name('login');
@@ -55,6 +56,11 @@ Route::prefix('admin')->group(function () {
         // Job Openings & Careers Management
         Route::resource('jobs', \App\Http\Controllers\Admin\JobOpeningController::class, ['as' => 'admin']);
         Route::post('jobs/{id}/toggle-active', [\App\Http\Controllers\Admin\JobOpeningController::class, 'toggleActive'])->name('admin.jobs.toggle-active');
+
+        // Candidate Job Applications
+        Route::resource('applications', \App\Http\Controllers\Admin\JobApplicationController::class, ['as' => 'admin'])->only(['index', 'show', 'destroy']);
+        Route::patch('applications/{id}/status', [\App\Http\Controllers\Admin\JobApplicationController::class, 'updateStatus'])->name('admin.applications.status');
+        Route::get('applications/{id}/download', [\App\Http\Controllers\Admin\JobApplicationController::class, 'downloadResume'])->name('admin.applications.download');
 
         // Categories Management (Separate Categories Table)
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin']);

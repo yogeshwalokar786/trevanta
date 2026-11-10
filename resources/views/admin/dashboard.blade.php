@@ -96,6 +96,37 @@
 
     </div>
 
+    <!-- Candidate Applications Quick Banner -->
+    @php
+      $quickAppCount = 0;
+      $quickNewAppCount = 0;
+      try {
+        $quickAppCount = \App\Models\JobApplication::count();
+        $quickNewAppCount = \App\Models\JobApplication::where('status', 'new')->count();
+      } catch (\Throwable $e) {}
+    @endphp
+    @if($quickAppCount > 0)
+      <div class="alert alert-light border mb-4 d-flex align-items-center justify-content-between flex-wrap shadow-sm" style="border-radius: 12px; background: #ffffff;">
+        <div class="d-flex align-items-center my-1">
+          <div class="mr-3 text-primary" style="font-size: 1.5rem;">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div>
+            <strong class="text-dark">Candidate Applications:</strong>
+            <span class="text-muted ml-1">{{ $quickAppCount }} candidate applications on file</span>
+            @if($quickNewAppCount > 0)
+              <span class="badge badge-warning ml-2 font-weight-bold" style="background-color: #f59e0b; color: #fff;">{{ $quickNewAppCount }} New</span>
+            @endif
+          </div>
+        </div>
+        <div class="my-1">
+          <a href="{{ route('admin.applications.index') }}" class="btn btn-primary btn-sm font-weight-bold">
+            <i class="fas fa-users mr-1"></i> Review Applications &rarr;
+          </a>
+        </div>
+      </div>
+    @endif
+
     <!-- Main Inquiries Table Card -->
     <div class="card">
       <div class="card-header d-flex flex-wrap align-items-center justify-content-between">
