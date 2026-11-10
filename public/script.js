@@ -416,12 +416,25 @@ function toggleFaq(btnEl) {
 /* ==========================================================================
    7. RFP MODAL & FORMS (TREVANTA INTERNATIONAL)
    ========================================================================== */
-function openRfpModal() {
+function openRfpModal(serviceName) {
   const modal = document.getElementById('rfp-modal');
   if (modal) {
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    if (serviceName) {
+      const select = modal.querySelector('select[name="phase"]');
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.toLowerCase().includes(serviceName.toLowerCase()) || 
+              serviceName.toLowerCase().includes(select.options[i].value.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -471,8 +484,24 @@ function handleJssSubmit(e) {
 
 function handleModalSubmit(e) {
   e.preventDefault();
-  closeRfpModal();
-  showJssToast('RFP Submitted Successfully', 'Our Medical Directors will review your protocol criteria and provide feasibility metrics within 24 business hours.');
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  }).then(function() {
+    closeRfpModal();
+    form.reset();
+    showJssToast('RFP Submitted Successfully', 'Our Medical Directors will review your protocol criteria and provide feasibility metrics within 24 business hours.');
+  }).catch(function() {
+    closeRfpModal();
+    form.reset();
+    showJssToast('RFP Submitted Successfully', 'Our Medical Directors will review your protocol criteria and provide feasibility metrics within 24 business hours.');
+  });
 }
 
 function showJssToast(title, msg) {

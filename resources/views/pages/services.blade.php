@@ -84,7 +84,7 @@
             <div style="background: #f8fafc; border-left: 3px solid var(--jss-orange); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic;">
               Like leading CROs, we ensure protocol optimization, patient recruitment, and regulatory compliance for successful trial outcomes.
             </div>
-            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
+            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal('Clinical Development (Phase I–IV)')" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
               Inquire Clinical Development &rarr;
             </button>
           </div>
@@ -110,7 +110,7 @@
             <div style="background: #f8fafc; border-left: 3px solid var(--jss-orange); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic;">
               We streamline approval pathways to reduce delays and maximize success across US FDA, EMA, Health Canada, and local health authorities.
             </div>
-            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
+            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal('Regulatory Affairs & Strategy')" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
               Inquire Regulatory Strategy &rarr;
             </button>
           </div>
@@ -136,7 +136,7 @@
             <div style="background: #f8fafc; border-left: 3px solid var(--jss-orange); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic;">
               Validated EDC architectures, 21 CFR Part 11 compliant audit trails, and CDISC SDTM / ADaM dataset standards.
             </div>
-            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
+            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal('Biometrics & Data Management')" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
               Inquire Biometrics &rarr;
             </button>
           </div>
@@ -162,7 +162,7 @@
             <div style="background: #f8fafc; border-left: 3px solid var(--jss-orange); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic;">
               Ensuring patient safety throughout the product lifecycle with 24/7 dedicated medical director oversight.
             </div>
-            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
+            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal('Pharmacovigilance & Drug Safety')" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
               Inquire Drug Safety &rarr;
             </button>
           </div>
@@ -188,7 +188,7 @@
             <div style="background: #f8fafc; border-left: 3px solid var(--jss-orange); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic;">
               ICH E3 compliant reporting and publication support adhering to ICMJE and GPP guidelines.
             </div>
-            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
+            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal('Medical Writing & Scientific Communications')" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
               Inquire Medical Writing &rarr;
             </button>
           </div>
@@ -214,7 +214,7 @@
             <div style="background: #f8fafc; border-left: 3px solid var(--jss-orange); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic;">
               Supporting precision medicine and advanced therapeutic development with GLP-compliant analytical workflows.
             </div>
-            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
+            <button type="button" class="btn btn-jss-orange" onclick="openRfpModal('Laboratory & Biomarker Services')" style="margin-top: auto; border-radius: 8px; font-weight: 700;">
               Inquire Lab Services &rarr;
             </button>
           </div>
@@ -244,7 +244,7 @@
                 Empowering biopharma innovators with elite clinical talent on-demand while maintaining complete sponsor governance and protocol agility.
               </div>
 
-              <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2.25rem;">
+              <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal('Functional Service Provider (FSP) Solutions')" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2.25rem;">
                 Discuss FSP Partnership &rarr;
               </button>
             </div>

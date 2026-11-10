@@ -257,22 +257,32 @@
         </div>
         <div class="form-row-2">
           <div class="j-field">
-            <label>Trial Phase *</label>
+            <label>Service Required *</label>
             <select name="phase" required>
-              <option value="Phase I (FIH / PK-PD)">Phase I (FIH / PK-PD)</option>
-              <option value="Phase II (Proof-of-Concept)" selected>Phase II (Proof-of-Concept)</option>
-              <option value="Phase III (Pivotal Global)">Phase III (Pivotal Global)</option>
-              <option value="Phase IV / RWE / PASS">Phase IV / RWE / PASS</option>
+              <option value="" disabled selected>Select Core Service</option>
+              <option value="Clinical Development (Phase I–IV)">1. Clinical Development (Phase I–IV)</option>
+              <option value="Regulatory Affairs & Strategy">2. Regulatory Affairs &amp; Strategy</option>
+              <option value="Biometrics & Data Management">3. Biometrics &amp; Data Management</option>
+              <option value="Pharmacovigilance & Drug Safety">4. Pharmacovigilance &amp; Drug Safety</option>
+              <option value="Medical Writing & Scientific Communications">5. Medical Writing &amp; Scientific Communications</option>
+              <option value="Laboratory & Biomarker Services">6. Laboratory &amp; Biomarker Services</option>
+              <option value="Functional Service Provider (FSP) Solutions">7. Functional Service Provider (FSP) Solutions</option>
             </select>
           </div>
           <div class="j-field">
             <label>Therapeutic Focus *</label>
             <select name="therapeutic_focus" required>
-              <option value="Oncology">Oncology</option>
-              <option value="Immunology">Immunology</option>
-              <option value="Neurology">Neurology</option>
-              <option value="Rare Disease">Rare Disease</option>
-              <option value="Cardiovascular">Cardiovascular</option>
+              <option value="" disabled selected>Select Therapeutic Focus</option>
+              <option value="Oncology & Hematology">Oncology &amp; Hematology</option>
+              <option value="Infectious Diseases & Vaccines">Infectious Diseases &amp; Vaccines</option>
+              <option value="Cardiovascular & Metabolic Disorders">Cardiovascular &amp; Metabolic Disorders</option>
+              <option value="Neurology & CNS Disorders">Neurology &amp; CNS Disorders</option>
+              <option value="Rare Diseases & Orphan Drugs">Rare Diseases &amp; Orphan Drugs</option>
+              <option value="Diabetes, Endocrinology & Obesity">Diabetes, Endocrinology &amp; Obesity</option>
+              <option value="Immunology & Autoimmune Disorders">Immunology &amp; Autoimmune Disorders</option>
+              <option value="Respiratory & Pulmonary Diseases">Respiratory &amp; Pulmonary Diseases</option>
+              <option value="Dermatology & Skin Diseases">Dermatology &amp; Skin Diseases</option>
+              <option value="Other Therapeutic Focus">Other Therapeutic Focus</option>
             </select>
           </div>
         </div>

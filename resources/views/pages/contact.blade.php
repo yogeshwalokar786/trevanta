@@ -32,54 +32,66 @@
           <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Request a Clinical Trial Proposal</h2>
           <p style="margin-bottom: 2rem;">Please submit your study outline. All discussions and protocol synopses are protected by strict corporate confidentiality.</p>
 
-          <form onsubmit="handleContactSubmit(event)">
+          @if(session('success'))
+            <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 1rem 1.25rem; color: #065f46; font-size: 0.95rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+              <i class="fa-solid fa-circle-check" style="font-size: 1.2rem; color: #10b981;"></i>
+              <span>{{ session('success') }}</span>
+            </div>
+          @endif
+
+          <form action="{{ route('contact.submit') }}" method="POST">
+            @csrf
             <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div class="j-field">
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Full Name *</label>
-                <input type="text" required placeholder="Dr. Jane Doe" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+                <input type="text" name="name" required placeholder="Dr. Jane Doe" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
               </div>
               <div class="j-field">
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Corporate Email *</label>
-                <input type="email" required placeholder="j.doe@pharma.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+                <input type="email" name="email" required placeholder="j.doe@pharma.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
               </div>
             </div>
 
             <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div class="j-field">
-                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Company / Sponsor Name *</label>
-                <input type="text" required placeholder="e.g. BioTherapeutics Inc." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Company / Sponsor Name</label>
+                <input type="text" name="organization" placeholder="e.g. BioTherapeutics Inc." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
               </div>
               <div class="j-field">
-                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Phone Number *</label>
-                <input type="tel" required placeholder="+1 (555) 000-0000" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Phone Number</label>
+                <input type="tel" name="phone" placeholder="+1 (555) 000-0000" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;">
               </div>
             </div>
 
             <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div class="j-field">
-                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Clinical Phase *</label>
-                <select required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
-                  <option value="">Select Study Phase</option>
-                  <option>Phase I (First-in-Human / PK / PD)</option>
-                  <option>Phase II (Proof-of-Concept / Dose Finding)</option>
-                  <option>Phase III (Pivotal Global Registration)</option>
-                  <option>Phase IV (Post-Marketing / PASS / Registry)</option>
-                  <option>Medical Device Feasibility / Pivotal</option>
-                  <option>Standalone Pharmacovigilance Support</option>
-                  <option>Standalone Biostatistics &amp; CDISC</option>
+                <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Service Required *</label>
+                <select name="service" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                  <option value="" disabled selected>Select Core Service</option>
+                  <option value="Clinical Development (Phase I–IV)">1. Clinical Development (Phase I–IV)</option>
+                  <option value="Regulatory Affairs & Strategy">2. Regulatory Affairs &amp; Strategy</option>
+                  <option value="Biometrics & Data Management">3. Biometrics &amp; Data Management</option>
+                  <option value="Pharmacovigilance & Drug Safety">4. Pharmacovigilance &amp; Drug Safety</option>
+                  <option value="Medical Writing & Scientific Communications">5. Medical Writing &amp; Scientific Communications</option>
+                  <option value="Laboratory & Biomarker Services">6. Laboratory &amp; Biomarker Services</option>
+                  <option value="Functional Service Provider (FSP) Solutions">7. Functional Service Provider (FSP) Solutions</option>
                 </select>
               </div>
               <div class="j-field">
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Therapeutic Area *</label>
-                <select required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
-                  <option value="">Select Therapeutic Focus</option>
-                  <option>Oncology / Hematology</option>
-                  <option>Immunology &amp; Inflammation</option>
-                  <option>Neurology &amp; CNS Disorders</option>
-                  <option>Cardiovascular &amp; Metabolic</option>
+                <select name="therapeutic_area" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                  <option value="" disabled selected>Select Therapeutic Focus</option>
+                  <option>Oncology &amp; Hematology</option>
                   <option>Infectious Diseases &amp; Vaccines</option>
+                  <option>Cardiovascular &amp; Metabolic Disorders</option>
+                  <option>Neurology &amp; CNS Disorders</option>
                   <option>Rare Diseases &amp; Orphan Drugs</option>
-                  <option>Dermatology &amp; Aesthetics</option>
+                  <option>Diabetes, Endocrinology &amp; Obesity</option>
+                  <option>Immunology &amp; Autoimmune Disorders</option>
+                  <option>Respiratory &amp; Pulmonary Diseases</option>
+                  <option>Dermatology &amp; Skin Diseases</option>
+                  <option>Women's Health &amp; Reproductive Medicine</option>
+                  <option>Pediatrics &amp; Neonatology</option>
                   <option>Other Therapeutic Focus</option>
                 </select>
               </div>
@@ -88,17 +100,18 @@
             <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div class="j-field">
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Target Geographic Scope</label>
-                <select style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                <select name="geographic_scope" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
                   <option>North America (USA &amp; Canada)</option>
                   <option>Europe &amp; UK</option>
                   <option>Asia Pacific / India</option>
+                  <option>Middle East &amp; UAE</option>
                   <option>Latin America (Colombia, Brazil, etc.)</option>
                   <option>Multi-Region Global Trial</option>
                 </select>
               </div>
               <div class="j-field">
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Projected Trial Start</label>
-                <select style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
+                <select name="projected_start" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit; background: #fff;">
                   <option>Immediate (Within 3 months)</option>
                   <option>3 to 6 months</option>
                   <option>6 to 12 months</option>
@@ -108,8 +121,8 @@
             </div>
 
             <div class="j-field" style="margin-bottom: 1.25rem;">
-              <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Study Synopsis / Protocol Overview</label>
-              <textarea rows="4" placeholder="Briefly describe trial objectives, primary endpoints, estimated patient sample size, or specific vendor requirements..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;"></textarea>
+              <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Study Synopsis / Project Requirements *</label>
+              <textarea name="message" required rows="4" placeholder="Briefly describe trial objectives, primary endpoints, estimated patient sample size, or specific service requirements..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: inherit;"></textarea>
             </div>
 
             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.85rem;">
