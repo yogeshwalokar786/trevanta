@@ -128,3 +128,4 @@ class JobApplicationController extends Controller
         return redirect()->route('admin.applications.index')->with('success', 'Candidate application removed successfully.');
     }
 }
+

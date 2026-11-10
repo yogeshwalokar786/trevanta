@@ -37,7 +37,7 @@
       </div>
     @endif
 
-    <!-- SECTION 1: PEOPLE & CULTURE (Two-Column Layout with Motto) -->
+    <!-- SECTION 1: PEOPLE & CULTURE (Two-Column Layout with Motto & Proper Icons) -->
     <section class="subpage-content">
       <div class="site-container">
         <div class="two-col-layout">
@@ -47,15 +47,51 @@
               {{ setting('careers_heading', 'Join a team committed to improving global health.') }}
             </h2>
             
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-body); margin-bottom: 1.5rem;">
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-body); margin-bottom: 1.75rem;">
               {{ setting('careers_description', 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.') }}
             </p>
 
-            <div class="slide-bullets">
-              <span>&bull; Collaborative cross-functional teams across North America, Europe, and Asia</span>
-              <span>&bull; Comprehensive continuing education, GCP certification, and leadership paths</span>
-              <span>&bull; Direct involvement in pivotal Phase I–IV trials and life-saving therapies</span>
-              <span>&bull; Flexible hybrid work arrangements and modern digital trial infrastructure</span>
+            <!-- ICON FEATURE LIST -->
+            <div style="display: flex; flex-direction: column; gap: 1.15rem;">
+              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(40, 169, 161, 0.12); color: #28a9a1; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; margin-top: 2px;">
+                  <i class="fas fa-globe-americas"></i>
+                </div>
+                <div>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">Global Cross-Functional Collaboration</strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Multi-national clinical teams operating across North America, Europe, and Asia.</span>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(243, 112, 33, 0.12); color: #f37021; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; margin-top: 2px;">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">Continuous Growth &amp; GCP Certification</strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Comprehensive continuing education, international GCP credentials, and leadership tracks.</span>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(37, 99, 235, 0.12); color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; margin-top: 2px;">
+                  <i class="fas fa-dna"></i>
+                </div>
+                <div>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">High-Impact Clinical Research</strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Direct involvement in pivotal Phase I–IV trials delivering life-saving medical innovations.</span>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(13, 35, 58, 0.08); color: #0d233a; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; margin-top: 2px;">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <div>
+                  <strong style="color: var(--navy, #0d233a); font-size: 0.98rem; display: block; margin-bottom: 0.2rem;">Flexible Infrastructure &amp; Modern Systems</strong>
+                  <span style="color: #64748b; font-size: 0.925rem; line-height: 1.6;">Modern digital clinical systems, flexible work models, and collaborative support.</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -77,7 +113,7 @@
       </div>
     </section>
 
-    <!-- SECTION 2: OPEN POSITIONS (Dynamic from Admin or Empty State) -->
+    <!-- SECTION 2: OPEN POSITIONS (Dynamic from Admin or Proper Empty State) -->
     <section class="subpage-content alt-bg" id="openings">
       <div class="site-container">
         <div class="section-title-wrap text-center" style="margin-bottom: 2.5rem;">
@@ -96,11 +132,17 @@
                 <div class="job-card-header">
                   <div class="job-badges">
                     @if($job->department)
-                      <span class="job-badge dept">{{ $job->department }}</span>
+                      <span class="job-badge dept">
+                        <i class="fas fa-tag mr-1 text-xs"></i> {{ $job->department }}
+                      </span>
                     @endif
-                    <span class="job-badge">{{ $job->job_type ?: 'Full-Time' }}</span>
+                    <span class="job-badge">
+                      <i class="fas fa-clock mr-1 text-xs"></i> {{ $job->job_type ?: 'Full-Time' }}
+                    </span>
                     @if($job->experience)
-                      <span class="job-badge" style="background: rgba(13, 35, 58, 0.08); color: var(--navy);">{{ $job->experience }}</span>
+                      <span class="job-badge" style="background: rgba(13, 35, 58, 0.08); color: var(--navy);">
+                        <i class="fas fa-briefcase mr-1 text-xs"></i> {{ $job->experience }}
+                      </span>
                     @endif
                   </div>
                 </div>
@@ -110,16 +152,16 @@
                 </p>
                 <div class="job-card-footer">
                   <span class="job-meta-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <i class="fas fa-map-marker-alt text-danger mr-1"></i>
                     {{ $job->location ?: 'Global / Remote' }}
                   </span>
                   @if($job->apply_url)
                     <a href="{{ $job->apply_url }}" target="_blank" class="btn btn-jss-orange" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
-                      Apply Now &rarr;
+                      Apply Now <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                   @else
                     <button type="button" class="btn btn-jss-orange open-apply-modal-btn" data-job-id="{{ $job->id }}" data-job-title="{{ $job->title }}" style="font-size: 0.85rem; padding: 0.45rem 1.15rem; cursor: pointer; border: none;">
-                      Apply Now &rarr;
+                      Apply Now <i class="fas fa-arrow-right ml-1"></i>
                     </button>
                   @endif
                 </div>
@@ -127,40 +169,39 @@
             @endforeach
           </div>
         @else
-          <!-- NO OPENINGS EMPTY STATE -->
-          <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3.5rem 2rem; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
-            <div style="width: 64px; height: 64px; margin: 0 auto 1.25rem; border-radius: 50%; background: rgba(40, 169, 161, 0.1); color: var(--teal, #28a9a1); display: flex; align-items: center; justify-content: center; font-size: 1.6rem;">
+          <!-- NO OPENINGS EMPTY STATE (No button, clean design with proper icons) -->
+          <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 3.5rem 2.5rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+            <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; border-radius: 50%; background: linear-gradient(135deg, rgba(40, 169, 161, 0.12), rgba(40, 169, 161, 0.04)); color: #28a9a1; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; border: 2px dashed rgba(40, 169, 161, 0.35);">
               <i class="fas fa-briefcase"></i>
             </div>
-            <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--navy, #0d233a); margin-bottom: 0.65rem;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--navy, #0d233a); margin-bottom: 0.75rem; letter-spacing: -0.01em;">
               Currently There Is No Opening
             </h3>
-            <p style="font-size: 1rem; color: #64748b; line-height: 1.7; margin-bottom: 1.75rem;">
-              We do not have any active vacancies at the moment. However, we are always eager to connect with passionate clinical research professionals. Please send your resume to our global talent pool for future opportunities.
+            <p style="font-size: 1.05rem; color: #64748b; line-height: 1.75; margin-bottom: 0; max-width: 480px; margin-left: auto; margin-right: auto;">
+              Thank you for your interest in Trevanta International. We do not have any active job openings at the moment. Please check back periodically as new opportunities are posted regularly as our global clinical operations expand.
             </p>
-            <button type="button" class="btn btn-jss-orange open-apply-modal-btn" data-job-id="" data-job-title="General Application / Talent Pool" style="padding: 0.75rem 1.75rem; font-size: 0.95rem; cursor: pointer; border: none;">
-              <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i> Send Your Resume &rarr;
-            </button>
           </div>
         @endif
       </div>
     </section>
 
-    <!-- SECTION 3: SPONTANEOUS APPLICATION / RESUME SUBMISSION -->
+    @if(isset($jobs) && $jobs->count() > 0)
+    <!-- SECTION 3: SPONTANEOUS APPLICATION / RESUME SUBMISSION (Only shown when positions exist) -->
     <section style="background-color: var(--jss-navy-dark); color: #ffffff; padding: 4.5rem 0; text-align: center;">
       <div class="site-container">
         <span class="eyebrow-jss" style="color: #ff9a6b;">SPONTANEOUS APPLICATION</span>
-        <h2 style="color: #ffffff; font-size: 2.2rem; margin-bottom: 1rem;">Connect With Our Talent Acquisition Team</h2>
+        <h2 style="color: #ffffff; font-size: 2.2rem; margin-bottom: 1rem;">Don't See Your Specific Role?</h2>
         <p style="color: #cbd5e1; font-size: 1.05rem; max-width: 680px; margin: 0 auto 2rem;">
-          We are always eager to connect with passionate clinical research associates, biostatisticians, medical writers, and project managers. Submit your resume to our global talent pool.
+          We are always eager to connect with passionate clinical research associates, biostatisticians, medical writers, and project managers. Submit your profile to our global talent pool.
         </p>
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <button type="button" class="btn btn-jss-orange btn-lg open-apply-modal-btn" data-job-id="" data-job-title="Spontaneous Application / General Talent Pool" style="cursor: pointer; border: none;">
-            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i> Submit Your Resume &rarr;
+            <i class="fas fa-paper-plane mr-2"></i> Submit Your Profile &rarr;
           </button>
         </div>
       </div>
     </section>
+    @endif
   </main>
 
   <!-- ========================================================================= -->
@@ -199,14 +240,18 @@
                 <label for="app_name" style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.4rem; letter-spacing: 0.05em;">
                   Full Name <span style="color: #ef4444;">*</span>
                 </label>
-                <input type="text" name="name" id="app_name" class="form-control-modal" placeholder="e.g. Dr. Jane Smith" required>
+                <div style="position: relative;">
+                  <input type="text" name="name" id="app_name" class="form-control-modal" placeholder="e.g. Dr. Jane Smith" required>
+                </div>
               </div>
 
               <div>
                 <label for="app_email" style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.4rem; letter-spacing: 0.05em;">
                   Email Address <span style="color: #ef4444;">*</span>
                 </label>
-                <input type="email" name="email" id="app_email" class="form-control-modal" placeholder="jane.smith@example.com" required>
+                <div style="position: relative;">
+                  <input type="email" name="email" id="app_email" class="form-control-modal" placeholder="jane.smith@example.com" required>
+                </div>
               </div>
             </div>
 

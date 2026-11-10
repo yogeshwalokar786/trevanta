@@ -51,3 +51,4 @@ class JobApplication extends Model
         return asset($this->resume_path);
     }
 }
+
