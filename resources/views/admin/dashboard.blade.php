@@ -25,107 +25,100 @@
 <section class="content">
   <div class="container-fluid px-3">
     
-    <!-- 4 Modern Minimalist Metric Stat Cards -->
+    <!-- 4 System Pillar Stat Cards -->
     <div class="row mb-4">
       
-      <!-- 1. Total Inquiries -->
+      <!-- 1. Enquiries & Leads -->
       <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
-        <div class="stat-card">
-          <div class="stat-card-top">
-            <span class="stat-card-title">Total Submissions</span>
-            <div class="stat-card-icon icon-teal">
-              <i class="fas fa-inbox"></i>
+        <a href="{{ route('admin.inquiries.index') }}" class="text-decoration-none">
+          <div class="stat-card" style="transition: transform 0.15s ease, box-shadow 0.15s ease;">
+            <div class="stat-card-top">
+              <span class="stat-card-title">Client Enquiries</span>
+              <div class="stat-card-icon icon-teal">
+                <i class="fas fa-envelope-open-text"></i>
+              </div>
+            </div>
+            <div>
+              <div class="stat-card-number">{{ $totalInquiries }}</div>
+              <p class="stat-card-desc">
+                @if($pendingInquiries > 0)
+                  <span class="text-warning font-weight-bold">{{ $pendingInquiries }} new pending</span>
+                @else
+                  <span class="text-success font-weight-500"><i class="fas fa-check-circle"></i> All responded</span>
+                @endif
+                &bull; Manage all &rarr;
+              </p>
             </div>
           </div>
-          <div>
-            <div class="stat-card-number">{{ $totalInquiries }}</div>
-            <p class="stat-card-desc">All-time sponsor proposals &amp; messages</p>
-          </div>
-        </div>
+        </a>
       </div>
 
-      <!-- 2. Study RFPs -->
-      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
-        <div class="stat-card">
-          <div class="stat-card-top">
-            <span class="stat-card-title">Study RFPs</span>
-            <div class="stat-card-icon icon-blue">
-              <i class="fas fa-file-medical"></i>
-            </div>
-          </div>
-          <div>
-            <div class="stat-card-number">{{ $totalRfps }}</div>
-            <p class="stat-card-desc">Full clinical trial feasibility RFPs</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Pending Review -->
-      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
-        <div class="stat-card">
-          <div class="stat-card-top">
-            <span class="stat-card-title">Pending Review</span>
-            <div class="stat-card-icon icon-amber">
-              <i class="fas fa-clock"></i>
-            </div>
-          </div>
-          <div>
-            <div class="stat-card-number text-warning">{{ $pendingRfps }}</div>
-            <p class="stat-card-desc">Awaiting medical monitor review</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Blogs & Insights -->
+      <!-- 2. Publications & Insights -->
       <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
         <a href="{{ route('admin.blogs.index') }}" class="text-decoration-none">
-          <div class="stat-card">
+          <div class="stat-card" style="transition: transform 0.15s ease, box-shadow 0.15s ease;">
             <div class="stat-card-top">
               <span class="stat-card-title">Blogs &amp; Insights</span>
-              <div class="stat-card-icon icon-purple">
+              <div class="stat-card-icon icon-blue">
                 <i class="fas fa-newspaper"></i>
               </div>
             </div>
             <div>
               <div class="stat-card-number">{{ $totalBlogs ?? 0 }}</div>
-              <p class="stat-card-desc">{{ $publishedBlogs ?? 0 }} published on live site &rarr;</p>
+              <p class="stat-card-desc">
+                {{ $publishedBlogs ?? 0 }} published on live site &rarr;
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 3. Candidate Applications -->
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <a href="{{ route('admin.applications.index') }}" class="text-decoration-none">
+          <div class="stat-card" style="transition: transform 0.15s ease, box-shadow 0.15s ease;">
+            <div class="stat-card-top">
+              <span class="stat-card-title">Job Applications</span>
+              <div class="stat-card-icon icon-amber">
+                <i class="fas fa-user-tie"></i>
+              </div>
+            </div>
+            <div>
+              <div class="stat-card-number">{{ $totalApplications ?? 0 }}</div>
+              <p class="stat-card-desc">
+                @if(($newApplications ?? 0) > 0)
+                  <span class="text-warning font-weight-bold">{{ $newApplications }} new candidates</span>
+                @else
+                  <span class="text-muted">{{ $activeJobs ?? 0 }} active job roles</span>
+                @endif
+                &bull; Review &rarr;
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 4. Compliance & Policy Pages -->
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <a href="{{ route('admin.policies.index') }}" class="text-decoration-none">
+          <div class="stat-card" style="transition: transform 0.15s ease, box-shadow 0.15s ease;">
+            <div class="stat-card-top">
+              <span class="stat-card-title">Compliance Policies</span>
+              <div class="stat-card-icon icon-purple">
+                <i class="fas fa-file-contract"></i>
+              </div>
+            </div>
+            <div>
+              <div class="stat-card-number">{{ $totalPolicies ?? 0 }}</div>
+              <p class="stat-card-desc">
+                {{ $activePolicies ?? 0 }} active legal statements &rarr;
+              </p>
             </div>
           </div>
         </a>
       </div>
 
     </div>
-
-    <!-- Candidate Applications Quick Banner -->
-    @php
-      $quickAppCount = 0;
-      $quickNewAppCount = 0;
-      try {
-        $quickAppCount = \App\Models\JobApplication::count();
-        $quickNewAppCount = \App\Models\JobApplication::where('status', 'new')->count();
-      } catch (\Throwable $e) {}
-    @endphp
-    @if($quickAppCount > 0)
-      <div class="alert alert-light border mb-4 d-flex align-items-center justify-content-between flex-wrap shadow-sm" style="border-radius: 12px; background: #ffffff;">
-        <div class="d-flex align-items-center my-1">
-          <div class="mr-3 text-primary" style="font-size: 1.5rem;">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <div>
-            <strong class="text-dark">Candidate Applications:</strong>
-            <span class="text-muted ml-1">{{ $quickAppCount }} candidate applications on file</span>
-            @if($quickNewAppCount > 0)
-              <span class="badge badge-warning ml-2 font-weight-bold" style="background-color: #f59e0b; color: #fff;">{{ $quickNewAppCount }} New</span>
-            @endif
-          </div>
-        </div>
-        <div class="my-1">
-          <a href="{{ route('admin.applications.index') }}" class="btn btn-primary btn-sm font-weight-bold">
-            <i class="fas fa-users mr-1"></i> Review Applications &rarr;
-          </a>
-        </div>
-      </div>
-    @endif
 
     <!-- Main Inquiries Table Card -->
     <div class="card">
