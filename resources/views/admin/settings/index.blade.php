@@ -505,7 +505,7 @@
           <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
             <div class="card-header py-3 px-4 bg-white border-bottom">
               <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
-                <i class="fas fa-briefcase mr-2 text-primary"></i> Careers Page Content &amp; Call-to-Action
+                <i class="fas fa-briefcase mr-2 text-primary"></i> Careers Page Content &amp; Contact Info
               </h3>
             </div>
             <div class="card-body p-4">
@@ -520,18 +520,6 @@
                   <label for="careers_description" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Body Description</label>
                   <textarea name="careers_description" id="careers_description" rows="3" class="form-control">{{ $settings['careers_description'] ?? 'At Trevanta International our people are at the heart of innovation. We foster a culture of collaboration, growth, and scientific excellence.' }}</textarea>
                   <small class="text-muted text-xs">Paragraph displayed directly below the heading.</small>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="careers_btn_text" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Action Button Text</label>
-                  <input type="text" name="careers_btn_text" id="careers_btn_text" class="form-control" value="{{ $settings['careers_btn_text'] ?? 'Explore Opportunities →' }}">
-                  <small class="text-muted text-xs">Label on the primary action button.</small>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="careers_btn_url" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Action Button Link / URL</label>
-                  <input type="text" name="careers_btn_url" id="careers_btn_url" class="form-control" value="{{ $settings['careers_btn_url'] ?? route('contact') }}">
-                  <small class="text-muted text-xs">Destination URL (e.g. contact page or external jobs portal).</small>
                 </div>
 
                 <div class="col-md-12 mb-3">
