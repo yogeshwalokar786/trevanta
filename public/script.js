@@ -23,7 +23,6 @@ function initMobileDrawerListeners() {
    1. HERO 4-TAB SYSTEM CONTROLLER
    ========================================================================== */
 let currentSlideIndex = 0;
-const slideKeys = ['global', 'regional', 'people', 'clients'];
 let autoSlideInterval = null;
 
 function switchSlide(slideKey, btnEl) {
@@ -33,22 +32,29 @@ function switchSlide(slideKey, btnEl) {
 
   const tabs = document.querySelectorAll('.slider-tab');
   tabs.forEach(t => t.classList.remove('active'));
-  if (btnEl) btnEl.classList.add('active');
+  if (btnEl) {
+    btnEl.classList.add('active');
+  } else {
+    const matchingBtn = document.querySelector(`.slider-tab[data-slide="${slideKey}"]`);
+    if (matchingBtn) matchingBtn.classList.add('active');
+  }
 
-  slideKeys.forEach(key => {
-    const pane = document.getElementById(`slide-${key}`);
-    if (pane) {
-      if (key === slideKey) {
-        pane.style.display = 'block';
-        pane.classList.add('active');
-      } else {
-        pane.style.display = 'none';
-        pane.classList.remove('active');
-      }
-    }
+  const panes = document.querySelectorAll('.slide-pane');
+  panes.forEach(pane => {
+    pane.style.display = 'none';
+    pane.classList.remove('active');
   });
 
-  currentSlideIndex = slideKeys.indexOf(slideKey);
+  const activePane = document.getElementById(`slide-${slideKey}`);
+  if (activePane) {
+    activePane.style.display = 'block';
+    activePane.classList.add('active');
+  }
+
+  const tabsArr = Array.from(tabs);
+  if (btnEl) {
+    currentSlideIndex = tabsArr.indexOf(btnEl);
+  }
 }
 
 function initAutoSlider() {
@@ -56,11 +62,15 @@ function initAutoSlider() {
   if (!tabs.length) return;
 
   autoSlideInterval = setInterval(() => {
-    currentSlideIndex = (currentSlideIndex + 1) % slideKeys.length;
-    const nextKey = slideKeys[currentSlideIndex];
-    const targetTab = document.querySelector(`.slider-tab[data-slide="${nextKey}"]`);
-    if (targetTab) {
-      switchSlide(nextKey, targetTab);
+    const tabsArr = Array.from(document.querySelectorAll('.slider-tab'));
+    if (!tabsArr.length) return;
+    const activeTab = document.querySelector('.slider-tab.active');
+    let idx = tabsArr.indexOf(activeTab);
+    idx = (idx + 1) % tabsArr.length;
+    const nextTab = tabsArr[idx];
+    if (nextTab) {
+      const nextKey = nextTab.getAttribute('data-slide');
+      switchSlide(nextKey, nextTab);
     }
   }, 7500);
 }

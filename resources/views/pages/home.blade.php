@@ -103,87 +103,111 @@
         <!-- SIGNATURE 4-TAB SLIDER SYSTEM -->
         <div class="jss-tab-slider">
           <div class="slider-tabs" role="tablist">
-            <button class="slider-tab active" data-slide="global" onclick="switchSlide('global', this)">
+            <button class="slider-tab active" data-slide="who-we-are" onclick="switchSlide('who-we-are', this)">
               <span class="tab-no">01</span>
-              <span class="tab-title">Global</span>
+              <span class="tab-title">Who We Are</span>
             </button>
-            <button class="slider-tab" data-slide="regional" onclick="switchSlide('regional', this)">
+            <button class="slider-tab" data-slide="mission" onclick="switchSlide('mission', this)">
               <span class="tab-no">02</span>
-              <span class="tab-title">Regional</span>
+              <span class="tab-title">Our Mission</span>
             </button>
-            <button class="slider-tab" data-slide="people" onclick="switchSlide('people', this)">
+            <button class="slider-tab" data-slide="vision" onclick="switchSlide('vision', this)">
               <span class="tab-no">03</span>
-              <span class="tab-title">People</span>
+              <span class="tab-title">Our Vision</span>
             </button>
-            <button class="slider-tab" data-slide="clients" onclick="switchSlide('clients', this)">
+            <button class="slider-tab" data-slide="values" onclick="switchSlide('values', this)">
               <span class="tab-no">04</span>
-              <span class="tab-title">Our Clients</span>
+              <span class="tab-title">Core Values</span>
             </button>
           </div>
 
           <!-- SLIDER CONTENT BOX -->
           <div class="slider-content-box" id="slider-content-box">
-            <div class="slide-pane active" id="slide-global">
-              <div class="slide-badge">INTERNATIONAL CLINICAL FOOTPRINT</div>
-              <h3>Worldwide Study Involvement Across 28+ Countries</h3>
+            <!-- TAB 1: WHO WE ARE -->
+            <div class="slide-pane active" id="slide-who-we-are">
+              <div class="slide-badge">ABOUT TREVANTA INTERNATIONAL</div>
+              <h3>Full-Service Integrated CRO &amp; Consulting</h3>
               <p>
-                From our corporate headquarters in Montreal (Canada) and regional operations in Boston (USA), London (UK), Mumbai (India), Faridabad (India), Chennai (India), Bogotá (Colombia), and Warsaw (Poland), Trevanta International conducts clinical research in North America, Latin America, Europe, the Middle East, and Asia-Pacific.
+                Trevanta International is a full-service CRO providing integrated clinical research, regulatory, and consulting services to pharmaceutical, biotechnology, and medical device companies.
+              </p>
+              <p style="margin-top: -0.5rem; margin-bottom: 1.5rem; color: #475569;">
+                Inspired by global leading CRO’s, we combine deep scientific expertise with agile delivery models to support innovation across every stage of drug development.
               </p>
               <div class="slide-bullets">
-                <span>&bull; Established agreements with top-tier hospital sites and academic medical centers</span>
-                <span>&bull; Advanced risk-based monitoring (RBM) and decentralized clinical trial methodologies</span>
-                <span>&bull; Seamless multi-national ethics committee and health authority clearances</span>
+                <span>&bull; Integrated clinical research, regulatory, and consulting coverage</span>
+                <span>&bull; Tailored solutions for pharmaceutical, biotechnology, and medical device innovators</span>
+                <span>&bull; Agile, responsive delivery models built to global CRO benchmarks</span>
               </div>
               <div class="slide-action">
-                <a href="#global" class="btn btn-jss-outline">Explore Regional Hubs &rarr;</a>
+                <a href="{{ route('about') }}" class="btn btn-jss-outline">Explore Our Story &rarr;</a>
               </div>
             </div>
 
-            <div class="slide-pane" id="slide-regional" style="display: none;">
-              <div class="slide-badge">MARKET PENETRATION &amp; DIVERSITY</div>
-              <h3>Emerging Markets Access &amp; Established Global Hubs</h3>
+            <!-- TAB 2: OUR MISSION -->
+            <div class="slide-pane" id="slide-mission" style="display: none;">
+              <div class="slide-badge">OUR MISSION</div>
+              <h3>Accelerating Safe, Effective Therapies Worldwide</h3>
               <p>
-                Our strategic expansion into India, Colombia, and Eastern Europe enables biopharma clients to access vast, diverse patient populations with rapid recruitment velocity, while maintaining strict compliance with US FDA, EMA, Health Canada, and local health authorities.
+                To accelerate the delivery of safe, effective therapies to patients worldwide through innovative, ethical, and data-driven clinical research.
               </p>
               <div class="slide-bullets">
-                <span>&bull; Access to key opinion leaders (KOLs) and high-volume investigator sites</span>
-                <span>&bull; Multi-lingual clinical research associates (CRAs) with in-depth local knowledge</span>
-                <span>&bull; 30% to 50% cost optimization without compromising data integrity</span>
+                <span>&bull; Patient-centric study designs and high-velocity recruitment models</span>
+                <span>&bull; Strict compliance with international ethical and GCP/GLP regulations</span>
+                <span>&bull; Robust data-driven methodologies ensuring trial precision and integrity</span>
               </div>
               <div class="slide-action">
-                <a href="#services" class="btn btn-jss-outline">View Clinical Trial Services &rarr;</a>
+                <a href="{{ route('services') }}" class="btn btn-jss-outline">View Our Capabilities &rarr;</a>
               </div>
             </div>
 
-            <div class="slide-pane" id="slide-people" style="display: none;">
-              <div class="slide-badge">SCIENTIFIC &amp; OPERATIONAL BENCH</div>
-              <h3>Critical Mass of Highly Trained Professionals</h3>
+            <!-- TAB 3: OUR VISION -->
+            <div class="slide-pane" id="slide-vision" style="display: none;">
+              <div class="slide-badge">OUR VISION</div>
+              <h3>A Trusted Global Partner in Healthcare Advancement</h3>
               <p>
-                Our success depends on our people. Our team brings together senior physicians, board-certified medical monitors, doctoral-level biostatisticians, certified regulatory affairs specialists, and seasoned project managers across four continents.
+                To become a trusted global partner in advancing healthcare through excellence in clinical research and patient-centric innovation.
               </p>
               <div class="slide-bullets">
-                <span>&bull; Dedicated project teams assigned throughout the complete study lifecycle</span>
-                <span>&bull; 24/7 Medical Monitoring and Pharmacovigilance safety oversight</span>
-                <span>&bull; Customer-centric culture providing agile responses to regulatory amendments</span>
+                <span>&bull; Global execution agility combined with local clinical expertise</span>
+                <span>&bull; Patient-centric innovation driving higher retention and clinical outcomes</span>
+                <span>&bull; Trusted by top biotechnology and pharmaceutical innovators</span>
               </div>
               <div class="slide-action">
-                <a href="#about" class="btn btn-jss-outline">Learn About Our Leadership &rarr;</a>
+                <button type="button" class="btn btn-jss-outline" onclick="openRfpModal()">Partner With Us &rarr;</button>
               </div>
             </div>
 
-            <div class="slide-pane" id="slide-clients" style="display: none;">
-              <div class="slide-badge">TAILORED PARTNERSHIP MODELS</div>
-              <h3>Nimble Enough to Care, Large Enough to Deliver</h3>
+            <!-- TAB 4: CORE VALUES -->
+            <div class="slide-pane" id="slide-values" style="display: none;">
+              <div class="slide-badge">CORE VALUES</div>
+              <h3>Principles Guiding Our Scientific &amp; Operational Excellence</h3>
               <p>
-                As an international mid-tier niche CRO, we work with global pharmaceutical giants, emerging biotechnology companies, and innovative medical device and nutraceutical sponsors. Biotechnology companies rely on our agile, consultative approach, while large pharma leverages our niche post-marketing surveillance and pharmacovigilance services.
+                Our culture, clinical governance, and daily execution are anchored in five core principles that define Trevanta International:
               </p>
-              <div class="slide-bullets">
-                <span>&bull; Early Phase I–II First-in-Human &amp; Proof-of-Concept execution</span>
-                <span>&bull; Large-scale multinational Phase III registrational studies</span>
-                <span>&bull; Post-marketing Phase IV, Real-World Evidence (RWE), and PASS/PAES studies</span>
+              <div class="slide-bullets" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; border-left: none; padding-left: 0; margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; gap: 0.65rem; background: #f8fafc; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                  <span style="color: var(--jss-orange); font-size: 1.1rem; font-weight: 800;">✓</span>
+                  <strong style="color: var(--jss-navy); font-size: 0.95rem;">Patient First</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.65rem; background: #f8fafc; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                  <span style="color: var(--jss-orange); font-size: 1.1rem; font-weight: 800;">✓</span>
+                  <strong style="color: var(--jss-navy); font-size: 0.95rem;">Scientific Integrity</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.65rem; background: #f8fafc; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                  <span style="color: var(--jss-orange); font-size: 1.1rem; font-weight: 800;">✓</span>
+                  <strong style="color: var(--jss-navy); font-size: 0.95rem;">Operational Excellence</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.65rem; background: #f8fafc; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                  <span style="color: var(--jss-orange); font-size: 1.1rem; font-weight: 800;">✓</span>
+                  <strong style="color: var(--jss-navy); font-size: 0.95rem;">Innovation &amp; Agility</strong>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.65rem; background: #f8fafc; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                  <span style="color: var(--jss-orange); font-size: 1.1rem; font-weight: 800;">✓</span>
+                  <strong style="color: var(--jss-navy); font-size: 0.95rem;">Global Collaboration</strong>
+                </div>
               </div>
               <div class="slide-action">
-                <button class="btn btn-jss-orange" onclick="openRfpModal()">Partner with Us Today &rarr;</button>
+                <button type="button" class="btn btn-jss-orange" onclick="openRfpModal()">Partner With Us Today &rarr;</button>
               </div>
             </div>
           </div>
