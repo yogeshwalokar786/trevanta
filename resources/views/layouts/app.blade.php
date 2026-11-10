@@ -33,15 +33,6 @@
       <button class="drawer-close" onclick="closeNav()" aria-label="Close navigation">&times;</button>
     </div>
 
-    <!-- Quick Actions in Drawer: Language Switcher -->
-    <div class="drawer-lang-row">
-      <span class="drawer-lang-lbl">Language</span>
-      <div class="drawer-lang-pills">
-        <button class="lang-btn active">EN</button>
-        <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
-      </div>
-    </div>
-
     <ul class="nav-menu">
       <li class="menu-item">
         <a href="{{ route('home') }}" class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}">
@@ -119,12 +110,6 @@
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <span>{{ setting('contact_email', 'info@trevanta.com') }}</span>
             </a>
-          </div>
-
-          <div class="header-lang">
-            <button class="lang-btn active">EN</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" onclick="alert('Version française disponible sur demande.')">FR</button>
           </div>
 
           <button class="btn btn-jss-orange header-rfp-btn" onclick="openRfpModal()">
@@ -241,7 +226,6 @@
           <a href="{{ route('policy.show', 'terms-of-use') }}">Terms of Use</a>
           <a href="{{ route('policy.show', 'cookie-policy') }}">Cookie Policy</a>
           <a href="{{ route('policy.show', 'gcp-statement') }}">GCP Statement</a>
-          <a href="{{ route('admin.login') }}"><i class="fas fa-lock" style="font-size: 0.75rem;"></i> Admin Portal</a>
         </div>
       </div>
     </div>

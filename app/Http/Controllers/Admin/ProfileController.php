@@ -59,3 +59,4 @@ class ProfileController extends Controller
         return back()->with('success', 'Admin profile details updated successfully.');
     }
 }
+
