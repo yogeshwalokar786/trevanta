@@ -152,28 +152,56 @@ class PageController extends Controller
     }
 
     /**
+     * Sanitize input strings: strip HTML tags and null bytes.
+     */
+    protected function cleanInput(?string $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+        $clean = str_replace(chr(0), '', $value);
+        $clean = strip_tags($clean);
+        return trim($clean);
+    }
+
+    /**
      * Handle contact form submission.
      */
     public function submitContact(Request $request)
     {
+        // Anti-Spam Honeypot trap
+        if ($request->filled('website_hp') || $request->filled('hp_bio')) {
+            if ($request->wantsJson() || $request->ajax()) {
+                return response()->json(['status' => 'success', 'message' => 'Your inquiry has been received.']);
+            }
+            return redirect()->route('contact')->with('success', 'Thank you! Your inquiry has been safely received.');
+        }
+
         $validated = $request->validate([
             'name'         => 'required|string|max:100',
-            'email'        => 'required|email|max:150',
+            'email'        => 'required|email:rfc,dns|max:150',
             'organization' => 'nullable|string|max:150',
             'phone'        => 'nullable|string|max:50',
             'service'      => 'nullable|string|max:100',
             'message'      => 'required|string|max:3000',
         ]);
 
+        $cleanName         = $this->cleanInput($validated['name']);
+        $cleanEmail        = filter_var(trim($validated['email']), FILTER_SANITIZE_EMAIL);
+        $cleanPhone        = $this->cleanInput($validated['phone'] ?? null);
+        $cleanOrganization = $this->cleanInput($validated['organization'] ?? null);
+        $cleanService      = $this->cleanInput($validated['service'] ?? null);
+        $cleanMessage      = $this->cleanInput($validated['message']);
+
         try {
             Inquiry::create([
                 'type'              => 'contact',
-                'name'              => $validated['name'],
-                'email'             => $validated['email'],
-                'phone'             => $validated['phone'] ?? null,
-                'organization'      => $validated['organization'] ?? null,
-                'therapeutic_focus' => $validated['service'] ?? null,
-                'message'           => $validated['message'],
+                'name'              => $cleanName,
+                'email'             => $cleanEmail,
+                'phone'             => $cleanPhone,
+                'organization'      => $cleanOrganization,
+                'therapeutic_focus' => $cleanService,
+                'message'           => $cleanMessage,
                 'status'            => 'new',
             ]);
         } catch (\Throwable $e) {
@@ -183,7 +211,7 @@ class PageController extends Controller
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'status'  => 'success',
-                'message' => 'Thank you, ' . e($validated['name']) . '. Your clinical inquiry has been received. Our team will contact you within 24 hours.'
+                'message' => 'Thank you, ' . e($cleanName) . '. Your clinical inquiry has been received. Our team will contact you within 24 hours.'
             ]);
         }
 
@@ -195,22 +223,36 @@ class PageController extends Controller
      */
     public function submitRfp(Request $request)
     {
+        // Anti-Spam Honeypot trap
+        if ($request->filled('website_hp') || $request->filled('hp_bio')) {
+            if ($request->wantsJson() || $request->ajax()) {
+                return response()->json(['status' => 'success', 'message' => 'Study proposal received.']);
+            }
+            return back()->with('success', 'Study proposal received.');
+        }
+
         $validated = $request->validate([
             'name'              => 'required|string|max:100',
-            'email'             => 'required|email|max:150',
+            'email'             => 'required|email:rfc,dns|max:150',
             'phase'             => 'required|string|max:100',
             'therapeutic_focus' => 'required|string|max:100',
             'description'       => 'nullable|string|max:3000',
         ]);
 
+        $cleanName   = $this->cleanInput($validated['name']);
+        $cleanEmail  = filter_var(trim($validated['email']), FILTER_SANITIZE_EMAIL);
+        $cleanPhase  = $this->cleanInput($validated['phase']);
+        $cleanFocus  = $this->cleanInput($validated['therapeutic_focus']);
+        $cleanDesc   = $this->cleanInput($validated['description'] ?? null);
+
         try {
             Inquiry::create([
                 'type'              => 'rfp',
-                'name'              => $validated['name'],
-                'email'             => $validated['email'],
-                'phase'             => $validated['phase'],
-                'therapeutic_focus' => $validated['therapeutic_focus'],
-                'message'           => $validated['description'] ?? null,
+                'name'              => $cleanName,
+                'email'             => $cleanEmail,
+                'phase'             => $cleanPhase,
+                'therapeutic_focus' => $cleanFocus,
+                'message'           => $cleanDesc,
                 'status'            => 'new',
             ]);
         } catch (\Throwable $e) {
@@ -232,9 +274,17 @@ class PageController extends Controller
      */
     public function submitApplication(Request $request)
     {
+        // Anti-Spam Honeypot trap
+        if ($request->filled('website_hp') || $request->filled('hp_bio')) {
+            if ($request->wantsJson() || $request->ajax()) {
+                return response()->json(['status' => 'success', 'message' => 'Application received.']);
+            }
+            return redirect()->back()->with('application_success', 'Your application has been submitted successfully.');
+        }
+
         $validated = $request->validate([
             'name'             => 'required|string|max:150',
-            'email'            => 'required|email|max:150',
+            'email'            => 'required|email:rfc,dns|max:150',
             'phone'            => 'nullable|string|max:50',
             'job_opening_id'   => 'nullable|integer',
             'position_title'   => 'required|string|max:255',
@@ -247,26 +297,44 @@ class PageController extends Controller
         $resumePath = null;
         if ($request->hasFile('resume') && $request->file('resume')->isValid()) {
             $file = $request->file('resume');
+            $extension = strtolower($file->getClientOriginalExtension());
+            $allowedExtensions = ['pdf', 'doc', 'docx'];
+
+            if (!in_array($extension, $allowedExtensions)) {
+                return back()->withErrors(['resume' => 'Invalid file extension. Only PDF, DOC, and DOCX documents are permitted.'])->withInput();
+            }
+
             $uploadDir = public_path('uploads/resumes');
             if (!File::isDirectory($uploadDir)) {
                 File::makeDirectory($uploadDir, 0755, true, true);
             }
-            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+
+            // Generate cryptographically secure random filename to prevent overwrites & path guessing
+            $filename = Str::random(40) . '.' . $extension;
             $file->move($uploadDir, $filename);
+            @chmod($uploadDir . '/' . $filename, 0644);
             $resumePath = 'uploads/resumes/' . $filename;
         }
+
+        $cleanName     = $this->cleanInput($validated['name']);
+        $cleanEmail    = filter_var(trim($validated['email']), FILTER_SANITIZE_EMAIL);
+        $cleanPhone    = $this->cleanInput($validated['phone'] ?? null);
+        $cleanPosition = $this->cleanInput($validated['position_title']);
+        $cleanLocation = $this->cleanInput($validated['current_location'] ?? null);
+        $cleanExp      = $this->cleanInput($validated['experience'] ?? null);
+        $cleanCover    = $this->cleanInput($validated['cover_letter'] ?? null);
 
         try {
             JobApplication::create([
                 'job_opening_id'   => $validated['job_opening_id'] ?? null,
-                'position_title'   => $validated['position_title'],
-                'name'             => $validated['name'],
-                'email'            => $validated['email'],
-                'phone'            => $validated['phone'] ?? null,
-                'current_location' => $validated['current_location'] ?? null,
-                'experience'       => $validated['experience'] ?? null,
+                'position_title'   => $cleanPosition,
+                'name'             => $cleanName,
+                'email'            => $cleanEmail,
+                'phone'            => $cleanPhone,
+                'current_location' => $cleanLocation,
+                'experience'       => $cleanExp,
                 'resume_path'      => $resumePath,
-                'cover_letter'     => $validated['cover_letter'] ?? null,
+                'cover_letter'     => $cleanCover,
                 'status'           => 'new',
             ]);
         } catch (\Throwable $e) {
@@ -276,11 +344,11 @@ class PageController extends Controller
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'status'  => 'success',
-                'message' => 'Thank you, ' . e($validated['name']) . '! Your application for "' . e($validated['position_title']) . '" has been submitted successfully. Our Talent Acquisition team will review your profile.',
+                'message' => 'Thank you, ' . e($cleanName) . '! Your application for "' . e($cleanPosition) . '" has been submitted successfully. Our Talent Acquisition team will review your profile.',
             ]);
         }
 
-        return redirect()->back()->with('application_success', 'Thank you, ' . $validated['name'] . '! Your application for "' . $validated['position_title'] . '" has been submitted successfully. Our Talent Acquisition team will review your profile.');
+        return redirect()->back()->with('application_success', 'Thank you, ' . $cleanName . '! Your application for "' . $cleanPosition . '" has been submitted successfully. Our Talent Acquisition team will review your profile.');
     }
 }
 

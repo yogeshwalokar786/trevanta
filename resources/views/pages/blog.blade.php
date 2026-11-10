@@ -198,18 +198,18 @@
         @php
           $bDate = $b->published_at ? $b->published_at->format('F d, Y') : 'September 2026';
         @endphp
-        "{!! addslashes($b->slug) !!}": {
-          category: {!! json_encode($b->category) !!},
-          readTime: {!! json_encode($b->read_time ?: '5 min read') !!},
-          date: {!! json_encode($bDate) !!},
+        @json($b->slug): {
+          category: @json($b->category),
+          readTime: @json($b->read_time ?: '5 min read'),
+          date: @json($bDate),
           author: {
-            name: {!! json_encode($b->author_name) !!},
-            title: {!! json_encode($b->author_title ?: 'Clinical Research Team') !!},
-            avatar: {!! json_encode($b->author_avatar ?: 'AC') !!}
+            name: @json($b->author_name),
+            title: @json($b->author_title ?: 'Clinical Research Team'),
+            avatar: @json($b->author_avatar ?: 'AC')
           },
-          title: {!! json_encode($b->title) !!},
-          summary: {!! json_encode($b->summary) !!},
-          content: {!! json_encode($b->content) !!}
+          title: @json($b->title),
+          summary: @json($b->summary),
+          content: @json($b->content)
         }@if(!$loop->last),@endif
       @endforeach
     };

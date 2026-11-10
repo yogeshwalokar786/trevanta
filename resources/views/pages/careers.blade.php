@@ -263,6 +263,10 @@
 
         <form action="{{ route('careers.apply') }}" method="POST" enctype="multipart/form-data" id="jobApplicationForm">
           @csrf
+          {{-- Anti-Spam Security Honeypot --}}
+          <div style="display: none !important; opacity: 0; position: absolute; left: -9999px;" aria-hidden="true">
+            <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+          </div>
           <input type="hidden" name="job_opening_id" id="modal_job_id" value="">
           <input type="hidden" name="position_title" id="modal_position_title" value="">
 

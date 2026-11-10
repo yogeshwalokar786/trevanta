@@ -38,8 +38,9 @@ class AuthController extends Controller
                 return redirect()->intended(route('admin.dashboard'))->with('success', 'Welcome back, ' . Auth::user()->name . '!');
             }
         } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('Admin authentication database error: ' . $e->getMessage());
             return back()->withInput($request->only('email', 'remember'))->withErrors([
-                'email' => 'Database connection failed: ' . $e->getMessage() . '. In cPanel, please ensure user 171790771_trevanta is added to database 171790771_trevanta with ALL PRIVILEGES.',
+                'email' => 'Unable to connect to authentication service. Please try again shortly or contact support.',
             ]);
         }
 

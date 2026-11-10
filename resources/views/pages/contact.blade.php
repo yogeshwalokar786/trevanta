@@ -65,6 +65,10 @@
 
           <form action="{{ route('contact.submit') }}" method="POST">
             @csrf
+            {{-- Anti-Spam Security Honeypot --}}
+            <div style="display: none !important; opacity: 0; position: absolute; left: -9999px;" aria-hidden="true">
+              <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-row-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div class="j-field">
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jss-navy);">Full Name *</label>

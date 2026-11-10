@@ -101,12 +101,18 @@ class JobApplicationController extends Controller
             return redirect()->back()->with('error', 'No resume file attached to this application.');
         }
 
-        $fullPath = public_path($application->resume_path);
-        if (!File::exists($fullPath)) {
-            return redirect()->back()->with('error', 'The requested resume file does not exist on the server.');
+        // Path Traversal Defense: strip null bytes and directory traversal constructs
+        $cleanRelPath = str_replace(["\0", '..'], '', $application->resume_path);
+        $fullPath = public_path($cleanRelPath);
+
+        $allowedBase = realpath(public_path('uploads/resumes'));
+        $realPath = realpath($fullPath);
+
+        if (!$realPath || !$allowedBase || !str_starts_with($realPath, $allowedBase) || !File::exists($realPath)) {
+            return redirect()->back()->with('error', 'The requested resume file does not exist or access was denied.');
         }
 
-        return response()->download($fullPath);
+        return response()->download($realPath);
     }
 
     /**

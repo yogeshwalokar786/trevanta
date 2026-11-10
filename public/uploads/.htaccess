@@ -1,0 +1,32 @@
+# ==============================================================================
+# SECURE UPLOADS DIRECTORY: PREVENT ALL ARBITRARY SCRIPT EXECUTION
+# ==============================================================================
+
+# Disable directory listing
+Options -Indexes -ExecCGI
+
+# Turn off script engines
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+
+# Prevent handler execution for common script extensions
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phar .cgi .pl .py .sh .asp .aspx .jsp
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phar .cgi .pl .py .sh .asp .aspx .jsp
+
+# Completely deny access to executable files or dotfiles in uploads
+<FilesMatch "(^\.|\.(php|phtml|php[0-9]|phar|cgi|pl|py|sh|asp|aspx|jsp|html|htm|js|exe|bat|cmd|vbs))$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Serve all other allowed files purely as static attachments/streams
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>

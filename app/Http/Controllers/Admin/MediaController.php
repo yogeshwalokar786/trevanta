@@ -54,8 +54,8 @@ class MediaController extends Controller
     {
         $request->validate([
             'files'   => 'nullable|array',
-            'files.*' => 'file|max:10240', // Max 10MB per file
-            'file'    => 'nullable|file|max:10240',
+            'files.*' => 'file|mimes:jpeg,png,jpg,gif,svg,webp,pdf,doc,docx|max:10240', // Max 10MB per file
+            'file'    => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,pdf,doc,docx|max:10240',
         ]);
 
         $uploaded = [];
@@ -79,13 +79,28 @@ class MediaController extends Controller
             File::makeDirectory($destinationPath, 0755, true, true);
         }
 
+        $dangerousExtensions = [
+            'php', 'phtml', 'php3', 'php4', 'php5', 'php7', 'php8', 'phar',
+            'cgi', 'pl', 'py', 'sh', 'bash', 'asp', 'aspx', 'jsp', 'html',
+            'htm', 'js', 'exe', 'bat', 'cmd', 'vbs'
+        ];
+
         foreach ($filesToProcess as $file) {
-            $originalName = $file->getClientOriginalName();
-            $filename = time() . '_' . Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $originalName = strip_tags(str_replace(["\0", "\\", "/"], '', $file->getClientOriginalName()));
+            $extension = strtolower($file->getClientOriginalExtension());
+
+            // Reject executable or unauthorized extensions
+            if (in_array($extension, $dangerousExtensions)) {
+                continue;
+            }
+
+            // Generate cryptographically secure random filename
+            $filename = Str::random(32) . '.' . $extension;
             $mimeType = $file->getClientMimeType();
             $size = $file->getSize();
 
             $file->move($destinationPath, $filename);
+            @chmod($destinationPath . '/' . $filename, 0644);
 
             try {
                 $item = Media::create([
@@ -98,6 +113,8 @@ class MediaController extends Controller
                 $uploaded[] = $item;
             } catch (\Throwable $e) {
                 // If DB fails, still track file
+            }
+        }
                 $uploaded[] = [
                     'filename' => $originalName,
                     'path'     => 'uploads/' . $filename,

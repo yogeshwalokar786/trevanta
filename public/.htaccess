@@ -1,4 +1,12 @@
 <IfModule mod_headers.c>
+    # Security Headers
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header unset X-Powered-By
+
     # Force browsers to always fetch fresh versions on every reload
     Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0"
     Header set Pragma "no-cache"
@@ -11,6 +19,16 @@
     </IfModule>
 
     RewriteEngine On
+
+    # Block access to hidden files and dotfiles (.git, .env, etc.)
+    RewriteRule (^\.|/\.) - [F,L,NC]
+
+    # Block access to backups, logs, and database files
+    RewriteRule \.(sql|sqlite|db|bak|log|ini|sh|py|pl|cgi)$ - [F,L,NC]
+
+    # Block common malicious query injections (XSS / SQLi / Remote File Inclusion)
+    RewriteCond %{QUERY_STRING} (eval\(|base64_encode|base64_decode|<script|GLOBALS|_REQUEST|_SERVER) [NC]
+    RewriteRule .* - [F,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -30,3 +48,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Disable Directory Browsing
+Options -Indexes

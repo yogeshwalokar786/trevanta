@@ -19,13 +19,28 @@ class SettingController extends Controller
     }
 
     /**
-     * Update settings in storage.
+     * Update settings in storage with input sanitization.
      */
     public function update(Request $request)
     {
         $data = $request->except(['_token', '_method']);
 
         foreach ($data as $key => $value) {
+            // Validate key format (only alphanumeric, dashes, underscores)
+            if (!preg_match('/^[a-zA-Z0-9_\-]+$/', $key)) {
+                continue;
+            }
+
+            // Clean string values
+            if (is_string($value)) {
+                $value = str_replace(chr(0), '', $value);
+                // For SEO & Contact & Branding, strip raw script tags
+                if (!str_contains($key, 'custom_html') && !str_contains($key, 'analytics_head')) {
+                    $value = strip_tags($value);
+                }
+                $value = trim($value);
+            }
+
             // Determine group based on key prefix or name
             $group = 'general';
             if (str_contains($key, '_meta_') || str_contains($key, '_og_image') || str_starts_with($key, 'home_') || str_starts_with($key, 'meta_') || $key === 'canonical_url_base') {
@@ -44,6 +59,8 @@ class SettingController extends Controller
 
             // Clean image paths if selected from media library
             if (is_string($value) && (str_contains($key, 'logo') || str_contains($key, 'image') || str_contains($key, 'favicon'))) {
+                // Strip directory traversal
+                $value = str_replace(['..', "\0"], '', $value);
                 if (str_starts_with($value, '/')) {
                     $value = ltrim($value, '/');
                 }

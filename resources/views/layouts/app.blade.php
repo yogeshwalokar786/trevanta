@@ -241,6 +241,10 @@
       
       <form action="{{ route('rfp.submit') }}" method="POST" onsubmit="handleModalSubmit(event)">
         @csrf
+        {{-- Anti-Spam Security Honeypot --}}
+        <div style="display: none !important; opacity: 0; position: absolute; left: -9999px;" aria-hidden="true">
+          <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-row-2">
           <div class="j-field">
             <label>Name *</label>
