@@ -861,9 +861,10 @@
 
         <!-- CTA BUTTON -->
         <div>
-          <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.75rem; font-size: 1.1rem; box-shadow: 0 6px 22px rgba(242, 98, 36, 0.35);">
-            Get in Touch &rarr;
-          </button>
+          <a href="{{ route('contact') }}" class="btn btn-jss-orange btn-lg" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.75rem; font-size: 1.1rem; box-shadow: 0 6px 22px rgba(242, 98, 36, 0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span>Get in Touch</span>
+            <span>&rarr;</span>
+          </a>
         </div>
 
       </div>
