@@ -492,28 +492,13 @@ function showJssToast(title, msg) {
 
 function switchTherapeuticTab(tabKey, btn) {
   const allBtns = document.querySelectorAll('.te-tab-btn');
-  allBtns.forEach(b => {
-    b.classList.remove('active');
-    b.style.background = '#f8fafc';
-    b.style.color = '#121e2d';
-    b.style.borderColor = '#cbd5e1';
-    const badge = b.querySelector('span:last-child');
-    if (badge) {
-      badge.style.background = '#e2e8f0';
-      badge.style.color = '#121e2d';
-    }
-  });
+  allBtns.forEach(b => b.classList.remove('active'));
 
   if (btn) {
     btn.classList.add('active');
-    btn.style.background = 'var(--jss-orange, #f26224)';
-    btn.style.color = '#ffffff';
-    btn.style.borderColor = 'var(--jss-orange, #f26224)';
-    const badge = btn.querySelector('span:last-child');
-    if (badge) {
-      badge.style.background = 'rgba(255,255,255,0.25)';
-      badge.style.color = '#ffffff';
-    }
+  } else {
+    const matchingBtn = document.querySelector(`.te-tab-btn[data-tab="${tabKey}"]`);
+    if (matchingBtn) matchingBtn.classList.add('active');
   }
 
   const allPanes = document.querySelectorAll('.te-tab-pane');
@@ -523,6 +508,9 @@ function switchTherapeuticTab(tabKey, btn) {
 
   const targetPane = document.getElementById('te-pane-' + tabKey);
   if (targetPane) {
+    targetPane.style.display = 'block';
+  }
+}
     targetPane.style.display = 'block';
   }
 }

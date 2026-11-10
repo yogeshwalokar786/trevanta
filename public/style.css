@@ -1661,19 +1661,166 @@ ul {
   font-size: 0.9rem;
 }
 
-.te-item-card {
-  transition: all 0.25s ease;
+/* ── Enhanced Therapeutic Expertise Section ── */
+.jss-therapeutic-section {
+  padding: 5.5rem 0;
+  background-color: #f8fafc;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.te-item-card:hover {
-  border-color: var(--jss-orange) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
-  background: #ffffff !important;
+.te-tabs-bar {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 0.35rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(18, 30, 45, 0.04);
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.te-tab-btn {
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.925rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
 }
 
 .te-tab-btn:hover {
-  transform: translateY(-2px);
+  color: var(--jss-navy);
+  background: #f1f5f9;
+}
+
+.te-tab-btn.active {
+  background: var(--jss-orange) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(242, 98, 36, 0.3);
+}
+
+.te-tab-btn.active:hover {
+  background: var(--jss-orange-hover) !important;
+  color: #ffffff !important;
+}
+
+.te-tab-btn .te-counter {
+  font-size: 0.775rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.te-tab-btn.active .te-counter {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.te-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+}
+
+.te-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.te-card:hover {
+  border-color: var(--jss-orange);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -4px rgba(242, 98, 36, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+.te-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(242, 98, 36, 0.08);
+  color: var(--jss-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.te-card:hover .te-card-icon {
+  background: var(--jss-orange);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.te-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.45;
+  transition: color 0.25s ease;
+}
+
+.te-card:hover .te-card-title {
+  color: var(--jss-orange);
+}
+
+.te-card-arrow {
+  margin-left: auto;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.25s ease;
+}
+
+.te-card:hover .te-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--jss-orange);
+}
+
+@media (max-width: 1024px) {
+  .te-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .te-grid {
+    grid-template-columns: 1fr;
+  }
+  .te-tabs-bar {
+    border-radius: 16px;
+    width: 100%;
+  }
+  .te-tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* CLIENTS & PARTNERSHIP SECTION */
