@@ -21,6 +21,15 @@ Route::get('/insights', fn () => redirect()->route('blog'))->name('insights');
 Route::get('/careers', [PageController::class, 'careers'])->name('careers');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
+// Public Policy & Legal Routes
+Route::get('/policy/{slug}', [PageController::class, 'policyDetail'])->name('policy.show');
+Route::get('/privacy-statement', fn () => redirect()->route('policy.show', 'privacy-statement'));
+Route::get('/privacy-policy', fn () => redirect()->route('policy.show', 'privacy-statement'));
+Route::get('/terms-of-use', fn () => redirect()->route('policy.show', 'terms-of-use'));
+Route::get('/terms', fn () => redirect()->route('policy.show', 'terms-of-use'));
+Route::get('/gcp-statement', fn () => redirect()->route('policy.show', 'gcp-statement'));
+Route::get('/whistleblower-notice', fn () => redirect()->route('policy.show', 'whistleblower-notice'));
+
 // Public Form Actions
 Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
 Route::post('/rfp', [PageController::class, 'submitRfp'])->name('rfp.submit');
@@ -68,6 +77,10 @@ Route::prefix('admin')->group(function () {
         // Media Library & Manager
         Route::resource('media', \App\Http\Controllers\Admin\MediaController::class, ['as' => 'admin'])->only(['index', 'store', 'destroy']);
 
+        // Policy & Compliance Pages Management
+        Route::resource('policies', \App\Http\Controllers\Admin\PolicyController::class, ['as' => 'admin']);
+        Route::post('policies/{id}/toggle-active', [\App\Http\Controllers\Admin\PolicyController::class, 'toggleActive'])->name('admin.policies.toggle-active');
+
         // Site Settings Management (Contact, Addresses, Logos, SEO, Branding)
         Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings.index');
         Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin.settings.update');
@@ -102,6 +115,7 @@ Route::get('/test-db', function () {
         $blogCount = \App\Models\Blog::count();
         $categoryCount = \App\Models\Category::count();
         $mediaCount = \App\Models\Media::count();
+        $policyCount = class_exists(\App\Models\Policy::class) ? \App\Models\Policy::count() : 0;
         return '<div style="font-family:sans-serif;max-width:650px;margin:50px auto;padding:25px;border:1px solid #10b981;border-radius:10px;background:#f0fdf4;">'
             . '<h2 style="color:#065f46;margin-top:0;">MySQL Database Connected Successfully!</h2>'
             . '<p style="font-size:16px;"><strong>Database:</strong> <code>' . e($dbName) . '</code></p>'
@@ -110,6 +124,7 @@ Route::get('/test-db', function () {
             . '<p style="font-size:16px;"><strong>Dynamic Blogs in Table:</strong> ' . $blogCount . '</p>'
             . '<p style="font-size:16px;"><strong>Blog Categories in Table:</strong> ' . $categoryCount . '</p>'
             . '<p style="font-size:16px;"><strong>Media Files in Table:</strong> ' . $mediaCount . '</p>'
+            . '<p style="font-size:16px;"><strong>Policy Pages in Table:</strong> ' . $policyCount . '</p>'
             . '<hr style="border:0;border-top:1px solid #a7f3d0;margin:20px 0;">'
             . '<a href="/admin/login" style="display:inline-block;background:#f26224;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;">Proceed to Admin Login &rarr;</a>'
             . '</div>';

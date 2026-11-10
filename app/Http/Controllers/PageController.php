@@ -7,6 +7,7 @@ use App\Models\Inquiry;
 use App\Models\Blog;
 use App\Models\JobOpening;
 use App\Models\JobApplication;
+use App\Models\Policy;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -129,6 +130,33 @@ class PageController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    /**
+     * Display a public legal / policy page.
+     */
+    public function policyDetail($slug)
+    {
+        try {
+            $policy = Policy::where('slug', $slug)->first();
+        } catch (\Throwable $e) {
+            $policy = null;
+        }
+
+        if (!$policy) {
+            abort(404, 'Compliance policy or legal statement not found.');
+        }
+
+        try {
+            $allPolicies = Policy::where('is_active', true)
+                ->orderBy('order', 'asc')
+                ->orderBy('title', 'asc')
+                ->get();
+        } catch (\Throwable $e) {
+            $allPolicies = collect([$policy]);
+        }
+
+        return view('pages.policy-detail', compact('policy', 'allPolicies'));
     }
 
     /**

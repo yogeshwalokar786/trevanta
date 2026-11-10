@@ -223,10 +223,22 @@
       <div class="site-container legal-flex">
         <p>{{ setting('footer_copyright', '© ' . date('Y') . ' Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.') }}</p>
         <div class="legal-menu">
-          <a href="#">Privacy Statement</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">GCP Statement</a>
-          <a href="#">Whistleblower Notice</a>
+          @php
+            $footerPolicies = collect();
+            try {
+              $footerPolicies = \App\Models\Policy::where('is_active', true)->orderBy('order')->orderBy('title')->get();
+            } catch (\Throwable $e) {}
+          @endphp
+          @if($footerPolicies->isNotEmpty())
+            @foreach($footerPolicies as $fp)
+              <a href="{{ route('policy.show', $fp->slug) }}">{{ $fp->title }}</a>
+            @endforeach
+          @else
+            <a href="{{ route('policy.show', 'privacy-statement') }}">Privacy Statement</a>
+            <a href="{{ route('policy.show', 'terms-of-use') }}">Terms of Use</a>
+            <a href="{{ route('policy.show', 'gcp-statement') }}">GCP Statement</a>
+            <a href="{{ route('policy.show', 'whistleblower-notice') }}">Whistleblower Notice</a>
+          @endif
           <a href="{{ route('admin.login') }}"><i class="fas fa-lock" style="font-size: 0.75rem;"></i> Admin Portal</a>
         </div>
       </div>

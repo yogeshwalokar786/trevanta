@@ -529,6 +529,26 @@
             </a>
           </li>
 
+          <li class="sidebar-nav-heading">Compliance &amp; Legal</li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.policies.index') }}" class="nav-link {{ request()->routeIs('admin.policies.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-contract"></i>
+              <p>
+                Policy Pages
+                @php
+                  $policiesCount = 0;
+                  try {
+                    $policiesCount = \App\Models\Policy::count();
+                  } catch (\Throwable $e) {}
+                @endphp
+                @if($policiesCount > 0)
+                  <span class="badge badge-light right font-weight-bold" style="background-color: #f1f5f9; color: #475569;">{{ $policiesCount }}</span>
+                @endif
+              </p>
+            </a>
+          </li>
+
           <li class="sidebar-nav-heading">Configuration</li>
 
           <li class="nav-item">
