@@ -105,12 +105,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="tab-contact-nav" data-toggle="pill" href="#tab-contact" role="tab">
-            <i class="fas fa-headset mr-2"></i> Contact &amp; Hotlines
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="tab-addresses-nav" data-toggle="pill" href="#tab-addresses" role="tab">
-            <i class="fas fa-map-marked-alt mr-2"></i> Global Addresses
+            <i class="fas fa-headset mr-2"></i> Contact &amp; HQ Address
           </a>
         </li>
         <li class="nav-item">
@@ -243,13 +238,13 @@
         </div>
 
         <!-- ================================================================= -->
-        <!-- TAB 2: CONTACT & HOTLINES -->
+        <!-- TAB 2: CONTACT & HEADQUARTERS ADDRESS -->
         <!-- ================================================================= -->
         <div class="tab-pane fade" id="tab-contact" role="tabpanel">
           <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
             <div class="card-header py-3 px-4 bg-white border-bottom">
               <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
-                <i class="fas fa-phone-alt mr-2 text-primary"></i> Communications, Emails &amp; Regional Hotlines
+                <i class="fas fa-phone-alt mr-2 text-primary"></i> Communications, Hotlines &amp; Corporate Address
               </h3>
             </div>
             <div class="card-body p-4">
@@ -274,7 +269,7 @@
               </div>
 
               <h6 class="font-weight-bold text-primary mb-3 text-sm"><i class="fas fa-headset mr-1"></i> Corporate Hotlines &amp; Operating Hours</h6>
-              <div class="row mb-3">
+              <div class="row mb-4">
                 <div class="col-md-4 mb-3">
                   <label for="phone_na" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Corporate Hotline / Phone (HQ)</label>
                   <input type="text" name="phone_na" id="phone_na" class="form-control" value="{{ $settings['phone_na'] ?? '+1 (514) 934-0805' }}">
@@ -292,62 +287,23 @@
                 </div>
               </div>
 
-            </div>
-          </div>
-        </div>
-
-        <!-- ================================================================= -->
-        <!-- TAB 3: GLOBAL ADDRESSES & HUBS -->
-        <!-- ================================================================= -->
-        <div class="tab-pane fade" id="tab-addresses" role="tabpanel">
-          <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
-            <div class="card-header py-3 px-4 bg-white border-bottom">
-              <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
-                <i class="fas fa-building mr-2 text-primary"></i> Global Headquarters &amp; Regional Delivery Hubs
-              </h3>
-            </div>
-            <div class="card-body p-4">
+              <h6 class="font-weight-bold text-primary mb-3 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> Corporate Headquarters Address</h6>
               <div class="row">
-
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-0">
                   <label for="address_hq" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
                     Corporate Global HQ (Montreal, Canada)
                   </label>
-                  <textarea name="address_hq" id="address_hq" rows="3" class="form-control">{{ $settings['address_hq'] ?? '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada' }}</textarea>
-                  <small class="text-muted text-xs">Primary legal address displayed in footer and global presence map.</small>
+                  <textarea name="address_hq" id="address_hq" rows="2" class="form-control">{{ $settings['address_hq'] ?? '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada' }}</textarea>
+                  <small class="text-muted text-xs">Primary legal address displayed across website, contact page, and footer.</small>
                 </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="address_india" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
-                    India Operations &amp; Data Hub (Noida &amp; Mumbai)
-                  </label>
-                  <textarea name="address_india" id="address_india" rows="3" class="form-control">{{ $settings['address_india'] ?? 'Express Trade Towers 2, Sector 132, Noida & Mumbai, India' }}</textarea>
-                  <small class="text-muted text-xs">Regional hub for biometrics, medical monitoring, and trial sites.</small>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="address_uae" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
-                    Middle East Regional Hub (Dubai, UAE)
-                  </label>
-                  <textarea name="address_uae" id="address_uae" rows="3" class="form-control">{{ $settings['address_uae'] ?? 'Dubai Science Park, Nucleus Tower, Dubai, United Arab Emirates' }}</textarea>
-                  <small class="text-muted text-xs">Regional clinical trial operations and regulatory liaison.</small>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="address_uk" class="font-weight-bold text-dark text-xs text-uppercase mb-1">
-                    UK &amp; Europe Liaison Office (London)
-                  </label>
-                  <textarea name="address_uk" id="address_uk" rows="3" class="form-control">{{ $settings['address_uk'] ?? '124 City Road, London EC1V 2NX, United Kingdom' }}</textarea>
-                  <small class="text-muted text-xs">EMA and MHRA regulatory affairs liaison.</small>
-                </div>
-
               </div>
+
             </div>
           </div>
         </div>
 
         <!-- ================================================================= -->
-        <!-- TAB 4: HOMEPAGE SEO -->
+        <!-- TAB 3: HOMEPAGE SEO -->
         <!-- ================================================================= -->
         <div class="tab-pane fade" id="tab-seo" role="tabpanel">
 

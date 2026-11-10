@@ -228,7 +228,6 @@
           <li><a href="{{ route('services') }}">Services</a></li>
           <li><a href="{{ route('careers') }}">Careers</a></li>
           <li><a href="{{ route('blog') }}">Insights &amp; Blog</a></li>
-          <li><a href="{{ route('global') }}">Global Reach</a></li>
           <li><a href="{{ route('contact') }}">Contact Us</a></li>
         </ul>
       </div>

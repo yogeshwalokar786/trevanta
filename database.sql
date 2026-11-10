@@ -311,11 +311,7 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 ('phone_na', '+1 (514) 934-0805', 'contact', 'text', 'Corporate HQ Hotline', NOW(), NOW()),
 ('phone_safety', '+1 (800) 577-7233', 'contact', 'text', '24/7 SAE & Safety Reporting Hotline', NOW(), NOW()),
 ('operating_hours', 'Mon–Fri, 8:30 AM – 6:00 PM EST', 'contact', 'text', 'Operating Hours', NOW(), NOW()),
-
-('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada', 'addresses', 'textarea', 'Corporate HQ (Montreal, Canada)', NOW(), NOW()),
-('address_india', 'Express Trade Towers 2, Sector 132, Noida & Mumbai, India', 'addresses', 'textarea', 'India Operations Hub', NOW(), NOW()),
-('address_uae', 'Dubai Science Park, Nucleus Tower, Dubai, United Arab Emirates', 'addresses', 'textarea', 'Middle East Regional Office', NOW(), NOW()),
-('address_uk', '124 City Road, London EC1V 2NX, United Kingdom', 'addresses', 'textarea', 'UK & Europe Liaison Office', NOW(), NOW()),
+('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada', 'contact', 'textarea', 'Corporate HQ (Montreal, Canada)', NOW(), NOW()),
 
 ('home_meta_title', 'Trevanta International | Global Clinical Research Organization (CRO)', 'seo', 'text', 'Homepage Meta Title', NOW(), NOW()),
 ('home_meta_description', 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.', 'seo', 'textarea', 'Homepage Meta Description', NOW(), NOW()),

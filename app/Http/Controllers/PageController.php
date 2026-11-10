@@ -45,14 +45,6 @@ class PageController extends Controller
     }
 
     /**
-     * Display the global presence page.
-     */
-    public function global()
-    {
-        return view('pages.global');
-    }
-
-    /**
      * Display the insights & blog page.
      */
     public function blog()
