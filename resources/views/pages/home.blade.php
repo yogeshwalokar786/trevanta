@@ -789,335 +789,68 @@
       </div>
     </section>
 
-    <!-- 3. STUDY FEASIBILITY & TIMELINE ESTIMATOR -->
-    <section class="estimator-section" id="feasibility-calculator">
+    <!-- FINAL SECTION: CONTACT US -->
+    <section class="home-contact-final" id="contact" style="padding: 6rem 0; background: linear-gradient(135deg, #0b1320 0%, #121e2d 60%, #1a2a40 100%); color: #ffffff; text-align: center;">
       <div class="site-container">
-        <div class="section-header-centered">
-          <span class="eyebrow-accent" style="background: rgba(242, 98, 36, 0.2); color: #ffa07a;">INSTANT PROTOCOL ESTIMATOR</span>
-          <h2 class="section-title" style="color: #ffffff;">Calculate Your Study Feasibility &amp; Timelines</h2>
-          <p class="section-subtitle" style="color: #cbd5e1;">
-            Select your trial phase and therapeutic focus to generate preliminary site startup intervals, site network projections, and database lock targets.
-          </p>
-        </div>
-
-        <div class="estimator-card">
-          <div class="estimator-grid">
-            <div class="calc-controls">
-              <div class="calc-field-group">
-                <label for="calc-phase">Clinical Trial Phase</label>
-                <select id="calc-phase">
-                  <option value="Phase I">Phase I (First-in-Human / PK-PD)</option>
-                  <option value="Phase II" selected>Phase II (Proof-of-Concept / Dose Finding)</option>
-                  <option value="Phase III">Phase III (Pivotal Global Confirmatory)</option>
-                  <option value="Phase IV">Phase IV / Post-Marketing / RWE</option>
-                </select>
-              </div>
-
-              <div class="calc-field-group">
-                <label for="calc-ta">Primary Therapeutic Area</label>
-                <select id="calc-ta">
-                  <option value="Oncology" selected>Oncology &amp; Hematology</option>
-                  <option value="Rare Disease">Rare &amp; Orphan Disease</option>
-                  <option value="Neurology">Neurology &amp; CNS</option>
-                  <option value="Immunology">Immunology &amp; Inflammation</option>
-                  <option value="Cardiovascular">Cardiovascular &amp; Metabolic</option>
-                </select>
-              </div>
-
-              <div class="calc-field-group">
-                <label for="calc-patients">Projected Patient Target Cohort</label>
-                <input type="number" id="calc-patients" value="150" min="10" max="10000" step="10">
-              </div>
-            </div>
-
-            <div class="calc-results-panel">
-              <h4>
-                <span>Feasibility Projection</span>
-                <span style="font-size: 0.75rem; color: var(--jss-orange); font-weight: 800;">ALIGNED WITH ICH-GCP</span>
-              </h4>
-
-              <div class="calc-metric-row">
-                <span>Site Initiation &amp; Startup:</span>
-                <span class="calc-val-highlight" id="est-startup">12 - 14 Weeks</span>
-              </div>
-
-              <div class="calc-metric-row">
-                <span>Recommended Hospital Sites:</span>
-                <span class="calc-val-highlight" id="est-sites">15 - 19 Sites (Multi-Region)</span>
-              </div>
-
-              <div class="calc-metric-row">
-                <span>Clean Database Lock Speed:</span>
-                <span class="calc-val-highlight" id="est-datalock">4 Weeks Post LPO</span>
-              </div>
-
-              <div class="calc-metric-row">
-                <span>Trevanta International Feasibility Index:</span>
-                <span class="calc-val-highlight" id="est-confidence">98.4%</span>
-              </div>
-
-              <div style="margin-top: 0.5rem; text-align: center;">
-                <button class="btn btn-jss-orange" style="width: 100%;" onclick="openRfpModal()">
-                  Request Full Feasibility Dossier &rarr;
-                </button>
-              </div>
-            </div>
+        
+        <div style="max-width: 860px; margin: 0 auto;">
+          
+          <div class="hero-top-announcement" style="margin-bottom: 1.25rem;">
+            <span class="orange-beacon"></span>
+            <span>Contact Us</span>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 4. BLOGS & CLINICAL RESEARCH INSIGHTS SECTION -->
-    @if(isset($blogs) && count($blogs))
-    <section class="blogs-section" id="blogs">
-      <div class="site-container">
-        <div class="section-header-centered">
-          <span class="eyebrow-accent">CLINICAL INSIGHTS &amp; WHITEPAPERS</span>
-          <h2 class="section-title">Latest Perspectives in Clinical Research</h2>
-          <p class="section-subtitle">
-            Expert analyses on decentralized trials, global regulatory harmonization, AI in pharmacovigilance, and advanced biostatistics.
-          </p>
-        </div>
+          <h2 style="font-size: 2.85rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 2.5rem; color: #ffffff;">
+            Let’s accelerate your <br>
+            <span class="highlight-orange">next breakthrough.</span>
+          </h2>
 
-        <!-- CATEGORY FILTER PILLS -->
-        <div class="blog-filter-bar">
-          <button class="blog-filter-btn active" onclick="filterBlogs('all', this)">All Perspectives</button>
-          @php
-            $homeCats = isset($blogs) ? $blogs->pluck('category')->unique()->filter() : collect();
-          @endphp
-          @foreach($homeCats as $cat)
-            <button class="blog-filter-btn" onclick="filterBlogs('{{ $cat }}', this)">{{ $cat }}</button>
-          @endforeach
-        </div>
-
-        <!-- BLOG CARDS GRID (DYNAMIC) -->
-        <div class="blogs-grid">
-          @foreach($blogs as $blog)
-            <article class="blog-card" data-category="{{ $blog->category }}" onclick="openArticleModal('{{ $blog->slug }}')">
-              <div class="blog-card-media">
-                <div class="blog-media-pattern"></div>
-                @if(!empty($blog->image))
-                  <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; opacity: 0.35;">
-                @endif
-                <span class="blog-card-badge">{{ $blog->badge ?: $blog->category }}</span>
-                <span class="blog-read-time">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  {{ $blog->read_time ?: '5 min read' }}
-                </span>
-                <div style="color: #ffffff; font-size: 3rem; opacity: 0.25;">
-                  @if(stripos($blog->category, 'regulat') !== false)
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  @elseif(stripos($blog->category, 'pharma') !== false || stripos($blog->category, 'safe') !== false)
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  @elseif(stripos($blog->category, 'stat') !== false || stripos($blog->category, 'data') !== false)
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                  @else
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31L4.12 20.27A1 1 0 0 0 5 22h14a1 1 0 0 0 .88-1.73L14 9.31V2"/></svg>
-                  @endif
+          <!-- CONTACT DETAILS CARDS -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; text-align: left;">
+            
+            <!-- EMAIL CARD -->
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 1.75rem 2rem; backdrop-filter: blur(8px);">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(242, 98, 36, 0.2); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; font-weight: 700;">DIRECT COMMUNICATION</span>
+                  <h4 style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin: 0;">📧 Email</h4>
                 </div>
               </div>
-              <div class="blog-card-body">
-                <span class="blog-meta-date">
-                  {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Recent' }}
-                </span>
-                <h3 class="blog-card-title">{{ $blog->title }}</h3>
-                <p class="blog-card-excerpt">
-                  {{ $blog->summary }}
-                </p>
-                <div class="blog-author-bar">
-                  <div class="blog-author-info">
-                    <div class="blog-author-avatar">{{ $blog->author_avatar ?: 'AC' }}</div>
-                    <div>
-                      <div class="blog-author-name">{{ $blog->author_name }}</div>
-                      <div class="blog-author-title">{{ $blog->author_title ?: 'Clinical Research Team' }}</div>
-                    </div>
-                  </div>
-                  <a href="{{ route('blog.show', $blog->slug) }}" class="blog-read-btn" onclick="event.stopPropagation();">
-                    Read Article &rarr;
-                  </a>
+              <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.15rem; color: #ffffff; font-weight: 600; text-decoration: none; word-break: break-all; transition: color 0.2s ease;" onmouseover="this.style.color='var(--jss-orange)'" onmouseout="this.style.color='#ffffff'">
+                {{ setting('contact_email', 'info@trevanta.com') }}
+              </a>
+            </div>
+
+            <!-- GLOBAL OFFICES CARD -->
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 1.75rem 2rem; backdrop-filter: blur(8px);">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(242, 98, 36, 0.2); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                  <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <div>
+                  <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; font-weight: 700;">WORLDWIDE PRESENCE</span>
+                  <h4 style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin: 0;">🌍 Global Offices</h4>
                 </div>
               </div>
-            </article>
-          @endforeach
+              <p style="font-size: 1.1rem; color: #cbd5e1; font-weight: 600; margin: 0;">
+                (To be added)
+              </p>
+            </div>
+
+          </div>
+
+          <!-- GET IN TOUCH CTA -->
+          <div>
+            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.5rem; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(242, 98, 36, 0.4);">
+              Get in Touch &rarr;
+            </button>
+          </div>
+
         </div>
 
-        <div class="text-center" style="margin-top: 3rem;">
-          <a href="{{ route('blog') }}" class="btn btn-jss-outline btn-lg">View All Clinical Whitepapers &amp; Articles &rarr;</a>
-        </div>
-      </div>
-    </section>
-    @endif
-
-    @if(isset($blogs) && count($blogs))
-      <script>
-        window.blogArticlesDatabase = Object.assign(window.blogArticlesDatabase || {}, {
-          @foreach($blogs as $b)
-            @php
-              $bDate = $b->published_at ? $b->published_at->format('F d, Y') : 'September 2026';
-            @endphp
-            "{!! addslashes($b->slug) !!}": {
-              category: {!! json_encode($b->category) !!},
-              readTime: {!! json_encode($b->read_time ?: '5 min read') !!},
-              date: {!! json_encode($bDate) !!},
-              author: {
-                name: {!! json_encode($b->author_name) !!},
-                title: {!! json_encode($b->author_title ?: 'Clinical Research Team') !!},
-                avatar: {!! json_encode($b->author_avatar ?: 'AC') !!}
-              },
-              title: {!! json_encode($b->title) !!},
-              summary: {!! json_encode($b->summary) !!},
-              content: {!! json_encode($b->content) !!}
-            }@if(!$loop->last),@endif
-          @endforeach
-        });
-      </script>
-    @endif
-
-    <!-- 5. CRO FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) -->
-    <section class="faq-section" id="faq">
-      <div class="site-container">
-        <div class="section-header-centered">
-          <span class="eyebrow-accent">SPONSOR INQUIRIES</span>
-          <h2 class="section-title">Frequently Asked Questions</h2>
-          <p class="section-subtitle">
-            Essential answers on study start-up speed, investigator site oversight, electronic systems, and rescue trial management.
-          </p>
-        </div>
-
-        <div class="faq-container">
-          <!-- FAQ ITEM 1 -->
-          <div class="faq-item active">
-            <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>How rapidly can Trevanta International activate clinical investigator sites globally?</span>
-              <div class="faq-chevron">&#9660;</div>
-            </button>
-            <div class="faq-answer">
-              Our average site startup velocity across North America and Western Europe is 10 to 12 weeks from finalized protocol synopsis to First Patient In (FPI). In high-recruiting regional hubs such as Eastern Europe and India, we frequently achieve regulatory approval and site initiation within 7 to 9 weeks due to pre-negotiated Master Clinical Trial Agreements (MCTAs) with over 8,500 qualified hospital institutions.
-            </div>
-          </div>
-
-          <!-- FAQ ITEM 2 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>What Electronic Data Capture (EDC) and eClinical platforms do you support?</span>
-              <div class="faq-chevron">&#9660;</div>
-            </button>
-            <div class="faq-answer">
-              We operate fully validated 21 CFR Part 11 compliant environments supporting industry-standard platforms including Medidata Rave, Oracle InForm, Castor, and Veeva Vault CDMS. Our data management team standardizes all eCRF builds directly onto CDISC SDTM structures, accelerating clean database locks to within 15 business days post Last Patient Out (LPO).
-            </div>
-          </div>
-
-          <!-- FAQ ITEM 3 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>Can Trevanta International rescue an underperforming or stalled trial from another CRO?</span>
-              <div class="faq-chevron">&#9660;</div>
-            </button>
-            <div class="faq-answer">
-              Yes. Over 25% of our historical Phase II and III workload consists of study rescue transitions. Our rapid-response Transition Task Force performs comprehensive regulatory gap analyses, reconciles investigator trial master files (eTMF), stabilizes site relationships, and activates backup patient recruitment sites within 30 days of sponsor handover.
-            </div>
-          </div>
-
-          <!-- FAQ ITEM 4 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>How do your pharmacovigilance teams manage expedited regulatory safety reporting?</span>
-              <div class="faq-chevron">&#9660;</div>
-            </button>
-            <div class="faq-answer">
-              Our safety directorate operates 24/7/365 multi-lingual medical triage handling ICSR intake, medical coding (MedDRA), and serious adverse event (SAE) narratives. We maintain direct electronic gateways (E2B-R3) to US FDA FAERS, EMA EudraVigilance, and MHRA, consistently maintaining a 99.8% on-time submission rate for 7-day and 15-day expedited alerts.
-            </div>
-          </div>
-
-          <!-- FAQ ITEM 5 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span>What is your audit track record with the US FDA and European health authorities?</span>
-              <div class="faq-chevron">&#9660;</div>
-            </button>
-            <div class="faq-answer">
-              Trevanta International maintains an unblemished regulatory inspection track record, with zero FDA Form 483 critical observations and zero European inspection findings across all corporate headquarters and audited investigator sites. We are ISO 9001:2015 certified and offer sponsors unrestricted audit access to our Quality Management System (QMS).
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT & STUDY INQUIRY SECTION -->
-    <section class="jss-contact-section" id="contact">
-      <div class="site-container">
-        <div class="contact-box-jss">
-          <div class="contact-header text-center">
-            <span class="eyebrow-jss">CONFIDENTIAL STUDY CONSULTATION</span>
-            <h2>Initiate Your Clinical Study RFP</h2>
-            <p>Connect with our Medical Directors and Biostatistical leads for a preliminary feasibility review.</p>
-          </div>
-
-          <form class="jss-form" id="jss-contact-form" onsubmit="handleJssSubmit(event)">
-            <div class="form-row-2">
-              <div class="j-field">
-                <label for="j-name">Full Name *</label>
-                <input type="text" id="j-name" required placeholder="Dr. Sarah Jenkins">
-              </div>
-              <div class="j-field">
-                <label for="j-email">Corporate Work Email *</label>
-                <input type="email" id="j-email" required placeholder="sjenkins@biopharma.com">
-              </div>
-            </div>
-
-            <div class="form-row-2">
-              <div class="j-field">
-                <label for="j-company">Company / Organization *</label>
-                <input type="text" id="j-company" required placeholder="Apex Therapeutics Inc.">
-              </div>
-              <div class="j-field">
-                <label for="j-phone">Direct Phone *</label>
-                <input type="tel" id="j-phone" required placeholder="+1 (555) 234-5678">
-              </div>
-            </div>
-
-            <div class="form-row-2">
-              <div class="j-field">
-                <label for="j-phase">Clinical Trial Phase *</label>
-                <select id="j-phase" required>
-                  <option value="Phase I">Phase I (First-in-Human / PK/PD)</option>
-                  <option value="Phase II" selected>Phase II (Proof-of-Concept / Dose Finding)</option>
-                  <option value="Phase III">Phase III (Pivotal Global Confirmatory)</option>
-                  <option value="Phase IV">Phase IV / Post-Marketing Surveillance / RWE</option>
-                  <option value="Medical Device">Medical Device Clinical Evaluation</option>
-                  <option value="PV Outsourcing">Pharmacovigilance Dedicated Outsourcing</option>
-                </select>
-              </div>
-              <div class="j-field">
-                <label for="j-ta">Therapeutic Area *</label>
-                <select id="j-ta" required>
-                  <option value="Oncology">Oncology &amp; Hematology</option>
-                  <option value="Neurology">Neurology &amp; CNS</option>
-                  <option value="Immunology">Immunology &amp; Inflammation</option>
-                  <option value="Rare Disease">Rare &amp; Orphan Indications</option>
-                  <option value="Cardiovascular">Cardiovascular &amp; Metabolic</option>
-                  <option value="Other">Other Indication</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="j-field">
-              <label for="j-synopsis">Study Objectives &amp; Synopsis (Confidential)</label>
-              <textarea id="j-synopsis" rows="3" placeholder="Provide target enrollment size, projected start date, countries of interest, and required services (Clinical Ops, Pharmacovigilance, Biostatistics)..."></textarea>
-            </div>
-
-            <div class="j-checkbox">
-              <input type="checkbox" id="j-nda" checked required>
-              <label for="j-nda">Request mutual non-disclosure agreement (CDA/NDA) executed prior to protocol exchange.</label>
-            </div>
-
-            <div class="text-center">
-              <button type="submit" class="btn btn-jss-orange btn-lg" id="j-submit-btn">
-                Submit Formal Study Proposal (RFP) &rarr;
-              </button>
-            </div>
-          </form>
-        </div>
       </div>
     </section>
 
