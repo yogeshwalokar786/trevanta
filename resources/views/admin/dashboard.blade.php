@@ -56,30 +56,16 @@
 @endpush
 
 @section('content')
-<!-- Executive Content Header -->
+<!-- Content Header -->
 <div class="content-header py-3">
   <div class="container-fluid px-3">
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
       <div>
-        <div class="d-flex align-items-center mb-1">
-          <h1 class="m-0 font-weight-bold text-dark text-lg" style="font-size: 1.45rem;">
-            Clinical Operations Dashboard
-          </h1>
-          <span class="badge badge-success ml-3 px-2 py-1 text-xs font-weight-500" style="font-size: 11px; background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0;">
-            <i class="fas fa-circle mr-1 text-xs" style="font-size: 7px; color: #10b981;"></i> System Live
-          </span>
-        </div>
-        <p class="text-muted text-xs mb-0">
-          Welcome back, <strong>{{ Auth::user()->name ?? 'Administrator' }}</strong> &bull; Monitor sponsor submissions, active study RFPs, and publication performance.
-        </p>
+        <h1 class="m-0 font-weight-bold text-dark" style="font-size: 1.5rem;">Dashboard</h1>
       </div>
-
       <div class="d-flex align-items-center gap-2 mt-2 mt-sm-0">
         <a href="{{ route('admin.inquiries.index') }}" class="btn btn-primary btn-sm px-3 shadow-xs font-weight-bold">
-          <i class="fas fa-envelope-open-text mr-1"></i> Enquiries Hub
-        </a>
-        <a href="{{ route('admin.blogs.create') }}" class="btn btn-white btn-sm px-3 shadow-xs font-weight-bold">
-          <i class="fas fa-plus mr-1 text-primary"></i> New Article
+          <i class="fas fa-envelope-open-text mr-1"></i> Enquiries
         </a>
       </div>
     </div>
