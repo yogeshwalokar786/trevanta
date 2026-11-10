@@ -92,6 +92,15 @@
       border-right: 1px solid var(--admin-border) !important;
       box-shadow: none !important;
       width: 255px !important;
+      height: 100vh !important;
+      position: fixed !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: hidden !important;
+      z-index: 1038 !important;
     }
 
     .sidebar-brand {
@@ -100,6 +109,29 @@
       display: flex;
       align-items: center;
       text-decoration: none !important;
+      flex-shrink: 0 !important;
+      height: 65px;
+    }
+
+    .main-sidebar .sidebar {
+      flex: 1 1 auto !important;
+      height: auto !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding-bottom: 3rem !important;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .main-sidebar .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .main-sidebar .sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .main-sidebar .sidebar::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     .sidebar-nav-heading {
@@ -352,16 +384,18 @@
 
     /* Sidebar Footer Profile */
     .sidebar-user-footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1rem 1.25rem;
+      position: relative !important;
+      flex-shrink: 0 !important;
+      bottom: auto !important;
+      left: auto !important;
+      right: auto !important;
+      padding: 0.85rem 1.25rem;
       border-top: 1px solid var(--admin-border);
       background-color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      z-index: 10;
     }
 
     /* Admin Navbar & Mobile Responsiveness */
