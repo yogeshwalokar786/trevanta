@@ -513,6 +513,24 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('admin.inquiries.index') }}" class="nav-link {{ request()->routeIs('admin.inquiries.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-envelope-open-text"></i>
+              <p>
+                Enquiries
+                @php
+                  $newInquiriesBadge = 0;
+                  try {
+                    $newInquiriesBadge = \App\Models\Inquiry::where('status', 'new')->count();
+                  } catch (\Throwable $e) {}
+                @endphp
+                @if($newInquiriesBadge > 0)
+                  <span class="badge badge-warning right font-weight-bold" style="background-color: #f59e0b; color: #fff;">{{ $newInquiriesBadge }}</span>
+                @endif
+              </p>
+            </a>
+          </li>
+
           <li class="sidebar-nav-heading">Publications &amp; Media</li>
 
           <li class="nav-item">

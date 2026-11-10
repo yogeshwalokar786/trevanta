@@ -137,8 +137,8 @@
           <p class="text-muted text-xs mb-0">Review clinical sponsor submissions and update review statuses.</p>
         </div>
         
-        <!-- Filter Pills -->
-        <div class="mt-2 mt-md-0">
+        <!-- Filter Pills & Enquiries Page Link -->
+        <div class="mt-2 mt-md-0 d-flex align-items-center">
           <div class="btn-group btn-group-sm">
             <a href="{{ route('admin.dashboard') }}" class="btn {{ !request()->has('filter') ? 'btn-primary' : 'btn-white' }}">
               All ({{ $totalInquiries }})
@@ -153,6 +153,9 @@
               Pending ({{ $pendingRfps }})
             </a>
           </div>
+          <a href="{{ route('admin.inquiries.index') }}" class="btn btn-white btn-sm ml-2 text-primary font-weight-bold" title="Open dedicated Enquiries manager">
+            <i class="fas fa-envelope-open-text mr-1"></i> All Enquiries &rarr;
+          </a>
         </div>
       </div>
 

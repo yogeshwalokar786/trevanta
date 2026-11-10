@@ -62,9 +62,12 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-        Route::get('/inquiries', fn () => redirect()->route('admin.dashboard'))->name('admin.inquiries');
-        Route::patch('/inquiries/{id}/status', [DashboardController::class, 'updateStatus'])->name('admin.inquiries.status');
-        Route::delete('/inquiries/{id}', [DashboardController::class, 'destroy'])->name('admin.inquiries.destroy');
+        // Clinical Inquiries & Study RFPs
+        Route::get('/inquiries', [\App\Http\Controllers\Admin\InquiryController::class, 'index'])->name('admin.inquiries.index');
+        Route::get('/inquiries/all', fn () => redirect()->route('admin.inquiries.index'))->name('admin.inquiries');
+        Route::get('/inquiries/{id}', [\App\Http\Controllers\Admin\InquiryController::class, 'show'])->name('admin.inquiries.show');
+        Route::patch('/inquiries/{id}/status', [\App\Http\Controllers\Admin\InquiryController::class, 'updateStatus'])->name('admin.inquiries.status');
+        Route::delete('/inquiries/{id}', [\App\Http\Controllers\Admin\InquiryController::class, 'destroy'])->name('admin.inquiries.destroy');
 
         // Blogs & Insights Management
         Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class, ['as' => 'admin']);
