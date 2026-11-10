@@ -3,6 +3,29 @@
 @section('title', ($policy->meta_title ?: $policy->title) . ' | ' . setting('site_name', 'Trevanta International'))
 @section('description', $policy->meta_description ?: ($policy->summary ?: 'Official corporate policy, clinical compliance framework, and legal disclosure for Trevanta International.'))
 
+@push('seo')
+  <link rel="canonical" href="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/policy/{{ $policy->slug }}">
+  <meta name="robots" content="{{ setting('meta_robots_default', 'index, follow') }}">
+  @if($policy->meta_keywords)
+    <meta name="keywords" content="{{ $policy->meta_keywords }}">
+  @endif
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{ setting('site_name', 'Trevanta International') }}">
+  <meta property="og:title" content="{{ ($policy->meta_title ?: $policy->title) . ' | ' . setting('site_name', 'Trevanta International') }}">
+  <meta property="og:description" content="{{ $policy->meta_description ?: ($policy->summary ?: 'Official corporate policy, clinical compliance framework, and legal disclosure for Trevanta International.') }}">
+  <meta property="og:url" content="{{ route('policy.show', $policy->slug) }}">
+  @php
+    $policyOgUrl = asset(setting('home_og_image', 'images/doctor-consultation.jpg'));
+  @endphp
+  <meta property="og:image" content="{{ $policyOgUrl }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ($policy->meta_title ?: $policy->title) . ' | ' . setting('site_name', 'Trevanta International') }}">
+  <meta name="twitter:description" content="{{ $policy->meta_description ?: ($policy->summary ?: 'Official corporate policy, clinical compliance framework, and legal disclosure for Trevanta International.') }}">
+  <meta name="twitter:image" content="{{ $policyOgUrl }}">
+@endpush
+
 @section('content')
   <!-- SUBPAGE HERO -->
   <section class="subpage-hero">

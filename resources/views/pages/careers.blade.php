@@ -4,14 +4,27 @@
 @section('description', setting('careers_meta_description', setting('careers_heading', 'Join a team committed to improving global health.')))
 
 @push('seo')
+  <link rel="canonical" href="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/careers">
+  <meta name="robots" content="{{ setting('meta_robots_default', 'index, follow') }}">
   @if(setting('careers_meta_keywords'))
     <meta name="keywords" content="{{ setting('careers_meta_keywords') }}">
   @endif
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ setting('site_name', 'Trevanta International') }}">
   <meta property="og:title" content="{{ setting('careers_meta_title', 'Careers | ' . setting('site_name', 'Trevanta International')) }}">
   <meta property="og:description" content="{{ setting('careers_meta_description', setting('careers_heading', 'Join a team committed to improving global health.')) }}">
-  <meta property="og:image" content="{{ asset(setting('careers_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:url" content="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/careers">
+  @php
+    $careersOg = setting('careers_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'));
+    $careersOgUrl = asset($careersOg);
+  @endphp
+  <meta property="og:image" content="{{ $careersOgUrl }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ setting('careers_meta_title', 'Careers | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta name="twitter:description" content="{{ setting('careers_meta_description', setting('careers_heading', 'Join a team committed to improving global health.')) }}">
+  <meta name="twitter:image" content="{{ $careersOgUrl }}">
 @endpush
 
 @section('content')

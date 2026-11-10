@@ -4,14 +4,27 @@
 @section('description', setting('about_meta_description', 'Trevanta is established by a team of highly-qualified clinical research industry professionals with diverse experience in pharmaceutical industry.'))
 
 @push('seo')
+  <link rel="canonical" href="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/about">
+  <meta name="robots" content="{{ setting('meta_robots_default', 'index, follow') }}">
   @if(setting('about_meta_keywords'))
     <meta name="keywords" content="{{ setting('about_meta_keywords') }}">
   @endif
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ setting('site_name', 'Trevanta International') }}">
   <meta property="og:title" content="{{ setting('about_meta_title', 'About Us | ' . setting('site_name', 'Trevanta International')) }}">
   <meta property="og:description" content="{{ setting('about_meta_description', 'Trevanta is established by a team of highly-qualified clinical research industry professionals with diverse experience in pharmaceutical industry.') }}">
-  <meta property="og:image" content="{{ asset(setting('about_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:url" content="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/about">
+  @php
+    $aboutOg = setting('about_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'));
+    $aboutOgUrl = asset($aboutOg);
+  @endphp
+  <meta property="og:image" content="{{ $aboutOgUrl }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ setting('about_meta_title', 'About Us | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta name="twitter:description" content="{{ setting('about_meta_description', 'Trevanta is established by a team of highly-qualified clinical research industry professionals with diverse experience in pharmaceutical industry.') }}">
+  <meta name="twitter:image" content="{{ $aboutOgUrl }}">
 @endpush
 
 @section('content')

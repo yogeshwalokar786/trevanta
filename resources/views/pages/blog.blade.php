@@ -1,7 +1,28 @@
 @extends('layouts.app')
 
-@section('title', 'Insights & Clinical Research Blogs | Trevanta International')
+@section('title', 'Insights & Clinical Research Blogs | ' . setting('site_name', 'Trevanta International'))
 @section('description', 'Explore peer-reviewed perspectives, regulatory briefings, decentralized trial methodologies, and biostatistical breakthroughs from Trevanta International Medical Directors.')
+
+@push('seo')
+  <link rel="canonical" href="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/blog">
+  <meta name="robots" content="{{ setting('meta_robots_default', 'index, follow') }}">
+  <meta name="keywords" content="clinical research blogs, CRO insights, pharmacovigilance articles, biostatistics whitepapers, clinical trials blog, Trevanta insights">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ setting('site_name', 'Trevanta International') }}">
+  <meta property="og:title" content="Insights &amp; Clinical Research Blogs | {{ setting('site_name', 'Trevanta International') }}">
+  <meta property="og:description" content="Explore peer-reviewed perspectives, regulatory briefings, decentralized trial methodologies, and biostatistical breakthroughs from Trevanta International Medical Directors.">
+  <meta property="og:url" content="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/blog">
+  @php
+    $blogOgUrl = asset(setting('home_og_image', 'images/doctor-consultation.jpg'));
+  @endphp
+  <meta property="og:image" content="{{ $blogOgUrl }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insights &amp; Clinical Research Blogs | {{ setting('site_name', 'Trevanta International') }}">
+  <meta name="twitter:description" content="Explore peer-reviewed perspectives, regulatory briefings, decentralized trial methodologies, and biostatistical breakthroughs from Trevanta International Medical Directors.">
+  <meta name="twitter:image" content="{{ $blogOgUrl }}">
+@endpush
 
 @section('content')
   <!-- SUBPAGE HERO -->

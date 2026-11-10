@@ -4,14 +4,27 @@
 @section('description', setting('services_meta_description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.'))
 
 @push('seo')
+  <link rel="canonical" href="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/services">
+  <meta name="robots" content="{{ setting('meta_robots_default', 'index, follow') }}">
   @if(setting('services_meta_keywords'))
     <meta name="keywords" content="{{ setting('services_meta_keywords') }}">
   @endif
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ setting('site_name', 'Trevanta International') }}">
   <meta property="og:title" content="{{ setting('services_meta_title', 'Clinical Research Services & CRO Solutions | ' . setting('site_name', 'Trevanta International')) }}">
   <meta property="og:description" content="{{ setting('services_meta_description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.') }}">
-  <meta property="og:image" content="{{ asset(setting('services_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:url" content="{{ rtrim(setting('canonical_url_base', url('/')), '/') }}/services">
+  @php
+    $servicesOg = setting('services_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'));
+    $servicesOgUrl = asset($servicesOg);
+  @endphp
+  <meta property="og:image" content="{{ $servicesOgUrl }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ setting('services_meta_title', 'Clinical Research Services & CRO Solutions | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta name="twitter:description" content="{{ setting('services_meta_description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.') }}">
+  <meta name="twitter:image" content="{{ $servicesOgUrl }}">
 @endpush
 
 @section('content')

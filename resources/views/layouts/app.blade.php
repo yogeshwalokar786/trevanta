@@ -220,7 +220,7 @@
 
     <div class="footer-legal">
       <div class="site-container legal-flex">
-        <p>{{ setting('footer_copyright', '© ' . date('Y') . ' Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.') }}</p>
+        <p>{{ setting('footer_copyright', '© ' . date('Y') . ' Trevanta International Inc. All rights reserved.') }}</p>
         <div class="legal-menu">
           <a href="{{ route('policy.show', 'privacy-statement') }}">Privacy Statement</a>
           <a href="{{ route('policy.show', 'terms-of-use') }}">Terms of Use</a>
