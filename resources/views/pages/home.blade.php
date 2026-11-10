@@ -789,105 +789,59 @@
       </div>
     </section>
 
-    <!-- FINAL SECTION: CONTACT US (LIGHT THEME) -->
-    <section class="home-contact-final" id="contact" style="padding: 6rem 0; background: #f8fafc; border-top: 1px solid #e2e8f0; color: #1e293b; text-align: center;">
+    <!-- FINAL SECTION: CONTACT US (SIMPLE & ELEGANT) -->
+    <section class="home-contact-simple" id="contact" style="padding: 5.5rem 0; background: #ffffff; border-top: 1px solid #eef2f6; text-align: center;">
       <div class="site-container">
-        
-        <div style="max-width: 920px; margin: 0 auto;">
+        <div style="max-width: 820px; margin: 0 auto;">
           
-          <div class="hero-top-announcement" style="margin-bottom: 1.25rem;">
+          <div class="hero-top-announcement" style="margin-bottom: 1rem;">
             <span class="orange-beacon"></span>
             <span>Contact Us</span>
           </div>
 
-          <h2 style="font-size: 2.85rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 2.75rem; color: #1e293b;">
-            Let’s accelerate your <br>
-            <span class="highlight-orange">next breakthrough.</span>
+          <h2 style="font-size: 2.6rem; font-weight: 800; color: #1e293b; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 2.75rem;">
+            Let’s accelerate your <span class="highlight-orange">next breakthrough.</span>
           </h2>
 
-          <!-- CONTACT DETAILS CARDS (2-COLUMN: EMAIL & SINGLE ADDRESS) -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3rem; text-align: left;">
+          <!-- SIMPLE CONTACT DETAILS ROW -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem 4rem; margin-bottom: 3rem; text-align: left;">
             
-            <!-- EMAIL CARD -->
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 2.25rem; box-shadow: 0 4px 20px rgba(18, 30, 45, 0.05); display: flex; flex-direction: column; justify-content: space-between;">
-              <div>
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
-                  <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(242, 98, 36, 0.1); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.2);">
-                    <i class="fa-solid fa-envelope"></i>
-                  </div>
-                  <div>
-                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #64748b; font-weight: 700;">DIRECT COMMUNICATION</span>
-                    <h3 style="font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 0;">Email</h3>
-                  </div>
-                </div>
-                
-                <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 1.25rem; line-height: 1.6;">
-                  Connect directly with our clinical affairs and proposal review team for study inquiries, feasibility evaluations, or partnerships:
-                </p>
-
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
-                  <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.15rem; color: #1e293b; font-weight: 700; text-decoration: none; word-break: break-all; display: inline-flex; align-items: center; gap: 0.6rem; transition: color 0.2s ease;" onmouseover="this.style.color='var(--jss-orange)'" onmouseout="this.style.color='#1e293b'">
-                    <i class="fa-solid fa-paper-plane" style="font-size: 0.95rem; color: var(--jss-orange);"></i>
-                    <span>{{ setting('contact_email', 'info@trevanta.com') }}</span>
-                  </a>
-                </div>
+            <!-- EMAIL -->
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(242, 98, 36, 0.08); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; border: 1px solid rgba(242, 98, 36, 0.18);">
+                <i class="fa-solid fa-envelope"></i>
               </div>
-
-              <div style="padding-top: 1.25rem; border-top: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.65rem; font-size: 0.82rem; color: #64748b;">
-                <i class="fa-solid fa-shield-halved" style="color: var(--jss-orange); font-size: 0.95rem;"></i>
-                <span>All protocol discussions and study outlines are protected by mutual corporate NDA.</span>
+              <div>
+                <span style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #64748b; margin-bottom: 0.25rem;">Email</span>
+                <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.15rem; font-weight: 600; color: #1e293b; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='var(--jss-orange)'" onmouseout="this.style.color='#1e293b'">
+                  {{ setting('contact_email', 'info@trevanta.com') }}
+                </a>
               </div>
             </div>
 
-            <!-- SINGLE ADDRESS CARD -->
-            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 2.25rem; box-shadow: 0 4px 20px rgba(18, 30, 45, 0.05); display: flex; flex-direction: column; justify-content: space-between;">
-              <div>
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
-                  <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(242, 98, 36, 0.1); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.2);">
-                    <i class="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div>
-                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #64748b; font-weight: 700;">WORLDWIDE HEADQUARTERS</span>
-                    <h3 style="font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 0;">Global Offices</h3>
-                  </div>
-                </div>
-
-                <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 1.25rem; line-height: 1.6;">
-                  Visit or correspond with our central leadership team and executive clinical operations:
-                </p>
-
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
-                  <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                    <i class="fa-solid fa-building" style="color: var(--jss-orange); margin-top: 0.25rem; font-size: 1rem; flex-shrink: 0;"></i>
-                    <div>
-                      <strong style="display: block; font-size: 0.85rem; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.2rem;">
-                        Corporate Headquarters (Canada)
-                      </strong>
-                      <span style="font-size: 0.98rem; color: #334155; line-height: 1.6; font-weight: 500;">
-                        {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+            <!-- GLOBAL OFFICES (SINGLE ADDRESS) -->
+            <div style="display: flex; align-items: flex-start; gap: 1rem; max-width: 440px;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(242, 98, 36, 0.08); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; border: 1px solid rgba(242, 98, 36, 0.18);">
+                <i class="fa-solid fa-location-dot"></i>
               </div>
-
-              <div style="padding-top: 1.25rem; border-top: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.65rem; font-size: 0.82rem; color: #64748b;">
-                <i class="fa-solid fa-earth-americas" style="color: var(--jss-orange); font-size: 0.95rem;"></i>
-                <span>Operating across 28 countries with dedicated local clinical networks.</span>
+              <div>
+                <span style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #64748b; margin-bottom: 0.25rem;">Global Offices</span>
+                <span style="font-size: 1.05rem; font-weight: 500; color: #334155; line-height: 1.5; display: block;">
+                  {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}
+                </span>
               </div>
             </div>
 
           </div>
 
-          <!-- GET IN TOUCH CTA -->
+          <!-- CTA BUTTON -->
           <div>
-            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.75rem; font-size: 1.1rem; box-shadow: 0 4px 18px rgba(242, 98, 36, 0.35);">
+            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 0.95rem 2.5rem; font-size: 1.05rem;">
               Get in Touch &rarr;
             </button>
           </div>
 
         </div>
-
       </div>
     </section>
 
