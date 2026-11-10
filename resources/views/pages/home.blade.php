@@ -359,66 +359,6 @@
       </div>
     </section>
 
-    <!-- 2. SPONSOR CASE STUDIES & PROVEN RESULTS -->
-    <section class="case-studies-section" id="case-studies">
-      <div class="site-container">
-        <div class="section-header-centered">
-          <span class="eyebrow-accent">DEMONSTRATED RESULTS</span>
-          <h2 class="section-title">Case Studies in Clinical Execution</h2>
-          <p class="section-subtitle">
-            How Trevanta International helped biopharmaceutical and medical device sponsors overcome recruitment bottlenecks, regulatory hurdles, and compressed timelines.
-          </p>
-        </div>
-
-        <div class="case-grid">
-          <!-- CASE 1 -->
-          <article class="case-card">
-            <span class="case-metric-pill">+114% Target Enrollment</span>
-            <span class="case-indication">Oncology • Phase III Global Trial</span>
-            <h3 class="case-title">Pivotal Non-Small Cell Lung Cancer Multi-Regional Study</h3>
-            <p class="case-body">
-              A US biotech faced severe enrollment stagnation in North America due to competing trials. Trevanta International activated 42 additional vetted hospital sites across Eastern Europe and India within 9 weeks, completing full enrollment 3 months ahead of corporate milestones.
-            </p>
-            <div class="case-stats-row">
-              <span>Timeline: <strong>-3 Months</strong></span>
-              <span>Sites: <strong>68 Total</strong></span>
-              <span>Data Cleanliness: <strong>99.6%</strong></span>
-            </div>
-          </article>
-
-          <!-- CASE 2 -->
-          <article class="case-card">
-            <span class="case-metric-pill">6 Weeks IND Clearance</span>
-            <span class="case-indication">Rare Disease • Phase II PoC</span>
-            <h3 class="case-title">Expedited Orphan Drug Authorization for Pediatric Neurodegenerative Indication</h3>
-            <p class="case-body">
-              Sponsor needed synchronized submissions across FDA, EMA, and Health Canada for an ultra-rare pediatric formulation. Our regulatory team drafted complete eCTD Modules 1-5, secured orphan drug designation (ODD), and obtained ethical approvals with zero clinical holds.
-            </p>
-            <div class="case-stats-row">
-              <span>Regulatory Speed: <strong>6 Weeks</strong></span>
-              <span>Agency Holds: <strong>Zero</strong></span>
-              <span>Retention: <strong>100%</strong></span>
-            </div>
-          </article>
-
-          <!-- CASE 3 -->
-          <article class="case-card">
-            <span class="case-metric-pill">99.8% On-Time Submission</span>
-            <span class="case-indication">Pharmacovigilance • Global Outsourcing</span>
-            <h3 class="case-title">Enterprise Safety &amp; ICSR Processing for Commercialized Biologic Portfolio</h3>
-            <p class="case-body">
-              Mid-sized commercial pharma needed to outsource post-marketing safety oversight for 14 licensed oncology therapeutics. Trevanta International deployed a 24/7 multi-lingual intake and automated signal detection pipeline processing 45,000 cases annually without a single late filing.
-            </p>
-            <div class="case-stats-row">
-              <span>Annual Cases: <strong>45,000+</strong></span>
-              <span>Audit Result: <strong>Clean Pass</strong></span>
-              <span>Cost Savings: <strong>38%</strong></span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- GLOBAL NETWORK & INTERACTIVE MAP SECTION (Directly from JSS & Clinexel) -->
     <section class="jss-global-section" id="global">
       <div class="site-container">
