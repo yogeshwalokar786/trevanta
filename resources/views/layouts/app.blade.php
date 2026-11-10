@@ -63,7 +63,7 @@
       </li>
       <li class="menu-item">
         <a href="{{ route('careers') }}" class="menu-link {{ request()->routeIs('careers') ? 'active' : '' }}">
-          <span>Career's</span>
+          <span>Careers</span>
           <svg class="menu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </li>
@@ -150,7 +150,7 @@
             <li class="menu-item"><a href="{{ route('home') }}" class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
             <li class="menu-item"><a href="{{ route('about') }}" class="menu-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
             <li class="menu-item"><a href="{{ route('services') }}" class="menu-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
-            <li class="menu-item"><a href="{{ route('careers') }}" class="menu-link {{ request()->routeIs('careers') ? 'active' : '' }}">Career's</a></li>
+            <li class="menu-item"><a href="{{ route('careers') }}" class="menu-link {{ request()->routeIs('careers') ? 'active' : '' }}">Careers</a></li>
             <li class="menu-item"><a href="{{ route('blog') }}" class="menu-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Blog</a></li>
             <li class="menu-item"><a href="{{ route('contact') }}" class="menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
           </ul>
@@ -177,6 +177,7 @@
         </p>
         <p class="f-contact-info">
           <strong>Corporate HQ:</strong> {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}<br>
+          <strong>Hotline:</strong> <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}">{{ setting('phone_na', '+1 (514) 934-0805') }}</a><br>
           <strong>Email:</strong> <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}">{{ setting('contact_email', 'info@trevanta.com') }}</a>
         </p>
       </div>
@@ -195,14 +196,27 @@
       </div>
 
       <div class="f-links-col">
-        <h4>Regional Offices</h4>
+        <h4>Compliance &amp; Legal</h4>
         <ul>
-          <li><a href="{{ route('global') }}">Montreal, Canada (HQ)</a></li>
-          <li><a href="{{ route('global') }}">Boston &amp; California, USA</a></li>
-          <li><a href="{{ route('global') }}">London, United Kingdom</a></li>
-          <li><a href="{{ route('global') }}">Mumbai &amp; Faridabad, India</a></li>
-          <li><a href="{{ route('global') }}">Bogotá, Colombia</a></li>
-          <li><a href="{{ route('global') }}">Warsaw, Poland</a></li>
+          @php
+            $footerPoliciesList = collect();
+            try {
+              $footerPoliciesList = \App\Models\Policy::where('is_active', true)->orderBy('order')->orderBy('title')->take(7)->get();
+            } catch (\Throwable $e) {}
+          @endphp
+          @if($footerPoliciesList->isNotEmpty())
+            @foreach($footerPoliciesList as $fp)
+              <li><a href="{{ route('policy.show', $fp->slug) }}">{{ $fp->title }}</a></li>
+            @endforeach
+          @else
+            <li><a href="{{ route('policy.show', 'privacy-statement') }}">Privacy Statement</a></li>
+            <li><a href="{{ route('policy.show', 'terms-of-use') }}">Terms of Use</a></li>
+            <li><a href="{{ route('policy.show', 'gcp-statement') }}">GCP Statement</a></li>
+            <li><a href="{{ route('policy.show', 'whistleblower-notice') }}">Whistleblower Notice</a></li>
+            <li><a href="{{ route('policy.show', 'cookie-policy') }}">Cookie Policy</a></li>
+            <li><a href="{{ route('policy.show', 'electronic-records-policy') }}">21 CFR Part 11 Policy</a></li>
+            <li><a href="{{ route('policy.show', 'anti-bribery-policy') }}">Anti-Bribery Policy</a></li>
+          @endif
         </ul>
       </div>
 
@@ -212,8 +226,9 @@
           <li><a href="{{ route('home') }}">Home</a></li>
           <li><a href="{{ route('about') }}">About Us</a></li>
           <li><a href="{{ route('services') }}">Services</a></li>
-          <li><a href="{{ route('careers') }}">Career's</a></li>
+          <li><a href="{{ route('careers') }}">Careers</a></li>
           <li><a href="{{ route('blog') }}">Insights &amp; Blog</a></li>
+          <li><a href="{{ route('global') }}">Global Reach</a></li>
           <li><a href="{{ route('contact') }}">Contact Us</a></li>
         </ul>
       </div>
@@ -223,22 +238,10 @@
       <div class="site-container legal-flex">
         <p>{{ setting('footer_copyright', '© ' . date('Y') . ' Trevanta International Inc. All rights reserved. Compliant with 21 CFR Part 11, ICH-GCP, and GDPR.') }}</p>
         <div class="legal-menu">
-          @php
-            $footerPolicies = collect();
-            try {
-              $footerPolicies = \App\Models\Policy::where('is_active', true)->orderBy('order')->orderBy('title')->get();
-            } catch (\Throwable $e) {}
-          @endphp
-          @if($footerPolicies->isNotEmpty())
-            @foreach($footerPolicies as $fp)
-              <a href="{{ route('policy.show', $fp->slug) }}">{{ $fp->title }}</a>
-            @endforeach
-          @else
-            <a href="{{ route('policy.show', 'privacy-statement') }}">Privacy Statement</a>
-            <a href="{{ route('policy.show', 'terms-of-use') }}">Terms of Use</a>
-            <a href="{{ route('policy.show', 'gcp-statement') }}">GCP Statement</a>
-            <a href="{{ route('policy.show', 'whistleblower-notice') }}">Whistleblower Notice</a>
-          @endif
+          <a href="{{ route('policy.show', 'privacy-statement') }}">Privacy Statement</a>
+          <a href="{{ route('policy.show', 'terms-of-use') }}">Terms of Use</a>
+          <a href="{{ route('policy.show', 'cookie-policy') }}">Cookie Policy</a>
+          <a href="{{ route('policy.show', 'gcp-statement') }}">GCP Statement</a>
           <a href="{{ route('admin.login') }}"><i class="fas fa-lock" style="font-size: 0.75rem;"></i> Admin Portal</a>
         </div>
       </div>
