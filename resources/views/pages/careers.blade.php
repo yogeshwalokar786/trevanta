@@ -43,7 +43,7 @@
             </div>
 
             <div>
-              <a href="{{ (isset($jobs) && $jobs->count() > 0) ? '#openings' : setting('careers_btn_url', route('contact')) }}" class="btn btn-jss-orange btn-lg">
+              <a href="#openings" class="btn btn-jss-orange btn-lg">
                 {{ setting('careers_btn_text', 'Explore Opportunities →') }}
               </a>
             </div>
@@ -89,8 +89,7 @@
       </div>
     </section>
 
-    @if(isset($jobs) && $jobs->count() > 0)
-    <!-- DYNAMIC OPEN POSITIONS (Managed from Admin Panel) -->
+    <!-- SECTION 2: OPEN POSITIONS (Dynamic from Admin or Empty State) -->
     <section class="subpage-content alt-bg" id="openings">
       <div class="site-container">
         <div class="section-title-wrap text-center" style="margin-bottom: 2.5rem;">
@@ -101,48 +100,65 @@
           </p>
         </div>
 
-        <!-- JOB CARDS GRID -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
-          @foreach($jobs as $job)
-            <article class="job-card">
-              <div class="job-card-header">
-                <div class="job-badges">
-                  @if($job->department)
-                    <span class="job-badge dept">{{ $job->department }}</span>
-                  @endif
-                  <span class="job-badge">{{ $job->job_type ?: 'Full-Time' }}</span>
-                  @if($job->experience)
-                    <span class="job-badge" style="background: rgba(13, 35, 58, 0.08); color: var(--navy);">{{ $job->experience }}</span>
+        @if(isset($jobs) && $jobs->count() > 0)
+          <!-- JOB CARDS GRID -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
+            @foreach($jobs as $job)
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="job-badges">
+                    @if($job->department)
+                      <span class="job-badge dept">{{ $job->department }}</span>
+                    @endif
+                    <span class="job-badge">{{ $job->job_type ?: 'Full-Time' }}</span>
+                    @if($job->experience)
+                      <span class="job-badge" style="background: rgba(13, 35, 58, 0.08); color: var(--navy);">{{ $job->experience }}</span>
+                    @endif
+                  </div>
+                </div>
+                <h3>{{ $job->title }}</h3>
+                <p>
+                  {{ $job->description }}
+                </p>
+                <div class="job-card-footer">
+                  <span class="job-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {{ $job->location ?: 'Global / Remote' }}
+                  </span>
+                  @if($job->apply_url)
+                    <a href="{{ $job->apply_url }}" target="_blank" class="btn btn-jss-orange" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
+                      Apply Now &rarr;
+                    </a>
+                  @else
+                    <a href="mailto:{{ $job->apply_email ?: setting('careers_email', setting('contact_email', 'info@trevanta.com')) }}?subject=Application:%20{{ urlencode($job->title) }}" class="btn btn-jss-orange" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
+                      Apply Now &rarr;
+                    </a>
                   @endif
                 </div>
-              </div>
-              <h3>{{ $job->title }}</h3>
-              <p>
-                {{ $job->description }}
-              </p>
-              <div class="job-card-footer">
-                <span class="job-meta-item">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  {{ $job->location ?: 'Global / Remote' }}
-                </span>
-                @if($job->apply_url)
-                  <a href="{{ $job->apply_url }}" target="_blank" class="btn btn-jss-orange" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
-                    Apply Now &rarr;
-                  </a>
-                @else
-                  <a href="mailto:{{ $job->apply_email ?: setting('careers_email', setting('contact_email', 'info@trevanta.com')) }}?subject=Application:%20{{ urlencode($job->title) }}" class="btn btn-jss-orange" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
-                    Apply Now &rarr;
-                  </a>
-                @endif
-              </div>
-            </article>
-          @endforeach
-        </div>
+              </article>
+            @endforeach
+          </div>
+        @else
+          <!-- NO OPENINGS EMPTY STATE -->
+          <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3.5rem 2rem; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="width: 64px; height: 64px; margin: 0 auto 1.25rem; border-radius: 50%; background: rgba(40, 169, 161, 0.1); color: var(--teal, #28a9a1); display: flex; align-items: center; justify-content: center; font-size: 1.6rem;">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--navy, #0d233a); margin-bottom: 0.65rem;">
+              Currently There Is No Opening
+            </h3>
+            <p style="font-size: 1rem; color: #64748b; line-height: 1.7; margin-bottom: 1.75rem;">
+              We do not have any active vacancies at the moment. However, we are always eager to connect with passionate clinical research professionals. Please send your resume to our global talent pool for future opportunities.
+            </p>
+            <a href="mailto:{{ setting('careers_email', setting('contact_email', 'info@trevanta.com')) }}?subject=Spontaneous%20Application%20-%20Trevanta%20Careers" class="btn btn-jss-orange" style="padding: 0.75rem 1.75rem; font-size: 0.95rem;">
+              <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i> Send Your Resume &rarr;
+            </a>
+          </div>
+        @endif
       </div>
     </section>
-    @endif
 
-    <!-- SECTION 2: SPONTANEOUS APPLICATION / RESUME SUBMISSION -->
+    <!-- SECTION 3: SPONTANEOUS APPLICATION / RESUME SUBMISSION -->
     <section style="background-color: var(--jss-navy-dark); color: #ffffff; padding: 4.5rem 0; text-align: center;">
       <div class="site-container">
         <span class="eyebrow-jss" style="color: #ff9a6b;">SPONTANEOUS APPLICATION</span>
