@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us & Request Study RFP | Trevanta International')
-@section('description', 'Get in touch with Trevanta International. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.')
+@section('title', setting('contact_meta_title', 'Contact Us & Request Study RFP | ' . setting('site_name', 'Trevanta International')))
+@section('description', setting('contact_meta_description', 'Get in touch with Trevanta International. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.'))
+
+@push('seo')
+  @if(setting('contact_meta_keywords'))
+    <meta name="keywords" content="{{ setting('contact_meta_keywords') }}">
+  @endif
+  <meta property="og:title" content="{{ setting('contact_meta_title', 'Contact Us & Request Study RFP | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta property="og:description" content="{{ setting('contact_meta_description', 'Get in touch with Trevanta International. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.') }}">
+  <meta property="og:image" content="{{ asset(setting('contact_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ url()->current() }}">
+@endpush
 
 @section('content')
   <!-- SUBPAGE HERO -->

@@ -338,6 +338,26 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 ('meta_robots_default', 'index, follow', 'seo', 'text', 'Search Robots Directive', NOW(), NOW()),
 ('canonical_url_base', 'https://trevanta.bluebasetechnologies.com', 'seo', 'url', 'Canonical Base URL', NOW(), NOW()),
 
+('about_meta_title', 'About Us | Trevanta International', 'seo', 'text', 'About Us Meta Title', NOW(), NOW()),
+('about_meta_description', 'Trevanta International is established by a team of highly-qualified clinical research industry professionals delivering reliable, cost-effective, and technology-driven CRO solutions worldwide.', 'seo', 'textarea', 'About Us Meta Description', NOW(), NOW()),
+('about_meta_keywords', 'about Trevanta, clinical research team, CRO leadership, medical monitoring, regulatory experts, clinical trial workforce', 'seo', 'textarea', 'About Us Focus Keywords', NOW(), NOW()),
+('about_og_image', 'images/doctor-consultation.jpg', 'seo', 'media_image', 'About Us Social Share Image', NOW(), NOW()),
+
+('services_meta_title', 'Clinical Research Services & CRO Solutions | Trevanta International', 'seo', 'text', 'Services Meta Title', NOW(), NOW()),
+('services_meta_description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.', 'seo', 'textarea', 'Services Meta Description', NOW(), NOW()),
+('services_meta_keywords', 'clinical development Phase I-IV, regulatory affairs CRO, biometrics data management, pharmacovigilance drug safety, medical writing, laboratory biomarker services, FSP solutions', 'seo', 'textarea', 'Services Focus Keywords', NOW(), NOW()),
+('services_og_image', 'images/doctor-consultation.jpg', 'seo', 'media_image', 'Services Social Share Image', NOW(), NOW()),
+
+('careers_meta_title', 'Careers in Clinical Research | Trevanta International', 'seo', 'text', 'Careers Meta Title', NOW(), NOW()),
+('careers_meta_description', 'Join a team committed to improving global health. Explore clinical research associate (CRA), biostatistician, and regulatory specialist job openings at Trevanta International.', 'seo', 'textarea', 'Careers Meta Description', NOW(), NOW()),
+('careers_meta_keywords', 'clinical research careers, CRA jobs, biostatistics jobs, clinical operations careers, CRO hiring, clinical data manager jobs', 'seo', 'textarea', 'Careers Focus Keywords', NOW(), NOW()),
+('careers_og_image', 'images/doctor-consultation.jpg', 'seo', 'media_image', 'Careers Social Share Image', NOW(), NOW()),
+
+('contact_meta_title', 'Contact Us & Request Study RFP | Trevanta International', 'seo', 'text', 'Contact Us Meta Title', NOW(), NOW()),
+('contact_meta_description', 'Get in touch with Trevanta International. Request a clinical trial proposal (RFP), study feasibility assessment, or pharmacovigilance consultation.', 'seo', 'textarea', 'Contact Us Meta Description', NOW(), NOW()),
+('contact_meta_keywords', 'contact CRO, clinical trial RFP, study feasibility request, pharmacovigilance consultation, Trevanta Montreal contact', 'seo', 'textarea', 'Contact Us Focus Keywords', NOW(), NOW()),
+('contact_og_image', 'images/doctor-consultation.jpg', 'seo', 'media_image', 'Contact Us Social Share Image', NOW(), NOW()),
+
 ('social_linkedin', 'https://www.linkedin.com/company/trevanta-international', 'social', 'url', 'LinkedIn URL', NOW(), NOW()),
 ('social_twitter', 'https://twitter.com/trevantacro', 'social', 'url', 'Twitter / X URL', NOW(), NOW()),
 ('footer_about', 'A globally recognized Clinical Research Organization delivering multi-national trial management, high-volume patient recruitment, and comprehensive pharmacovigilance across international regulatory authorities.', 'social', 'textarea', 'Footer About Blurb', NOW(), NOW()),

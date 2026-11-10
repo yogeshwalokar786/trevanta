@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
-@section('title', "Career's | " . setting('site_name', 'Trevanta International'))
-@section('description', setting('careers_heading', 'Join a team committed to improving global health.') . ' - ' . setting('site_name', 'Trevanta International'))
+@section('title', setting('careers_meta_title', 'Careers | ' . setting('site_name', 'Trevanta International')))
+@section('description', setting('careers_meta_description', setting('careers_heading', 'Join a team committed to improving global health.')))
+
+@push('seo')
+  @if(setting('careers_meta_keywords'))
+    <meta name="keywords" content="{{ setting('careers_meta_keywords') }}">
+  @endif
+  <meta property="og:title" content="{{ setting('careers_meta_title', 'Careers | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta property="og:description" content="{{ setting('careers_meta_description', setting('careers_heading', 'Join a team committed to improving global health.')) }}">
+  <meta property="og:image" content="{{ asset(setting('careers_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ url()->current() }}">
+@endpush
 
 @section('content')
   <!-- SUBPAGE HERO -->

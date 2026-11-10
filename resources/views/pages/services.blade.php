@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'Clinical Research Services & CRO Solutions | Trevanta International')
-@section('description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.')
+@section('title', setting('services_meta_title', 'Clinical Research Services & CRO Solutions | ' . setting('site_name', 'Trevanta International')))
+@section('description', setting('services_meta_description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.'))
+
+@push('seo')
+  @if(setting('services_meta_keywords'))
+    <meta name="keywords" content="{{ setting('services_meta_keywords') }}">
+  @endif
+  <meta property="og:title" content="{{ setting('services_meta_title', 'Clinical Research Services & CRO Solutions | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta property="og:description" content="{{ setting('services_meta_description', 'Explore Trevanta International’s comprehensive suite of 7 CRO services: Clinical Development (Phase I–IV), Regulatory Affairs, Biometrics & Data Management, Pharmacovigilance, Medical Writing, Laboratory Services, and FSP Solutions.') }}">
+  <meta property="og:image" content="{{ asset(setting('services_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ url()->current() }}">
+@endpush
 
 @section('content')
   <!-- SUBPAGE HERO -->

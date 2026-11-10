@@ -28,7 +28,9 @@ class SettingController extends Controller
         foreach ($data as $key => $value) {
             // Determine group based on key prefix or name
             $group = 'general';
-            if (str_starts_with($key, 'site_') || str_starts_with($key, 'admin_')) {
+            if (str_contains($key, '_meta_') || str_contains($key, '_og_image') || str_starts_with($key, 'home_') || str_starts_with($key, 'meta_') || $key === 'canonical_url_base') {
+                $group = 'seo';
+            } elseif (str_starts_with($key, 'site_') || str_starts_with($key, 'admin_')) {
                 $group = 'branding';
             } elseif (str_starts_with($key, 'career_') || str_starts_with($key, 'careers_')) {
                 $group = 'careers';
@@ -36,8 +38,6 @@ class SettingController extends Controller
                 $group = 'contact';
             } elseif (str_starts_with($key, 'address_')) {
                 $group = 'addresses';
-            } elseif (str_starts_with($key, 'home_') || str_starts_with($key, 'meta_') || $key === 'canonical_url_base') {
-                $group = 'seo';
             } elseif (str_starts_with($key, 'social_') || str_starts_with($key, 'footer_')) {
                 $group = 'social';
             }

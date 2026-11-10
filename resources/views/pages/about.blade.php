@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'About Us | ' . setting('site_name', 'Trevanta International'))
-@section('description', 'Trevanta is established by a team of highly-qualified clinical research industry professionals with diverse experience in pharmaceutical industry.')
+@section('title', setting('about_meta_title', 'About Us | ' . setting('site_name', 'Trevanta International')))
+@section('description', setting('about_meta_description', 'Trevanta is established by a team of highly-qualified clinical research industry professionals with diverse experience in pharmaceutical industry.'))
+
+@push('seo')
+  @if(setting('about_meta_keywords'))
+    <meta name="keywords" content="{{ setting('about_meta_keywords') }}">
+  @endif
+  <meta property="og:title" content="{{ setting('about_meta_title', 'About Us | ' . setting('site_name', 'Trevanta International')) }}">
+  <meta property="og:description" content="{{ setting('about_meta_description', 'Trevanta is established by a team of highly-qualified clinical research industry professionals with diverse experience in pharmaceutical industry.') }}">
+  <meta property="og:image" content="{{ asset(setting('about_og_image', setting('home_og_image', 'images/doctor-consultation.jpg'))) }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ url()->current() }}">
+@endpush
 
 @section('content')
   <!-- SUBPAGE HERO (Project Design Standard) -->

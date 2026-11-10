@@ -110,7 +110,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="tab-seo-nav" data-toggle="pill" href="#tab-seo" role="tab">
-            <i class="fas fa-search-location mr-2"></i> Homepage SEO
+            <i class="fas fa-search-location mr-2"></i> Pages SEO &amp; Meta
           </a>
         </li>
         <li class="nav-item">
@@ -303,97 +303,381 @@
         </div>
 
         <!-- ================================================================= -->
-        <!-- TAB 3: HOMEPAGE SEO -->
+        <!-- TAB 3: PAGES SEO & OPEN GRAPH -->
         <!-- ================================================================= -->
         <div class="tab-pane fade" id="tab-seo" role="tabpanel">
 
           <div class="card mb-4 border-0 shadow-sm" style="border-radius: 12px;">
-            <div class="card-header py-3 px-4 bg-white border-bottom d-flex justify-content-between align-items-center">
-              <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
-                <i class="fas fa-search-location mr-2 text-primary"></i> Homepage Search Engine Optimization (SEO) &amp; Open Graph
-              </h3>
-              <span class="badge badge-light border text-muted px-2 py-1" style="font-size: 11px;">
-                <i class="fab fa-google text-primary mr-1"></i> Live SERP Preview
+            <div class="card-header py-3 px-4 bg-white border-bottom d-flex flex-wrap justify-content-between align-items-center">
+              <div>
+                <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
+                  <i class="fas fa-search-location mr-2 text-primary"></i> Search Engine Optimization (SEO) &amp; Social Meta
+                </h3>
+                <small class="text-muted text-xs">Configure Meta Titles, Descriptions, Keywords and Social Share Images per page.</small>
+              </div>
+              <span class="badge badge-light border text-muted px-2 py-1 mt-2 mt-sm-0" style="font-size: 11px;">
+                <i class="fab fa-google text-primary mr-1"></i> Live Google SERP Previews
               </span>
             </div>
             <div class="card-body p-4">
 
-              <!-- Google SERP Snippet Preview Box -->
-              <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
-                <div class="d-flex align-items-center mb-1 text-xs text-muted">
-                  <i class="fas fa-globe mr-1 text-secondary"></i>
-                  <span style="color: #202124;" id="serpBaseUrlPreview">{{ $settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com' }}</span>
-                </div>
-                <div class="font-weight-bold mb-1" id="serpHomeTitlePreview" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3; cursor: pointer;">
-                  {{ $settings['home_meta_title'] ?? 'Trevanta International | Global Clinical Research Organization (CRO)' }}
-                </div>
-                <div class="text-sm" id="serpHomeDescPreview" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
-                  {{ $settings['home_meta_description'] ?? 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.' }}
-                </div>
-              </div>
+              <!-- Inner Sub-Tabs Navigation for Pages -->
+              <ul class="nav nav-pills mb-4 p-1 bg-light rounded" id="seoPagesTab" role="tablist" style="border: 1px solid #e2e8f0; gap: 4px;">
+                <li class="nav-item">
+                  <a class="nav-link active py-2 px-3 text-xs font-weight-bold" id="seo-home-tab" data-toggle="pill" href="#seo-home" role="tab">
+                    <i class="fas fa-home mr-1"></i> Homepage
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-2 px-3 text-xs font-weight-bold" id="seo-about-tab" data-toggle="pill" href="#seo-about" role="tab">
+                    <i class="fas fa-info-circle mr-1"></i> About Us
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-2 px-3 text-xs font-weight-bold" id="seo-services-tab" data-toggle="pill" href="#seo-services" role="tab">
+                    <i class="fas fa-microscope mr-1"></i> Services
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-2 px-3 text-xs font-weight-bold" id="seo-careers-tab" data-toggle="pill" href="#seo-careers" role="tab">
+                    <i class="fas fa-user-tie mr-1"></i> Careers
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-2 px-3 text-xs font-weight-bold" id="seo-contact-tab" data-toggle="pill" href="#seo-contact" role="tab">
+                    <i class="fas fa-envelope-open-text mr-1"></i> Contact Us
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link py-2 px-3 text-xs font-weight-bold" id="seo-global-tab" data-toggle="pill" href="#seo-global" role="tab">
+                    <i class="fas fa-globe mr-1"></i> Global &amp; Robots
+                  </a>
+                </li>
+              </ul>
 
-              <!-- Meta Title -->
-              <div class="form-group mb-3">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <label for="home_meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Homepage Meta Title</label>
-                  <span id="homeTitleCount" class="badge badge-light border text-xs">0 / 60</span>
-                </div>
-                <input type="text" name="home_meta_title" id="home_meta_title" class="form-control" value="{{ $settings['home_meta_title'] ?? 'Trevanta International | Global Clinical Research Organization (CRO)' }}" required>
-                <small class="text-muted text-xs">Recommended 50–60 characters. Displayed as the primary heading on Google and browser tabs.</small>
-              </div>
+              <!-- Sub-Tab Content -->
+              <div class="tab-content" id="seoPagesTabContent">
 
-              <!-- Meta Description -->
-              <div class="form-group mb-3">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <label for="home_meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Homepage Meta Description</label>
-                  <span id="homeDescCount" class="badge badge-light border text-xs">0 / 160</span>
-                </div>
-                <textarea name="home_meta_description" id="home_meta_description" rows="3" class="form-control" required>{{ $settings['home_meta_description'] ?? 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.' }}</textarea>
-                <small class="text-muted text-xs">Recommended 150–160 characters. Snippet shown in search engine results.</small>
-              </div>
-
-              <!-- Focus Keywords -->
-              <div class="form-group mb-3">
-                <label for="home_meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Homepage Focus Keywords</label>
-                <textarea name="home_meta_keywords" id="home_meta_keywords" rows="2" class="form-control">{{ $settings['home_meta_keywords'] ?? 'clinical research organization, CRO, Phase I-IV trials, pharmacovigilance, regulatory affairs, biostatistics, ICH GCP, clinical trials, Trevanta International' }}</textarea>
-                <small class="text-muted text-xs">Comma-separated key phrases relevant to clinical trials and regulatory affairs.</small>
-              </div>
-
-              <!-- Social Share Image (OG Image) -->
-              <div class="form-group mb-3">
-                <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">Homepage Social Share Banner (1200 &times; 630 recommended)</label>
-                <input type="hidden" name="home_og_image" id="input_home_og_image" value="{{ $settings['home_og_image'] ?? 'images/doctor-consultation.jpg' }}">
-                
-                <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
-                  <div class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 100px; height: 60px; flex-shrink: 0;" id="box_home_og_image">
-                    <img id="img_home_og_image" src="{{ asset($settings['home_og_image'] ?? 'images/doctor-consultation.jpg') }}" alt="OG Preview" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="flex-grow-1" style="min-width: 0;">
-                    <div class="text-xs font-weight-bold text-dark text-truncate" id="label_home_og_image">
-                      {{ $settings['home_og_image'] ?? 'images/doctor-consultation.jpg' }}
+                <!-- 1. HOMEPAGE SEO -->
+                <div class="tab-pane fade show active" id="seo-home" role="tabpanel">
+                  <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                      <i class="fas fa-globe mr-1 text-secondary"></i>
+                      <span style="color: #202124;" id="serp_home_url">{{ ($settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com') }}</span>
                     </div>
-                    <small class="text-muted text-xs d-block">Shown when the homepage link is shared on LinkedIn, WhatsApp, or Twitter.</small>
+                    <div class="font-weight-bold mb-1" id="serp_home_title" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3;">
+                      {{ $settings['home_meta_title'] ?? 'Trevanta International | Global Clinical Research Organization (CRO)' }}
+                    </div>
+                    <div class="text-sm" id="serp_home_desc" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
+                      {{ $settings['home_meta_description'] ?? 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.' }}
+                    </div>
                   </div>
-                  <div>
-                    <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerForSettings('home_og_image', 'box_home_og_image', 'img_home_og_image')">
-                      <i class="fas fa-images mr-1 text-primary"></i> Change Banner
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="meta_robots_default" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Robots Directives</label>
-                  <select name="meta_robots_default" id="meta_robots_default" class="form-control">
-                    <option value="index, follow" {{ ($settings['meta_robots_default'] ?? 'index, follow') == 'index, follow' ? 'selected' : '' }}>index, follow (Default - Search indexing enabled)</option>
-                    <option value="noindex, follow" {{ ($settings['meta_robots_default'] ?? '') == 'noindex, follow' ? 'selected' : '' }}>noindex, follow (Hide from search)</option>
-                  </select>
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="home_meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Homepage Meta Title</label>
+                      <span id="home_meta_title_count" class="badge badge-light border text-xs">0 / 60</span>
+                    </div>
+                    <input type="text" name="home_meta_title" id="home_meta_title" class="form-control" value="{{ $settings['home_meta_title'] ?? 'Trevanta International | Global Clinical Research Organization (CRO)' }}" required>
+                    <small class="text-muted text-xs">Recommended 50–60 characters. Displayed on search results and browser tab.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="home_meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Homepage Meta Description</label>
+                      <span id="home_meta_description_count" class="badge badge-light border text-xs">0 / 160</span>
+                    </div>
+                    <textarea name="home_meta_description" id="home_meta_description" rows="3" class="form-control" required>{{ $settings['home_meta_description'] ?? 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.' }}</textarea>
+                    <small class="text-muted text-xs">Recommended 150–160 characters. Primary snippet shown on search engine listings.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="home_meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Homepage Focus Keywords</label>
+                    <textarea name="home_meta_keywords" id="home_meta_keywords" rows="2" class="form-control">{{ $settings['home_meta_keywords'] ?? 'clinical research organization, CRO, Phase I-IV trials, pharmacovigilance, regulatory affairs, biostatistics, ICH GCP, clinical trials, Trevanta International' }}</textarea>
+                    <small class="text-muted text-xs">Comma-separated key phrases relevant to clinical research operations.</small>
+                  </div>
+
+                  <div class="form-group mb-0">
+                    <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">Homepage Social Share Banner (1200 &times; 630 recommended)</label>
+                    <input type="hidden" name="home_og_image" id="input_home_og_image" value="{{ $settings['home_og_image'] ?? 'images/doctor-consultation.jpg' }}">
+                    <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
+                      <div class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 100px; height: 60px; flex-shrink: 0;" id="box_home_og_image">
+                        <img id="img_home_og_image" src="{{ asset($settings['home_og_image'] ?? 'images/doctor-consultation.jpg') }}" alt="OG Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="flex-grow-1" style="min-width: 0;">
+                        <div class="text-xs font-weight-bold text-dark text-truncate" id="label_home_og_image">{{ $settings['home_og_image'] ?? 'images/doctor-consultation.jpg' }}</div>
+                        <small class="text-muted text-xs d-block">Shown when homepage link is shared on LinkedIn, WhatsApp, or Twitter.</small>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerForSettings('home_og_image', 'box_home_og_image', 'img_home_og_image')">
+                          <i class="fas fa-images mr-1 text-primary"></i> Change Banner
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <label for="canonical_url_base" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Canonical Base URL</label>
-                  <input type="text" name="canonical_url_base" id="canonical_url_base" class="form-control" value="{{ $settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com' }}">
+
+                <!-- 2. ABOUT US SEO -->
+                <div class="tab-pane fade" id="seo-about" role="tabpanel">
+                  <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                      <i class="fas fa-globe mr-1 text-secondary"></i>
+                      <span style="color: #202124;" id="serp_about_url">{{ rtrim($settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com', '/') }}/about</span>
+                    </div>
+                    <div class="font-weight-bold mb-1" id="serp_about_title" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3;">
+                      {{ $settings['about_meta_title'] ?? 'About Trevanta | Global CRO & Clinical Research Excellence' }}
+                    </div>
+                    <div class="text-sm" id="serp_about_desc" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
+                      {{ $settings['about_meta_description'] ?? 'Learn about Trevanta International, a premier full-service Clinical Research Organization delivering agile, patient-centric Phase I-IV trials and regulatory solutions.' }}
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="about_meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">About Us Meta Title</label>
+                      <span id="about_meta_title_count" class="badge badge-light border text-xs">0 / 60</span>
+                    </div>
+                    <input type="text" name="about_meta_title" id="about_meta_title" class="form-control" value="{{ $settings['about_meta_title'] ?? 'About Trevanta | Global CRO & Clinical Research Excellence' }}" required>
+                    <small class="text-muted text-xs">Recommended 50–60 characters. Appears on Google and browser tab on /about.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="about_meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">About Us Meta Description</label>
+                      <span id="about_meta_description_count" class="badge badge-light border text-xs">0 / 160</span>
+                    </div>
+                    <textarea name="about_meta_description" id="about_meta_description" rows="3" class="form-control" required>{{ $settings['about_meta_description'] ?? 'Learn about Trevanta International, a premier full-service Clinical Research Organization delivering agile, patient-centric Phase I-IV trials and regulatory solutions.' }}</textarea>
+                    <small class="text-muted text-xs">Recommended 150–160 characters. Summary snippet for search rankings.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="about_meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">About Us Focus Keywords</label>
+                    <textarea name="about_meta_keywords" id="about_meta_keywords" rows="2" class="form-control">{{ $settings['about_meta_keywords'] ?? 'about Trevanta, clinical research organization, global CRO, CRO leadership, clinical trial quality, ICH GCP compliance' }}</textarea>
+                    <small class="text-muted text-xs">Comma-separated keywords highlighting company history, mission, and clinical expertise.</small>
+                  </div>
+
+                  <div class="form-group mb-0">
+                    <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">About Us Social Share Banner</label>
+                    <input type="hidden" name="about_og_image" id="input_about_og_image" value="{{ $settings['about_og_image'] ?? 'images/doctor-consultation.jpg' }}">
+                    <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
+                      <div class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 100px; height: 60px; flex-shrink: 0;" id="box_about_og_image">
+                        <img id="img_about_og_image" src="{{ asset($settings['about_og_image'] ?? 'images/doctor-consultation.jpg') }}" alt="OG Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="flex-grow-1" style="min-width: 0;">
+                        <div class="text-xs font-weight-bold text-dark text-truncate" id="label_about_og_image">{{ $settings['about_og_image'] ?? 'images/doctor-consultation.jpg' }}</div>
+                        <small class="text-muted text-xs d-block">Shown when /about is shared on LinkedIn, WhatsApp, or Twitter.</small>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerForSettings('about_og_image', 'box_about_og_image', 'img_about_og_image')">
+                          <i class="fas fa-images mr-1 text-primary"></i> Change Banner
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                <!-- 3. SERVICES SEO -->
+                <div class="tab-pane fade" id="seo-services" role="tabpanel">
+                  <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                      <i class="fas fa-globe mr-1 text-secondary"></i>
+                      <span style="color: #202124;" id="serp_services_url">{{ rtrim($settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com', '/') }}/services</span>
+                    </div>
+                    <div class="font-weight-bold mb-1" id="serp_services_title" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3;">
+                      {{ $settings['services_meta_title'] ?? 'Clinical Research Services & Trial Solutions | Trevanta' }}
+                    </div>
+                    <div class="text-sm" id="serp_services_desc" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
+                      {{ $settings['services_meta_description'] ?? 'Explore full-service clinical trial solutions from Phase I-IV clinical operations, pharmacovigilance, biometrics, regulatory affairs, to medical writing.' }}
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="services_meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Services Meta Title</label>
+                      <span id="services_meta_title_count" class="badge badge-light border text-xs">0 / 60</span>
+                    </div>
+                    <input type="text" name="services_meta_title" id="services_meta_title" class="form-control" value="{{ $settings['services_meta_title'] ?? 'Clinical Research Services & Trial Solutions | Trevanta' }}" required>
+                    <small class="text-muted text-xs">Recommended 50–60 characters. Displayed on search engines for /services.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="services_meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Services Meta Description</label>
+                      <span id="services_meta_description_count" class="badge badge-light border text-xs">0 / 160</span>
+                    </div>
+                    <textarea name="services_meta_description" id="services_meta_description" rows="3" class="form-control" required>{{ $settings['services_meta_description'] ?? 'Explore full-service clinical trial solutions from Phase I-IV clinical operations, pharmacovigilance, biometrics, regulatory affairs, to medical writing.' }}</textarea>
+                    <small class="text-muted text-xs">Recommended 150–160 characters. Highlights trial management services and therapeutic expertise.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="services_meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Services Focus Keywords</label>
+                    <textarea name="services_meta_keywords" id="services_meta_keywords" rows="2" class="form-control">{{ $settings['services_meta_keywords'] ?? 'clinical research services, Phase I-IV trials, CRO services, pharmacovigilance services, regulatory submissions, clinical data management, biostatistics CRO' }}</textarea>
+                    <small class="text-muted text-xs">Comma-separated keywords targeting sponsors looking for trial execution services.</small>
+                  </div>
+
+                  <div class="form-group mb-0">
+                    <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">Services Social Share Banner</label>
+                    <input type="hidden" name="services_og_image" id="input_services_og_image" value="{{ $settings['services_og_image'] ?? 'images/doctor-consultation.jpg' }}">
+                    <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
+                      <div class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 100px; height: 60px; flex-shrink: 0;" id="box_services_og_image">
+                        <img id="img_services_og_image" src="{{ asset($settings['services_og_image'] ?? 'images/doctor-consultation.jpg') }}" alt="OG Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="flex-grow-1" style="min-width: 0;">
+                        <div class="text-xs font-weight-bold text-dark text-truncate" id="label_services_og_image">{{ $settings['services_og_image'] ?? 'images/doctor-consultation.jpg' }}</div>
+                        <small class="text-muted text-xs d-block">Shown when /services link is shared on social media platforms.</small>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerForSettings('services_og_image', 'box_services_og_image', 'img_services_og_image')">
+                          <i class="fas fa-images mr-1 text-primary"></i> Change Banner
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4. CAREERS SEO -->
+                <div class="tab-pane fade" id="seo-careers" role="tabpanel">
+                  <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                      <i class="fas fa-globe mr-1 text-secondary"></i>
+                      <span style="color: #202124;" id="serp_careers_url">{{ rtrim($settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com', '/') }}/careers</span>
+                    </div>
+                    <div class="font-weight-bold mb-1" id="serp_careers_title" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3;">
+                      {{ $settings['careers_meta_title'] ?? 'Careers at Trevanta | Join Our Global Clinical Research Team' }}
+                    </div>
+                    <div class="text-sm" id="serp_careers_desc" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
+                      {{ $settings['careers_meta_description'] ?? 'Discover career opportunities at Trevanta International. Join a team dedicated to advancing clinical research, medical innovation, and human health.' }}
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="careers_meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Careers Meta Title</label>
+                      <span id="careers_meta_title_count" class="badge badge-light border text-xs">0 / 60</span>
+                    </div>
+                    <input type="text" name="careers_meta_title" id="careers_meta_title" class="form-control" value="{{ $settings['careers_meta_title'] ?? 'Careers at Trevanta | Join Our Global Clinical Research Team' }}" required>
+                    <small class="text-muted text-xs">Recommended 50–60 characters. Appears when clinical researchers search for job openings.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="careers_meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Careers Meta Description</label>
+                      <span id="careers_meta_description_count" class="badge badge-light border text-xs">0 / 160</span>
+                    </div>
+                    <textarea name="careers_meta_description" id="careers_meta_description" rows="3" class="form-control" required>{{ $settings['careers_meta_description'] ?? 'Discover career opportunities at Trevanta International. Join a team dedicated to advancing clinical research, medical innovation, and human health.' }}</textarea>
+                    <small class="text-muted text-xs">Recommended 150–160 characters. Highlights workplace culture, benefits, and open positions.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="careers_meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Careers Focus Keywords</label>
+                    <textarea name="careers_meta_keywords" id="careers_meta_keywords" rows="2" class="form-control">{{ $settings['careers_meta_keywords'] ?? 'clinical research jobs, CRA careers, clinical project manager jobs, biostatistician careers, CRO jobs, Trevanta careers' }}</textarea>
+                    <small class="text-muted text-xs">Comma-separated keywords for talent acquisition and recruitment indexing.</small>
+                  </div>
+
+                  <div class="form-group mb-0">
+                    <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">Careers Social Share Banner</label>
+                    <input type="hidden" name="careers_og_image" id="input_careers_og_image" value="{{ $settings['careers_og_image'] ?? 'images/doctor-consultation.jpg' }}">
+                    <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
+                      <div class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 100px; height: 60px; flex-shrink: 0;" id="box_careers_og_image">
+                        <img id="img_careers_og_image" src="{{ asset($settings['careers_og_image'] ?? 'images/doctor-consultation.jpg') }}" alt="OG Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="flex-grow-1" style="min-width: 0;">
+                        <div class="text-xs font-weight-bold text-dark text-truncate" id="label_careers_og_image">{{ $settings['careers_og_image'] ?? 'images/doctor-consultation.jpg' }}</div>
+                        <small class="text-muted text-xs d-block">Shown when /careers link is shared on LinkedIn or career forums.</small>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerForSettings('careers_og_image', 'box_careers_og_image', 'img_careers_og_image')">
+                          <i class="fas fa-images mr-1 text-primary"></i> Change Banner
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 5. CONTACT US SEO -->
+                <div class="tab-pane fade" id="seo-contact" role="tabpanel">
+                  <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                      <i class="fas fa-globe mr-1 text-secondary"></i>
+                      <span style="color: #202124;" id="serp_contact_url">{{ rtrim($settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com', '/') }}/contact</span>
+                    </div>
+                    <div class="font-weight-bold mb-1" id="serp_contact_title" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3;">
+                      {{ $settings['contact_meta_title'] ?? 'Contact Trevanta | Global Clinical Trial Inquiries & RFPs' }}
+                    </div>
+                    <div class="text-sm" id="serp_contact_desc" style="color: #4d5156; line-height: 1.5; font-size: 0.875rem;">
+                      {{ $settings['contact_meta_description'] ?? 'Contact Trevanta International headquarters or our regional clinical operations teams across North America, Europe, APAC, and Latin America.' }}
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="contact_meta_title" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Contact Us Meta Title</label>
+                      <span id="contact_meta_title_count" class="badge badge-light border text-xs">0 / 60</span>
+                    </div>
+                    <input type="text" name="contact_meta_title" id="contact_meta_title" class="form-control" value="{{ $settings['contact_meta_title'] ?? 'Contact Trevanta | Global Clinical Trial Inquiries & RFPs' }}" required>
+                    <small class="text-muted text-xs">Recommended 50–60 characters. Appears on search results for sponsor inquiries.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label for="contact_meta_description" class="font-weight-bold text-dark text-xs text-uppercase mb-0">Contact Us Meta Description</label>
+                      <span id="contact_meta_description_count" class="badge badge-light border text-xs">0 / 160</span>
+                    </div>
+                    <textarea name="contact_meta_description" id="contact_meta_description" rows="3" class="form-control" required>{{ $settings['contact_meta_description'] ?? 'Contact Trevanta International headquarters or our regional clinical operations teams across North America, Europe, APAC, and Latin America.' }}</textarea>
+                    <small class="text-muted text-xs">Recommended 150–160 characters. Clear call-to-action for study inquiries and RFP submission.</small>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label for="contact_meta_keywords" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Contact Us Focus Keywords</label>
+                    <textarea name="contact_meta_keywords" id="contact_meta_keywords" rows="2" class="form-control">{{ $settings['contact_meta_keywords'] ?? 'contact Trevanta, clinical trial RFP, CRO proposal, clinical operations inquiry, pharmacovigilance contact' }}</textarea>
+                    <small class="text-muted text-xs">Comma-separated keywords for sponsor contact discovery.</small>
+                  </div>
+
+                  <div class="form-group mb-0">
+                    <label class="font-weight-bold text-dark text-xs text-uppercase mb-1">Contact Us Social Share Banner</label>
+                    <input type="hidden" name="contact_og_image" id="input_contact_og_image" value="{{ $settings['contact_og_image'] ?? 'images/doctor-consultation.jpg' }}">
+                    <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
+                      <div class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 100px; height: 60px; flex-shrink: 0;" id="box_contact_og_image">
+                        <img id="img_contact_og_image" src="{{ asset($settings['contact_og_image'] ?? 'images/doctor-consultation.jpg') }}" alt="OG Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="flex-grow-1" style="min-width: 0;">
+                        <div class="text-xs font-weight-bold text-dark text-truncate" id="label_contact_og_image">{{ $settings['contact_og_image'] ?? 'images/doctor-consultation.jpg' }}</div>
+                        <small class="text-muted text-xs d-block">Shown when /contact link is shared on communication apps.</small>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerForSettings('contact_og_image', 'box_contact_og_image', 'img_contact_og_image')">
+                          <i class="fas fa-images mr-1 text-primary"></i> Change Banner
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 6. GLOBAL & ROBOTS -->
+                <div class="tab-pane fade" id="seo-global" role="tabpanel">
+                  <div class="alert alert-light border mb-4 text-xs text-muted">
+                    <i class="fas fa-info-circle mr-1 text-primary"></i>
+                    These global directives govern search indexing behavior across all pages and define the authoritative domain for canonical link tags.
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="meta_robots_default" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Default Robots Directives</label>
+                      <select name="meta_robots_default" id="meta_robots_default" class="form-control">
+                        <option value="index, follow" {{ ($settings['meta_robots_default'] ?? 'index, follow') == 'index, follow' ? 'selected' : '' }}>index, follow (Default - Allow search engine indexing)</option>
+                        <option value="noindex, follow" {{ ($settings['meta_robots_default'] ?? '') == 'noindex, follow' ? 'selected' : '' }}>noindex, follow (Hide entire site from search results)</option>
+                      </select>
+                      <small class="text-muted text-xs">Sets the master <code>&lt;meta name="robots"&gt;</code> directive tag.</small>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="canonical_url_base" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Canonical Base URL</label>
+                      <input type="text" name="canonical_url_base" id="canonical_url_base" class="form-control" value="{{ $settings['canonical_url_base'] ?? 'https://trevanta.bluebasetechnologies.com' }}" required>
+                      <small class="text-muted text-xs">The primary production domain without trailing slash (e.g. <code>https://trevanta.bluebasetechnologies.com</code>).</small>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -771,48 +1055,66 @@
     return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
   }
 
-  // Live SEO Simulator for Homepage
-  function updateHomeSeoPreview() {
-    const titleVal = document.getElementById('home_meta_title')?.value || '';
-    const descVal = document.getElementById('home_meta_description')?.value || '';
-    const baseVal = document.getElementById('canonical_url_base')?.value || 'https://trevanta.bluebasetechnologies.com';
+  // Live SEO Simulator for all pages
+  const seoPagesConfig = [
+    { prefix: 'home', slug: '', defaultTitle: 'Trevanta International | Global Clinical Research Organization (CRO)', defaultDesc: 'Trevanta International is an international full-service Clinical Research Organization providing Phase I-IV trials, Pharmacovigilance, Regulatory Affairs, and Biostatistics across North America, Europe, Latin America, and Asia.' },
+    { prefix: 'about', slug: '/about', defaultTitle: 'About Trevanta | Global CRO & Clinical Research Excellence', defaultDesc: 'Learn about Trevanta International, a premier full-service Clinical Research Organization delivering agile, patient-centric Phase I-IV trials and regulatory solutions.' },
+    { prefix: 'services', slug: '/services', defaultTitle: 'Clinical Research Services & Trial Solutions | Trevanta', defaultDesc: 'Explore full-service clinical trial solutions from Phase I-IV clinical operations, pharmacovigilance, biometrics, regulatory affairs, to medical writing.' },
+    { prefix: 'careers', slug: '/careers', defaultTitle: 'Careers at Trevanta | Join Our Global Clinical Research Team', defaultDesc: 'Discover career opportunities at Trevanta International. Join a team dedicated to advancing clinical research, medical innovation, and human health.' },
+    { prefix: 'contact', slug: '/contact', defaultTitle: 'Contact Trevanta | Global Clinical Trial Inquiries & RFPs', defaultDesc: 'Contact Trevanta International headquarters or our regional clinical operations teams across North America, Europe, APAC, and Latin America.' }
+  ];
 
-    const serpTitle = document.getElementById('serpHomeTitlePreview');
-    if (serpTitle) {
-      serpTitle.textContent = titleVal.trim() || 'Trevanta International | Global Clinical Research Organization (CRO)';
-    }
+  function updateAllSeoPreviews() {
+    const rawBase = document.getElementById('canonical_url_base')?.value || 'https://trevanta.bluebasetechnologies.com';
+    const baseUrl = rawBase.replace(/\/+$/, '');
 
-    const serpDesc = document.getElementById('serpHomeDescPreview');
-    if (serpDesc) {
-      serpDesc.textContent = descVal.trim() || 'Enter a concise homepage meta description...';
-    }
+    seoPagesConfig.forEach(page => {
+      const titleInput = document.getElementById(page.prefix + '_meta_title');
+      const descInput = document.getElementById(page.prefix + '_meta_description');
+      const titleVal = titleInput ? titleInput.value : '';
+      const descVal = descInput ? descInput.value : '';
 
-    const serpBase = document.getElementById('serpBaseUrlPreview');
-    if (serpBase) {
-      serpBase.textContent = baseVal.trim();
-    }
+      const serpTitle = document.getElementById('serp_' + page.prefix + '_title');
+      if (serpTitle) {
+        serpTitle.textContent = titleVal.trim() || page.defaultTitle;
+      }
 
-    // Counters
-    const titleLen = titleVal.length;
-    const titleBadge = document.getElementById('homeTitleCount');
-    if (titleBadge) {
-      titleBadge.textContent = titleLen + ' / 60';
-      titleBadge.className = 'badge border text-xs ' + (titleLen > 60 ? 'badge-warning text-dark' : (titleLen >= 35 ? 'badge-success text-white' : 'badge-light text-muted'));
-    }
+      const serpDesc = document.getElementById('serp_' + page.prefix + '_desc');
+      if (serpDesc) {
+        serpDesc.textContent = descVal.trim() || page.defaultDesc;
+      }
 
-    const descLen = descVal.length;
-    const descBadge = document.getElementById('homeDescCount');
-    if (descBadge) {
-      descBadge.textContent = descLen + ' / 160';
-      descBadge.className = 'badge border text-xs ' + (descLen > 160 ? 'badge-warning text-dark' : (descLen >= 100 ? 'badge-success text-white' : 'badge-light text-muted'));
-    }
+      const serpUrl = document.getElementById('serp_' + page.prefix + '_url');
+      if (serpUrl) {
+        serpUrl.textContent = baseUrl + page.slug;
+      }
+
+      // Title character counter
+      const titleLen = titleVal.length;
+      const titleBadge = document.getElementById(page.prefix + '_meta_title_count');
+      if (titleBadge) {
+        titleBadge.textContent = titleLen + ' / 60';
+        titleBadge.className = 'badge border text-xs ' + (titleLen > 60 ? 'badge-warning text-dark' : (titleLen >= 35 ? 'badge-success text-white' : 'badge-light text-muted'));
+      }
+
+      // Description character counter
+      const descLen = descVal.length;
+      const descBadge = document.getElementById(page.prefix + '_meta_description_count');
+      if (descBadge) {
+        descBadge.textContent = descLen + ' / 160';
+        descBadge.className = 'badge border text-xs ' + (descLen > 160 ? 'badge-warning text-dark' : (descLen >= 100 ? 'badge-success text-white' : 'badge-light text-muted'));
+      }
+    });
   }
 
-  ['home_meta_title', 'home_meta_description', 'canonical_url_base'].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', updateHomeSeoPreview);
+  // Bind live listeners
+  seoPagesConfig.forEach(page => {
+    document.getElementById(page.prefix + '_meta_title')?.addEventListener('input', updateAllSeoPreviews);
+    document.getElementById(page.prefix + '_meta_description')?.addEventListener('input', updateAllSeoPreviews);
   });
+  document.getElementById('canonical_url_base')?.addEventListener('input', updateAllSeoPreviews);
 
-  document.addEventListener('DOMContentLoaded', updateHomeSeoPreview);
+  document.addEventListener('DOMContentLoaded', updateAllSeoPreviews);
 </script>
 @endpush
 @endsection
