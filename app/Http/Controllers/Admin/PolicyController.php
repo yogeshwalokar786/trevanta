@@ -161,3 +161,4 @@ class PolicyController extends Controller
             ->with('success', 'Policy "' . $policy->title . '" ' . $statusStr . ' successfully.');
     }
 }
+

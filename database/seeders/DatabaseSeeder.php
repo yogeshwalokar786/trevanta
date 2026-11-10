@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Seed Essential Clinical CRO Policies
+        $this->call(PolicySeeder::class);
         // Default Executive Admin Account
         User::firstOrCreate(
             ['email' => 'admin@trevanta.com'],

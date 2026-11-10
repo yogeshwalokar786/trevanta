@@ -29,6 +29,14 @@ Route::get('/terms-of-use', fn () => redirect()->route('policy.show', 'terms-of-
 Route::get('/terms', fn () => redirect()->route('policy.show', 'terms-of-use'));
 Route::get('/gcp-statement', fn () => redirect()->route('policy.show', 'gcp-statement'));
 Route::get('/whistleblower-notice', fn () => redirect()->route('policy.show', 'whistleblower-notice'));
+Route::get('/cookie-policy', fn () => redirect()->route('policy.show', 'cookie-policy'));
+Route::get('/cookies', fn () => redirect()->route('policy.show', 'cookie-policy'));
+Route::get('/electronic-records-policy', fn () => redirect()->route('policy.show', 'electronic-records-policy'));
+Route::get('/part-11', fn () => redirect()->route('policy.show', 'electronic-records-policy'));
+Route::get('/anti-bribery-policy', fn () => redirect()->route('policy.show', 'anti-bribery-policy'));
+Route::get('/pharmacovigilance-safety-policy', fn () => redirect()->route('policy.show', 'pharmacovigilance-safety-policy'));
+Route::get('/diversity-in-trials-policy', fn () => redirect()->route('policy.show', 'diversity-in-trials-policy'));
+Route::get('/information-security-policy', fn () => redirect()->route('policy.show', 'information-security-policy'));
 
 // Public Form Actions
 Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');

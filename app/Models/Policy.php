@@ -59,3 +59,4 @@ class Policy extends Model
         return route('policy.show', $this->slug);
     }
 }
+
