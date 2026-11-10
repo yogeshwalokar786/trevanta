@@ -5,7 +5,25 @@
 -- ========================================================
 
 SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+
+-- Drop dependent tables first to guarantee zero constraint issues
+DROP TABLE IF EXISTS `job_applications`;
+DROP TABLE IF EXISTS `job_openings`;
+DROP TABLE IF EXISTS `policies`;
+DROP TABLE IF EXISTS `settings`;
+DROP TABLE IF EXISTS `media`;
+DROP TABLE IF EXISTS `categories`;
+DROP TABLE IF EXISTS `blogs`;
+DROP TABLE IF EXISTS `inquiries`;
+DROP TABLE IF EXISTS `jobs`;
+DROP TABLE IF EXISTS `cache_locks`;
+DROP TABLE IF EXISTS `cache`;
+DROP TABLE IF EXISTS `password_reset_tokens`;
+DROP TABLE IF EXISTS `sessions`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `migrations`;
 
 -- --------------------------------------------------------
 -- Table structure for `migrations`
@@ -347,6 +365,8 @@ INSERT INTO `settings` (`key`, `value`, `group`, `type`, `label`, `created_at`, 
 -- --------------------------------------------------------
 -- Table structure for `job_openings`
 -- --------------------------------------------------------
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `job_applications`;
 DROP TABLE IF EXISTS `job_openings`;
 CREATE TABLE `job_openings` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
