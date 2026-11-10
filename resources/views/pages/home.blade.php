@@ -793,58 +793,134 @@
     <section class="home-contact-final" id="contact" style="padding: 6rem 0; background: linear-gradient(135deg, #0b1320 0%, #121e2d 60%, #1a2a40 100%); color: #ffffff; text-align: center;">
       <div class="site-container">
         
-        <div style="max-width: 860px; margin: 0 auto;">
+        <div style="max-width: 980px; margin: 0 auto;">
           
           <div class="hero-top-announcement" style="margin-bottom: 1.25rem;">
             <span class="orange-beacon"></span>
             <span>Contact Us</span>
           </div>
 
-          <h2 style="font-size: 2.85rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 2.5rem; color: #ffffff;">
+          <h2 style="font-size: 2.85rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 2.75rem; color: #ffffff;">
             Let’s accelerate your <br>
             <span class="highlight-orange">next breakthrough.</span>
           </h2>
 
           <!-- CONTACT DETAILS CARDS -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; text-align: left;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3rem; text-align: left;">
             
             <!-- EMAIL CARD -->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 1.75rem 2rem; backdrop-filter: blur(8px);">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
-                <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(242, 98, 36, 0.2); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
-                  <i class="fa-solid fa-envelope"></i>
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 2rem 2.25rem; backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                  <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(242, 98, 36, 0.18); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.3);">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; font-weight: 700;">DIRECT COMMUNICATION</span>
+                    <h3 style="font-size: 1.3rem; font-weight: 700; color: #ffffff; margin: 0;">Email</h3>
+                  </div>
                 </div>
-                <div>
-                  <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; font-weight: 700;">DIRECT COMMUNICATION</span>
-                  <h4 style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin: 0;">📧 Email</h4>
+                
+                <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 1.25rem; line-height: 1.6;">
+                  Connect directly with our clinical affairs and proposal review team for study inquiries, feasibility evaluations, or partnerships:
+                </p>
+
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
+                  <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.2rem; color: #ffffff; font-weight: 700; text-decoration: none; word-break: break-all; display: inline-flex; align-items: center; gap: 0.6rem; transition: color 0.2s ease;" onmouseover="this.style.color='var(--jss-orange)'" onmouseout="this.style.color='#ffffff'">
+                    <i class="fa-solid fa-paper-plane" style="font-size: 0.95rem; color: var(--jss-orange);"></i>
+                    <span>{{ setting('contact_email', 'info@trevanta.com') }}</span>
+                  </a>
                 </div>
               </div>
-              <a href="mailto:{{ setting('contact_email', 'info@trevanta.com') }}" style="font-size: 1.15rem; color: #ffffff; font-weight: 600; text-decoration: none; word-break: break-all; transition: color 0.2s ease;" onmouseover="this.style.color='var(--jss-orange)'" onmouseout="this.style.color='#ffffff'">
-                {{ setting('contact_email', 'info@trevanta.com') }}
-              </a>
+
+              <div style="padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; gap: 0.65rem; font-size: 0.82rem; color: #94a3b8;">
+                <i class="fa-solid fa-shield-halved" style="color: var(--jss-orange); font-size: 0.95rem;"></i>
+                <span>All protocol discussions and study outlines are protected by mutual corporate NDA.</span>
+              </div>
             </div>
 
             <!-- GLOBAL OFFICES CARD -->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; padding: 1.75rem 2rem; backdrop-filter: blur(8px);">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
-                <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(242, 98, 36, 0.2); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 2rem 2.25rem; backdrop-filter: blur(8px);">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(242, 98, 36, 0.18); color: var(--jss-orange); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; border: 1px solid rgba(242, 98, 36, 0.3);">
                   <i class="fa-solid fa-earth-americas"></i>
                 </div>
                 <div>
                   <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; font-weight: 700;">WORLDWIDE PRESENCE</span>
-                  <h4 style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin: 0;">🌍 Global Offices</h4>
+                  <h3 style="font-size: 1.3rem; font-weight: 700; color: #ffffff; margin: 0;">Global Offices</h3>
                 </div>
               </div>
-              <p style="font-size: 1.1rem; color: #cbd5e1; font-weight: 600; margin: 0;">
-                (To be added)
-              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                
+                <!-- CORPORATE GLOBAL HQ -->
+                @if(setting('address_hq'))
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--jss-orange); margin-top: 0.25rem; font-size: 0.95rem; flex-shrink: 0;"></i>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.15rem;">
+                      Corporate Global HQ (Canada)
+                    </strong>
+                    <span style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                      {{ setting('address_hq', '4492 Sainte-Catherine St W, Westmount, QC H3Z 1R7, Canada') }}
+                    </span>
+                  </div>
+                </div>
+                @endif
+
+                <!-- INDIA OPERATIONS & DATA HUB -->
+                @if(setting('address_india'))
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.85rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--jss-orange); margin-top: 0.25rem; font-size: 0.95rem; flex-shrink: 0;"></i>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.15rem;">
+                      India Operations &amp; Data Hub
+                    </strong>
+                    <span style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                      {{ setting('address_india') }}
+                    </span>
+                  </div>
+                </div>
+                @endif
+
+                <!-- MIDDLE EAST REGIONAL HUB -->
+                @if(setting('address_uae'))
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.85rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--jss-orange); margin-top: 0.25rem; font-size: 0.95rem; flex-shrink: 0;"></i>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.15rem;">
+                      Middle East Regional Hub (Dubai, UAE)
+                    </strong>
+                    <span style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                      {{ setting('address_uae') }}
+                    </span>
+                  </div>
+                </div>
+                @endif
+
+                <!-- UK & EUROPE LIAISON -->
+                @if(setting('address_uk'))
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.85rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--jss-orange); margin-top: 0.25rem; font-size: 0.95rem; flex-shrink: 0;"></i>
+                  <div>
+                    <strong style="display: block; font-size: 0.85rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.15rem;">
+                      UK &amp; Europe Liaison (London)
+                    </strong>
+                    <span style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">
+                      {{ setting('address_uk') }}
+                    </span>
+                  </div>
+                </div>
+                @endif
+
+              </div>
             </div>
 
           </div>
 
           <!-- GET IN TOUCH CTA -->
           <div>
-            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.5rem; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(242, 98, 36, 0.4);">
+            <button type="button" class="btn btn-jss-orange btn-lg" onclick="openRfpModal()" style="border-radius: 8px; font-weight: 700; padding: 1rem 2.75rem; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(242, 98, 36, 0.4);">
               Get in Touch &rarr;
             </button>
           </div>
