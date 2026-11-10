@@ -273,32 +273,19 @@
                 </div>
               </div>
 
-              <h6 class="font-weight-bold text-primary mb-3 text-sm"><i class="fas fa-headset mr-1"></i> Regional Direct Hotlines</h6>
+              <h6 class="font-weight-bold text-primary mb-3 text-sm"><i class="fas fa-headset mr-1"></i> Corporate Hotlines &amp; Operating Hours</h6>
               <div class="row mb-3">
                 <div class="col-md-4 mb-3">
-                  <label for="phone_na" class="font-weight-bold text-dark text-xs text-uppercase mb-1">North America Hotline (HQ)</label>
+                  <label for="phone_na" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Corporate Hotline / Phone (HQ)</label>
                   <input type="text" name="phone_na" id="phone_na" class="form-control" value="{{ $settings['phone_na'] ?? '+1 (514) 934-0805' }}">
-                  <small class="text-muted text-xs">Shown in top bar and mobile drawer.</small>
+                  <small class="text-muted text-xs">Primary corporate contact hotline.</small>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="phone_in" class="font-weight-bold text-dark text-xs text-uppercase mb-1">India &amp; APAC Hotline</label>
-                  <input type="text" name="phone_in" id="phone_in" class="form-control" value="{{ $settings['phone_in'] ?? '+91 7738804988' }}">
-                  <small class="text-muted text-xs">Shown in top bar and mobile drawer.</small>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="phone_uae" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Middle East &amp; UAE Hotline</label>
-                  <input type="text" name="phone_uae" id="phone_uae" class="form-control" value="{{ $settings['phone_uae'] ?? '+971 52 382 2824' }}">
-                  <small class="text-muted text-xs">Shown in top bar and mobile drawer.</small>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-3">
                   <label for="phone_safety" class="font-weight-bold text-dark text-xs text-uppercase mb-1">24/7 Safety Emergency Hotline</label>
                   <input type="text" name="phone_safety" id="phone_safety" class="form-control" value="{{ $settings['phone_safety'] ?? '+1 (800) 577-7233' }}">
                   <small class="text-muted text-xs">Displayed on contact page safety reporting banner.</small>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="operating_hours" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Corporate Operating Hours</label>
                   <input type="text" name="operating_hours" id="operating_hours" class="form-control" value="{{ $settings['operating_hours'] ?? 'Mon–Fri, 8:30 AM – 6:00 PM EST' }}">
                   <small class="text-muted text-xs">Displayed on contact page.</small>

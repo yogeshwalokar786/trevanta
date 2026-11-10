@@ -47,13 +47,7 @@
         'telephone' => setting('phone_na', '+1-514-934-0805'),
         'contactType' => 'customer service',
         'email' => setting('contact_email', 'info@trevanta.com'),
-        'areaServed' => ['CA', 'US']
-      ],
-      [
-        '@type' => 'ContactPoint',
-        'telephone' => setting('phone_in', '+91-7738804988'),
-        'contactType' => 'operations',
-        'areaServed' => 'IN'
+        'areaServed' => ['CA', 'US', 'Global']
       ]
     ],
     'sameAs' => array_values(array_filter([

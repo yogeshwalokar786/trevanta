@@ -174,29 +174,6 @@
             </p>
           </div>
 
-          <!-- REGIONAL CONTACTS SUMMARY -->
-          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem;">
-            <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">Corporate Regional Contacts</h4>
-            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.85rem;">
-              <div>
-                <strong>North America (Montreal &amp; Boston):</strong><br>
-                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_na', '+1 (514) 934-0805')) }}" style="color: var(--jss-orange);">{{ setting('phone_na', '+1 (514) 934-0805') }}</a> &bull; {{ setting('contact_email', 'info@trevanta.com') }}
-              </div>
-              <div>
-                <strong>India &amp; APAC (Mumbai &amp; Noida):</strong><br>
-                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_in', '+91 7738804988')) }}" style="color: var(--jss-orange);">{{ setting('phone_in', '+91 7738804988') }}</a> &bull; apac-trials@trevanta.com
-              </div>
-              <div>
-                <strong>Middle East &amp; UAE (Dubai):</strong><br>
-                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone_uae', '+971 52 382 2824')) }}" style="color: var(--jss-orange);">{{ setting('phone_uae', '+971 52 382 2824') }}</a> &bull; uae-trials@trevanta.com
-              </div>
-              <div>
-                <strong>Europe &amp; UK (London):</strong><br>
-                <a href="tel:+442079460912" style="color: var(--jss-orange);">+44 20 7946 0912</a> &bull; eu-trials@trevanta.com
-              </div>
-            </div>
-          </div>
-
           <!-- PHOTO CARD -->
           <div class="split-photo-frame" style="margin-top: 1.5rem;">
             <img src="{{ asset('images/doctor-consultation.jpg') }}" alt="Clinical Investigation Protocol Review" style="height: 220px;">
