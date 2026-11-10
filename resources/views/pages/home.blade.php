@@ -82,11 +82,11 @@
           <span class="highlight-orange">Life-Changing Therapies.</span>
         </h1>
 
-        <p class="hero-intro" style="max-width: 860px; margin-bottom: 1.25rem;">
+        <p class="hero-intro" style="max-width: 860px; margin-bottom: 1.25rem; font-size: 1.15rem; line-height: 1.75; color: #334155;">
           At Trevanta International we partner with biopharmaceutical innovators to transform scientific discoveries into life-changing therapies. As a global Contract Research Organization (CRO), we deliver end-to-end clinical development solutions with precision, speed, and uncompromising quality.
         </p>
 
-        <p class="hero-subintro" style="font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; max-width: 780px; margin-bottom: 2rem; font-weight: 500;">
+        <p class="hero-subintro" style="font-size: 1.15rem; line-height: 1.75; color: #0f172a; max-width: 780px; margin-bottom: 2.25rem; font-weight: 600;">
           From early development to post-marketing support, we help bring therapies to patients—faster, safer, and smarter.
         </p>
 
@@ -95,7 +95,7 @@
           <a href="{{ route('services') }}" class="btn btn-jss-orange btn-lg" style="padding: 0.95rem 2.25rem; font-size: 1.05rem; font-weight: 700; border-radius: 8px;">
             Start Your Clinical Journey &rarr;
           </a>
-          <button type="button" class="btn btn-jss-outline btn-lg" onclick="openRfpModal()" style="padding: 0.95rem 2.25rem; font-size: 1.05rem; font-weight: 700; border-radius: 8px; color: #ffffff; border-color: rgba(255,255,255,0.6);">
+          <button type="button" class="btn btn-jss-navy-outline btn-lg" onclick="openRfpModal()" style="padding: 0.95rem 2.25rem; font-size: 1.05rem; font-weight: 700; border-radius: 8px; border: 2px solid #121e2d; color: #121e2d; background: transparent;">
             Partner With Us &rarr;
           </button>
         </div>

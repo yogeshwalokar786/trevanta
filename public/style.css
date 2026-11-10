@@ -150,6 +150,18 @@ ul {
   transform: translateY(-2px);
 }
 
+.btn-jss-navy-outline {
+  background-color: transparent;
+  border: 2px solid var(--jss-navy);
+  color: var(--jss-navy);
+}
+
+.btn-jss-navy-outline:hover {
+  background-color: var(--jss-navy) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
 /* TOP BAR: DEPRECATED FOR UNIFIED SINGLE HEADER */
 .jss-topbar {
   display: none !important;
