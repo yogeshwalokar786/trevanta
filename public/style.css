@@ -2176,6 +2176,21 @@ ul {
   transform: translateX(4px);
 }
 
+/* ── FSP Feature Grid Responsive ── */
+.fsp-feature-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .fsp-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* CLIENTS & PARTNERSHIP SECTION */
 .jss-clients-section {
   padding: 6rem 0;
