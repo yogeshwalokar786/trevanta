@@ -1823,6 +1823,131 @@ ul {
   }
 }
 
+/* ── Our Approach Section ── */
+.approach-section {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.approach-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.approach-card:hover {
+  background: #ffffff;
+  border-color: var(--jss-orange);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -6px rgba(242, 98, 36, 0.12), 0 6px 12px -4px rgba(0, 0, 0, 0.04);
+}
+
+.approach-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.approach-num {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--jss-orange);
+  background: rgba(242, 98, 36, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.approach-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: var(--jss-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.approach-card:hover .approach-icon-wrap {
+  background: var(--jss-orange);
+  border-color: var(--jss-orange);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.approach-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+}
+
+.approach-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.approach-list {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 1.25rem;
+}
+
+.approach-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.approach-list li i {
+  color: var(--jss-orange);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+  .approach-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
 /* CLIENTS & PARTNERSHIP SECTION */
 .jss-clients-section {
   padding: 6rem 0;

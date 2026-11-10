@@ -529,84 +529,101 @@
       </div>
     </section>
 
-    <!-- OUR CLIENTS & PARTNERSHIP SECTION -->
-    <section class="jss-clients-section" id="clients">
+    <!-- OUR APPROACH SECTION -->
+    <section class="approach-section" id="approach">
       <div class="site-container">
-        <div class="clients-card-jss">
-          <div class="clients-left">
-            <span class="eyebrow-jss">WHO WE SERVE</span>
-            <h2>Tailored Clinical Partnerships for Every Sponsor Scale</h2>
-            <p>
-              Whether you are an emerging biotechnology firm conducting a critical First-in-Human trial, or a global pharmaceutical enterprise requiring turnkey pharmacovigilance across 20 markets, our agile structure adapts directly to your operating rhythm.
-            </p>
-            <div class="sponsor-types">
-              <div class="st-box">
-                <strong>Biotechnology Innovators</strong>
-                <p>Knowledgeable project teams, flexible approaches, and dedicated C-suite attention.</p>
-              </div>
-              <div class="st-box">
-                <strong>Global Pharmaceutical</strong>
-                <p>Niche post-marketing services, multi-country site networks, and inspection readiness.</p>
-              </div>
-              <div class="st-box">
-                <strong>Medical Device Companies</strong>
-                <p>EU MDR and FDA 510(k)/PMA clinical investigations with full ISO 14155 adherence.</p>
-              </div>
-            </div>
+        
+        <div class="section-title-wrap text-center" style="max-width: 820px; margin: 0 auto 3.5rem;">
+          <div class="hero-top-announcement" style="margin-bottom: 0.85rem;">
+            <span class="orange-beacon"></span>
+            <span>Strategic Delivery Framework</span>
           </div>
-          <div class="clients-right">
-            <div class="quote-callout">
-              <span class="quote-mark">&ldquo;</span>
-              <blockquote>
-                Trevanta International delivered our Phase II oncology trial 4 months ahead of schedule with 99.4% data completeness. Their responsiveness and regulatory insights made all the difference.
-              </blockquote>
-              <div class="quote-author">
-                <strong>Chief Medical Officer</strong>
-                <span>Clinical-Stage US Oncology Sponsor</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT US & COMPLIANCE BADGES -->
-    <section class="jss-about-section" id="about">
-      <div class="site-container">
-        <div class="section-title-wrap text-center">
-          <span class="eyebrow-jss">QUALITY &amp; COMPLIANCE</span>
-          <h2 class="main-title">Rigorous Standards, Certified Quality</h2>
-          <p class="subtitle-jss">
-            Fully audited and compliant with worldwide healthcare agency mandates.
+          <h2 class="main-title" style="font-size: 2.6rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem;">
+            Our <span class="highlight-orange">Approach.</span>
+          </h2>
+          <p class="subtitle-jss" style="max-width: 760px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; color: #475569;">
+            We combine patient focus, advanced digital infrastructure, international agility, and rigorous compliance to accelerate clinical milestones.
           </p>
         </div>
 
-        <div class="compliance-row">
-          <div class="c-badge-jss">
-            <strong>US FDA</strong>
-            <span>21 CFR Part 11 Validated</span>
-          </div>
-          <div class="c-badge-jss">
-            <strong>ICH-GCP</strong>
-            <span>E6(R2/R3) Standard of Care</span>
-          </div>
-          <div class="c-badge-jss">
-            <strong>EMA &amp; MHRA</strong>
-            <span>European Directives</span>
-          </div>
-          <div class="c-badge-jss">
-            <strong>CDISC</strong>
-            <span>SDTM &amp; ADaM Platinum</span>
-          </div>
-          <div class="c-badge-jss">
-            <strong>ISO 9001:2015</strong>
-            <span>Quality Management</span>
-          </div>
-          <div class="c-badge-jss">
-            <strong>HIPAA &amp; GDPR</strong>
-            <span>Data Privacy Guard</span>
-          </div>
+        <div class="approach-grid">
+          <!-- CARD 1: PATIENT-CENTRIC INNOVATION -->
+          <article class="approach-card">
+            <div class="approach-card-header">
+              <span class="approach-num">01</span>
+              <div class="approach-icon-wrap">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+            </div>
+            <h3>Patient-Centric Innovation</h3>
+            <p>
+              We design trials that prioritize patient accessibility, diversity, and engagement—improving recruitment and retention.
+            </p>
+            <ul class="approach-list">
+              <li><i class="fa-solid fa-circle-check"></i> Patient accessibility focus</li>
+              <li><i class="fa-solid fa-circle-check"></i> Diverse cohort enrollment</li>
+              <li><i class="fa-solid fa-circle-check"></i> Optimized retention rates</li>
+            </ul>
+          </article>
+
+          <!-- CARD 2: TECHNOLOGY-DRIVEN EXECUTION -->
+          <article class="approach-card">
+            <div class="approach-card-header">
+              <span class="approach-num">02</span>
+              <div class="approach-icon-wrap">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+            </div>
+            <h3>Technology-Driven Execution</h3>
+            <p>
+              Harnessing modern digital tools and predictive insights to optimize clinical execution and streamline timelines.
+            </p>
+            <ul class="approach-list">
+              <li><i class="fa-solid fa-circle-check"></i> AI-enabled trial optimization</li>
+              <li><i class="fa-solid fa-circle-check"></i> Real-time data monitoring</li>
+              <li><i class="fa-solid fa-circle-check"></i> Predictive analytics</li>
+            </ul>
+          </article>
+
+          <!-- CARD 3: GLOBAL REACH, LOCAL EXPERTISE -->
+          <article class="approach-card">
+            <div class="approach-card-header">
+              <span class="approach-num">03</span>
+              <div class="approach-icon-wrap">
+                <i class="fa-solid fa-earth-americas"></i>
+              </div>
+            </div>
+            <h3>Global Reach, Local Expertise</h3>
+            <p>
+              Our global network ensures efficient study execution while maintaining local regulatory compliance.
+            </p>
+            <ul class="approach-list">
+              <li><i class="fa-solid fa-circle-check"></i> International clinical footprint</li>
+              <li><i class="fa-solid fa-circle-check"></i> Local regulatory alignment</li>
+              <li><i class="fa-solid fa-circle-check"></i> Seamless multi-region startup</li>
+            </ul>
+          </article>
+
+          <!-- CARD 4: QUALITY & COMPLIANCE -->
+          <article class="approach-card">
+            <div class="approach-card-header">
+              <span class="approach-num">04</span>
+              <div class="approach-icon-wrap">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+            </div>
+            <h3>Quality &amp; Compliance</h3>
+            <p>
+              We adhere to rigorous international standards across every stage of the trial lifecycle:
+            </p>
+            <ul class="approach-list">
+              <li><i class="fa-solid fa-circle-check"></i> ICH-GCP</li>
+              <li><i class="fa-solid fa-circle-check"></i> FDA / EMA guidelines</li>
+              <li><i class="fa-solid fa-circle-check"></i> ISO standards</li>
+            </ul>
+          </article>
         </div>
+
       </div>
     </section>
 
