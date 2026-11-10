@@ -888,6 +888,24 @@ ul {
 }
 
 /* ── Careers Page Specialized Styling ── */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+@media (max-width: 991px) {
+  .jobs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .job-card {
   background: #ffffff;
   border: 1px solid var(--border-light);
@@ -898,6 +916,7 @@ ul {
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100%;
 }
 
 .job-card:hover {

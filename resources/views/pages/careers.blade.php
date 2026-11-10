@@ -101,8 +101,8 @@
         </div>
 
         @if(isset($jobs) && $jobs->count() > 0)
-          <!-- JOB CARDS GRID -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
+          <!-- 3-CARD BALANCED JOB GRID (Does not stretch 1 card across entire row) -->
+          <div class="jobs-grid">
             @foreach($jobs as $job)
               <article class="job-card">
                 <div class="job-card-header">
