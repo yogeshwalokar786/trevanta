@@ -599,6 +599,10 @@ ul {
   width: 100%;
 }
 
+.nav-blog-hidden {
+  display: none !important;
+}
+
 /* ── Services Dropdown (Desktop) ── */
 .has-dropdown {
   position: relative;
