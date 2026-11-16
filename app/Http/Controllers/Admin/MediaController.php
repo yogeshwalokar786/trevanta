@@ -113,8 +113,6 @@ class MediaController extends Controller
                 $uploaded[] = $item;
             } catch (\Throwable $e) {
                 // If DB fails, still track file
-            }
-        }
                 $uploaded[] = [
                     'filename' => $originalName,
                     'path'     => 'uploads/' . $filename,
