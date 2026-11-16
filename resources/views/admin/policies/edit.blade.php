@@ -37,7 +37,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Edit Policy Page</h1>
-        <p class="text-muted text-sm mb-0">Modify legal clauses, revision dates, or publication status.</p>
       </div>
       <div class="mt-2 mt-sm-0 d-flex gap-2">
         <a href="{{ route('policy.show', $policy->slug) }}" target="_blank" class="btn btn-white btn-sm mr-2">
@@ -85,7 +84,6 @@
               <div class="form-group mb-3">
                 <label for="title" class="font-weight-bold text-dark text-sm">Policy Title <span class="text-danger">*</span></label>
                 <input type="text" name="title" id="title" class="form-control" placeholder="e.g., Privacy Statement, GCP Statement, Terms of Use" value="{{ old('title', $policy->title) }}" required autofocus>
-                <small class="text-muted text-xs">Descriptive public headline for this policy document.</small>
               </div>
 
               <!-- URL Slug -->
@@ -93,25 +91,22 @@
                 <label for="slug" class="font-weight-bold text-dark text-sm">URL Slug <span class="text-danger">*</span></label>
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text bg-light text-xs font-weight-bold text-muted" style="font-family: monospace;">{{ url('/policy') }}/</span>
+                    <span class="input-group-text bg-light text-xs font-weight-bold text-dark" style="font-family: monospace;">{{ url('/policy') }}/</span>
                   </div>
                   <input type="text" name="slug" id="slug" class="form-control" placeholder="privacy-statement" value="{{ old('slug', $policy->slug) }}" required>
                 </div>
-                <small class="text-muted text-xs">Direct browser URL path. Changing this will update the public URL.</small>
               </div>
 
               <!-- Short Summary / Excerpt -->
               <div class="form-group mb-3">
                 <label for="summary" class="font-weight-bold text-dark text-sm">Executive Summary / Overview</label>
                 <textarea name="summary" id="summary" rows="3" class="form-control" placeholder="Brief 1-2 sentence overview displayed at the top of the policy page...">{{ old('summary', $policy->summary) }}</textarea>
-                <small class="text-muted text-xs">Optional high-level overview explaining the purpose of this policy.</small>
               </div>
 
               <!-- Rich Text Content -->
               <div class="form-group mb-0">
                 <label for="editor" class="font-weight-bold text-dark text-sm">Policy Clauses &amp; Full Content <span class="text-danger">*</span></label>
                 <textarea name="content" id="editor" class="form-control">{{ old('content', $policy->content) }}</textarea>
-                <small class="text-muted text-xs mt-1 d-block">Use headings (H2, H3), bold text, bullet points, and tables to organize legal and compliance clauses.</small>
               </div>
 
             </div>
@@ -121,7 +116,7 @@
           <div class="card shadow-xs border-0 mb-4" style="border-radius: 12px;">
             <div class="card-header bg-white border-bottom py-3 px-4 d-flex justify-content-between align-items-center">
               <h6 class="font-weight-bold text-dark m-0"><i class="fas fa-search mr-2 text-primary"></i> Search Engine Optimization (SEO)</h6>
-              <span class="badge badge-light border text-xs text-muted">Optional Metadata</span>
+              <span class="badge badge-light border text-xs text-dark">Optional Metadata</span>
             </div>
             <div class="card-body p-4">
               
@@ -129,7 +124,7 @@
               <div class="form-group mb-3">
                 <div class="d-flex justify-content-between align-items-center">
                   <label for="meta_title" class="font-weight-bold text-dark text-sm mb-1">SEO Meta Title</label>
-                  <span id="metaTitleCount" class="badge badge-light border text-xs text-muted">0 / 60</span>
+                  <span id="metaTitleCount" class="badge badge-light border text-xs text-dark">0 / 60</span>
                 </div>
                 <input type="text" name="meta_title" id="meta_title" class="form-control" placeholder="Defaults to: Policy Title | Trevanta International" value="{{ old('meta_title', $policy->meta_title) }}" maxlength="70">
               </div>
@@ -138,14 +133,14 @@
               <div class="form-group mb-3">
                 <div class="d-flex justify-content-between align-items-center">
                   <label for="meta_description" class="font-weight-bold text-dark text-sm mb-1">SEO Meta Description</label>
-                  <span id="metaDescCount" class="badge badge-light border text-xs text-muted">0 / 160</span>
+                  <span id="metaDescCount" class="badge badge-light border text-xs text-dark">0 / 160</span>
                 </div>
                 <textarea name="meta_description" id="meta_description" rows="2" class="form-control" placeholder="Search engine snippet describing this compliance policy..." maxlength="200">{{ old('meta_description', $policy->meta_description) }}</textarea>
               </div>
 
               <!-- Google SERP Live Preview -->
               <div class="p-3 rounded border" style="background: #f8fafc; border-radius: 10px;">
-                <span class="text-xs text-uppercase font-weight-bold text-muted d-block mb-2"><i class="fab fa-google mr-1 text-primary"></i> Search Result Snippet Preview</span>
+                <span class="text-xs text-uppercase font-weight-bold text-dark d-block mb-2"><i class="fab fa-google mr-1 text-primary"></i> Search Result Snippet Preview</span>
                 <div style="font-family: Arial, sans-serif; max-width: 600px;">
                   <div id="serpUrl" style="color: #202124; font-size: 12px; margin-bottom: 2px;">{{ url('/policy') }}/<span id="serpSlugPreview">{{ $policy->slug }}</span></div>
                   <div id="serpTitle" style="color: #1a0dab; font-size: 17px; line-height: 1.3; font-weight: 500; cursor: pointer; text-decoration: underline;" class="text-truncate">
@@ -178,7 +173,6 @@
                   <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" {{ old('is_active', $policy->is_active ? '1' : '0') == '1' ? 'checked' : '' }}>
                   <label class="custom-control-label font-weight-bold text-dark" for="is_active">Publish Live</label>
                 </div>
-                <small class="text-muted text-xs d-block mt-1">When turned on, this policy is publicly accessible and displayed in the site footer.</small>
               </div>
 
               <hr class="my-3">
@@ -187,18 +181,16 @@
               <div class="form-group mb-3">
                 <label for="effective_date" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Effective / Revised Date</label>
                 <input type="text" name="effective_date" id="effective_date" class="form-control" placeholder="e.g., January 1, 2026" value="{{ old('effective_date', $policy->effective_date) }}">
-                <small class="text-muted text-xs">Displayed at the top of the policy as the revision date.</small>
               </div>
 
               <!-- Display Sort Order -->
               <div class="form-group mb-4">
                 <label for="order" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Footer / List Order</label>
                 <input type="number" name="order" id="order" class="form-control" value="{{ old('order', $policy->order) }}" min="0">
-                <small class="text-muted text-xs">Determines sorting order in the footer legal navigation (lower numbers appear first).</small>
               </div>
 
               <!-- Metadata Info -->
-              <div class="p-3 bg-light rounded text-xs text-muted mb-4" style="line-height: 1.6;">
+              <div class="p-3 bg-light rounded text-xs text-dark mb-4" style="line-height: 1.6;">
                 <div><strong>Created:</strong> {{ $policy->created_at ? $policy->created_at->format('M d, Y H:i') : 'N/A' }}</div>
                 <div><strong>Last Updated:</strong> {{ $policy->updated_at ? $policy->updated_at->format('M d, Y H:i') : 'N/A' }}</div>
               </div>
@@ -218,7 +210,6 @@
           <div class="card shadow-xs border-0" style="border-radius: 12px; background: #fff5f5; border: 1px solid #fed7d7 !important;">
             <div class="card-body p-3">
               <h6 class="font-weight-bold text-danger mb-2 text-sm"><i class="fas fa-trash-alt mr-1"></i> Delete Document</h6>
-              <p class="text-xs text-muted mb-3">Once deleted, this compliance document will no longer be available to the public.</p>
               <form action="{{ route('admin.policies.destroy', $policy->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete this policy?');">
                 @csrf
                 @method('DELETE')

@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Media Library</h1>
-        <p class="text-muted text-sm mb-0">Upload, organize, and copy assets for blog articles and scientific whitepapers.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <button type="button" class="btn btn-primary shadow-sm" data-toggle="collapse" data-target="#uploadCollapseArea" aria-expanded="false">
@@ -33,7 +32,6 @@
             @csrf
             <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
             <h5 class="font-weight-bold text-dark mb-1">Select Images or Documents to Upload</h5>
-            <p class="text-muted text-xs mb-3">Supported formats: JPG, PNG, WebP, SVG, PDF up to 10MB each.</p>
             <div class="d-flex justify-content-center align-items-center gap-2">
               <input type="file" name="files[]" id="filePickerInput" class="d-none" multiple onchange="document.getElementById('mediaUploadForm').submit()">
               <label for="filePickerInput" class="btn btn-primary px-4 py-2 cursor-pointer mb-0">
@@ -52,7 +50,7 @@
           <div class="col-md-6 mb-2 mb-md-0">
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
+                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-dark"></i></span>
               </div>
               <input type="text" name="search" class="form-control border-left-0" placeholder="Search assets by filename..." value="{{ request('search') }}">
             </div>
@@ -83,7 +81,7 @@
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h3 class="card-title mb-0">
-          <i class="fas fa-images text-muted mr-2"></i> Stored Assets Library
+          <i class="fas fa-images text-dark mr-2"></i> Stored Assets Library
         </h3>
         <span class="pill-badge pill-review">Total: {{ $media->total() }} Files</span>
       </div>
@@ -100,7 +98,7 @@
                     @if($item->is_image)
                       <img src="{{ asset($item->path) }}" alt="{{ $item->filename }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                     @else
-                      <i class="fas fa-file-alt fa-3x text-muted"></i>
+                      <i class="fas fa-file-alt fa-3x text-dark"></i>
                     @endif
                   </div>
 
@@ -109,7 +107,7 @@
                     <div class="text-xs font-weight-bold text-dark text-truncate" title="{{ $item->filename }}">
                       {{ $item->filename }}
                     </div>
-                    <div class="text-muted text-xs mt-1">
+                    <div class="text-dark text-xs mt-1">
                       <span>{{ $item->formatted_size }}</span>
                       <span class="mx-1">&bull;</span>
                       <span>{{ $item->created_at ? $item->created_at->format('M d') : '-' }}</span>
@@ -143,9 +141,8 @@
           @endif
         @else
           <div class="text-center py-5">
-            <i class="fas fa-photo-video fa-3x text-muted mb-3 opacity-50"></i>
+            <i class="fas fa-photo-video fa-3x text-dark mb-3 opacity-50"></i>
             <p class="font-weight-bold text-dark mb-1">No media files found</p>
-            <p class="text-muted text-xs mb-3">Upload your first image, clinical figure, or logo to the library.</p>
             <label for="filePickerInput" class="btn btn-primary btn-sm cursor-pointer mb-0">
               <i class="fas fa-upload mr-1"></i> Upload Assets Now
             </label>

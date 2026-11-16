@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Policy &amp; Compliance Pages</h1>
-        <p class="text-muted text-sm mb-0">Manage legal policies, GCP compliance declarations, terms, and regulatory disclosures.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.policies.create') }}" class="btn btn-primary btn-sm">
@@ -43,7 +42,7 @@
               <i class="fas fa-file-contract"></i>
             </div>
             <div>
-              <div class="text-xs text-uppercase font-weight-bold text-muted">Total Policies</div>
+              <div class="text-xs text-uppercase font-weight-bold text-dark">Total Policies</div>
               <div class="h4 font-weight-bold text-dark mb-0">{{ $totalCount }}</div>
             </div>
           </div>
@@ -57,7 +56,7 @@
               <i class="fas fa-check-circle"></i>
             </div>
             <div>
-              <div class="text-xs text-uppercase font-weight-bold text-muted">Published / Active</div>
+              <div class="text-xs text-uppercase font-weight-bold text-dark">Published / Active</div>
               <div class="h4 font-weight-bold text-success mb-0">{{ $activeCount }}</div>
             </div>
           </div>
@@ -71,8 +70,8 @@
               <i class="fas fa-eye-slash"></i>
             </div>
             <div>
-              <div class="text-xs text-uppercase font-weight-bold text-muted">Draft / Inactive</div>
-              <div class="h4 font-weight-bold text-muted mb-0">{{ $inactiveCount }}</div>
+              <div class="text-xs text-uppercase font-weight-bold text-dark">Draft / Inactive</div>
+              <div class="h4 font-weight-bold text-dark mb-0">{{ $inactiveCount }}</div>
             </div>
           </div>
         </div>
@@ -86,7 +85,7 @@
           <div class="col-md-6 mb-2 mb-md-0">
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text bg-white border-right-0" style="border-radius: 8px 0 0 8px;"><i class="fas fa-search text-muted"></i></span>
+                <span class="input-group-text bg-white border-right-0" style="border-radius: 8px 0 0 8px;"><i class="fas fa-search text-dark"></i></span>
               </div>
               <input type="text" name="search" class="form-control border-left-0" placeholder="Search by title, slug, or content..." value="{{ request('search') }}" style="border-radius: 0 8px 8px 0;">
             </div>
@@ -114,7 +113,7 @@
     <div class="card shadow-xs border-0" style="border-radius: 12px; overflow: hidden;">
       <div class="card-header bg-white border-bottom py-3 px-4 d-flex justify-content-between align-items-center">
         <h6 class="font-weight-bold text-dark m-0"><i class="fas fa-list-alt mr-2 text-primary"></i> All Policy &amp; Compliance Documents</h6>
-        <span class="badge badge-light border text-xs px-2 py-1 font-weight-normal text-muted">Sorted by Order</span>
+        <span class="badge badge-light border text-xs px-2 py-1 font-weight-normal text-dark">Sorted by Order</span>
       </div>
 
       <div class="table-responsive">
@@ -133,13 +132,12 @@
           <tbody style="font-size: 0.875rem;">
             @forelse($policies as $policy)
               <tr>
-                <td class="text-center text-muted font-weight-bold">{{ $loop->iteration }}</td>
+                <td class="text-center text-dark font-weight-bold">{{ $loop->iteration }}</td>
                 <td>
                   <a href="{{ route('admin.policies.edit', $policy->id) }}" class="font-weight-bold text-dark d-block text-truncate" style="max-width: 280px; text-decoration: none;">
                     {{ $policy->title }}
                   </a>
                   @if($policy->summary)
-                    <small class="text-muted d-block text-truncate" style="max-width: 320px;">{{ $policy->summary }}</small>
                   @endif
                 </td>
                 <td>
@@ -147,7 +145,7 @@
                     /policy/{{ $policy->slug }} <i class="fas fa-external-link-alt ml-1" style="font-size: 0.65rem;"></i>
                   </a>
                 </td>
-                <td class="text-muted text-sm">
+                <td class="text-dark text-sm">
                   {{ $policy->effective_date ?: 'Not Specified' }}
                 </td>
                 <td class="text-center">
@@ -165,8 +163,8 @@
                     <!-- Quick Toggle Active Status -->
                     <form action="{{ route('admin.policies.toggle-active', $policy->id) }}" method="POST" class="d-inline">
                       @csrf
-                      <button type="submit" class="btn btn-sm {{ $policy->is_active ? 'btn-white text-muted' : 'btn-white text-success' }} p-1 px-2" title="{{ $policy->is_active ? 'Switch to Draft' : 'Publish Page' }}" style="border-radius: 6px;">
-                        <i class="fas {{ $policy->is_active ? 'fa-toggle-on text-success' : 'fa-toggle-off text-muted' }}"></i>
+                      <button type="submit" class="btn btn-sm {{ $policy->is_active ? 'btn-white text-dark' : 'btn-white text-success' }} p-1 px-2" title="{{ $policy->is_active ? 'Switch to Draft' : 'Publish Page' }}" style="border-radius: 6px;">
+                        <i class="fas {{ $policy->is_active ? 'fa-toggle-on text-success' : 'fa-toggle-off text-dark' }}"></i>
                       </button>
                     </form>
 
@@ -190,9 +188,8 @@
               <tr>
                 <td colspan="7" class="text-center py-5">
                   <div class="py-4">
-                    <i class="fas fa-file-contract text-muted fa-3x mb-3" style="opacity: 0.35;"></i>
+                    <i class="fas fa-file-contract text-dark fa-3x mb-3" style="opacity: 0.35;"></i>
                     <h6 class="font-weight-bold text-dark">No Policy Pages Found</h6>
-                    <p class="text-muted text-sm mb-3">You haven't created any legal or compliance policy pages yet.</p>
                     <a href="{{ route('admin.policies.create') }}" class="btn btn-primary btn-sm">
                       <i class="fas fa-plus mr-1"></i> Create First Policy Page
                     </a>
@@ -206,7 +203,7 @@
 
       @if(method_exists($policies, 'hasPages') && $policies->hasPages())
         <div class="card-footer bg-white border-top py-3 px-4 d-flex justify-content-between align-items-center">
-          <span class="text-muted text-xs">Showing {{ $policies->firstItem() }} to {{ $policies->lastItem() }} of {{ $policies->total() }} policies</span>
+          <span class="text-dark text-xs">Showing {{ $policies->firstItem() }} to {{ $policies->lastItem() }} of {{ $policies->total() }} policies</span>
           <div>{{ $policies->links('pagination::bootstrap-4') }}</div>
         </div>
       @endif

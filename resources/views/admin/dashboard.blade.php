@@ -143,7 +143,7 @@
                   <span class="badge badge-warning text-dark font-weight-bold mr-1">{{ $newApplications }} New</span>
                   Candidates on file
                 @else
-                  <span class="text-muted">{{ $activeJobs ?? 0 }} active roles</span>
+                  <span>{{ $activeJobs ?? 0 }} active roles</span>
                 @endif
                 &bull; Review &rarr;
               </p>
@@ -165,7 +165,7 @@
             <div>
               <div class="stat-card-number">{{ $totalPolicies ?? 0 }}</div>
               <p class="stat-card-desc">
-                <span class="badge badge-light border text-muted font-weight-bold mr-1">{{ $activePolicies ?? 0 }} Active</span>
+                <span class="badge badge-light border text-dark font-weight-bold mr-1">{{ $activePolicies ?? 0 }} Active</span>
                 Legal disclosures &rarr;
               </p>
             </div>
@@ -188,11 +188,10 @@
               <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
                 <i class="fas fa-inbox text-primary mr-2"></i> Inbound Enquiries &amp; Feasibility RFPs
               </h3>
-              <span class="badge badge-light border text-muted ml-2 font-weight-bold text-xs" style="font-size: 11px;">
+              <span class="badge badge-light border text-dark ml-2 font-weight-bold text-xs" style="font-size: 11px;">
                 {{ $totalInquiries }} Total
               </span>
             </div>
-            <small class="text-muted text-xs d-block mt-1">Review clinical study proposals, update review statuses, and contact sponsors.</small>
           </div>
           
           <!-- Filter Buttons & Full Archive Link -->
@@ -229,7 +228,7 @@
                 <th>Sponsor / Contact</th>
                 <th class="d-none d-md-table-cell">Study Focus &amp; Scope</th>
                 <th style="width: 145px;">Status</th>
-                <th class="d-none d-sm-table-cell text-muted" style="width: 110px;">Submitted</th>
+                <th class="d-none d-sm-table-cell text-dark" style="width: 110px;">Submitted</th>
                 <th class="text-right" style="width: 115px;">Actions</th>
               </tr>
             </thead>
@@ -247,7 +246,7 @@
                         <i class="fas fa-envelope"></i> Contact
                       </span>
                     @endif
-                    <div class="text-muted mt-1 font-weight-bold" style="font-size: 11px;">#{{ $inquiry->id }}</div>
+                    <div class="text-dark mt-1 font-weight-bold" style="font-size: 11px;">#{{ $inquiry->id }}</div>
                   </td>
 
                   <!-- 2. Sponsor / Contact Person with Avatar -->
@@ -261,7 +260,7 @@
                           {{ $inquiry->name }}
                         </div>
                         @if($inquiry->organization)
-                          <div class="text-xs text-muted font-weight-500 mt-1">
+                          <div class="text-xs text-secondary font-weight-500 mt-1">
                             <i class="fas fa-building mr-1 text-secondary"></i> {{ $inquiry->organization }}
                           </div>
                         @endif
@@ -270,7 +269,7 @@
                             <i class="fas fa-envelope mr-1"></i> {{ $inquiry->email }}
                           </a>
                           @if($inquiry->phone)
-                            <a href="tel:{{ $inquiry->phone }}" class="text-muted" title="Call {{ $inquiry->phone }}">
+                            <a href="tel:{{ $inquiry->phone }}" class="text-dark" title="Call {{ $inquiry->phone }}">
                               <i class="fas fa-phone mr-1"></i> {{ $inquiry->phone }}
                             </a>
                           @endif
@@ -294,11 +293,11 @@
                       @endif
                     </div>
                     @if($inquiry->message)
-                      <div class="text-xs text-muted text-truncate" style="max-width: 270px;" title="{{ $inquiry->message }}">
+                      <div class="text-xs text-dark text-truncate" style="max-width: 270px;" title="{{ $inquiry->message }}">
                         {{ $inquiry->message }}
                       </div>
                     @else
-                      <span class="text-muted text-xs">&mdash;</span>
+                      <span class="text-dark text-xs">&mdash;</span>
                     @endif
                   </td>
 
@@ -322,7 +321,7 @@
                   </td>
 
                   <!-- 5. Submission Date -->
-                  <td class="d-none d-sm-table-cell text-xs text-muted font-weight-500">
+                  <td class="d-none d-sm-table-cell text-xs text-dark font-weight-500">
                     <span title="{{ $inquiry->created_at ? $inquiry->created_at->format('M d, Y h:i A') : '' }}">
                       {{ $inquiry->created_at ? $inquiry->created_at->diffForHumans() : '&mdash;' }}
                     </span>
@@ -357,13 +356,12 @@
                 </tr>
               @empty
                 <tr>
-                  <td colspan="6" class="text-center py-5 text-muted">
+                  <td colspan="6" class="text-center py-5">
                     <div class="py-4">
                       <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; background: #f8fafc; color: #94a3b8; border: 1px dashed #cbd5e1;">
                         <i class="fas fa-inbox fa-2x"></i>
                       </div>
                       <h5 class="font-weight-bold text-dark mb-1">No enquiries found</h5>
-                      <small class="text-muted">Inbound client requests and study proposals will appear here in real time.</small>
                     </div>
                   </td>
                 </tr>
@@ -376,9 +374,9 @@
       <!-- Card Footer Pagination -->
       @if(method_exists($inquiries, 'hasPages') && $inquiries->hasPages())
         <div class="card-footer bg-white border-top py-3 px-4 d-flex flex-wrap justify-content-between align-items-center">
-          <small class="text-muted text-xs">
+          <span class="text-xs text-dark font-weight-500">
             Showing {{ $inquiries->firstItem() }} to {{ $inquiries->lastItem() }} of {{ $inquiries->total() }} enquiries
-          </small>
+          </span>
           <div>
             {{ $inquiries->withQueryString()->links('pagination::bootstrap-4') }}
           </div>
@@ -413,34 +411,34 @@
         <div class="p-3 mb-4 rounded border bg-light d-flex flex-wrap justify-content-between align-items-center" style="border-radius: 10px;">
           <div>
             <h5 class="font-weight-bold text-dark mb-1" id="dashModalClientName">Client Name</h5>
-            <div class="text-xs text-muted" id="dashModalClientOrg">Company / Organization</div>
+            <div class="text-xs text-secondary" id="dashModalClientOrg">Company / Organization</div>
           </div>
           <div class="text-right mt-2 mt-sm-0">
-            <span class="badge badge-light border text-muted px-2 py-1 text-xs" id="dashModalDate">Submitted Date</span>
+            <span class="badge badge-light border text-dark px-2 py-1 text-xs" id="dashModalDate">Submitted Date</span>
           </div>
         </div>
 
         <!-- Contact & Parameters Grid -->
         <div class="row mb-3">
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Email Address</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Email Address</label>
             <a href="#" id="dashModalEmailLink" class="font-weight-bold text-primary text-sm">
               <span id="dashModalClientEmail">email@example.com</span> &rarr;
             </a>
           </div>
 
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Telephone / Hotline</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Telephone / Hotline</label>
             <span id="dashModalClientPhone" class="font-weight-bold text-dark text-sm">&mdash;</span>
           </div>
 
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Therapeutic Focus / Area</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Therapeutic Focus / Area</label>
             <span id="dashModalTherapeutic" class="font-weight-bold text-dark text-sm">&mdash;</span>
           </div>
 
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Clinical Study Phase</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Clinical Study Phase</label>
             <span id="dashModalPhase" class="badge badge-light border text-xs font-weight-bold">&mdash;</span>
           </div>
         </div>
@@ -449,7 +447,7 @@
 
         <!-- Protocol Message -->
         <div class="form-group mb-0">
-          <label class="text-xs font-weight-bold text-muted text-uppercase mb-2 d-block">Protocol Outline / Inquiry Message</label>
+          <label class="text-xs font-weight-bold text-dark text-uppercase mb-2 d-block">Protocol Outline / Inquiry Message</label>
           <div class="p-3 rounded border bg-white" style="border-radius: 8px; min-height: 100px; max-height: 250px; overflow-y: auto; font-size: 0.875rem; line-height: 1.6; color: #334155; white-space: pre-wrap;" id="dashModalMessage">
             No message notes provided.
           </div>

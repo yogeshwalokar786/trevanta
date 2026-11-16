@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Candidate Applications</h1>
-        <p class="text-muted text-sm mb-0">Review submitted resumes, applicant credentials, and candidate hiring statuses.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.jobs.index') }}" class="btn btn-light shadow-sm">
@@ -113,7 +112,7 @@
           <div class="col-md-5 mb-2 mb-md-0">
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
+                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-dark"></i></span>
               </div>
               <input type="text" name="search" class="form-control border-left-0" placeholder="Search by candidate name, email, phone, city..." value="{{ request('search') }}">
             </div>
@@ -161,7 +160,7 @@
           </h3>
         </div>
         @if(method_exists($applications, 'total'))
-          <span class="badge badge-light border text-muted px-3 py-2 font-weight-bold">
+          <span class="badge badge-light border text-dark px-3 py-2 font-weight-bold">
             Total: {{ $applications->total() }} Candidates
           </span>
         @endif
@@ -185,7 +184,7 @@
             <tbody>
               @forelse($applications as $index => $app)
                 <tr>
-                  <td class="text-muted font-weight-bold">
+                  <td class="text-dark font-weight-bold">
                     {{ (method_exists($applications, 'firstItem') ? $applications->firstItem() + $index : $index + 1) }}
                   </td>
                   <td>
@@ -194,12 +193,12 @@
                         {{ $app->name }}
                       </a>
                     </div>
-                    <div class="text-xs text-muted">
-                      <a href="mailto:{{ $app->email }}" class="text-muted mr-2">
+                    <div class="text-xs text-dark">
+                      <a href="mailto:{{ $app->email }}" class="text-dark mr-2">
                         <i class="fas fa-envelope mr-1 text-primary"></i> {{ $app->email }}
                       </a>
                       @if($app->phone)
-                        <span class="text-muted">
+                        <span class="text-dark">
                           <i class="fas fa-phone mr-1 text-success"></i> {{ $app->phone }}
                         </span>
                       @endif
@@ -215,9 +214,6 @@
                       <i class="fas fa-map-marker-alt text-danger mr-1"></i> {{ $app->current_location ?: 'Not specified' }}
                     </div>
                     @if($app->experience)
-                      <small class="text-muted d-block mt-1">
-                        <i class="fas fa-history mr-1"></i> {{ $app->experience }}
-                      </small>
                     @endif
                   </td>
                   <td>
@@ -226,7 +222,7 @@
                         <i class="fas fa-download mr-1"></i> Download CV
                       </a>
                     @else
-                      <span class="text-xs text-muted">No CV file</span>
+                      <span class="text-xs text-dark">No CV file</span>
                     @endif
                   </td>
                   <td class="text-center">
@@ -248,7 +244,7 @@
                       </span>
                     @endif
                   </td>
-                  <td class="text-xs text-muted">
+                  <td class="text-xs text-dark">
                     {{ $app->created_at ? $app->created_at->format('M d, Y h:i A') : 'N/A' }}
                   </td>
                   <td class="text-right">
@@ -274,7 +270,7 @@
                         </span>
                       </div>
                       <h5 class="font-weight-bold text-dark">No Job Applications Found</h5>
-                      <p class="text-muted text-sm mb-3">
+                      <p class="text-dark text-sm mb-3">
                         @if(request('search') || request('position') || request('status'))
                           No applications match your active filters. Try resetting the filter toolbar above.
                         @else
@@ -297,9 +293,9 @@
 
       @if(method_exists($applications, 'hasPages') && $applications->hasPages())
         <div class="card-footer bg-white border-top py-3 px-4 d-flex justify-content-between align-items-center">
-          <small class="text-muted">
+          <span class="text-xs text-dark font-weight-500">
             Showing {{ $applications->firstItem() }} to {{ $applications->lastItem() }} of {{ $applications->total() }} candidates
-          </small>
+          </span>
           <div>
             {{ $applications->links('pagination::bootstrap-4') }}
           </div>

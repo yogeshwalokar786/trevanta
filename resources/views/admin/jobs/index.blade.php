@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Job Openings &amp; Recruitment</h1>
-        <p class="text-muted text-sm mb-0">Post and manage clinical research positions, requirements, and job listings.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.jobs.create') }}" class="btn btn-primary shadow-sm">
@@ -39,7 +38,7 @@
           <div class="col-md-5 mb-2 mb-md-0">
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
+                <span class="input-group-text bg-white border-right-0"><i class="fas fa-search text-dark"></i></span>
               </div>
               <input type="text" name="search" class="form-control border-left-0" placeholder="Search by title, location, department..." value="{{ request('search') }}">
             </div>
@@ -85,7 +84,7 @@
           </h3>
         </div>
         @if(method_exists($jobs, 'total'))
-          <span class="badge badge-light border text-muted px-3 py-2 font-weight-bold">
+          <span class="badge badge-light border text-dark px-3 py-2 font-weight-bold">
             Total: {{ $jobs->total() }} Openings
           </span>
         @endif
@@ -108,16 +107,13 @@
             <tbody>
               @forelse($jobs as $index => $job)
                 <tr>
-                  <td class="text-muted font-weight-bold">
+                  <td class="text-dark font-weight-bold">
                     {{ (method_exists($jobs, 'firstItem') ? $jobs->firstItem() + $index : $index + 1) }}
                   </td>
                   <td>
                     <div class="font-weight-bold text-dark" style="font-size: 0.95rem;">
                       {{ $job->title }}
                     </div>
-                    <small class="text-muted d-block text-truncate" style="max-width: 320px;">
-                      {{ Str::limit($job->description, 85) }}
-                    </small>
                   </td>
                   <td>
                     <span class="badge badge-light border px-2 py-1 font-weight-normal text-dark">
@@ -143,7 +139,7 @@
                         <i class="fas fa-external-link-alt mr-1"></i> External Link
                       </a>
                     @else
-                      <span class="text-xs text-muted">
+                      <span class="text-xs text-dark">
                         <i class="fas fa-envelope mr-1"></i> {{ $job->apply_email ?: setting('careers_email', setting('contact_email', 'info@trevanta.com')) }}
                       </span>
                     @endif
@@ -185,7 +181,7 @@
                         </span>
                       </div>
                       <h5 class="font-weight-bold text-dark">No Job Openings Found</h5>
-                      <p class="text-muted text-sm mb-3">
+                      <p class="text-dark text-sm mb-3">
                         @if(request('search') || request('department') || request('status'))
                           No positions match your active filters. Try resetting the filter toolbar above.
                         @else
@@ -206,9 +202,9 @@
 
       @if(method_exists($jobs, 'hasPages') && $jobs->hasPages())
         <div class="card-footer bg-white border-top py-3 px-4 d-flex justify-content-between align-items-center">
-          <small class="text-muted">
+          <span class="text-xs text-dark font-weight-500">
             Showing {{ $jobs->firstItem() }} to {{ $jobs->lastItem() }} of {{ $jobs->total() }} positions
-          </small>
+          </span>
           <div>
             {{ $jobs->links('pagination::bootstrap-4') }}
           </div>

@@ -80,13 +80,12 @@
       <a href="{{ route('home') }}" class="text-decoration-none d-block mb-3">
         <img src="{{ asset('images/logo.png') }}" alt="Trevanta International" style="height: 48px; width: auto; max-width: 250px; object-fit: contain;">
       </a>
-      <span class="badge badge-light border text-muted px-3 py-1" style="border-radius: 20px; font-size: 12px; font-weight: 600;">
+      <span class="badge badge-light border text-dark px-3 py-1" style="border-radius: 20px; font-size: 12px; font-weight: 600;">
         Secure Administrative Console
       </span>
     </div>
     
     <div class="card-body px-4 py-4">
-      <p class="text-center text-muted text-sm mb-4">Sign in to manage study inquiries and clinical publications</p>
 
       @if(session('success'))
         <div class="alert alert-success text-sm mb-3" style="border-radius: 8px;">
@@ -128,7 +127,7 @@
           <div class="col-7">
             <div class="d-flex align-items-center">
               <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-              <label for="remember" class="ml-2 mb-0 font-weight-normal text-muted text-sm" style="cursor: pointer;">
+              <label for="remember" class="ml-2 mb-0 font-weight-normal text-dark text-sm" style="cursor: pointer;">
                 Remember Me
               </label>
             </div>
@@ -142,7 +141,7 @@
       </form>
 
       <div class="mt-4 pt-3 border-top text-center text-sm">
-        <a href="{{ route('home') }}" class="text-muted text-decoration-none font-weight-medium">
+        <a href="{{ route('home') }}" class="text-dark text-decoration-none font-weight-medium">
           <i class="fas fa-arrow-left mr-1"></i> Return to Public Website
         </a>
       </div>
@@ -150,7 +149,7 @@
     </div>
   </div>
   
-  <div class="text-center mt-3 text-muted text-xs">
+  <div class="text-center mt-3 text-dark text-xs">
     &copy; {{ date('Y') }} Trevanta International. All rights reserved.
   </div>
 

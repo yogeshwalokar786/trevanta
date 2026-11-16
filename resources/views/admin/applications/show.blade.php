@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">{{ $application->name }}</h1>
-        <p class="text-muted text-sm mb-0">Applied for: <strong class="text-dark">{{ $application->position_title }}</strong> &bull; Submitted on {{ $application->created_at ? $application->created_at->format('M d, Y h:i A') : 'N/A' }}</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.applications.index') }}" class="btn btn-light shadow-sm">
@@ -46,11 +45,11 @@
           <div class="card-body p-4">
             <div class="row mb-3">
               <div class="col-sm-6 mb-3">
-                <span class="text-xs font-weight-bold text-muted text-uppercase d-block mb-1">Full Name</span>
+                <span class="text-xs font-weight-bold text-dark text-uppercase d-block mb-1">Full Name</span>
                 <span class="font-weight-bold text-dark" style="font-size: 1.05rem;">{{ $application->name }}</span>
               </div>
               <div class="col-sm-6 mb-3">
-                <span class="text-xs font-weight-bold text-muted text-uppercase d-block mb-1">Target Position</span>
+                <span class="text-xs font-weight-bold text-dark text-uppercase d-block mb-1">Target Position</span>
                 <span class="badge badge-light border px-2 py-1 font-weight-bold text-dark" style="font-size: 0.9rem;">
                   {{ $application->position_title }}
                 </span>
@@ -62,30 +61,30 @@
               </div>
 
               <div class="col-sm-6 mb-3">
-                <span class="text-xs font-weight-bold text-muted text-uppercase d-block mb-1">Email Address</span>
+                <span class="text-xs font-weight-bold text-dark text-uppercase d-block mb-1">Email Address</span>
                 <a href="mailto:{{ $application->email }}" class="text-dark font-weight-bold">
                   <i class="fas fa-envelope mr-1 text-primary"></i> {{ $application->email }}
                 </a>
               </div>
               <div class="col-sm-6 mb-3">
-                <span class="text-xs font-weight-bold text-muted text-uppercase d-block mb-1">Phone Number</span>
+                <span class="text-xs font-weight-bold text-dark text-uppercase d-block mb-1">Phone Number</span>
                 @if($application->phone)
                   <a href="tel:{{ $application->phone }}" class="text-dark font-weight-bold">
                     <i class="fas fa-phone mr-1 text-success"></i> {{ $application->phone }}
                   </a>
                 @else
-                  <span class="text-muted">Not provided</span>
+                  <span class="text-dark">Not provided</span>
                 @endif
               </div>
 
               <div class="col-sm-6 mb-3">
-                <span class="text-xs font-weight-bold text-muted text-uppercase d-block mb-1">Current Location</span>
+                <span class="text-xs font-weight-bold text-dark text-uppercase d-block mb-1">Current Location</span>
                 <span class="text-dark">
                   <i class="fas fa-map-marker-alt mr-1 text-danger"></i> {{ $application->current_location ?: 'Not specified' }}
                 </span>
               </div>
               <div class="col-sm-6 mb-3">
-                <span class="text-xs font-weight-bold text-muted text-uppercase d-block mb-1">Total Experience</span>
+                <span class="text-xs font-weight-bold text-dark text-uppercase d-block mb-1">Total Experience</span>
                 <span class="text-dark">
                   <i class="fas fa-briefcase mr-1 text-info"></i> {{ $application->experience ?: 'Not specified' }}
                 </span>
@@ -100,7 +99,6 @@
                 </div>
                 <div>
                   <div class="font-weight-bold text-dark text-sm">Candidate Resume / CV File</div>
-                  <small class="text-muted">Original document uploaded by the candidate.</small>
                 </div>
               </div>
               <div class="my-1">
@@ -109,7 +107,7 @@
                     <i class="fas fa-download mr-1"></i> Download Resume
                   </a>
                 @else
-                  <span class="text-xs text-muted">No file uploaded</span>
+                  <span class="text-xs text-dark">No file uploaded</span>
                 @endif
               </div>
             </div>
@@ -130,7 +128,6 @@
                 {{ $application->cover_letter }}
               </div>
             @else
-              <p class="text-muted mb-0 italic">No additional cover message provided by the candidate.</p>
             @endif
           </div>
         </div>
@@ -165,7 +162,6 @@
               <div class="form-group mb-3">
                 <label for="notes" class="font-weight-bold text-dark text-xs text-uppercase mb-1">Internal HR Notes</label>
                 <textarea name="notes" id="notes" rows="5" class="form-control text-sm" placeholder="Add confidential recruiter notes, interview scheduling feedback, or salary expectations...">{{ $application->notes }}</textarea>
-                <small class="text-muted text-xs">Only visible to administrators.</small>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block font-weight-bold py-2 shadow-sm">

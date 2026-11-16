@@ -154,11 +154,10 @@
                   <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
                     <i class="fas fa-envelope-open-text text-primary mr-2"></i> Inbound Enquiries Archive
                   </h3>
-                  <span class="badge badge-light border text-muted ml-2 font-weight-bold text-xs" style="font-size: 11px;">
+                  <span class="badge badge-light border text-dark ml-2 font-weight-bold text-xs" style="font-size: 11px;">
                     {{ $totalCount }} Total
                   </span>
                 </div>
-                <small class="text-muted text-xs d-block mt-1">Review study proposals, update triage statuses, and respond to sponsors.</small>
               </div>
 
               <!-- Search & Filter Form -->
@@ -185,7 +184,7 @@
                   <input type="text" name="search" class="form-control" placeholder="Search enquiry..." value="{{ request('search') }}">
                   <div class="input-group-append">
                     <button class="btn btn-white" type="submit">
-                      <i class="fas fa-search text-muted"></i>
+                      <i class="fas fa-search text-secondary"></i>
                     </button>
                   </div>
                 </div>
@@ -209,7 +208,7 @@
                     <th>Sponsor / Contact</th>
                     <th class="d-none d-md-table-cell">Focus &amp; Scope</th>
                     <th style="width: 145px;">Status</th>
-                    <th class="d-none d-sm-table-cell text-muted" style="width: 110px;">Submitted</th>
+                    <th class="d-none d-sm-table-cell text-dark" style="width: 110px;">Submitted</th>
                     <th class="text-right" style="width: 115px;">Actions</th>
                   </tr>
                 </thead>
@@ -227,7 +226,7 @@
                             <i class="fas fa-envelope"></i> Contact
                           </span>
                         @endif
-                        <div class="text-muted mt-1 font-weight-bold" style="font-size: 11px;">#{{ $inquiry->id }}</div>
+                        <div class="text-dark mt-1 font-weight-bold" style="font-size: 11px;">#{{ $inquiry->id }}</div>
                       </td>
 
                       <!-- Contact / Organization with Avatar -->
@@ -241,7 +240,7 @@
                               {{ $inquiry->name }}
                             </div>
                             @if($inquiry->organization)
-                              <div class="text-xs text-muted font-weight-500 mt-1">
+                              <div class="text-xs text-secondary font-weight-500 mt-1">
                                 <i class="fas fa-building mr-1 text-secondary"></i> {{ $inquiry->organization }}
                               </div>
                             @endif
@@ -250,7 +249,7 @@
                                 <i class="fas fa-envelope mr-1"></i> {{ $inquiry->email }}
                               </a>
                               @if($inquiry->phone)
-                                <a href="tel:{{ $inquiry->phone }}" class="text-muted" title="Call {{ $inquiry->phone }}">
+                                <a href="tel:{{ $inquiry->phone }}" class="text-dark" title="Call {{ $inquiry->phone }}">
                                   <i class="fas fa-phone mr-1"></i> {{ $inquiry->phone }}
                                 </a>
                               @endif
@@ -274,11 +273,11 @@
                           @endif
                         </div>
                         @if($inquiry->message)
-                          <div class="text-xs text-muted text-truncate" style="max-width: 270px;" title="{{ $inquiry->message }}">
+                          <div class="text-xs text-dark text-truncate" style="max-width: 270px;" title="{{ $inquiry->message }}">
                             {{ $inquiry->message }}
                           </div>
                         @else
-                          <span class="text-muted text-xs">&mdash;</span>
+                          <span class="text-dark text-xs">&mdash;</span>
                         @endif
                       </td>
 
@@ -302,7 +301,7 @@
                       </td>
 
                       <!-- Submission Date -->
-                      <td class="d-none d-sm-table-cell text-xs text-muted font-weight-500">
+                      <td class="d-none d-sm-table-cell text-xs text-dark font-weight-500">
                         <span title="{{ $inquiry->created_at ? $inquiry->created_at->format('M d, Y h:i A') : '' }}">
                           {{ $inquiry->created_at ? $inquiry->created_at->diffForHumans() : '&mdash;' }}
                         </span>
@@ -337,13 +336,12 @@
                     </tr>
                   @empty
                     <tr>
-                      <td colspan="6" class="text-center py-5 text-muted">
+                      <td colspan="6" class="text-center py-5">
                         <div class="py-4">
                           <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; background: #f8fafc; color: #94a3b8; border: 1px dashed #cbd5e1;">
                             <i class="fas fa-inbox fa-2x"></i>
                           </div>
                           <h5 class="font-weight-bold text-dark mb-1">No Enquiries Found</h5>
-                          <small class="text-muted">Inbound requests submitted via public forms will appear here automatically.</small>
                         </div>
                       </td>
                     </tr>
@@ -356,9 +354,9 @@
           <!-- Card Footer Pagination -->
           @if($inquiries instanceof \Illuminate\Pagination\LengthAwarePaginator && $inquiries->hasPages())
             <div class="card-footer bg-white border-top py-3 px-4 d-flex flex-wrap justify-content-between align-items-center">
-              <small class="text-muted text-xs">
+              <span class="text-xs text-dark font-weight-500">
                 Showing {{ $inquiries->firstItem() }} to {{ $inquiries->lastItem() }} of {{ $inquiries->total() }} enquiries
-              </small>
+              </span>
               <div>
                 {{ $inquiries->links('pagination::bootstrap-4') }}
               </div>
@@ -395,34 +393,34 @@
         <div class="p-3 mb-4 rounded border bg-light d-flex flex-wrap justify-content-between align-items-center" style="border-radius: 10px;">
           <div>
             <h5 class="font-weight-bold text-dark mb-1" id="modalClientName">Client Name</h5>
-            <div class="text-xs text-muted" id="modalClientOrg">Company / Sponsor</div>
+            <div class="text-xs text-secondary" id="modalClientOrg">Company / Sponsor</div>
           </div>
           <div class="text-right mt-2 mt-sm-0">
-            <span class="badge badge-light border text-muted px-2 py-1 text-xs" id="modalSubmittedDate">Submitted Date</span>
+            <span class="badge badge-light border text-dark px-2 py-1 text-xs" id="modalSubmittedDate">Submitted Date</span>
           </div>
         </div>
 
         <!-- Contact & Parameters Grid -->
         <div class="row mb-3">
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Email Address</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Email Address</label>
             <a href="#" id="modalEmailLink" class="font-weight-bold text-primary text-sm">
               <span id="modalClientEmail">email@example.com</span> &rarr;
             </a>
           </div>
 
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Telephone / Hotline</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Telephone / Hotline</label>
             <span id="modalClientPhone" class="font-weight-bold text-dark text-sm">&mdash;</span>
           </div>
 
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Therapeutic Focus / Area</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Therapeutic Focus / Area</label>
             <span id="modalTherapeutic" class="font-weight-bold text-dark text-sm">&mdash;</span>
           </div>
 
           <div class="col-sm-6 mb-3">
-            <label class="text-xs font-weight-bold text-muted text-uppercase mb-1 d-block">Clinical Study Phase</label>
+            <label class="text-xs font-weight-bold text-dark text-uppercase mb-1 d-block">Clinical Study Phase</label>
             <span id="modalStudyPhase" class="badge badge-light border text-xs font-weight-bold">&mdash;</span>
           </div>
         </div>
@@ -431,7 +429,7 @@
 
         <!-- Protocol Message -->
         <div class="form-group mb-0">
-          <label class="text-xs font-weight-bold text-muted text-uppercase mb-2 d-block">Message / Study Protocol Criteria</label>
+          <label class="text-xs font-weight-bold text-dark text-uppercase mb-2 d-block">Message / Study Protocol Criteria</label>
           <div class="p-3 rounded border bg-white" style="border-radius: 8px; min-height: 100px; max-height: 250px; overflow-y: auto; font-size: 0.875rem; line-height: 1.6; color: #334155; white-space: pre-wrap;" id="modalMessageContent">
             No message content.
           </div>

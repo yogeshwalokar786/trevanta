@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Edit Job Opening</h1>
-        <p class="text-muted text-sm mb-0">Update position details for "{{ $job->title }}".</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.jobs.index') }}" class="btn btn-light shadow-sm">
@@ -57,7 +56,6 @@
                   Position Title <span class="text-danger">*</span>
                 </label>
                 <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="e.g. Clinical Research Associate II" value="{{ old('title', $job->title) }}" required>
-                <small class="text-muted text-xs">Clear job title as recognized in clinical research.</small>
               </div>
 
               <div class="row">
@@ -66,7 +64,6 @@
                     Department
                   </label>
                   <input type="text" name="department" id="department" class="form-control" placeholder="e.g. Clinical Operations, Biostatistics, QA" value="{{ old('department', $job->department) }}">
-                  <small class="text-muted text-xs">Functional team or therapeutic area.</small>
                 </div>
 
                 <div class="col-md-6 mb-3">
@@ -89,7 +86,6 @@
                     Location / Office Hub
                   </label>
                   <input type="text" name="location" id="location" class="form-control" placeholder="e.g. Faridabad / Mumbai / Remote" value="{{ old('location', $job->location) }}">
-                  <small class="text-muted text-xs">Office city, region, or 'Remote / Global'.</small>
                 </div>
 
                 <div class="col-md-6 mb-3">
@@ -97,7 +93,6 @@
                     Required Experience
                   </label>
                   <input type="text" name="experience" id="experience" class="form-control" placeholder="e.g. 2-5 Years, Senior Level" value="{{ old('experience', $job->experience) }}">
-                  <small class="text-muted text-xs">Recommended industry trial experience.</small>
                 </div>
               </div>
 
@@ -106,7 +101,6 @@
                   Short Overview / Summary <span class="text-danger">*</span>
                 </label>
                 <textarea name="description" id="description" rows="3" class="form-control @error('description') is-invalid @enderror" placeholder="Brief summary of duties, trial phase focus, and role mission..." required>{{ old('description', $job->description) }}</textarea>
-                <small class="text-muted text-xs">Displayed on the job card on the public Careers page.</small>
               </div>
 
               <div class="form-group mb-0">
@@ -135,7 +129,6 @@
                   Apply Email
                 </label>
                 <input type="email" name="apply_email" id="apply_email" class="form-control" placeholder="Defaults to {{ setting('careers_email', setting('contact_email', 'info@trevanta.com')) }}" value="{{ old('apply_email', $job->apply_email) }}">
-                <small class="text-muted text-xs">Leave blank to use global HR inquiry email.</small>
               </div>
 
               <div class="form-group mb-3">
@@ -143,7 +136,6 @@
                   External Application Link (Optional)
                 </label>
                 <input type="url" name="apply_url" id="apply_url" class="form-control" placeholder="https://..." value="{{ old('apply_url', $job->apply_url) }}">
-                <small class="text-muted text-xs">If applicants should apply through LinkedIn, Workday, etc.</small>
               </div>
 
               <div class="form-group mb-3">
@@ -151,7 +143,6 @@
                   Sort Order
                 </label>
                 <input type="number" name="order" id="order" class="form-control" value="{{ old('order', $job->order) }}">
-                <small class="text-muted text-xs">Lower numbers appear first (e.g. 0, 1, 2).</small>
               </div>
 
               <div class="custom-control custom-switch mb-3">
@@ -159,7 +150,6 @@
                 <label class="custom-control-label font-weight-bold text-dark" for="is_active">
                   Active (Visible on Website)
                 </label>
-                <small class="text-muted d-block text-xs">Uncheck to save as draft or temporarily hide position.</small>
               </div>
 
               <hr class="my-3">
@@ -168,7 +158,7 @@
                 <i class="fas fa-save mr-1"></i> Update Job Opening
               </button>
 
-              <a href="{{ route('admin.jobs.index') }}" class="btn btn-light btn-block text-muted mt-2">
+              <a href="{{ route('admin.jobs.index') }}" class="btn btn-light btn-block text-dark mt-2">
                 Cancel
               </a>
 

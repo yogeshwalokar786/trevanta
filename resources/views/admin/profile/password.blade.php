@@ -20,7 +20,7 @@
         <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">
           <i class="fas fa-key mr-2 text-primary"></i> Change Administrator Password
         </h3>
-        <span class="badge badge-light border text-muted px-2 py-1 text-xs">
+        <span class="badge badge-light border text-dark px-2 py-1 text-xs">
           <i class="fas fa-shield-alt text-success mr-1"></i> SSL Encrypted
         </span>
       </div>
@@ -57,11 +57,10 @@
               <input type="password" name="current_password" id="current_password" class="form-control @error('current_password') is-invalid @enderror" placeholder="Enter current admin password" required autocomplete="current-password">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('current_password', 'icon_current_pw')">
-                  <i class="fas fa-eye text-muted" id="icon_current_pw"></i>
+                  <i class="fas fa-eye text-dark" id="icon_current_pw"></i>
                 </button>
               </div>
             </div>
-            <small class="text-muted text-xs">Required to verify your authorization before saving a new password.</small>
           </div>
 
           <hr class="my-3">
@@ -75,11 +74,10 @@
               <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="At least 8 characters" required autocomplete="new-password">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('password', 'icon_new_pw')">
-                  <i class="fas fa-eye text-muted" id="icon_new_pw"></i>
+                  <i class="fas fa-eye text-dark" id="icon_new_pw"></i>
                 </button>
               </div>
             </div>
-            <small class="text-muted text-xs">Must contain at least 8 characters. Mix upper/lowercase letters, numbers, and symbols.</small>
           </div>
 
           <!-- Confirm New Password -->
@@ -91,18 +89,17 @@
               <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Re-type new password" required autocomplete="new-password">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('password_confirmation', 'icon_confirm_pw')">
-                  <i class="fas fa-eye text-muted" id="icon_confirm_pw"></i>
+                  <i class="fas fa-eye text-dark" id="icon_confirm_pw"></i>
                 </button>
               </div>
             </div>
-            <small class="text-muted text-xs">Confirm your new password to prevent any typing mistakes.</small>
           </div>
 
           <div class="p-3 mb-4 rounded bg-light border" style="border-radius: 8px;">
             <div class="d-flex align-items-center mb-1 text-xs font-weight-bold text-dark">
               <i class="fas fa-info-circle text-primary mr-2"></i> Security Best Practices
             </div>
-            <ul class="text-muted text-xs mb-0 pl-3">
+            <ul class="text-dark text-xs mb-0 pl-3">
               <li>Use a unique password that is not reused across other accounts.</li>
               <li>Avoid using common company names, dictionary words, or personal birthdays.</li>
               <li>After updating, you will remain signed in on this browser session.</li>
@@ -137,7 +134,6 @@
           </div>
           <div style="line-height: 1.3;">
             <h5 class="mb-0 font-weight-bold text-dark text-sm">{{ $user->name ?? 'Executive Director' }}</h5>
-            <small class="text-muted text-xs d-block">{{ $user->email ?? 'admin@trevanta.com' }}</small>
             <span class="badge badge-success text-xs font-weight-normal px-2 py-0 mt-1" style="font-size: 10px;">Primary Admin</span>
           </div>
         </div>
@@ -160,7 +156,6 @@
             @error('email')
               <div class="invalid-feedback text-xs">{{ $message }}</div>
             @enderror
-            <small class="text-muted text-xs">Used as the administrator login identifier on the sign-in page.</small>
           </div>
 
           <div class="d-flex justify-content-end">

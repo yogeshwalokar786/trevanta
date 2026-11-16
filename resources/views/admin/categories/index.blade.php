@@ -10,7 +10,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Blog Categories</h1>
-        <p class="text-muted text-sm mb-0">Manage publication categories and scientific therapeutic taxonomy.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <button type="button" class="btn btn-primary shadow-sm" data-toggle="modal" data-target="#modal-add-category">
@@ -31,7 +30,7 @@
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <h3 class="card-title mb-0">
-              <i class="fas fa-tags text-muted mr-2"></i> All Categories
+              <i class="fas fa-tags text-dark mr-2"></i> All Categories
             </h3>
             <span class="pill-badge pill-review">Total: {{ $categories->count() }} Categories</span>
           </div>
@@ -52,7 +51,7 @@
                 <tbody>
                   @forelse($categories as $index => $category)
                     <tr>
-                      <td class="font-weight-bold text-muted text-xs">{{ $index + 1 }}</td>
+                      <td class="font-weight-bold text-dark text-xs">{{ $index + 1 }}</td>
                       <td>
                         <span class="font-weight-bold text-dark" style="font-size: 0.95rem;">
                           {{ $category->name }}
@@ -62,7 +61,7 @@
                         <code class="text-xs bg-light px-2 py-1 rounded text-primary">{{ $category->slug }}</code>
                       </td>
                       <td>
-                        <span class="text-xs text-muted text-truncate d-block" style="max-width: 250px;" title="{{ $category->description }}">
+                        <span class="text-xs text-dark text-truncate d-block" style="max-width: 250px;" title="{{ $category->description }}">
                           {{ $category->description ?: '&mdash;' }}
                         </span>
                       </td>
@@ -126,11 +125,10 @@
                     </tr>
                   @empty
                     <tr>
-                      <td colspan="6" class="text-center py-5 text-muted">
+                      <td colspan="6" class="text-center py-5 text-dark">
                         <div class="py-3">
-                          <i class="fas fa-tags fa-3x text-muted mb-3 opacity-50"></i>
+                          <i class="fas fa-tags fa-3x text-dark mb-3 opacity-50"></i>
                           <p class="font-weight-bold text-dark mb-1">No categories defined yet</p>
-                          <small class="text-muted">Create your first blog category using the form on the right.</small>
                         </div>
                       </td>
                     </tr>
@@ -147,7 +145,7 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
-              <i class="fas fa-plus-circle text-muted mr-2"></i> Add New Category
+              <i class="fas fa-plus-circle text-dark mr-2"></i> Add New Category
             </h3>
           </div>
           <div class="card-body p-4">
@@ -159,7 +157,7 @@
               </div>
 
               <div class="form-group mb-3">
-                <label for="cat-slug" class="font-weight-bold text-dark text-sm">Slug <small class="text-muted font-weight-normal">(auto-generated)</small></label>
+                <label for="cat-slug" class="font-weight-bold text-dark text-sm">Slug</label>
                 <input type="text" name="slug" id="cat-slug" class="form-control" placeholder="e.g. immuno-oncology">
               </div>
 

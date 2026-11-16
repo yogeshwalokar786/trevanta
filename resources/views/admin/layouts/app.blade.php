@@ -27,12 +27,16 @@
       --admin-primary-subtle: #f0fdfa;
       --admin-navy: #0d233a;
       --admin-text-dark: #0f172a;
-      --admin-text-muted: #64748b;
+      --admin-text-muted: #334155;
       --admin-border: #e2e8f0;
       --admin-bg-light: #f8fafc;
       --admin-card-bg: #ffffff;
       --admin-radius: 12px;
       --admin-radius-lg: 16px;
+    }
+
+    .text-muted {
+      color: #334155 !important;
     }
 
     body {
@@ -680,11 +684,11 @@
   </div>
 
   <!-- Minimalist Clean Footer -->
-  <footer class="main-footer bg-white border-top text-xs text-muted py-3 px-4 d-flex justify-content-between align-items-center">
+  <footer class="main-footer bg-white border-top text-xs text-secondary py-3 px-4 d-flex justify-content-between align-items-center">
     <div>
       &copy; {{ date('Y') }} <strong class="text-dark">Trevanta International</strong>. Clinical Trial Operational Portal.
     </div>
-    <div class="text-muted">
+    <div class="text-secondary">
       Admin Console &bull; Confidential
     </div>
   </footer>

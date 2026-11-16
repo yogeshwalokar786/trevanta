@@ -60,7 +60,6 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <div>
         <h1 class="m-0 font-weight-bold">Create Article</h1>
-        <p class="text-muted text-sm mb-0">Write and publish a clinical perspective or regulatory whitepaper.</p>
       </div>
       <div class="mt-2 mt-sm-0">
         <a href="{{ route('admin.blogs.index') }}" class="btn btn-white btn-sm">
@@ -102,7 +101,7 @@
               </div>
 
               <!-- Permalink / Slug -->
-              <div class="d-flex align-items-center mb-4 text-xs text-muted pl-1">
+              <div class="d-flex align-items-center mb-4 text-xs text-dark pl-1">
                 <span>Permalink: <code>/blog/</code></span>
                 <input type="text" name="slug" id="slug" value="{{ old('slug') }}" placeholder="auto-generated-slug" style="border: none; background: transparent; color: #0f766e; font-weight: 600; padding: 2px 4px; font-size: 12px; width: auto; flex-grow: 1;">
               </div>
@@ -138,7 +137,7 @@
                 </span>
                 <h3 class="card-title text-sm mb-0 font-weight-bold text-dark">Search Engine Optimization (SEO) &amp; Social Meta</h3>
               </div>
-              <span class="badge badge-light border text-muted px-2 py-1" style="font-size: 11px;">
+              <span class="badge badge-light border text-dark px-2 py-1" style="font-size: 11px;">
                 <i class="fab fa-google text-primary mr-1"></i> SERP Preview
               </span>
             </div>
@@ -147,12 +146,12 @@
 
               <!-- Google SERP Snippet Preview Box -->
               <div class="p-3 mb-4 rounded border" style="background: #ffffff; border-color: #e2e8f0; border-radius: 10px;">
-                <div class="d-flex align-items-center mb-1 text-xs text-muted">
+                <div class="d-flex align-items-center mb-1 text-xs text-dark">
                   <i class="fas fa-globe mr-1 text-secondary"></i>
                   <span style="color: #202124;">https://trevanta.bluebasetechnologies.com</span>
-                  <span class="mx-1 text-muted">›</span>
+                  <span class="mx-1 text-dark">›</span>
                   <span style="color: #5f6368;">blog</span>
-                  <span class="mx-1 text-muted">›</span>
+                  <span class="mx-1 text-dark">›</span>
                   <span style="color: #5f6368;" id="serpSlugPreview">{{ old('slug', 'article-slug') }}</span>
                 </div>
                 <div class="font-weight-bold mb-1" id="serpTitlePreview" style="font-size: 1.15rem; color: #1a0dab; line-height: 1.3; cursor: pointer;">
@@ -201,7 +200,6 @@
                       </div>
                     </div>
                     <input type="text" name="meta_title" id="meta_title" class="form-control form-control-sm @error('meta_title') is-invalid @enderror" placeholder="e.g. Navigating ICH E6(R3) Modernization | Trevanta International" value="{{ old('meta_title') }}">
-                    <small class="text-muted text-xs d-block mt-1">Optimal length: 50–60 characters. Leave empty to automatically use the article title.</small>
                     @error('meta_title') <div class="invalid-feedback">{{ $message }}</div> @enderror
                   </div>
 
@@ -219,7 +217,6 @@
                       </div>
                     </div>
                     <textarea name="meta_description" id="meta_description" rows="3" class="form-control form-control-sm @error('meta_description') is-invalid @enderror" placeholder="Concise summary for search engines (e.g. In-depth analysis of finalized ICH E6(R3) guidelines for clinical trial sponsors...)">{{ old('meta_description') }}</textarea>
-                    <small class="text-muted text-xs d-block mt-1">Optimal length: 150–160 characters. Summarize key takeaways to maximize click-through rate.</small>
                     @error('meta_description') <div class="invalid-feedback">{{ $message }}</div> @enderror
                   </div>
 
@@ -229,7 +226,6 @@
                       Focus Keywords
                     </label>
                     <input type="text" name="meta_keywords" id="meta_keywords" class="form-control form-control-sm @error('meta_keywords') is-invalid @enderror" placeholder="e.g. clinical trials, oncology, pharmacovigilance, Phase III, ICH E6(R3)" value="{{ old('meta_keywords') }}">
-                    <small class="text-muted text-xs d-block mt-1">Comma-separated keywords for search indexing and categorization.</small>
                     @error('meta_keywords') <div class="invalid-feedback">{{ $message }}</div> @enderror
                   </div>
 
@@ -244,7 +240,6 @@
                       Social Share Title (Open Graph &amp; Twitter)
                     </label>
                     <input type="text" name="og_title" id="og_title" class="form-control form-control-sm @error('og_title') is-invalid @enderror" placeholder="Leave empty to use SEO Meta Title" value="{{ old('og_title') }}">
-                    <small class="text-muted text-xs d-block mt-1">Overrides the headline shown on LinkedIn, Twitter/X, Facebook, and WhatsApp previews.</small>
                     @error('og_title') <div class="invalid-feedback">{{ $message }}</div> @enderror
                   </div>
 
@@ -254,7 +249,6 @@
                       Social Share Description
                     </label>
                     <textarea name="og_description" id="og_description" rows="2" class="form-control form-control-sm @error('og_description') is-invalid @enderror" placeholder="Leave empty to use SEO Meta Description">{{ old('og_description') }}</textarea>
-                    <small class="text-muted text-xs d-block mt-1">Short engaging tease designed for social media feeds.</small>
                     @error('og_description') <div class="invalid-feedback">{{ $message }}</div> @enderror
                   </div>
 
@@ -268,13 +262,12 @@
                     <div class="d-flex align-items-center p-3 border rounded bg-light" style="border-radius: 8px; gap: 1rem;">
                       <div id="ogImagePreviewContainer" class="rounded overflow-hidden border bg-white d-flex align-items-center justify-content-center" style="width: 80px; height: 50px; flex-shrink: 0;">
                         <img id="ogPreviewImg" src="{{ old('og_image') ? asset(old('og_image')) : '' }}" alt="Social Share Preview" style="width: 100%; height: 100%; object-fit: cover;" class="{{ old('og_image') ? '' : 'd-none' }}">
-                        <i id="ogPreviewIcon" class="fas fa-image text-muted {{ old('og_image') ? 'd-none' : '' }}"></i>
+                        <i id="ogPreviewIcon" class="fas fa-image text-dark {{ old('og_image') ? 'd-none' : '' }}"></i>
                       </div>
                       <div class="flex-grow-1" style="min-width: 0;">
                         <div class="text-xs font-weight-bold text-dark text-truncate" id="ogImageLabel">
                           {{ old('og_image') ?: 'Using Featured Cover Image by default' }}
                         </div>
-                        <small class="text-muted text-xs d-block">Shown when the article link is shared on LinkedIn, Twitter, or WhatsApp.</small>
                       </div>
                       <div class="d-flex align-items-center" style="gap: 0.5rem;">
                         <button type="button" class="btn btn-white btn-xs px-2 py-1" onclick="openMediaPickerModal('og_image')">
@@ -312,7 +305,6 @@
                           noindex, nofollow (Completely block search engines)
                         </option>
                       </select>
-                      <small class="text-muted text-xs d-block mt-1">Controls how Googlebot and Bingbot index this specific article.</small>
                     </div>
 
                     <!-- Schema.org Type -->
@@ -334,7 +326,6 @@
                           TechArticle (Technical or methodology whitepapers)
                         </option>
                       </select>
-                      <small class="text-muted text-xs d-block mt-1">Outputs JSON-LD structured data for rich snippets in Google search.</small>
                     </div>
 
                     <!-- Canonical URL -->
@@ -343,7 +334,6 @@
                         Custom Canonical URL (Optional)
                       </label>
                       <input type="text" name="canonical_url" id="canonical_url" class="form-control form-control-sm @error('canonical_url') is-invalid @enderror" placeholder="https://trevanta.bluebasetechnologies.com/blog/..." value="{{ old('canonical_url') }}">
-                      <small class="text-muted text-xs d-block mt-1">Leave blank to automatically use this article's primary URL. Use only if syndicate-hosting or cross-posting.</small>
                       @error('canonical_url') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
 
@@ -363,7 +353,7 @@
           <div class="card mb-4">
             <div class="card-header py-3">
               <h3 class="card-title text-sm mb-0">
-                <i class="fas fa-paper-plane mr-2 text-muted"></i> Publish Settings
+                <i class="fas fa-paper-plane mr-2 text-dark"></i> Publish Settings
               </h3>
             </div>
             <div class="card-body p-4">
@@ -399,7 +389,6 @@
                 <label class="custom-control-label font-weight-bold text-warning text-sm" for="is_featured">
                   <i class="fas fa-star mr-1"></i> Spotlight Whitepaper
                 </label>
-                <small class="text-muted d-block text-xs">Featured at top of the /blog page.</small>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block shadow-sm py-2">
@@ -412,7 +401,7 @@
           <div class="card mb-4">
             <div class="card-header d-flex justify-content-between align-items-center py-3">
               <h3 class="card-title text-sm mb-0">
-                <i class="fas fa-image mr-2 text-muted"></i> Featured Cover Image
+                <i class="fas fa-image mr-2 text-dark"></i> Featured Cover Image
               </h3>
             </div>
             <div class="card-body p-4 text-center">
@@ -424,7 +413,6 @@
               <div id="coverPlaceholderBox" class="featured-image-box {{ old('image') ? 'd-none' : '' }}" onclick="openMediaPickerModal('cover')">
                 <i class="fas fa-images fa-2x text-primary mb-2"></i>
                 <div class="font-weight-bold text-dark text-sm">Select from Media Library</div>
-                <small class="text-muted text-xs">Click to browse or upload</small>
               </div>
 
               <!-- Preview box when an image is selected -->
@@ -432,7 +420,7 @@
                 <div class="position-relative rounded overflow-hidden border mb-2 bg-light" style="max-height: 180px;">
                   <img id="coverPreviewImg" src="{{ old('image') ? asset(old('image')) : '' }}" alt="Cover Preview" class="img-fluid" style="width: 100%; height: 160px; object-fit: cover;">
                 </div>
-                <div class="text-truncate text-xs font-monospace text-muted mb-2" id="coverSelectedPathText">
+                <div class="text-truncate text-xs font-monospace text-dark mb-2" id="coverSelectedPathText">
                   {{ old('image') }}
                 </div>
                 <div class="btn-group btn-group-sm w-100">
@@ -452,7 +440,7 @@
           <div class="card mb-4">
             <div class="card-header py-3">
               <h3 class="card-title text-sm mb-0">
-                <i class="fas fa-user-edit mr-2 text-muted"></i> Author Information
+                <i class="fas fa-user-edit mr-2 text-dark"></i> Author Information
               </h3>
             </div>
             <div class="card-body p-4">
@@ -484,7 +472,6 @@
       <div class="modal-header border-bottom py-3 px-4 bg-light d-flex justify-content-between align-items-center">
         <div>
           <h5 class="modal-title font-weight-bold text-dark mb-0">Media Library</h5>
-          <small class="text-muted">Click any asset to select it, or upload a new asset below.</small>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -506,13 +493,12 @@
         <div id="modalMediaGridContainer" class="row" style="max-height: 440px; overflow-y: auto;">
           <div class="col-12 text-center py-4">
             <div class="spinner-border text-primary" role="status"></div>
-            <p class="text-muted text-xs mt-2">Loading library assets...</p>
           </div>
         </div>
       </div>
 
       <div class="modal-footer border-top bg-light py-2 px-4 d-flex justify-content-between align-items-center">
-        <span class="text-muted text-xs">Target: <strong id="modalTargetLabel" class="text-dark">Cover Image</strong></span>
+        <span class="text-dark text-xs">Target: <strong id="modalTargetLabel" class="text-dark">Cover Image</strong></span>
         <button type="button" class="btn btn-white btn-sm" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -633,7 +619,7 @@
     const titleBadge = document.getElementById('metaTitleCount');
     if (titleBadge) {
       titleBadge.textContent = titleLen + ' / 60';
-      titleBadge.className = 'badge border text-xs mr-2 ' + (titleLen > 60 ? 'badge-warning text-dark' : (titleLen >= 30 ? 'badge-success text-white' : 'badge-light text-muted'));
+      titleBadge.className = 'badge border text-xs mr-2 ' + (titleLen > 60 ? 'badge-warning text-dark' : (titleLen >= 30 ? 'badge-success text-white' : 'badge-light text-dark'));
     }
 
     // Desc Counter (150-160 optimal)
@@ -641,7 +627,7 @@
     const descBadge = document.getElementById('metaDescCount');
     if (descBadge) {
       descBadge.textContent = descLen + ' / 160';
-      descBadge.className = 'badge border text-xs mr-2 ' + (descLen > 160 ? 'badge-warning text-dark' : (descLen >= 90 ? 'badge-success text-white' : 'badge-light text-muted'));
+      descBadge.className = 'badge border text-xs mr-2 ' + (descLen > 160 ? 'badge-warning text-dark' : (descLen >= 90 ? 'badge-success text-white' : 'badge-light text-dark'));
     }
   }
 
@@ -683,7 +669,7 @@
 
   function loadMediaPickerItems() {
     const container = document.getElementById('modalMediaGridContainer');
-    container.innerHTML = '<div class="col-12 text-center py-4"><div class="spinner-border text-primary" role="status"></div><p class="text-muted text-xs mt-2">Loading library assets...</p></div>';
+    container.innerHTML = '<div class="col-12 text-center py-4"><div class="spinner-border text-primary" role="status"></div></div>';
 
     fetch("{{ route('admin.media.index') }}", {
       headers: {
@@ -716,7 +702,7 @@
         });
         container.innerHTML = html;
       } else {
-        container.innerHTML = '<div class="col-12 text-center py-4 text-muted"><p>No assets in library yet. Upload one above!</p></div>';
+        container.innerHTML = '<div class="col-12 text-center py-4 text-dark"><p>No assets in library yet. Upload one above!</p></div>';
       }
     })
     .catch(err => {
